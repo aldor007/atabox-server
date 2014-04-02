@@ -71,7 +71,7 @@ TEST_F(WaveFileTest, readsSampleRateCorrectly) {
 }
 TEST_F(WaveFileTest, readsByteRateCorrectly) {
 	WaveFile waveFile("test/wave/bells.wav");
-	unsigned int byteRate= waveFile.getByteRate();
+	unsigned int byteRate = waveFile.getByteRate();
 	ASSERT_EQ(byteRate, 11025);
 }
 TEST_F(WaveFileTest, readsBlockAlignCorrectly) {
@@ -84,5 +84,40 @@ TEST_F(WaveFileTest, readsBitPerSampleCorrectly) {
 	unsigned int bitsPerSample = waveFile.getBitsPerSample();
 	ASSERT_EQ(bitsPerSample, 8);
 }
+
+TEST_F(WaveFileTest, readsSubchunk2IdCorrectly) {
+	WaveFile waveFile("test/wave/bells.wav");
+	char * subchunk2Id = waveFile.getSubchunk2Id();
+	ASSERT_EQ(strncmp(subchunk2Id, "data", 4), 0);
+}
+
+TEST_F(WaveFileTest, readsSubchunk2SizeCorrectly) {
+	WaveFile waveFile("test/wave/bells.wav");
+	unsigned int subchunk2Size = waveFile.getSubchunk2Size();
+	ASSERT_EQ(subchunk2Size, 79334);
+}
+
+TEST_F(WaveFileTest, readsDataCorrectlyFor8Bits) {
+	WaveFile waveFile("test/wave/8bitSilence.wav");
+	int firstSample = waveFile.getSample(0);
+	for (int var = 0; var < waveFile.getNumberOfSamples(); ++var) {
+		ASSERT_EQ(waveFile.getSample(0), 0);
+	}
+}
+
+TEST_F(WaveFileTest, readsDataCorrectlyForMoreThan8Bits) {
+	WaveFile waveFile("test/wave/32bitSilence.wav");
+	for (int var = 0; var < waveFile.getNumberOfSamples(); ++var) {
+		ASSERT_EQ(waveFile.getSample(0), 0);
+	}
+}
+
+TEST_F(WaveFileTest, calculateNumberOfSamplesCorrectly) {
+	WaveFile waveFile("test/wave/bells.wav");
+	unsigned int numberOfSamples = waveFile.getNumberOfSamples();
+	ASSERT_EQ(numberOfSamples, 79334);
+}
+
+
 
 
