@@ -100,15 +100,17 @@ TEST_F(WaveFileTest, readsSubchunk2SizeCorrectly) {
 TEST_F(WaveFileTest, readsDataCorrectlyFor8Bits) {
 	WaveFile waveFile("test/wave/8bitSilence.wav");
 	int firstSample = waveFile.getSample(0);
-	for (int var = 0; var < waveFile.getNumberOfSamples(); ++var) {
-		ASSERT_EQ(waveFile.getSample(0), 0);
+	for (int i = 0; i < waveFile.getNumberOfSamples(); ++i) {
+		int sample = waveFile.getSample(i);
+		ASSERT_TRUE(sample == 0 || sample == -1);
 	}
 }
 
 TEST_F(WaveFileTest, readsDataCorrectlyForMoreThan8Bits) {
 	WaveFile waveFile("test/wave/32bitSilence.wav");
-	for (int var = 0; var < waveFile.getNumberOfSamples(); ++var) {
-		ASSERT_EQ(waveFile.getSample(0), 0);
+	for (int i = 0; i < waveFile.getNumberOfSamples(); ++i) {
+
+		ASSERT_EQ(waveFile.getSample(i), 0);
 	}
 }
 
@@ -118,6 +120,10 @@ TEST_F(WaveFileTest, calculateNumberOfSamplesCorrectly) {
 	ASSERT_EQ(numberOfSamples, 79334);
 }
 
+TEST_F(WaveFileTest, lastSampleMachesEndOfFile) {
+	WaveFile waveFile("test/wave/8bitSilenceWithOneAtTheEnd.wav");
+	int indexOfLastSample = waveFile.getNumberOfSamples()-1;
+	ASSERT_EQ(waveFile.getSample(indexOfLastSample), 1);
 
-
+}
 
