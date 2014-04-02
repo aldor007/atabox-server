@@ -27,6 +27,14 @@ void WaveFile::readFmtSubchunk(FILE* file) {
 	bytePerSample = bitsPerSample / 8;
 }
 
+void WaveFile::ReadDataSubchunk(FILE* file) {
+	fread(&subchunk2Id, 1, 4, file);
+	fread(&subchunk2Size, 1, 4, file);
+	data = new char[subchunk2Size];
+	numberOfSamples = subchunk2Size / (bytePerSample * numberOfChanels);
+	fread(data, 1, subchunk2Size, file);
+}
+
 WaveFile::WaveFile(char * filename) {
 	FILE * file = fopen(filename, "r");
 	if (file == NULL) {
@@ -34,12 +42,11 @@ WaveFile::WaveFile(char * filename) {
 		throw exception;
 	}
 	readRIFFChunkDescriptor(file);
+	validateRIFFChunkDescriptor();
 	readFmtSubchunk(file);
-	fread(&subchunk2Id, 1, 4, file);
-	fread(&subchunk2Size, 1, 4, file);
-	data = new char[subchunk2Size];
-	numberOfSamples = subchunk2Size / (bytePerSample * numberOfChanels);
-	fread(data, 1, subchunk2Size, file);
+	validateFmtSubchunk();
+	ReadDataSubchunk(file);
+	validateDataSubchunk();
 	fclose(file);
 }
 
@@ -116,3 +123,17 @@ unsigned int WaveFile::getNumberOfSamples() {
 	return numberOfSamples;
 }
 
+void WaveFile::validateDataSubchunk() {
+
+}
+
+void WaveFile::validateFmtSubchunk() {
+	if (numberOfChanels != 1) {
+		throw "Only mono files are supported";
+	}
+}
+void WaveFile::validateRIFFChunkDescriptor() {
+	if (strncmp(chunkID, "RIFF", 4) != 0) {
+		throw "This is not WAVE file.";
+	}
+}

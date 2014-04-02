@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <iostream>
+#include <cstring>
 
 class WaveFile {
 public:
@@ -55,8 +56,15 @@ private:
 
 	void readRIFFChunkDescriptor(FILE* file);
 	void readFmtSubchunk(FILE* file);
+	void ReadDataSubchunk(FILE* file);
 
 	char * data;
+
+
+	void validateRIFFChunkDescriptor();
+	void validateFmtSubchunk();
+	void validateDataSubchunk();
+
 };
 
 #endif /* WAVEFILE_H_ */
