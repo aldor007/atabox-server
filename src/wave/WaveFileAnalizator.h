@@ -14,6 +14,7 @@ public:
 	WaveFileAnalizator();
 	~WaveFileAnalizator();
 	int findAmplitude(WaveFile &waveFile);
+	int countZeroCrossings(WaveFile &waveFile);
 
 };
 

@@ -16,11 +16,22 @@ WaveFileAnalizator::~WaveFileAnalizator() {
 	// TODO Auto-generated destructor stub
 }
 
-int WaveFileAnalizator::findAmplitude(WaveFile& waveFile){
+int WaveFileAnalizator::findAmplitude(WaveFile& waveFile) {
 	int result = 0;
 	for (int i = 0; i < waveFile.getNumberOfSamples(); ++i) {
 		int sample = waveFile.getSample(i);
-		if(abs(sample) > result){
+		if (abs(sample) > result) {
+			result = sample;
+		}
+	}
+	return result;
+}
+
+int WaveFileAnalizator::countZeroCrossings(WaveFile& waveFile) {
+	int result = 0;
+	for (int i = 0; i < waveFile.getNumberOfSamples(); ++i) {
+		int sample = waveFile.getSample(i);
+		if (abs(sample) > result) {
 			result = sample;
 		}
 	}
