@@ -3,7 +3,7 @@
 #include "BaseDataProvider.h"
 
 template <typename KeyClass, typename ValueClass>
-class FileDataProvider: BaseDataProvider< KeyClass, ValueClass> {
+class FileDataProvider: public BaseDataProvider< KeyClass, ValueClass> {
         protected:
             String filename;
         public:
