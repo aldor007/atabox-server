@@ -121,9 +121,9 @@ TEST_F(WaveFileTest, calculateNumberOfSamplesCorrectly) {
 }
 
 TEST_F(WaveFileTest, lastSampleMachesEndOfFile) {
-	WaveFile waveFile("test/wave/8bitSilenceWithOneAtTheEnd.wav");
+	WaveFile waveFile("test/wave/8bitSilenceWithTenAtTheEnd.wav");
 	int indexOfLastSample = waveFile.getNumberOfSamples()-1;
-	ASSERT_EQ(waveFile.getSample(indexOfLastSample), 1);
+	ASSERT_EQ(waveFile.getSample(indexOfLastSample), 10);
 
 }
 
