@@ -13,7 +13,7 @@ class WaveFileAnalizator {
 public:
 	WaveFileAnalizator();
 	~WaveFileAnalizator();
-	int findMaximum(WaveFile &waveFile);
+	int findAmplitude(WaveFile &waveFile);
 
 };
 

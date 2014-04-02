@@ -9,6 +9,6 @@ class WaveFileAnalizatorTest: public ::testing::Test {
 TEST_F(WaveFileAnalizatorTest, findsMaximumCorrectyly) {
 	WaveFile waveFile("test/wave/8bitSilenceWithTenAtTheEnd.wav");
 	WaveFileAnalizator analizator;
-	int maximum = analizator.findMaximum(waveFile);
+	int maximum = analizator.findAmplitude(waveFile);
 	ASSERT_EQ(maximum, 10);
 }
