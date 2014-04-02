@@ -12,7 +12,7 @@
 class WaveFileAnalizator {
 public:
 	WaveFileAnalizator();
-	~WaveFileAnalizator();
+	virtual ~WaveFileAnalizator();
 	int findAmplitude(WaveFile &waveFile);
 	int countZeroCrossings(WaveFile &waveFile);
 

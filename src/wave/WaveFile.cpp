@@ -30,13 +30,16 @@ void WaveFile::readFmtSubchunk(FILE* file) {
 void WaveFile::ReadDataSubchunk(FILE* file) {
 	fread(&subchunk2Id, 1, 4, file);
 	fread(&subchunk2Size, 1, 4, file);
+	freeDataIfNotNull();
 	data = new char[subchunk2Size];
 	numberOfSamples = subchunk2Size / (bytePerSample * numberOfChanels);
 	fread(data, 1, subchunk2Size, file);
 }
+WaveFile::WaveFile() {
+}
 
-WaveFile::WaveFile(char * filename) {
-	FILE * file = fopen(filename, "r");
+void WaveFile::loadFromFile(char* filename) {
+	FILE* file = fopen(filename, "r");
 	if (file == NULL) {
 		bad_alloc exception;
 		throw exception;
@@ -50,8 +53,19 @@ WaveFile::WaveFile(char * filename) {
 	fclose(file);
 }
 
+WaveFile::WaveFile(char * filename) {
+	loadFromFile(filename);
+}
+
+void WaveFile::freeDataIfNotNull() {
+	if (data != NULL) {
+		delete data;
+		data = NULL;
+	}
+}
+
 WaveFile::~WaveFile() {
-	delete data;
+	freeDataIfNotNull();
 }
 
 char * WaveFile::getChunkID() {
@@ -115,9 +129,7 @@ int WaveFile::getSample(int i) {
 	}
 }
 
-void * WaveFile::getRawData() {
-	return data;
-}
+
 
 unsigned int WaveFile::getNumberOfSamples() {
 	return numberOfSamples;
@@ -137,3 +149,4 @@ void WaveFile::validateRIFFChunkDescriptor() {
 		throw "This is not WAVE file.";
 	}
 }
+
