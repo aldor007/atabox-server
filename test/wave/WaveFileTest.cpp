@@ -9,9 +9,7 @@
 #include "gtest/gtest.h"
 
 class WaveFileTest: public ::testing::Test {
-public:
-	static const int surrounding = 10;
-	static const double brodleyParameter = 0.9;
+
 };
 
 TEST_F(WaveFileTest, throwsExceptionWhenFileDoesNotExist) {

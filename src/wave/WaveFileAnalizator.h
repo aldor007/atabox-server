@@ -1,0 +1,20 @@
+/*
+ * WaveFileAnalizator.h
+ *
+ *  Created on: Apr 2, 2014
+ *      Author: mj
+ */
+
+#ifndef WAVEFILEANALIZATOR_H_
+#define WAVEFILEANALIZATOR_H_
+#include "WaveFile.h"
+
+class WaveFileAnalizator {
+public:
+	WaveFileAnalizator();
+	~WaveFileAnalizator();
+	int findMaximum(WaveFile &waveFile);
+
+};
+
+#endif /* WAVEFILEANALIZATOR_H_ */
