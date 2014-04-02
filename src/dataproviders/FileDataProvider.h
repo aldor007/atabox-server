@@ -1,3 +1,5 @@
+#ifndef FILE_DATA_PROVIDER
+#define FILE_DATA_PROVIDER
 #include <iostream>
 #include <string>
 #include "BaseDataProvider.h"
@@ -8,7 +10,8 @@ class FileDataProvider: public BaseDataProvider< KeyClass, ValueClass> {
             String filename;
         public:
             FileDataProvider(String filename);
-            ValueClass get(keyclass key);
-            bool set(keyclass key, valueclass value);
-            std::vector<valueclass> getrangevalue(keyclass startkey, keyclass endkey);
+            ValueClass get(Keyclass key);
+            bool set(Keyclass key, Valueclass value);
+            std::vector<valueclass> getrangevalue(Keyclass startkey, Keyclass endkey);
 }
+#endif

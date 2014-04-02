@@ -1,8 +1,7 @@
-
-#include <vector>
 #ifndef BASE_DATA_PROVIDER
 #define BASE_DATA_PROVIDER
 
+#include <vector>
 enum class DBStatus {Open, Closed};
 
 template <typename KeyClass, typename ValueClass>
