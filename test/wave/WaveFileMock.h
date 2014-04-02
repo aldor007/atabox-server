@@ -16,8 +16,8 @@ public:
 	WaveFileMock();
 	~WaveFileMock();
 	MOCK_METHOD0(getNumberOfSamples, unsigned int());
-	void setData(void * data);
-	void setBytePerSample(int i);
+	MOCK_METHOD1(getSample, int(int i));
+
 
 };
 

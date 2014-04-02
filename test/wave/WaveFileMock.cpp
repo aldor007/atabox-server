@@ -16,11 +16,5 @@ WaveFileMock::~WaveFileMock() {
 	// TODO Auto-generated destructor stub
 }
 
-void WaveFileMock::setData(void * data){
-	this->data = (char *)data;
-}
 
-void WaveFileMock::setBytePerSample(int i){
-	this->bytePerSample = i;
-}
 
