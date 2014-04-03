@@ -15,6 +15,10 @@ public:
 	virtual ~WaveFileAnalizator();
 	int findAmplitude(WaveFile &waveFile);
 	int countZeroCrossings(WaveFile &waveFile);
+	int maxOfRange(WaveFile &waveFile);
+	//double percentageAbove(double percentOfMax);
+	//double percetnageBelow(double percentOfMax);
+
 
 };
 

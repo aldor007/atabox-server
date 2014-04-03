@@ -39,3 +39,10 @@ int WaveFileAnalizator::countZeroCrossings(WaveFile& waveFile) {
 	return result;
 }
 
+int WaveFileAnalizator::maxOfRange(WaveFile& waveFile){
+	unsigned int bitPerSample = waveFile.getBitsPerSample();
+	unsigned int result = (1<<(bitPerSample-1))-1;
+	return result;
+
+}
+

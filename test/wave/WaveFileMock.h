@@ -17,7 +17,7 @@ public:
 	~WaveFileMock();
 	MOCK_METHOD0(getNumberOfSamples, unsigned int());
 	MOCK_METHOD1(getSample, int(int i));
-
+	MOCK_METHOD0(getBitsPerSample, unsigned int());
 
 };
 
