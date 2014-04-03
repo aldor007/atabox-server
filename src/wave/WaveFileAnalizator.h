@@ -16,9 +16,8 @@ public:
 	int findAmplitude(WaveFile &waveFile);
 	int countZeroCrossings(WaveFile &waveFile);
 	int maxOfRange(WaveFile &waveFile);
-	//double percentageAbove(double percentOfMax);
-	//double percetnageBelow(double percentOfMax);
-
+	double percentageAbove(WaveFile& waveFile, double percentOfMax);
+	double percetnageBelow(WaveFile& waveFile, double percentOfMax);
 
 };
 
