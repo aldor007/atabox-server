@@ -18,7 +18,7 @@ WaveFileAnalizator::~WaveFileAnalizator() {
 
 int WaveFileAnalizator::findAmplitude(WaveFile& waveFile) {
 	int result = 0;
-	for (int i = 0; i < waveFile.getNumberOfSamples(); ++i) {
+	for (unsigned int i = 0; i < waveFile.getNumberOfSamples(); ++i) {
 		int sample = waveFile.getSample(i);
 		if (abs(sample) > result) {
 			result = sample;
@@ -29,10 +29,11 @@ int WaveFileAnalizator::findAmplitude(WaveFile& waveFile) {
 
 int WaveFileAnalizator::countZeroCrossings(WaveFile& waveFile) {
 	int result = 0;
-	for (int i = 0; i < waveFile.getNumberOfSamples(); ++i) {
+	for (unsigned int i = 0; i < waveFile.getNumberOfSamples()-1; ++i) {
 		int sample = waveFile.getSample(i);
-		if (abs(sample) > result) {
-			result = sample;
+		int nextSample = waveFile.getSample(i+1);
+		if (sample*nextSample <= 0) {
+			++result;
 		}
 	}
 	return result;
