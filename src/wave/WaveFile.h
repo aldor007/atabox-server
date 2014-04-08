@@ -10,30 +10,33 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <iostream>
+#include <cstring>
 
 class WaveFile {
 public:
+
 	WaveFile(char * filename);
-	~WaveFile();
-	char * getChunkID();
-	unsigned int getChunkSize();
-	char * getFormat();
-	char * getSubchunk1Id();
-	unsigned int getSubchunk1Size();
-	unsigned int getAudioFormat();
-	unsigned int getNumberOfChanels();
-	unsigned int getSampleRate();
-	unsigned int getByteRate();
-	unsigned int getBlockAlign();
-	unsigned int getBitsPerSample();
-	char * getSubchunk2Id();
-	unsigned int getSubchunk2Size();
-	int getSample(int i);
-	inline int get8BitSample(int i);
-	inline int getHighBitSample(int i);
-	unsigned int getNumberOfSamples();
-	void * getRawData();
-private:
+	virtual ~WaveFile();
+	virtual char * getChunkID();
+	virtual unsigned int getChunkSize();
+	virtual char * getFormat();
+	virtual char * getSubchunk1Id();
+	virtual unsigned int getSubchunk1Size();
+	virtual unsigned int getAudioFormat();
+	virtual unsigned int getNumberOfChanels();
+	virtual unsigned int getSampleRate();
+	virtual unsigned int getByteRate();
+	virtual unsigned int getBlockAlign();
+	virtual unsigned int getBitsPerSample();
+	virtual char * getSubchunk2Id();
+	virtual unsigned int getSubchunk2Size();
+	virtual int getSample(int i);
+	virtual inline int get8BitSample(int i);
+	virtual inline int getHighBitSample(int i);
+	virtual unsigned int getNumberOfSamples();
+	void loadFromFile(char* filename);
+protected:
+	WaveFile();
 	//chunk descriptor
 	char chunkID[4] = { 0 };
 	unsigned int chunkSize = 0;
@@ -53,10 +56,17 @@ private:
 	unsigned int subchunk2Size = 0;
 	unsigned int numberOfSamples = 0;
 
+	char * data = NULL;
+
 	void readRIFFChunkDescriptor(FILE* file);
 	void readFmtSubchunk(FILE* file);
+	void ReadDataSubchunk(FILE* file);
 
-	char * data;
+
+	void validateRIFFChunkDescriptor();
+	void validateFmtSubchunk();
+	void validateDataSubchunk();
+	void freeDataIfNotNull();
 };
 
 #endif /* WAVEFILE_H_ */
