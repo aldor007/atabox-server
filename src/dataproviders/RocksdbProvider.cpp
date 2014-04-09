@@ -1,7 +1,12 @@
 #include "dataproviders/RocksdbProvider.h"
 #include <map>
+
+template<class Key, class Value>
+RocksdbProvider<Key, Value>::~RocksdbProvider() {
+	 delete db;
+}
 template <class Key, class Value>
-RocksdbProvider<Key, Value>::RocksdbProvider(std::string filename): BaseDataProvider<Key, Value>(filename) {
+RocksdbProvider<Key, Value>::RocksdbProvider(std::string filename) {
 	this->databasename = filename;
 	this->options.create_if_missing = true;
 	rocksdb::Status status =  rocksdb::DB::Open(this->options, this->databasename.c_str(), &db);

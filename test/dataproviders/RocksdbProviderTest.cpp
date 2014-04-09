@@ -5,14 +5,18 @@
  *      Author: aldor
  */
 
-#include "RocksdbProviderTest.h"
+#include "dataproviders/RocksdbProvider.h"
+#include "gtest/gtest.h"
+#include <string>
+class RocksdbProviderTest: public ::testing::Test {
 
-RocksdbProviderTest::RocksdbProviderTest() {
-	// TODO Auto-generated constructor stub
+};
+
+
+TEST_F(RocksdbProviderTest, writeDataCanItRead) {
+	RocksdbProvider<std::string, std::string> db("test/test.db");
+	db.set("test", "value");
+	std::string tmp = db.get("test");
+	ASSERT_TRUE(tmp == "value");
 
 }
-
-RocksdbProviderTest::~RocksdbProviderTest() {
-	// TODO Auto-generated destructor stub
-}
-

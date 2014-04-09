@@ -19,8 +19,6 @@ class RocksdbProvider: public BaseDataProvider<KeyClass, ValueClass> {
             ValueClass get(KeyClass key);
             std::map<KeyClass, ValueClass> getAllKV();
             bool set(KeyClass key, ValueClass value);
-            ~RocksdbProvider() {
-            	delete db;
-            }
+            ~RocksdbProvider();
 };
 #endif
