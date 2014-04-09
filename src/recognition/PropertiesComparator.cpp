@@ -16,3 +16,7 @@ PropertiesComparator::~PropertiesComparator() {
 	// TODO Auto-generated destructor stub
 }
 
+double PropertiesComparator::getSimilarityRatio(WaveProperties firstFile,
+		WaveProperties secondFile) {
+	// TODO PropertiesComparator not yet implemented
+}

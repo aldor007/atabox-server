@@ -66,3 +66,8 @@ double WaveFileAnalizator::percetnageBelow(WaveFile& waveFile,
 		double percentOfMax) {
 	return 1.0 - percentageAbove(waveFile, percentOfMax);
 }
+
+WaveProperties WaveFileAnalizator::getAllProperties(WaveFile waveFile) {
+	//TODO not yet implemented
+}
+

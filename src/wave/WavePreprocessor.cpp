@@ -16,3 +16,8 @@ WavePreprocessor::~WavePreprocessor() {
 	// TODO Auto-generated destructor stub
 }
 
+void WavePreprocessor::deleteSielienceFromBeginningAndEnd(WaveFile waveFile) {
+}
+
+void WavePreprocessor::normalize(WaveFile waveFile) {
+}
