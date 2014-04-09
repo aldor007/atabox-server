@@ -1,0 +1,45 @@
+diff --git a/Makefile b/Makefile
+index 4beb749..cea3e52 100644
+--- a/Makefile
++++ b/Makefile
+@@ -31,7 +31,7 @@ else
+        PLATFORM_CCFLAGS += $(JEMALLOC_INCLUDE) -DHAVE_JEMALLOC
+ endif
+
+-WARNING_FLAGS = -Wall -Werror
++WARNING_FLAGS = -Wall 
+ CFLAGS += -g $(WARNING_FLAGS) -I. -I./include $(PLATFORM_CCFLAGS) $(OPT)
+ CXXFLAGS += -g $(WARNING_FLAGS) -I. -I./include $(PLATFORM_CXXFLAGS) $(OPT) -Woverloaded-virtual
+
+diff --git a/util/crc32c.cc b/util/crc32c.cc
+index bca955a..3d01938 100644
+--- a/util/crc32c.cc
++++ b/util/crc32c.cc
+@@ -17,6 +17,7 @@
+ #include <nmmintrin.h>
+ #endif
+ #include "util/coding.h"
++#include <cpuid.h>
+
+ namespace rocksdb {
+ namespace crc32c {
+@@ -323,10 +324,15 @@ static inline void Fast_CRC32(uint64_t* l, uint8_t const **p) {
+ // Detect if SS42 or not.
+ static bool isSSE42() {
+   #ifdef __GNUC__
+-  uint32_t c_;
+-  uint32_t d_;
+-  __asm__("cpuid" : "=c"(c_), "=d"(d_) : "a"(1) : "ebx");
+-  return c_ & (1U << 20); // copied from CpuId.h in Folly.
++  unsigned int a_;
++  unsigned int b_;
++  unsigned int c_;
++  unsigned int d_;
++
++  if (__get_cpuid(1, &a_, &b_, &c_, &d_) == 0) {
++      return false;
++  }
++  return c_ & (1U << 20);
+   #else
+   return false;
+   #endif
