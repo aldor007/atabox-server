@@ -21,3 +21,10 @@
 *.app
 /documentation
 
+/Debug
+/DebugTest
+/Release
+/ReleaseTest
+/.project
+/.cproject
+/.settings

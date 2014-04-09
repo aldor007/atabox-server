@@ -6,17 +6,23 @@
 CPP_SRCS += \
 ../test/wave/WaveFileAnalizatorTest.cpp \
 ../test/wave/WaveFileMock.cpp \
-../test/wave/WaveFileTest.cpp 
+../test/wave/WaveFileTest.cpp \
+../test/wave/WavePropertiesTest.cpp \
+../test/wave/waveWavePreprocessorTest.cpp 
 
 OBJS += \
 ./test/wave/WaveFileAnalizatorTest.o \
 ./test/wave/WaveFileMock.o \
-./test/wave/WaveFileTest.o 
+./test/wave/WaveFileTest.o \
+./test/wave/WavePropertiesTest.o \
+./test/wave/waveWavePreprocessorTest.o 
 
 CPP_DEPS += \
 ./test/wave/WaveFileAnalizatorTest.d \
 ./test/wave/WaveFileMock.d \
-./test/wave/WaveFileTest.d 
+./test/wave/WaveFileTest.d \
+./test/wave/WavePropertiesTest.d \
+./test/wave/waveWavePreprocessorTest.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
