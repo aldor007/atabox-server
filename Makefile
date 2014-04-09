@@ -19,12 +19,12 @@ rocksdb:
 	cp $(EXTERNAL)/rocksdb_source/libmemenv.a libs/
 
 rocksdb_lib:
-	cd EXTERNAL/rocksdb_source && make shared_lib
-	cp EXTERNAL/rocksdb_source/librocksdb.* libs/
-	cp EXTERNAL/rocksdb_source/libmemenv.a libs/
+	cd $(EXTERNAL)/rocksdb_source && make shared_lib
+	cp $(EXTERNAL)/rocksdb_source/librocksdb.* libs/
+	cp $(EXTERNAL)/rocksdb_source/libmemenv.a libs/
 
 clean:
-	cd EXTERNAL/rocksdb_source && make clean
+	cd $(EXTERNAL)/rocksdb_source && make clean
 	# rm *.o
 	rm $(COMPLIBSDIR)/*
 

@@ -2,16 +2,16 @@
 #define FILE_DATA_PROVIDER
 #include <iostream>
 #include <string>
-#include "BaseDataProvider.h"
+#include "dataproviders/BaseDataProvider.h"
 
-template <typename KeyClass, typename ValueClass>
-class FileDataProvider: public BaseDataProvider< KeyClass, ValueClass> {
+template <class KeyClass, class ValueClass>
+class FileDataProvider: public BaseDataProvider<KeyClass, ValueClass> {
         protected:
-            String filename;
+            std::string filename;
         public:
-            FileDataProvider(String filename);
-            ValueClass get(Keyclass key);
-            bool set(Keyclass key, Valueclass value);
-            std::vector<valueclass> getrangevalue(Keyclass startkey, Keyclass endkey);
-}
+            FileDataProvider (std::string filename);
+            ValueClass get(KeyClass key);
+            bool set(KeyClass key, ValueClass value);
+            std::vector<ValueClass> getrangevalue(KeyClass startkey, KeyClass endkey);
+};
 #endif

@@ -2,7 +2,8 @@
 #define BASE_DATA_PROVIDER
 
 #include <vector>
-enum class DBStatus {Open, Closed};
+#include <map>
+enum class DBStatus {Open, Closed, Error};
 
 template <typename KeyClass, typename ValueClass>
 class BaseDataProvider {
@@ -12,7 +13,7 @@ class BaseDataProvider {
     public:
         virtual ValueClass get(KeyClass key);
         virtual bool set(KeyClass key, ValueClass value);
-        virtual std::vector<ValueClass> getrangevalue(KeyClass startkey, KeyClass endkey);
+        virtual std::map<KeyClass, ValueClass> getAllKV();
         DBStatus getStatus() {
             return this->connecionStatus;
         }

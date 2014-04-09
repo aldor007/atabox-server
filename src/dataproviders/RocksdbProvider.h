@@ -3,16 +3,24 @@
 
 #include <iostream>
 #include <string>
-#include "BaseDataProvider.h"
+#include <map>
+#include "dataproviders/BaseDataProvider.h"
+#include "rocksdb/db.h"
 
-template <typename KeyClass, typename ValueClass>
-class RocksdbProvider: public BaseDataProvider< KeyClass, ValueClass> {
+template <class KeyClass,class ValueClass>
+class RocksdbProvider: public BaseDataProvider<KeyClass, ValueClass> {
         protected:
-            String databasename;
+            std::string databasename;
+            rocksdb::DB* db;
+            rocksdb::Options options;
+
         public:
-            FileDataProvider(String databasename);
-            ValueClass get(Keyclass key);
-            bool set(Keyclass key, Valueclass value);
-            std::vector<Valueclass> getrangevalue(Keyclass startkey, Keyclass endkey);
-}
+            RocksdbProvider(std::string databasename);
+            ValueClass get(KeyClass key);
+            std::map<KeyClass, ValueClass> getAllKV();
+            bool set(KeyClass key, ValueClass value);
+            ~RocksdbProvider() {
+            	delete db;
+            }
+};
 #endif
