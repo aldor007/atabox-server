@@ -19,8 +19,5 @@
 *.exe
 *.out
 *.app
-/Debug
-/DebugTest
 /documentation
-/Release
-/ReleaseTest
+
