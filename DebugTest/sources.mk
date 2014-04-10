@@ -25,8 +25,11 @@ C_UPPER_DEPS :=
 SUBDIRS := \
 test/wave \
 test/recognition \
+test/dataproviders \
 test \
 src/wave \
 src/recognition \
+src/dataproviders \
+. \
 external \
 

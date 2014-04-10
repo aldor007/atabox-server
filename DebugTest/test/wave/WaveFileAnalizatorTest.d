@@ -1,23 +1,17 @@
 test/wave/WaveFileAnalizatorTest.d: \
  ../test/wave/WaveFileAnalizatorTest.cpp \
- /home/mj/CppWorkspace/Atabox_server/src/wave/WaveFileAnalizator.h \
- /home/mj/CppWorkspace/Atabox_server/src/wave/WaveFile.h \
- /home/mj/CppWorkspace/Atabox_server/src/wave/WaveProperties.h \
- /home/mj/CppWorkspace/Atabox_server/src/wave/WaveFile.h \
- /home/mj/CppWorkspace/Atabox_server/src/../test/wave/WaveFileMock.h \
- /home/mj/CppWorkspace/Atabox_server/external/gmock/gmock.h \
- /home/mj/CppWorkspace/Atabox_server/external/gtest/gtest.h
+ /home/aldor/workspace/repos/studia/aipsc/atabox-server/src/wave/WaveFileAnalizator.h \
+ /home/aldor/workspace/repos/studia/aipsc/atabox-server/src/wave/WaveFile.h \
+ /home/aldor/workspace/repos/studia/aipsc/atabox-server/src/wave/WaveProperties.h \
+ /home/aldor/workspace/repos/studia/aipsc/atabox-server/src/wave/WaveFile.h \
+ /home/aldor/workspace/repos/studia/aipsc/atabox-server/src/../test/wave/WaveFileMock.h
 
-/home/mj/CppWorkspace/Atabox_server/src/wave/WaveFileAnalizator.h:
+/home/aldor/workspace/repos/studia/aipsc/atabox-server/src/wave/WaveFileAnalizator.h:
 
-/home/mj/CppWorkspace/Atabox_server/src/wave/WaveFile.h:
+/home/aldor/workspace/repos/studia/aipsc/atabox-server/src/wave/WaveFile.h:
 
-/home/mj/CppWorkspace/Atabox_server/src/wave/WaveProperties.h:
+/home/aldor/workspace/repos/studia/aipsc/atabox-server/src/wave/WaveProperties.h:
 
-/home/mj/CppWorkspace/Atabox_server/src/wave/WaveFile.h:
+/home/aldor/workspace/repos/studia/aipsc/atabox-server/src/wave/WaveFile.h:
 
-/home/mj/CppWorkspace/Atabox_server/src/../test/wave/WaveFileMock.h:
-
-/home/mj/CppWorkspace/Atabox_server/external/gmock/gmock.h:
-
-/home/mj/CppWorkspace/Atabox_server/external/gtest/gtest.h:
+/home/aldor/workspace/repos/studia/aipsc/atabox-server/src/../test/wave/WaveFileMock.h:

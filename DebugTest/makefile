@@ -10,9 +10,11 @@ RM := rm -rf
 -include sources.mk
 -include test/wave/subdir.mk
 -include test/recognition/subdir.mk
+-include test/dataproviders/subdir.mk
 -include test/subdir.mk
 -include src/wave/subdir.mk
 -include src/recognition/subdir.mk
+-include src/dataproviders/subdir.mk
 -include external/subdir.mk
 -include subdir.mk
 -include objects.mk
@@ -43,19 +45,19 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: Atabox_server
+all: atabox-server
 
 # Tool invocations
-Atabox_server: $(OBJS) $(USER_OBJS)
+atabox-server: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	g++  -o "Atabox_server" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ -L"/home/aldor/workspace/repos/studia/aipsc/atabox-server/libs" -o "atabox-server" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(OBJS)$(C++_DEPS)$(C_DEPS)$(CC_DEPS)$(CPP_DEPS)$(EXECUTABLES)$(CXX_DEPS)$(C_UPPER_DEPS) Atabox_server
+	-$(RM) $(OBJS)$(C++_DEPS)$(C_DEPS)$(CC_DEPS)$(CPP_DEPS)$(EXECUTABLES)$(CXX_DEPS)$(C_UPPER_DEPS) atabox-server
 	-@echo ' '
 
 .PHONY: all clean dependents

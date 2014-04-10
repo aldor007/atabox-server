@@ -5,5 +5,5 @@
  *      Author: mj
  */
 
-#include "/home/mj/CppWorkspace/Atabox_server/src/wave/WavePreprocessor.h"
+#include "wave/WavePreprocessor.h"
 

@@ -29,7 +29,7 @@ CPP_DEPS += \
 test/wave/%.o: ../test/wave/%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
-	g++ -std=c++0x -I"/home/mj/CppWorkspace/Atabox_server/src" -I"/home/mj/CppWorkspace/Atabox_server/external" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
+	g++-4.8 -std=c++1y -I"/home/aldor/workspace/repos/studia/aipsc/atabox-server/external/rocksdb_source/include" -I"/home/aldor/workspace/repos/studia/aipsc/atabox-server/src" -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
