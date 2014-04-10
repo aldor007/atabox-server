@@ -1,8 +1,9 @@
+/*
 #ifndef FILE_DATA_PROVIDER
 #define FILE_DATA_PROVIDER
 #include <iostream>
 #include <string>
-#include "dataproviders/BaseDataProvider.h"
+#include "BaseDataProvider.h"
 
 template <class KeyClass, class ValueClass>
 class FileDataProvider: public BaseDataProvider<KeyClass, ValueClass> {
@@ -10,8 +11,9 @@ class FileDataProvider: public BaseDataProvider<KeyClass, ValueClass> {
             std::string filename;
         public:
             FileDataProvider (std::string filename);
-            ValueClass get(KeyClass key);
-            bool set(KeyClass key, ValueClass value);
-            std::vector<ValueClass> getrangevalue(KeyClass startkey, KeyClass endkey);
+            ValueClass get(KeyClass key) {}
+            bool set(KeyClass key, ValueClass value) {}
+            std::vector<ValueClass> getrangevalue(KeyClass startkey, KeyClass endkey) {}
 };
 #endif
+*/

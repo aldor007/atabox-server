@@ -14,13 +14,17 @@ tests:
 dataprovider:
 	$(COMP) $(COMPFLAGS)  main.cpp -L $(COMPLIBSDIR)  -I $(COMPINCLUDE)  
 rocksdb:
+	mkdir -p libs
 	cd $(EXTERNAL)/rocksdb_source && make 
+
 	cp $(EXTERNAL)/rocksdb_source/librocksdb.* libs/
 	cp $(EXTERNAL)/rocksdb_source/libmemenv.a libs/
 
 rocksdb_lib:
+	mkdir -p libs
 	cd $(EXTERNAL)/rocksdb_source && make shared_lib
 	cp $(EXTERNAL)/rocksdb_source/librocksdb.* libs/
+	sudo cp libs/librocksdb.so /usr/lib/librocksdb.so
 	cp $(EXTERNAL)/rocksdb_source/libmemenv.a libs/
 
 clean:

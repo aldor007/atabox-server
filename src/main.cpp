@@ -6,14 +6,13 @@
  */
 #include <string>
 #include "dataproviders/RocksdbProvider.h"
-#include "wave/WaveFile.h"
 #include <map>
+#include <iostream>
+#include <random>
+
 int main (int argc, char** argv){
 
-	RocksdbProvider<std::string, std::string> db("Test");
-
-
-	db.set("test", "value");
+	RocksdbProvider<std::string, std::string> db("test.db");
 	std::string tmp = db.get("test");
 	auto mapa = db.getAllKV();
 	for(std::map<std::string, std::string>::iterator it = mapa.begin(); it != mapa.end(); it++)
