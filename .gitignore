@@ -19,7 +19,12 @@
 *.exe
 *.out
 *.app
+/documentation
 /Debug
 /DebugTest
 /Release
 /DebugTestOld
+/ReleaseTest
+/.project
+/.cproject
+/.settings

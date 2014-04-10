@@ -8,6 +8,7 @@
 #ifndef WAVEFILEANALIZATOR_H_
 #define WAVEFILEANALIZATOR_H_
 #include "WaveFile.h"
+#include "WaveProperties.h"
 
 class WaveFileAnalizator {
 public:
@@ -18,6 +19,7 @@ public:
 	int maxOfRange(WaveFile &waveFile);
 	double percentageAbove(WaveFile& waveFile, double percentOfMax);
 	double percetnageBelow(WaveFile& waveFile, double percentOfMax);
+	WaveProperties getAllProperties(WaveFile waveFile);
 
 };
 
