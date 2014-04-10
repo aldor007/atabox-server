@@ -4,5 +4,5 @@
 
 USER_OBJS :=
 
-LIBS := -lpthread -lrocksdb
+LIBS := -lpthread -lrocksdb -lgcov
 
