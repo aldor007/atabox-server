@@ -31,5 +31,4 @@ src/wave \
 src/recognition \
 src/dataproviders \
 . \
-external \
 

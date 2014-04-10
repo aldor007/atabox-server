@@ -15,7 +15,6 @@ RM := rm -rf
 -include src/wave/subdir.mk
 -include src/recognition/subdir.mk
 -include src/dataproviders/subdir.mk
--include external/subdir.mk
 -include subdir.mk
 -include objects.mk
 
