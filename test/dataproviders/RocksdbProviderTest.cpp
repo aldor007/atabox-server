@@ -23,3 +23,15 @@ TEST_F(RocksdbProviderTest, writeDataCanItRead) {
 	ASSERT_TRUE(tmp == "value");
 
 }
+
+TEST_F(RocksdbProviderTest, getListOfKeys) {
+	std::string test = "test/file.db";
+
+	RocksdbProvider<std::string, std::string> db(test);
+
+	db.set("test2", "value");
+	auto mapdata = db.getAllKV();
+
+	ASSERT_TRUE(mapdata.size() >0);
+
+}
