@@ -11,13 +11,15 @@ class BaseDataProvider {
         DBStatus connecionStatus;
 
     public:
-        virtual ValueClass get(KeyClass key);
-        virtual bool set(KeyClass key, ValueClass value);
-        virtual std::map<KeyClass, ValueClass> getAllKV();
+        virtual ValueClass get(KeyClass key) {}
+        virtual bool set(KeyClass key, ValueClass value) {}
+        virtual std::map<KeyClass, ValueClass> getAllKV() {}
         DBStatus getStatus() {
             return this->connecionStatus;
         }
 
-        virtual ~BaseDataProvider();
+        virtual ~BaseDataProvider() {
+
+        }
 };
 #endif

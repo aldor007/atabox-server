@@ -1,4 +1,12 @@
-#include "dataproviders/RocksdbProvider.h"
+/*
+ * RocksdbProvider.cpp
+ *
+ *  Created on: 10 kwi 2014
+ *      Author: aldor
+ */
+
+
+#include "RocksdbProvider.h"
 #include <map>
 
 template<class Key, class Value>
@@ -21,7 +29,7 @@ RocksdbProvider<Key, Value>::RocksdbProvider(std::string filename) {
 template <class Key, class Value>
 bool RocksdbProvider<Key, Value>::set(Key key, Value value) {
 	rocksdb::Status status;
-	status = this->Put(rocksdb::WriteOptions(), key, value);
+	status = this->db->Put(rocksdb::WriteOptions(), key, value);
 	return status.ok();
 }
 
@@ -29,7 +37,7 @@ template <class Key, class Value>
 Value RocksdbProvider<Key, Value>::get(Key key) {
 	rocksdb::Status status;
 	Value value;
-	status = this->Put(rocksdb::WriteOptions(), key, &value);
+	status = this->db->Get(rocksdb::ReadOptions(), key, &value);
 	if (status.ok()) {
 		return value;
 	}

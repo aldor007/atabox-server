@@ -1,10 +1,13 @@
-#ifndef ROCKSDB__DATA_PROVIDER
-#define ROCKSDB_DATA_PROVIDER
+/*
+ * RocksdbProvider.h
+ *
+ *  Created on: 10 kwi 2014
+ *      Author: aldor
+ */
 
-#include <iostream>
-#include <string>
-#include <map>
-#include "dataproviders/BaseDataProvider.h"
+#ifndef ROCKSDBPROVIDER_H_
+#define ROCKSDBPROVIDER_H_
+#include "BaseDataProvider.h"
 #include "rocksdb/db.h"
 
 template <class KeyClass,class ValueClass>
@@ -16,9 +19,9 @@ class RocksdbProvider: public BaseDataProvider<KeyClass, ValueClass> {
 
         public:
             RocksdbProvider(std::string databasename);
-            ValueClass get(KeyClass key);
-            std::map<KeyClass, ValueClass> getAllKV();
-            bool set(KeyClass key, ValueClass value);
-            ~RocksdbProvider();
+            virtual ValueClass get(KeyClass key);
+            virtual std::map<KeyClass, ValueClass> getAllKV();
+            virtual bool set(KeyClass key, ValueClass value);
+            virtual ~RocksdbProvider();
 };
-#endif
+#endif /* ROCKSDBPROVIDER_H_ */
