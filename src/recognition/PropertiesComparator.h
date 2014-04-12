@@ -8,12 +8,16 @@
 #ifndef PROPERTIESCOMPARATOR_H_
 #define PROPERTIESCOMPARATOR_H_
 #include "wave/WaveProperties.h"
+#include <math.h>
+
 class PropertiesComparator {
 public:
 	PropertiesComparator();
 	~PropertiesComparator();
-	double getSimilarityRatio(WaveProperties firstFile,
-			WaveProperties secondFile);
+	double getSimilarityRatio(WaveProperties newSample,
+			WaveProperties patternSample);
+private:
+	double relativeError(double newSample, double patternSample);
 };
 
 #endif /* PROPERTIESCOMPARATOR_H_ */
