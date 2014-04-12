@@ -14,7 +14,7 @@ class PropertiesComparator {
 public:
 	PropertiesComparator();
 	~PropertiesComparator();
-	double getSimilarityRatio(WaveProperties newSample,
+	double getDistance(WaveProperties newSample,
 			WaveProperties patternSample);
 private:
 	double relativeError(double newSample, double patternSample);

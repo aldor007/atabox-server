@@ -75,7 +75,7 @@ double WaveFileAnalizator::percetnageBelow(WaveFile& waveFile,
 WaveProperties WaveFileAnalizator::getAllProperties(WaveFile &waveFile) {
 	//TODO not yet implemented
 	WaveProperties result;
-	result.aplitude = findAmplitude(waveFile);
+	result.amplitude = findAmplitude(waveFile);
 	result.zeroCrossings = countZeroCrossings(waveFile);
 
 	return result;

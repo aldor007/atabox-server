@@ -100,3 +100,6 @@ TEST_F(WaveFileAnalizatorTest, countsMaxOfRangeCorrectly) {
 	ASSERT_EQ(maxOfRange32, 2147483647);
 }
 
+
+
+
