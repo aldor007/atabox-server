@@ -7,3 +7,12 @@
 
 #include "recognition/PropertiesComparator.h"
 
+#include "gtest/gtest.h"
+
+class PropertiesComparatorTest: public ::testing::Test {
+
+};
+
+TEST_F(PropertiesComparatorTest, throwsExceptionWhenFileDoesNotExist) {
+
+}

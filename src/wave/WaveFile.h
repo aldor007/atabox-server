@@ -11,7 +11,9 @@
 #include <stdio.h>
 #include <iostream>
 #include <cstring>
-
+/**
+ * Class describes wave file. It supports only mono files.
+ */
 class WaveFile {
 public:
 

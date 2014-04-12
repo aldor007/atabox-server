@@ -39,11 +39,16 @@ int WaveFileAnalizator::countZeroCrossings(WaveFile& waveFile) {
 	return result;
 }
 
+/**
+ * Returns max amplitude. This function is used because with different bit-per-sample factor it has different maximum values.
+ * For example if we use 8-bits sample value 255 is maximum. When we use 32-bit sample value 255 is relatively small.
+ * @param waveFile input file
+ * @return maximum value
+ */
 int WaveFileAnalizator::maxOfRange(WaveFile& waveFile) {
 	unsigned int bitPerSample = waveFile.getBitsPerSample();
 	unsigned int result = (1 << (bitPerSample - 1)) - 1;
 	return result;
-
 }
 
 double WaveFileAnalizator::percentageAbove(WaveFile& waveFile,
@@ -67,7 +72,12 @@ double WaveFileAnalizator::percetnageBelow(WaveFile& waveFile,
 	return 1.0 - percentageAbove(waveFile, percentOfMax);
 }
 
-WaveProperties WaveFileAnalizator::getAllProperties(WaveFile waveFile) {
+WaveProperties WaveFileAnalizator::getAllProperties(WaveFile &waveFile) {
 	//TODO not yet implemented
+	WaveProperties result;
+	result.aplitude = findAmplitude(waveFile);
+	result.zeroCrossings = countZeroCrossings(waveFile);
+
+	return result;
 }
 
