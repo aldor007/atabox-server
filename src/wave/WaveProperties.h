@@ -12,17 +12,17 @@ class WaveProperties {
 public:
 	WaveProperties();
 	~WaveProperties();
-	int amplitude;
-	int zeroCrossings;
-	double percentageAbove90percentage;
-	double percentageAbove80percentage;
-	double percentageAbove70percentage;
-	double percentageAbove60percentage;
-	double percentageAbove50percentage;
-	double percentageAbove40percentage;
-	double percentageAbove30percentage;
-	double percentageAbove20percentage;
-	double percentageAbove10percentage;
+	int amplitude = 0;
+	int zeroCrossings = 0;
+	double percentageAbove90percentage = 0.0;
+	double percentageAbove80percentage = 0.0;
+	double percentageAbove70percentage = 0.0;
+	double percentageAbove60percentage = 0.0;
+	double percentageAbove50percentage = 0.0;
+	double percentageAbove40percentage = 0.0;
+	double percentageAbove30percentage = 0.0;
+	double percentageAbove20percentage = 0.0;
+	double percentageAbove10percentage = 0.0;
 
 };
 

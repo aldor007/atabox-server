@@ -100,6 +100,15 @@ TEST_F(WaveFileAnalizatorTest, countsMaxOfRangeCorrectly) {
 	ASSERT_EQ(maxOfRange32, 2147483647);
 }
 
+TEST_F(WaveFileAnalizatorTest, realFileHasPositiveNumberOfZeroCrossings) {
+	//given
+	WaveFile waveFile("test/wave/dziekuje32bit.wav");
+	WaveFileAnalizator analizator;
+	//when
+	int crossings= analizator.countZeroCrossings(waveFile);
+	//then
+	ASSERT_GT(crossings, 0);
+}
 
 
 

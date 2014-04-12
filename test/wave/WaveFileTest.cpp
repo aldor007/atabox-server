@@ -124,4 +124,10 @@ TEST_F(WaveFileTest, lastSampleMachesEndOfFile) {
 	ASSERT_EQ(waveFile.getSample(indexOfLastSample), 10);
 
 }
+TEST_F(WaveFileTest, canHangleCommentsInHeader) {
+	WaveFile waveFile("test/wave/dziekuje32bit.wav");
+	int sample;
+	sample = waveFile.getSample(1);
+	ASSERT_EQ(446880, sample);
 
+}

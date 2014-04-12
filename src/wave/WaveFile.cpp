@@ -28,7 +28,7 @@ void WaveFile::readFmtSubchunk(FILE* file) {
 }
 
 void WaveFile::ReadDataSubchunk(FILE* file) {
-	fread(&subchunk2Id, 1, 4, file);
+	skipExtraParams(file);
 	fread(&subchunk2Size, 1, 4, file);
 	freeDataIfNotNull();
 	data = new char[subchunk2Size];
@@ -118,7 +118,9 @@ int WaveFile::get8BitSample(int i) {
 }
 
 int WaveFile::getHighBitSample(int i) {
-	return data[i * bytePerSample];
+	int result = 0;
+	memcpy(&result, data+(i * bytePerSample), bytePerSample);
+	return result;
 }
 
 int WaveFile::getSample(int i) {
@@ -128,8 +130,6 @@ int WaveFile::getSample(int i) {
 		return getHighBitSample(i);
 	}
 }
-
-
 
 unsigned int WaveFile::getNumberOfSamples() {
 	return numberOfSamples;
@@ -150,3 +150,10 @@ void WaveFile::validateRIFFChunkDescriptor() {
 	}
 }
 
+void WaveFile::skipExtraParams(FILE* file) {
+	fread(&subchunk2Id, 1, 4, file);
+	while (strncmp(subchunk2Id, "data", 4) != 0){
+		fseek(file, -3, SEEK_CUR);
+		fread(&subchunk2Id, 1, 4, file);
+	}
+}

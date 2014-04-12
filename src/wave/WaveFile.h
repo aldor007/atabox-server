@@ -69,6 +69,7 @@ protected:
 	void validateFmtSubchunk();
 	void validateDataSubchunk();
 	void freeDataIfNotNull();
+	void skipExtraParams(FILE* file);
 };
 
 #endif /* WAVEFILE_H_ */
