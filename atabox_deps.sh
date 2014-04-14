@@ -6,6 +6,7 @@ sudo apt-get install libsnappy-dev -y
 sudo apt-get install libgflags2 -y
 sudo apt-get install libgflags2-dev -y
 sudo apt-get install libgflags-dev -y 
+sudo apt-get install libbz2-dev -y
 #test
 # sudo apt-get install libgtest-dev -y
 # sudo apt-get install google-mock -y 
