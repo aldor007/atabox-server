@@ -20,6 +20,7 @@ public:
 	double percentageAbove(WaveFile& waveFile, double percentOfMax);
 	double percetnageBelow(WaveFile& waveFile, double percentOfMax);
 	WaveProperties getAllProperties(WaveFile &waveFile);
+	double findPeriod(WaveFile &waveFile);
 
 };
 

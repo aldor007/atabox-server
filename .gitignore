@@ -20,6 +20,7 @@
 *.out
 *.app
 external/rocksdb_source
+external/casablance
 /documentation
 /Debug
 /DebugTest

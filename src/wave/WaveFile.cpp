@@ -157,3 +157,6 @@ void WaveFile::skipExtraParams(FILE* file) {
 		fread(&subchunk2Id, 1, 4, file);
 	}
 }
+int WaveFile::operator[](int i) {
+	return this->getSample(i);
+}

@@ -38,6 +38,31 @@ int WaveFileAnalizator::countZeroCrossings(WaveFile& waveFile) {
 	}
 	return result;
 }
+double WaveFileAnalizator::findPeriod(WaveFile& waveFile) {
+
+	int result = 0;
+	unsigned int i = 0;
+	bool startCalt = true;
+	unsigned int start = 0;
+	for (i = 0; i < waveFile.getNumberOfSamples() - 1; ++i) {
+		int sample = waveFile.getSample(i);
+		int nextSample = waveFile.getSample(i + 1);
+
+		if (sample * nextSample <= 0) {
+			++result;
+			if (startCalt) {
+				startCalt = false;
+				start = i;
+			}
+		}
+		if (result == 3) {
+			break;
+		}
+	}
+	result = (i - start) / waveFile.getByteRate();
+
+	return result;
+}
 
 /**
  * Returns max amplitude. This function is used because with different bit-per-sample factor it has different maximum values.
@@ -71,6 +96,8 @@ double WaveFileAnalizator::percetnageBelow(WaveFile& waveFile,
 		double percentOfMax) {
 	return 1.0 - percentageAbove(waveFile, percentOfMax);
 }
+
+
 
 WaveProperties WaveFileAnalizator::getAllProperties(WaveFile &waveFile) {
 	//TODO not yet implemented

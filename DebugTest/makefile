@@ -9,10 +9,12 @@ RM := rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include test/wave/subdir.mk
+-include test/utils/subdir.mk
 -include test/recognition/subdir.mk
 -include test/dataproviders/subdir.mk
 -include test/subdir.mk
 -include src/wave/subdir.mk
+-include src/utils/subdir.mk
 -include src/recognition/subdir.mk
 -include src/dataproviders/subdir.mk
 -include subdir.mk

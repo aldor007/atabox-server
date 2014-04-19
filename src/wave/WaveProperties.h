@@ -23,6 +23,8 @@ public:
 	double percentageAbove30percentage = 0.0;
 	double percentageAbove20percentage = 0.0;
 	double percentageAbove10percentage = 0.0;
+	double period = 0;
+	double frequency = 0;
 
 };
 

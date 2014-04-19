@@ -37,6 +37,7 @@ public:
 	virtual inline int getHighBitSample(int i);
 	virtual unsigned int getNumberOfSamples();
 	void loadFromFile(char* filename);
+	virtual int operator[](int i);
 protected:
 	WaveFile();
 	//chunk descriptor

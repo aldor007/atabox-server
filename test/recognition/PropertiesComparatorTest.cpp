@@ -29,3 +29,38 @@ TEST_F(PropertiesComparatorTest, theSameFileReturnsZeroDistance) {
 	//then
 	ASSERT_FLOAT_EQ(result, 0);
 }
+
+
+TEST_F(PropertiesComparatorTest, theDiffrenWordReturnsNotZeroDistance) {
+	//given
+	WaveFile waveFile("test/wave/dziekuje32bit.wav");
+	WaveFile waveFile2("test/wave/prosze32bit.wav");
+	WaveFileAnalizator analizator;
+	WaveProperties properties, properties2;
+	properties = analizator.getAllProperties(waveFile);
+	properties2 = analizator.getAllProperties(waveFile2);
+	//when
+	PropertiesComparator comparator;
+	double result;
+	result = comparator.getDistance(properties, properties2);
+	//then
+
+	ASSERT_NE(result, 0);
+}
+
+TEST_F(PropertiesComparatorTest, theSameFileReturnZeroDistance) {
+	//given
+	WaveFile waveFile("test/wave/dziekuje32bit.wav");
+	WaveFile waveFile2("test/wave/dziekuje32bitHighNoise.wav");
+	WaveFileAnalizator analizator;
+	WaveProperties properties, properties2;
+	properties = analizator.getAllProperties(waveFile);
+	properties2 = analizator.getAllProperties(waveFile2);
+	//when
+	PropertiesComparator comparator;
+	double result;
+	result = comparator.getDistance(properties, properties2);
+	//then
+
+	ASSERT_FLOAT_EQ(result, 0);
+}
