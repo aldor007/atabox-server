@@ -7,6 +7,7 @@
 
 #ifndef DANIELSONLANCZOS_H_
 #define DANIELSONLANCZOS_H_
+#include <complex>
 
 template<unsigned N, typename T=double>
 class DanielsonLanczos {
@@ -16,5 +17,6 @@ public:
 	virtual ~DanielsonLanczos();
 	void apply(T * data);
 };
+
 
 #endif /* DANIELSONLANCZOS_H_ */
