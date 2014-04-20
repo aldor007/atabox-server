@@ -8,6 +8,7 @@
 #include "DanielsonLanczos.h"
 #include <cmath>
 #include <complex>
+#include <iostream>
 
 template<unsigned M, unsigned N, unsigned B, unsigned A>
 struct SinCosSeries {
@@ -55,40 +56,41 @@ struct Cos<B,A,double> {
    }
 };
 
-template<unsigned N, typename T>
-DanielsonLanczos<N, T>::DanielsonLanczos() {
+DanielsonLanczos::DanielsonLanczos(unsigned int N ) {
+
 	// TODO Auto-generated constructor stub
-//	this->next =
+  this->N = N;
+  std::cout<<"N = "<<N;
+ if (this->N)
+  this->next = new DanielsonLanczos(N/2);
+
 
 }
 
-template<unsigned N, typename T>
-DanielsonLanczos<N, T>::~DanielsonLanczos() {
+DanielsonLanczos::~DanielsonLanczos() {
 	// TODO Auto-generated destructor stub
 }
-template<unsigned N, typename T>
-void DanielsonLanczos<N, T>::apply(T* data) {
-     this->next.apply(data);
-     this->next.apply(data + N);
+void DanielsonLanczos::apply(std::complex<double>* data) {
+    if (N == 0) return;
+	this->next->apply(data);
+     this->next->apply(data + N);
 
-     T wtemp,tempr,tempi,wr,wi,wpr,wpi;
-     wtemp = -Sin<N, 1, T>::value();// sin(M_PI/N);
-     std::complex<double> temp(), w(1.0, 0.0), wp( -2.0 * wtemp * wtemp, -Sin<N, 2, T>::value());
+     double wtemp =  sin(M_PI/N);// -Sin<N, 1, std::complex<double>>::value();// sin(M_PI/N);
+     std::complex<double> temp(0,0), w(1.0, 0.0),
+//    		 wp( -2.0 * wtemp * wtemp, -Sin<N, 2, std::complex<double>>::value());
+    		// wp( -2.0 * wtemp * wtemp, -sin(2*M_PI/N));
+		 wp= exp(-std::complex<double>(0,-1) * (M_PI / N));
      //wpr = -2.0*wtemp*wtemp;
      //wpi = -Sin<N, 2, T>::value();//-sin(2*M_PI/N);
      //wr = 1.0;
      //wi = 0.0;
      for (unsigned i=0; i<N; i++) {
-       tempr = data[i + N] * wr - data[i + N + 1] * wi;
        //temp.real( )
-       tempi = data[i + N] * wi + data[i + N + 1] * wr;
-       data[i + N] = data[i] - tempr;
-       data[i + N + 1] = data[i + 1] - tempi;
-       data[i] += tempr;
-       data[i + 1] += tempi;
+       temp = data[i + N ] * w ;
+       data[i + N] = data[i] - temp;
+       data[i] = data[i] +  temp;
 
-       wtemp = wr;
-       wr += wr * wpr - wi*wpi;
-       wi += wi * wpr + wtemp*wpi;
+       w = w + w * wp;
      }
 }
+

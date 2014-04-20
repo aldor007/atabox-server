@@ -8,15 +8,14 @@
 #ifndef DANIELSONLANCZOS_H_
 #define DANIELSONLANCZOS_H_
 #include <complex>
-
-template<unsigned N, typename T=double>
+// TODO: delete class
 class DanielsonLanczos {
-	 DanielsonLanczos<N/2,T> next;
+	 DanielsonLanczos *  next;
+	 unsigned int N;
 public:
-	DanielsonLanczos();
+	DanielsonLanczos(unsigned int  N = 0);
 	virtual ~DanielsonLanczos();
-	void apply(T * data);
+	void apply(std::complex<double> * data);
 };
-
 
 #endif /* DANIELSONLANCZOS_H_ */
