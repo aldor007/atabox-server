@@ -26,7 +26,14 @@ rocksdb_lib:
 	cp $(EXTERNAL)/rocksdb_source/librocksdb.* libs/
 	sudo cp libs/librocksdb.so /usr/lib/librocksdb.so
 	cp $(EXTERNAL)/rocksdb_source/libmemenv.a libs/
-
+casablanca:
+	mkdir -p libs
+	mkdir -p $(EXTERNAL)/casablanca/Release/build.release
+	cd $(EXTERNAL)/casablanca/Release/build.release &&	cmake .. -DCMAKE_BUILD_TYPE=Release && 	make
+	cp $(EXTERNAL)/casablanca/Release/build.release/Binaries/libcasablanca.so libs
+	sudo cp $(EXTERNAL)/casablanca/Release/build.release/Binaries/libcasablanca.so /usr/lib
+	
+	
 clean:
 	cd $(EXTERNAL)/rocksdb_source && make clean
 	# rm *.o
