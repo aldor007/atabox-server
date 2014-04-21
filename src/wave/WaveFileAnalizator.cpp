@@ -64,23 +64,12 @@ double WaveFileAnalizator::findPeriod(WaveFile& waveFile) {
 	return result;
 }
 
-/**
- * Returns max amplitude. This function is used because with different bit-per-sample factor it has different maximum values.
- * For example if we use 8-bits sample value 255 is maximum. When we use 32-bit sample value 255 is relatively small.
- * @param waveFile input file
- * @return maximum value
- */
-int WaveFileAnalizator::maxOfRange(WaveFile& waveFile) {
-	unsigned int bitPerSample = waveFile.getBitsPerSample();
-	unsigned int result = (1 << (bitPerSample - 1)) - 1;
-	return result;
-}
 
 double WaveFileAnalizator::percentageAbove(WaveFile& waveFile,
 		double percentOfMax) {
 	int aboveCounter = 0;
 	int allCounter = 0;
-	double threshold = percentOfMax * maxOfRange(waveFile);
+	double threshold = percentOfMax * waveFile.getMaxOfRange();
 	for (unsigned int i = 0; i < waveFile.getNumberOfSamples(); ++i) {
 		++allCounter;
 		double sample = waveFile.getSample(i);

@@ -49,6 +49,7 @@ TEST_F(WaveFileAnalizatorTest, countsPercentageAboveCorrectly) {
 	//given
 	WaveFileMock waveFile;
 	ON_CALL(waveFile, getBitsPerSample()).WillByDefault(Return(8));
+	ON_CALL(waveFile, getMaxOfRange()).WillByDefault(Return(127));
 	ON_CALL(waveFile, getNumberOfSamples()).WillByDefault(Return(5));
 	ON_CALL(waveFile, getSample(0)).WillByDefault(Return(-12));
 	ON_CALL(waveFile, getSample(1)).WillByDefault(Return(-130));
@@ -68,6 +69,7 @@ TEST_F(WaveFileAnalizatorTest, countsPercentageBelowCorrectly) {
 	//given
 	WaveFileMock waveFile;
 	ON_CALL(waveFile, getBitsPerSample()).WillByDefault(Return(8));
+	ON_CALL(waveFile, getMaxOfRange()).WillByDefault(Return(127));
 	ON_CALL(waveFile, getNumberOfSamples()).WillByDefault(Return(5));
 	ON_CALL(waveFile, getSample(0)).WillByDefault(Return(-12));
 	ON_CALL(waveFile, getSample(1)).WillByDefault(Return(-130));
@@ -83,22 +85,6 @@ TEST_F(WaveFileAnalizatorTest, countsPercentageBelowCorrectly) {
 	ASSERT_DOUBLE_EQ(percentageBelow, 2.0/5.0);
 }
 
-TEST_F(WaveFileAnalizatorTest, countsMaxOfRangeCorrectly) {
-	//given
-	WaveFileMock waveFile8bit;
-	WaveFileMock waveFile32bit;
-	ON_CALL(waveFile8bit, getBitsPerSample()).WillByDefault(Return(8));
-	ON_CALL(waveFile32bit, getBitsPerSample()).WillByDefault(Return(32));
-
-	//when
-	WaveFileAnalizator analizator;
-	int maxOfRange8 = analizator.maxOfRange(waveFile8bit);
-	int maxOfRange32 = analizator.maxOfRange(waveFile32bit);
-
-	//then
-	ASSERT_EQ(maxOfRange8, 127);
-	ASSERT_EQ(maxOfRange32, 2147483647);
-}
 
 TEST_F(WaveFileAnalizatorTest, realFileHasPositiveNumberOfZeroCrossings) {
 	//given

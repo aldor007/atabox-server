@@ -117,19 +117,23 @@ TEST_F(WaveFileTest, calculateNumberOfSamplesCorrectly) {
 	unsigned int numberOfSamples = waveFile.getNumberOfSamples();
 	ASSERT_EQ(numberOfSamples, 79334);
 }
+TEST_F(WaveFileTest, calculateMaxRangeCorrectly) {
+	WaveFile waveFile("test/wave/dziekuje8bit.wav");
+	uint32_t range = waveFile.getMaxOfRange();
+	ASSERT_EQ(range, 127);
+}
 
 TEST_F(WaveFileTest, lastSampleMachesEndOfFile) {
 	WaveFile waveFile("test/wave/8bitSilenceWithTenAtTheEnd.wav");
 	int indexOfLastSample = waveFile.getNumberOfSamples()-1;
-	ASSERT_EQ(waveFile.getSample(indexOfLastSample), 10./(1<<7));
+	ASSERT_EQ(waveFile.getSample(indexOfLastSample), 10./(waveFile.getMaxOfRange()));
 
 }
 TEST_F(WaveFileTest, canHandleCommentsInHeader) {
 	WaveFile waveFile("test/wave/dziekuje32bit.wav");
 	double sample;
 	sample = waveFile.getSample(1);
-	uint32_t norm = 1<<31;
-	double result = 446880.0/norm;
+	double result = 446880.0/waveFile.getMaxOfRange();
 	ASSERT_EQ(result, sample);
 
 }

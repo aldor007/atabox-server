@@ -135,6 +135,24 @@ int32_t WaveFile::getRawSample(unsigned int i) {
 double WaveFile::getSample(unsigned int i) {
 	return this->normalizedData[i];
 }
+
+
+/**
+ * Returns max amplitude. This function is used because with different bit-per-sample factor it has different maximum values.
+ * For example if we use 8-bits sample value 255 is maximum. When we use 32-bit sample value 255 is relatively small.
+ * @param waveFile input file
+ * @return maximum value
+ */
+uint32_t WaveFile::getMaxOfRange() {
+	return this->maxOfRange;
+}
+
+/**
+ * Returns max amplitude. This function is used because with different bit-per-sample factor it has different maximum values.
+ * For example if we use 8-bits sample value 255 is maximum. When we use 32-bit sample value 255 is relatively small.
+ * @param waveFile input file
+ * @return maximum value
+ */
 void WaveFile::normalizeData() {
 	try {
 		this->normalizedData = new double[this->numberOfSamples];
@@ -142,9 +160,9 @@ void WaveFile::normalizeData() {
 	catch(std::bad_alloc) {
 		throw "No memmory";
 	}
-	uint32_t norm = 1<<(this->bytePerSample * 8 - 1);
+	this->maxOfRange = (1 << (this->bitsPerSample - 1)) - 1;
 	for(uint32_t i = 0; i < this->numberOfSamples; i++) {
-		this->normalizedData[i] = (double)this->getRawSample(i)/norm;
+		this->normalizedData[i] = (double)this->getRawSample(i)/this->maxOfRange;
 
 	}
 	if (data != nullptr) {

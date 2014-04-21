@@ -18,6 +18,7 @@ public:
 	MOCK_METHOD0(getNumberOfSamples, unsigned int());
 	MOCK_METHOD1(getSample, double(unsigned int i));
 	MOCK_METHOD0(getBitsPerSample, unsigned int());
+	MOCK_METHOD0(getMaxOfRange, uint32_t());
 
 };
 

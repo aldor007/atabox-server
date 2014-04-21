@@ -36,6 +36,7 @@ public:
 	virtual unsigned int getNumberOfSamples();
 	void loadFromFile(char* filename);
 	virtual double operator[](unsigned int i);
+	virtual uint32_t getMaxOfRange();
 protected:
 	WaveFile();
 	//chunk descriptor
@@ -62,6 +63,8 @@ protected:
 
 	char * data = nullptr;
 	double * normalizedData = nullptr;
+
+	uint32_t maxOfRange = 0;
 
 	void readRIFFChunkDescriptor(FILE* file);
 	void readFmtSubchunk(FILE* file);
