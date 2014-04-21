@@ -51,6 +51,7 @@ void WaveFile::loadFromFile(char* filename) {
 	ReadDataSubchunk(file);
 	validateDataSubchunk();
 	fclose(file);
+	normalizeData();
 }
 
 WaveFile::WaveFile(char * filename) {
@@ -58,9 +59,9 @@ WaveFile::WaveFile(char * filename) {
 }
 
 void WaveFile::freeDataIfNotNull() {
-	if (data != NULL) {
+	if (data != nullptr) {
 		delete data;
-		data = NULL;
+		data = nullptr;
 	}
 }
 
@@ -111,26 +112,47 @@ char * WaveFile::getSubchunk2Id() {
 	return subchunk2Id;
 }
 
-int WaveFile::get8BitSample(int i) {
-	int result = ((unsigned char) data[i * bytePerSample]);
+int8_t WaveFile::get8BitRawSample(int i) {
+	int8_t result = ((unsigned char) data[i * bytePerSample]);
 	result -= 128;
 	return result;
 }
 
-int WaveFile::getHighBitSample(int i) {
-	int result = 0;
+int32_t WaveFile::getHighBitRawSample(int i) {
+	int32_t result = 0;
 	memcpy(&result, data+(i * bytePerSample), bytePerSample);
+
 	return result;
 }
 
-int WaveFile::getSample(int i) {
+int32_t WaveFile::getRawSample(unsigned int i) {
 	if (bytePerSample == 1) {
-		return get8BitSample(i);
+		return get8BitRawSample(i);
 	} else {
-		return getHighBitSample(i);
+		return getHighBitRawSample(i);
 	}
 }
+double WaveFile::getSample(unsigned int i) {
+	return this->normalizedData[i];
+}
+void WaveFile::normalizeData() {
+	try {
+		this->normalizedData = new double[this->numberOfSamples];
+	}
+	catch(std::bad_alloc) {
+		throw "No memmory";
+	}
+	uint32_t norm = 1<<(this->bytePerSample * 8 - 1);
+	for(uint32_t i = 0; i < this->numberOfSamples; i++) {
+		this->normalizedData[i] = (double)this->getRawSample(i)/norm;
 
+	}
+	if (data != nullptr) {
+		delete data;
+		data = nullptr;
+	}
+
+}
 unsigned int WaveFile::getNumberOfSamples() {
 	return numberOfSamples;
 }
@@ -157,6 +179,6 @@ void WaveFile::skipExtraParams(FILE* file) {
 		fread(&subchunk2Id, 1, 4, file);
 	}
 }
-int WaveFile::operator[](int i) {
+double WaveFile::operator[](unsigned int i) {
 	return this->getSample(i);
 }

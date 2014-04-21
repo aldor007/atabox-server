@@ -16,11 +16,11 @@ WaveFileAnalizator::~WaveFileAnalizator() {
 	// TODO Auto-generated destructor stub
 }
 
-int WaveFileAnalizator::findAmplitude(WaveFile& waveFile) {
-	int result = 0;
+double WaveFileAnalizator::findAmplitude(WaveFile& waveFile) {
+	double result = 0;
 	for (unsigned int i = 0; i < waveFile.getNumberOfSamples(); ++i) {
-		int sample = waveFile.getSample(i);
-		if (abs(sample) > result) {
+		double sample = waveFile.getSample(i);
+		if (fabs(sample) > result) {
 			result = sample;
 		}
 	}
@@ -30,8 +30,8 @@ int WaveFileAnalizator::findAmplitude(WaveFile& waveFile) {
 int WaveFileAnalizator::countZeroCrossings(WaveFile& waveFile) {
 	int result = 0;
 	for (unsigned int i = 0; i < waveFile.getNumberOfSamples() - 1; ++i) {
-		int sample = waveFile.getSample(i);
-		int nextSample = waveFile.getSample(i + 1);
+		double sample = waveFile.getSample(i);
+		double nextSample = waveFile.getSample(i + 1);
 		if (sample * nextSample <= 0) {
 			++result;
 		}
@@ -45,8 +45,8 @@ double WaveFileAnalizator::findPeriod(WaveFile& waveFile) {
 	bool startCalt = true;
 	unsigned int start = 0;
 	for (i = 0; i < waveFile.getNumberOfSamples() - 1; ++i) {
-		int sample = waveFile.getSample(i);
-		int nextSample = waveFile.getSample(i + 1);
+		double sample = waveFile.getSample(i);
+		double nextSample = waveFile.getSample(i + 1);
 
 		if (sample * nextSample <= 0) {
 			++result;
@@ -80,10 +80,10 @@ double WaveFileAnalizator::percentageAbove(WaveFile& waveFile,
 		double percentOfMax) {
 	int aboveCounter = 0;
 	int allCounter = 0;
-	int threshold = percentOfMax * maxOfRange(waveFile);
+	double threshold = percentOfMax * maxOfRange(waveFile);
 	for (unsigned int i = 0; i < waveFile.getNumberOfSamples(); ++i) {
 		++allCounter;
-		int sample = waveFile.getSample(i);
+		double sample = waveFile.getSample(i);
 		if (abs(sample) > threshold) {
 			++aboveCounter;
 		}

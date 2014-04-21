@@ -121,13 +121,15 @@ TEST_F(WaveFileTest, calculateNumberOfSamplesCorrectly) {
 TEST_F(WaveFileTest, lastSampleMachesEndOfFile) {
 	WaveFile waveFile("test/wave/8bitSilenceWithTenAtTheEnd.wav");
 	int indexOfLastSample = waveFile.getNumberOfSamples()-1;
-	ASSERT_EQ(waveFile.getSample(indexOfLastSample), 10);
+	ASSERT_EQ(waveFile.getSample(indexOfLastSample), 10./(1<<7));
 
 }
-TEST_F(WaveFileTest, canHangleCommentsInHeader) {
+TEST_F(WaveFileTest, canHandleCommentsInHeader) {
 	WaveFile waveFile("test/wave/dziekuje32bit.wav");
-	int sample;
+	double sample;
 	sample = waveFile.getSample(1);
-	ASSERT_EQ(446880, sample);
+	uint32_t norm = 1<<31;
+	double result = 446880.0/norm;
+	ASSERT_EQ(result, sample);
 
 }

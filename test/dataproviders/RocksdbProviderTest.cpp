@@ -14,18 +14,18 @@ class RocksdbProviderTest: public ::testing::Test {
 
 
 TEST_F(RocksdbProviderTest, writeDataCanItRead) {
-	/*std::string test = "test/file.db";
+	std::string test = "test/file.db";
 
 	RocksdbProvider<std::string, std::string> db(test);
 
 	db.set("test", "value");
 	std::string tmp = db.get("test");
-	ASSERT_TRUE(tmp == "value");*/
+	ASSERT_TRUE(tmp == "value");
 
 }
 
 TEST_F(RocksdbProviderTest, getListOfKeys) {
-	/*std::string test = "test/file.db";
+	std::string test = "test/file.db";
 
 	RocksdbProvider<std::string, std::string> db(test);
 
@@ -33,5 +33,5 @@ TEST_F(RocksdbProviderTest, getListOfKeys) {
 	auto mapdata = db.getAllKV();
 
 	ASSERT_TRUE(mapdata.size() >0);
-*/
+
 }

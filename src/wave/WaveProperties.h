@@ -12,7 +12,7 @@ class WaveProperties {
 public:
 	WaveProperties();
 	~WaveProperties();
-	int amplitude = 0;
+	double amplitude = 0;
 	int zeroCrossings = 0;
 	double percentageAbove90percentage = 0.0;
 	double percentageAbove80percentage = 0.0;

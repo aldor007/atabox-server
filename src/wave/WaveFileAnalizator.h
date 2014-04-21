@@ -9,12 +9,13 @@
 #define WAVEFILEANALIZATOR_H_
 #include "WaveFile.h"
 #include "WaveProperties.h"
+#include <cmath>
 
 class WaveFileAnalizator {
 public:
 	WaveFileAnalizator();
 	virtual ~WaveFileAnalizator();
-	int findAmplitude(WaveFile &waveFile);
+	double findAmplitude(WaveFile &waveFile);
 	int countZeroCrossings(WaveFile &waveFile);
 	int maxOfRange(WaveFile& waveFile);
 	double percentageAbove(WaveFile& waveFile, double percentOfMax);
