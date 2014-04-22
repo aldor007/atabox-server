@@ -14,7 +14,7 @@ class BaseDataProvider {
         virtual ValueClass get(KeyClass key) = 0;
         virtual bool set(KeyClass key, ValueClass value) = 0;
         virtual std::map<KeyClass, ValueClass> getAllKV() = 0;
-        DBStatus getStatus() {
+        DBStatus getStatus() const {
             return this->connecionStatus;
         }
 
