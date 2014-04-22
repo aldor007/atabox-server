@@ -10,7 +10,7 @@
 #include <complex>
 // TODO: delete class
 class DanielsonLanczos {
-	 DanielsonLanczos *  next;
+	 DanielsonLanczos *  next = nullptr;
 	 unsigned int N;
 public:
 	DanielsonLanczos(unsigned int  N = 0);

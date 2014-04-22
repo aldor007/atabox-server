@@ -75,7 +75,7 @@ void DanielsonLanczos::apply(std::complex<double>* data) {
 	this->next->apply(data);
      this->next->apply(data + N);
 
-     double wtemp =  sin(M_PI/N);// -Sin<N, 1, std::complex<double>>::value();// sin(M_PI/N);
+    // double wtemp =  sin(M_PI/N);// -Sin<N, 1, std::complex<double>>::value();// sin(M_PI/N);
      std::complex<double> temp(0,0), w(1.0, 0.0),
 //    		 wp( -2.0 * wtemp * wtemp, -Sin<N, 2, std::complex<double>>::value());
     		// wp( -2.0 * wtemp * wtemp, -sin(2*M_PI/N));
