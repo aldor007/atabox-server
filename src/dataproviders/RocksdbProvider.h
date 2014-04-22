@@ -37,8 +37,8 @@ class RocksdbProvider: public BaseDataProvider<KeyClass, ValueClass> {
             }*/
 };
 #endif /* ROCKSDBPROVIDER_H_ */
-template <class Key, class Value>
-RocksdbProvider<Key, Value>* RocksdbProvider<Key, Value>::instance = nullptr;
+// template <class Key, class Value>
+// RocksdbProvider<Key, Value>* RocksdbProvider<Key, Value>::instance = nullptr;
 //TODO: http://stackoverflow.com/a/8752879
 template<class Key, class Value>
 RocksdbProvider<Key, Value>::~RocksdbProvider() {
