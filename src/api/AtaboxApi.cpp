@@ -11,7 +11,7 @@ using namespace web;
 using namespace http;
 using namespace utility;
 using namespace http::experimental::listener;
-std::string AtaboxApi::m_apiMainPath = "api";
+std::string AtaboxApi::m_apiMainPath = "/api/";
 
 AtaboxApi::AtaboxApi(std::string host, std::string port) {
 	// TODO Auto-generated constructor stub
@@ -23,28 +23,31 @@ AtaboxApi::AtaboxApi(std::string host, std::string port) {
 	m_host = host;
 	m_port = port;
 	m_listener = http_listener(m_url);
-	auto tmp_get = std::bind(&AtaboxApi::handle_get, this, std::placeholders::_1);
-//m_listener.support(methods::GET, std::tr1::bind(&AtaboxApi::handle_get, this, std::tr1::placeholders::_1));
-//m_listener.support(methods::GET, tmp_get);
-  //m_listener.support(methods::GET, &handle_get);
-   // m_listener.support(methods::POST, std::bind(&AtaboxApi::handle_post, this, std::placeholders::_1));
-
-
+	listenerSetSupports();
 }
+void AtaboxApi::addMethod(std::string name, handle_request_fun fun) {
+	m_router[name] = fun;
+}
+/*
 AtaboxApi::AtaboxApi(utility::string_t url): m_listener(url) {
-	// TODO Auto-generated constructor stub
 	m_url = url;
-	auto tmp_get = std::bind(&AtaboxApi::handle_get, this, std::placeholders::_1);
-//m_listener.support(methods::GET, std::tr1::bind(&AtaboxApi::handle_get, this, std::tr1::placeholders::_1));
-m_listener.support(methods::GET, tmp_get);
-  //m_listener.support(methods::GET, &handle_get);
-   // m_listener.support(methods::POST, std::bind(&AtaboxApi::handle_post, this, std::placeholders::_1));
-
+	url.
+	auto tmpTab = url.substr();
+	tmptab[1].erase(0, 2);
+	m_host = tmptab[1];
+	m_port = tmptab[2];
+	listenerSetSupports();
+}
+*/
+void  AtaboxApi::listenerSetSupports() {
+	m_listener.support(methods::GET, std::bind(&AtaboxApi::handle_get, this, std::placeholders::_1));
+	m_listener.support(methods::POST, std::bind(&AtaboxApi::handle_post, this, std::placeholders::_1));
+	m_listener.support(methods::PUT, std::bind(&AtaboxApi::handle_put, this, std::placeholders::_1));
 
 }
-
 AtaboxApi::~AtaboxApi() {
 	// TODO Auto-generated destructor stub
+	m_listener.close();
 }
 
 
@@ -71,23 +74,25 @@ pplx::task<void> AtaboxApi::open()
 
 pplx::task<void> AtaboxApi::close()
 {
-    //return m_listener.close().then(std::bind(&handle_error, std::placeholders::_1));
+    return m_listener.close();
 }
 
-// Handler to process HTTP::GET requests.
-// Replies to the request with data.
-void AtaboxApi::handle_get(http_request request)
-{
+void AtaboxApi::commonHandler(http_request request) {
+
     auto path = request.relative_uri().path();
-   auto content_data = m_router.find(path);
-    if (content_data == m_router.end())
+   auto handle_fun = m_router.find(path);
+    if (handle_fun == m_router.end())
     {
         request.reply(status_codes::NotFound, U("Path not found"));
         return;
     }
-
-    //auto tmp_fun = m_router[content_data];
-    //tmp_fun(request);
+    (handle_fun->second)(request);
+}
+// Handler to process HTTP::GET requests.
+// Replies to the request with data.
+void AtaboxApi::handle_get(http_request request)
+{
+	commonHandler(request);
 }
 
 // Respond to HTTP::POST messages
@@ -95,15 +100,11 @@ void AtaboxApi::handle_get(http_request request)
 // Aggregate location data from different services and reply to the POST request.
 void AtaboxApi::handle_post(http_request request)
 {
-    auto path = request.relative_uri().path();
-    auto content_data = m_router.find(path);
-    if (content_data == m_router.end())
-    {
-        request.reply(status_codes::NotFound, U("Path not found"));
-        return;
-    }
+	commonHandler(request);
+}
 
-   // auto apiRequest = std::get<0>(content_data->second);
-   // m_router[apiRequest](request);*/
+void AtaboxApi::handle_put(http_request request)
+{
+	commonHandler(request);
 }
 

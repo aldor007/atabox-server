@@ -5,14 +5,36 @@
  *      Author: mj
  */
 #include <string>
-#include "dataproviders/RocksdbProvider.h"
 #include <map>
 #include <iostream>
 #include <random>
 #include <iostream>
 #include <thread>
 
+#include "dataproviders/RocksdbProvider.h"
+#include "api/AtaboxApi.h"
+using namespace web::http;
+
 static const int num_threads = 3;
+//TODO move somewhere
+
+void handle_add(web::http::http_request request) {
+
+
+       request.reply(status_codes::Forbidden, U("Not implemented yet"));
+
+}
+
+void handle_execute(web::http::http_request request) {
+
+  request.reply(status_codes::Forbidden, U("Not implemented yet"));
+
+}
+
+void handle_list(web::http::http_request request) {
+  request.reply(status_codes::Forbidden, U("Not implemented yet"));
+
+}
 
 
 void call_from_thread(int tid) {
@@ -32,12 +54,17 @@ int main() {
         t[i].join();
     }
 
-    RocksdbProvider<std::string, std::string> db("test.db");
-    std::string tmp = db.get("test");
-    auto mapa = db.getAllKV();
-    for(std::map<std::string, std::string>::iterator it = mapa.begin(); it != mapa.end(); it++)
-        std::cout<<"key "<<it->first<< " value "<<mapa[it->first]<<'\n';
-    std::cout<<tmp<<std::endl;
+   AtaboxApi mainApi("127.0.0.1", "8111");
+    mainApi.addMethod("add", handle_add);
+    mainApi.addMethod("execute", handle_execute);
+    mainApi.addMethod("list", handle_list);
+    mainApi.open().wait();
+    std::string line;
+       std::getline(std::cin, line);
+     mainApi.close().wait();
+
+
+
     return 0;
 }
 

@@ -33,5 +33,4 @@ src/utils \
 src/recognition \
 src/dataproviders \
 src/api \
-. \
 
