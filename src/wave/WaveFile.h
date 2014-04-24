@@ -35,7 +35,7 @@ public:
 	virtual double getSample(unsigned int i);
 	virtual unsigned int getNumberOfSamples();
 	void loadFromFile(char* filename);
-	virtual double operator[](unsigned int i);
+	virtual double& operator[](unsigned int i);
 	virtual uint32_t getMaxOfRange();
 protected:
 	WaveFile();

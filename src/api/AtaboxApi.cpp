@@ -80,9 +80,13 @@ pplx::task<void> AtaboxApi::close()
 void AtaboxApi::commonHandler(http_request request) {
 
     auto path = request.relative_uri().path();
-   auto handle_fun = m_router.find(path);
+    auto paths = uri::split_path(uri::decode(request.relative_uri().path()));
+
+    auto handle_fun = m_router.find(paths[0]);
+    BOOST_LOG_TRIVIAL(debug) <<"Path "<<path<<" "<<paths[0];//<<" q "<<queryItr->second;
     if (handle_fun == m_router.end())
     {
+    	BOOST_LOG_TRIVIAL(debug) <<"Path "<<path<<" "<<paths[0];//<<" q "<<queryItr->second;
         request.reply(status_codes::NotFound, U("Path not found"));
         return;
     }
@@ -92,6 +96,7 @@ void AtaboxApi::commonHandler(http_request request) {
 // Replies to the request with data.
 void AtaboxApi::handle_get(http_request request)
 {
+    BOOST_LOG_TRIVIAL(debug) <<" Handle GET method";
 	commonHandler(request);
 }
 
@@ -100,6 +105,7 @@ void AtaboxApi::handle_get(http_request request)
 // Aggregate location data from different services and reply to the POST request.
 void AtaboxApi::handle_post(http_request request)
 {
+    BOOST_LOG_TRIVIAL(debug) <<" Handle POST method";
 	commonHandler(request);
 }
 

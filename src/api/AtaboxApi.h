@@ -11,6 +11,9 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+
+#include <boost/log/trivial.hpp>
+
 #include "cpprest/json.h"
 #include "cpprest/http_listener.h"
 #include "cpprest/uri.h"
