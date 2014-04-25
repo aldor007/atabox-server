@@ -42,13 +42,14 @@ void handle_add(web::http::http_request request) {
     response["path"] = json::value::string(path);
 
     concurrency::streams::istream body = request.body();
-    BOOST_LOG_TRIVIAL(debug) << "Body "<<body.read().get();
+    BOOST_LOG_TRIVIAL(debug) << "Body "<<body;
     concurrency::streams::streambuf<uint8_t> buffer;
-    Concurrency::streams::container_buffer<std::string> inStringBuffer;
-    body.read(inStringBuffer,55).then([inStringBuffer](size_t bytesRead) {
-    	BOOST_LOG_TRIVIAL(debug)<<"to string "<<inStringBuffer;
-    	std::string &wave = inStringBuffer.collection();
-    	BOOST_LOG_TRIVIAL(debug)<<"file "<<wave;
+    Concurrency::streams::container_buffer<std::vector<uint8_t>> inStringBuffer;
+    utility::size64_t content_lenght = request.headers().content_length();
+    BOOST_LOG_TRIVIAL(debug)<<"Content lenght of request "<<content_lenght;
+    body.read(inStringBuffer, content_lenght).then([inStringBuffer](size_t bytesRead) {
+    	std::vector<uint8_t> &wave = inStringBuffer.collection();
+    	BOOST_LOG_TRIVIAL(debug)<<"file "<<wave[0];
     }).wait();
 	request.reply(status_codes::OK, response);
 
