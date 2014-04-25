@@ -3,7 +3,6 @@
 #include <cmath>
 #include <iostream>
 #include <cstdint>
-#include "utils/DanielsonLanczos.h"
 #include <array>
 
 unsigned int bitReverse(unsigned int x, int log2n)

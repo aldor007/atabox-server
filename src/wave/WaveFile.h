@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <cstring>
+#include <vector>
 /**
  * Class describes wave file. It supports only mono files.
  */
@@ -18,6 +19,7 @@ class WaveFile {
 public:
 
 	WaveFile(char * filename);
+	WaveFile(std::vector<uint8_t> &data);
 	virtual ~WaveFile();
 	virtual char * getChunkID();
 	virtual unsigned int getChunkSize();
@@ -35,6 +37,7 @@ public:
 	virtual double getSample(unsigned int i);
 	virtual unsigned int getNumberOfSamples();
 	void loadFromFile(char* filename);
+	void loadFromVector(std::vector<uint8_t> &data);
 	virtual double	 operator[](unsigned int i);
 	virtual uint32_t getMaxOfRange();
 protected:

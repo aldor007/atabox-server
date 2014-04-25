@@ -4,7 +4,7 @@
  *  Created on: 19 kwi 2014
  *      Author: aldor
  */
-
+/*
 #include "DanielsonLanczos.h"
 #include <cmath>
 #include <complex>
@@ -93,4 +93,4 @@ void DanielsonLanczos::apply(std::complex<double>* data) {
        w = w + w * wp;
      }
 }
-
+*/

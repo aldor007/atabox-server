@@ -57,7 +57,16 @@ void WaveFile::loadFromFile(char* filename) {
 WaveFile::WaveFile(char * filename) {
 	loadFromFile(filename);
 }
+WaveFile::WaveFile(std::vector<uint8_t> &data) {
+	loadFromVector(data);
+}
 
+void WaveFile::loadFromVector(std::vector<uint8_t> &data) {
+//TODO:
+	//uint32_t currenIndex = 0;
+	//data.data()
+
+}
 void WaveFile::freeDataIfNotNull() {
 	if (data != nullptr) {
 		delete data;

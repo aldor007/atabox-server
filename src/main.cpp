@@ -16,7 +16,9 @@
 #include <boost/log/trivial.hpp>
 
 #include "cpprest/containerstream.h"
+#include "cpprest/rawptrstream.h"
 
+#include "dataproviders/BaseDataProvider.h"
 #include "dataproviders/RocksdbProvider.h"
 #include "api/AtaboxApi.h"
 using namespace web;
@@ -34,6 +36,7 @@ enum severity_level
     error,
     critical
 };
+BaseDataProvider<std::string, std::string> * mainDB;
 void handle_add(web::http::http_request request) {
 
 	json::value response;
@@ -41,16 +44,46 @@ void handle_add(web::http::http_request request) {
 
     response["path"] = json::value::string(path);
 
+    auto paths = uri::split_path(uri::decode(request.relative_uri().path()));
+    if (paths.size() != 3) {
+    	BOOST_LOG_TRIVIAL(error)<<"Bad request";
+    	response["error"] = json::value::string("Bad request. Read doc for info");
+    	response["status"] = json::value::string("error");
+    	request.reply(status_codes::BadRequest, response);
+    	return;
+    }
+    std::string commandName = paths[1];
+    std::string commandString = paths[2];
+    BOOST_LOG_TRIVIAL(debug)<<"Add command name "<<commandName<<" command string: "<<commandString;
     concurrency::streams::istream body = request.body();
-    BOOST_LOG_TRIVIAL(debug) << "Body "<<body;
-    concurrency::streams::streambuf<uint8_t> buffer;
     Concurrency::streams::container_buffer<std::vector<uint8_t>> inStringBuffer;
     utility::size64_t content_lenght = request.headers().content_length();
     BOOST_LOG_TRIVIAL(debug)<<"Content lenght of request "<<content_lenght;
     body.read(inStringBuffer, content_lenght).then([inStringBuffer](size_t bytesRead) {
-    	std::vector<uint8_t> &wave = inStringBuffer.collection();
-    	BOOST_LOG_TRIVIAL(debug)<<"file "<<wave[0];
+    	std::vector<uint8_t> &waveData = inStringBuffer.collection();
+    	BOOST_LOG_TRIVIAL(debug)<<"file "<<bytesRead;
+    /* WaveFile wave(&waveData);
+     * WavePreprocesor processWave;
+     * processWave.run(&wave);
+     * WaveFileAnalizator analyze;
+     * WaveProperries waveProperties = analyze.getAllProperties();
+     * waveProperties.name = name;
+     * mainDB->put(waveProperties.toString(), commandString);
+     */
+
     }).wait();
+
+    /* not Working
+     utility::size64_t content_lenght = request.headers().content_length();
+    BOOST_LOG_TRIVIAL(debug)<<"Content lenght of request "<<content_lenght;
+    uint8_t *rawData = new uint8_t[content_lenght];
+    Concurrency::streams::rawptr_buffer<uint8_t> rawBuffer(rawData, content_lenght, std::ios::in);
+
+    body.read(rawBuffer, content_lenght).then([rawBuffer](size_t bytesRead) {
+    	//std::vector<uint8_t> &wave = inStringBuffer.collection();
+    	//BOOST_LOG_TRIVIAL(debug)<<"file "<<rawData[0];
+    }).wait();
+*/
 	request.reply(status_codes::OK, response);
 
 }
@@ -115,6 +148,7 @@ int main() {
         t[i].join();
     }
 
+    mainDB  = new RocksdbProvider<std::string, std::string>("atabox.db"); //FIXME: database name read from config file
    AtaboxApi mainApi("127.0.0.1", "8111");
     mainApi.addMethod("add", handle_add);
     mainApi.addMethod("execute", handle_execute);

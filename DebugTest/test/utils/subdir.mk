@@ -4,15 +4,12 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../test/utils/DanielsonLanczosTest.cpp \
 ../test/utils/FastFourierTransformTest.cpp 
 
 OBJS += \
-./test/utils/DanielsonLanczosTest.o \
 ./test/utils/FastFourierTransformTest.o 
 
 CPP_DEPS += \
-./test/utils/DanielsonLanczosTest.d \
 ./test/utils/FastFourierTransformTest.d 
 
 

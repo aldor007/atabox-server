@@ -21,7 +21,7 @@ class RocksdbProvider: public BaseDataProvider<KeyClass, ValueClass> {
             RocksdbProvider(std::string databasename);
             virtual ValueClass get(KeyClass key);
             virtual std::map<KeyClass, ValueClass> getAllKV();
-            virtual bool set(KeyClass key, ValueClass value);
+            virtual bool put(KeyClass key, ValueClass value);
             virtual ~RocksdbProvider();
 /*            static RocksdbProvider& getInstance() const {
             	return this->instance;
@@ -60,7 +60,7 @@ RocksdbProvider<Key, Value>::RocksdbProvider(std::string filename) {
 }
 
 template <class Key, class Value>
-bool RocksdbProvider<Key, Value>::set(Key key, Value value) {
+bool RocksdbProvider<Key, Value>::put(Key key, Value value) {
 	rocksdb::Status status;
 	status = this->db->Put(rocksdb::WriteOptions(), key, value);
 	return status.ok();

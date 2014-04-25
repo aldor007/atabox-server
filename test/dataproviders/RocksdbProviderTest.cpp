@@ -18,7 +18,7 @@ TEST_F(RocksdbProviderTest, writeDataCanItRead) {
 
 	RocksdbProvider<std::string, std::string> db(test);
 
-	db.set("test", "value");
+	db.put("test", "value");
 	std::string tmp = db.get("test");
 	ASSERT_TRUE(tmp == "value");
 
@@ -29,7 +29,7 @@ TEST_F(RocksdbProviderTest, getListOfKeys) {
 
 	RocksdbProvider<std::string, std::string> db(test);
 
-	db.set("test2", "value");
+	db.put("test2", "value");
 	auto mapdata = db.getAllKV();
 
 	ASSERT_TRUE(mapdata.size() >0);

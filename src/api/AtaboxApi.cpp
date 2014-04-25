@@ -88,7 +88,9 @@ void AtaboxApi::commonHandler(http_request request) {
     {
     	BOOST_LOG_TRIVIAL(debug) <<"Path "<<path<<" "<<paths[0];//<<" q "<<queryItr->second;
         request.reply(status_codes::NotFound, U("Path not found"));
+
         return;
+
     }
     (handle_fun->second)(request);
 }
