@@ -8,9 +8,12 @@
 #ifndef WAVEPROPERTIES_H_
 #define WAVEPROPERTIES_H_
 
+#include "cpprest/json.h"
+using web;
 class WaveProperties {
 public:
 	WaveProperties();
+	WaveProperties(std::string data);
 	~WaveProperties();
 	double amplitude = 0;
 	int zeroCrossings = 0;
@@ -23,9 +26,9 @@ public:
 	double percentageAbove30percentage = 0.0;
 	double percentageAbove20percentage = 0.0;
 	double percentageAbove10percentage = 0.0;
-	double period = 0;
-	double frequency = 0;
-
+	std::string name = "commandName";
+	std::string toString();
+	json::value toJSON();
 };
 
 #endif /* WAVEPROPERTIES_H_ */

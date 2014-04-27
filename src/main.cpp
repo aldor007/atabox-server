@@ -62,14 +62,14 @@ void handle_add(web::http::http_request request) {
     body.read(inStringBuffer, content_lenght).then([inStringBuffer](size_t bytesRead) {
     	std::vector<uint8_t> &waveData = inStringBuffer.collection();
     	BOOST_LOG_TRIVIAL(debug)<<"file "<<bytesRead;
-    /* WaveFile wave(&waveData);
-     * WavePreprocesor processWave;
-     * processWave.run(&wave);
-     * WaveFileAnalizator analyze;
-     * WaveProperries waveProperties = analyze.getAllProperties();
-     * waveProperties.name = name;
-     * mainDB->put(waveProperties.toString(), commandString);
-     */
+    WaveFile wave(&waveData);
+  //  WavePreprocesor processWave;
+    //processWave.run(&wave);
+    WaveFileAnalizator analyze;
+    WaveProperries waveProperties = analyze.getAllProperties();
+    waveProperties.name = name;
+    mainDB->put(waveProperties.toString(), commandString);
+
 
     }).wait();
 

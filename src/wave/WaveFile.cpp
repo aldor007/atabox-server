@@ -63,8 +63,28 @@ WaveFile::WaveFile(std::vector<uint8_t> &data) {
 
 void WaveFile::loadFromVector(std::vector<uint8_t> &data) {
 //TODO:
-	//uint32_t currenIndex = 0;
-	//data.data()
+	uint32_t currenIndex = 34;
+	uint8_t tmpData = data.data();
+	std::memcpy(&bitsPerSample, data[34], 2 );
+	currenIndex += 2;
+	bytePerSample = bitsPerSample / 8;
+	std::memcpy(&subchunk2Id, data[currenIndex], 4 );
+	currenIndex += 2;
+	while (strncmp(subchunk2Id, "data", 4) != 0){
+		//fseek(file, -3, SEEK_CUR);
+		currenIndex -= 3;
+		std::memcpy(&subchunk2Id, data[currenIndex], 4);
+		currenIndex += 4;
+		//fread(&subchunk2Id, 1, 4, file);
+	}
+	freeDataIfNotNull();
+	fread(&subchunk2Size,data[currenIndex], 4);
+	currenIndex += 4;
+
+	data = new char[subchunk2Size];
+	numberOfChanels = 1; //FIXME: now only 1 channel support
+	numberOfSamples = subchunk2Size / (bytePerSample * numberOfChanels);
+	std::memcpy(&data, data[currenIndex], subchunk2Size);
 
 }
 void WaveFile::freeDataIfNotNull() {
