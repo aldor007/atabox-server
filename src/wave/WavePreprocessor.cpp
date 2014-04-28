@@ -17,19 +17,29 @@ WavePreprocessor::~WavePreprocessor() {
 	// TODO Auto-generated destructor stub
 }
 
-void WavePreprocessor::deleteSielienceFromBeginningAndEnd(WaveFile waveFile) {
+void WavePreprocessor::deleteSielienceFromBeginningAndEnd(WaveFile& waveFile) {
 
 	WaveFileAnalizator analizator;
-	int amplitude = analizator.findAmplitude(waveFile);
-	int percentSilence = 5/100;
-	int sampleCounter = 0;
-		for (unsigned int i = 0; i < waveFile.getNumberOfSamples(); ++i) {
+	double amplitude = analizator.findAmplitude(waveFile);
+	double percentSilence = 5.0/100;
+	uint32_t sampleCounter = 0;
+		for (uint32_t i = 0; i < waveFile.getNumberOfSamples(); ++i) {
 			double sample = waveFile.getSample(i);
 			if (abs(sample) > amplitude*percentSilence) {
 				++sampleCounter;
 			}
 		}
 
+	double * dataFixed = new double [sampleCounter];
+
+	sampleCounter = 0;
+	for (uint32_t i = 0; i < waveFile.getNumberOfSamples(); ++i) {
+				double sample = waveFile.getSample(i);
+				if (abs(sample) > amplitude*percentSilence) {
+					dataFixed[++sampleCounter] = waveFile.getSample(i);
+				}
+			}
+	waveFile.setSampleData(sampleCounter+1,dataFixed);
 }
 
 void WavePreprocessor::normalize(WaveFile waveFile) {

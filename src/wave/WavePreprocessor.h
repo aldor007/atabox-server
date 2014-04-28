@@ -12,7 +12,7 @@ class WavePreprocessor {
 public:
 	WavePreprocessor();
 	~WavePreprocessor();
-	void deleteSielienceFromBeginningAndEnd(WaveFile waveFile);
+	void deleteSielienceFromBeginningAndEnd(WaveFile& waveFile);
 	void normalize(WaveFile waveFile);
 };
 

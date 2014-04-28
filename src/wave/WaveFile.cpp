@@ -209,3 +209,10 @@ void WaveFile::skipExtraParams(FILE* file) {
 double WaveFile::operator[](unsigned int i) {
 	return this->getSample(i);
 }
+void WaveFile::setSampleData(uint32_t numberOfSamples,double * data) {
+	if (this->normalizedData != nullptr) {
+			delete this->normalizedData;
+		}
+	this->normalizedData = data;
+	this->numberOfSamples = numberOfSamples;
+}
