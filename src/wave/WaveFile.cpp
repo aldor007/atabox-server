@@ -6,8 +6,7 @@
  */
 
 #include "WaveFile.h"
-
-
+#include <fstream>
 void WaveFile::readRIFFChunkDescriptor(FILE* file) {
 	fread(chunkID, 1, 4, file);
 	fread(&chunkSize, 1, 4, file);
@@ -58,25 +57,38 @@ WaveFile::WaveFile(char * filename) {
 }
 
 WaveFile::WaveFile(std::vector<uint8_t> &data) {
+	std::cout<<"wave size "<<data.size()<<std::endl;
 	loadFromVector(data);
+
 }
 
 void WaveFile::loadFromVector(std::vector<uint8_t> &vdata) {
 //TODO:
 	uint32_t currenIndex = 34;
-	uint8_t * tmpData = vdata.data();
-	std::memcpy(&bitsPerSample, &tmpData[34], 2 );
+	uint8_t * tmpData = new uint8_t[vdata.size()];
+		tmpData = vdata.data();
+	std::memcpy(&bitsPerSample, tmpData + currenIndex, 2 );
+
 	currenIndex += 2;
+
 	bytePerSample = bitsPerSample / 8;
-	std::memcpy(&subchunk2Id, &tmpData[currenIndex], 4 );
-	currenIndex += 2;
-	while (strncmp(subchunk2Id, "data", 4) != 0){
+	std::cout<<"test byteps "<<bytePerSample<< " "<<bitsPerSample<< "  "<<( bitsPerSample>>8 | bitsPerSample <<8)<<std::endl;
+
+	std::memcpy(subchunk2Id,
+			tmpData + currenIndex, 4 );
+	currenIndex += 4;
+	std::ofstream test("/tmp/wave.wav", std::ios::out | std::ios::binary);
+	test.write(reinterpret_cast<const char*>(tmpData), vdata.size());
+	test.close();
+	/*while (strncmp(subchunk2Id, "data", 4) != 0){
 		//fseek(file, -3, SEEK_CUR);
+		std::cout<<"subczunk " << subchunk2Id[0]<<std::endl;
 		currenIndex -= 3;
 		std::memcpy(&subchunk2Id, &tmpData[currenIndex], 4);
 		currenIndex += 4;
 		//fread(&subchunk2Id, 1, 4, file);
-	}
+	}*/
+	/*
 	freeDataIfNotNull();
 	std::memcpy(&subchunk2Size, &tmpData[currenIndex], 4);
 	currenIndex += 4;
@@ -85,7 +97,7 @@ void WaveFile::loadFromVector(std::vector<uint8_t> &vdata) {
 	numberOfChanels = 1; //FIXME: now only 1 channel support
 	numberOfSamples = subchunk2Size / (bytePerSample * numberOfChanels);
 	std::memcpy(&data, &tmpData[currenIndex], subchunk2Size);
-
+*/
 }
 
 void WaveFile::freeDataIfNotNull() {

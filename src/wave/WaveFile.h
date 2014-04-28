@@ -57,7 +57,7 @@ protected:
 	unsigned int sampleRate = 0;
 	unsigned int byteRate = 0;
 	unsigned int blockAlign = 0;
-	unsigned int bitsPerSample = 0;
+	uint16_t bitsPerSample = 0;
 	unsigned int bytePerSample = 0;
 	//subchunk 2
 	char subchunk2Id[4] = { 0 };
