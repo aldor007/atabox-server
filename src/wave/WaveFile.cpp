@@ -7,7 +7,6 @@
 
 #include "WaveFile.h"
 
-using namespace std;
 
 void WaveFile::readRIFFChunkDescriptor(FILE* file) {
 	fread(chunkID, 1, 4, file);
@@ -41,7 +40,7 @@ WaveFile::WaveFile() {
 void WaveFile::loadFromFile(char* filename) {
 	FILE* file = fopen(filename, "r");
 	if (file == NULL) {
-		bad_alloc exception;
+		std::bad_alloc exception;
 		throw exception;
 	}
 	readRIFFChunkDescriptor(file);
@@ -57,36 +56,38 @@ void WaveFile::loadFromFile(char* filename) {
 WaveFile::WaveFile(char * filename) {
 	loadFromFile(filename);
 }
+
 WaveFile::WaveFile(std::vector<uint8_t> &data) {
 	loadFromVector(data);
 }
 
-void WaveFile::loadFromVector(std::vector<uint8_t> &data) {
+void WaveFile::loadFromVector(std::vector<uint8_t> &vdata) {
 //TODO:
 	uint32_t currenIndex = 34;
-	uint8_t tmpData = data.data();
-	std::memcpy(&bitsPerSample, data[34], 2 );
+	uint8_t * tmpData = vdata.data();
+	std::memcpy(&bitsPerSample, &tmpData[34], 2 );
 	currenIndex += 2;
 	bytePerSample = bitsPerSample / 8;
-	std::memcpy(&subchunk2Id, data[currenIndex], 4 );
+	std::memcpy(&subchunk2Id, &tmpData[currenIndex], 4 );
 	currenIndex += 2;
 	while (strncmp(subchunk2Id, "data", 4) != 0){
 		//fseek(file, -3, SEEK_CUR);
 		currenIndex -= 3;
-		std::memcpy(&subchunk2Id, data[currenIndex], 4);
+		std::memcpy(&subchunk2Id, &tmpData[currenIndex], 4);
 		currenIndex += 4;
 		//fread(&subchunk2Id, 1, 4, file);
 	}
 	freeDataIfNotNull();
-	fread(&subchunk2Size,data[currenIndex], 4);
+	std::memcpy(&subchunk2Size, &tmpData[currenIndex], 4);
 	currenIndex += 4;
 
 	data = new char[subchunk2Size];
 	numberOfChanels = 1; //FIXME: now only 1 channel support
 	numberOfSamples = subchunk2Size / (bytePerSample * numberOfChanels);
-	std::memcpy(&data, data[currenIndex], subchunk2Size);
+	std::memcpy(&data, &tmpData[currenIndex], subchunk2Size);
 
 }
+
 void WaveFile::freeDataIfNotNull() {
 	if (data != nullptr) {
 		delete data;

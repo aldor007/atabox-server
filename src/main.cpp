@@ -21,6 +21,11 @@
 #include "dataproviders/BaseDataProvider.h"
 #include "dataproviders/RocksdbProvider.h"
 #include "api/AtaboxApi.h"
+#include "wave/WaveFileAnalizator.h"
+#include "wave/WaveProperties.h"
+#include "wave/WaveFile.h"
+#include "wave/WavePreprocessor.h"
+
 using namespace web;
 using namespace web::http;
 using namespace web::http::client;
@@ -59,17 +64,17 @@ void handle_add(web::http::http_request request) {
     Concurrency::streams::container_buffer<std::vector<uint8_t>> inStringBuffer;
     utility::size64_t content_lenght = request.headers().content_length();
     BOOST_LOG_TRIVIAL(debug)<<"Content lenght of request "<<content_lenght;
-    body.read(inStringBuffer, content_lenght).then([inStringBuffer](size_t bytesRead) {
+    body.read(inStringBuffer, content_lenght).then([inStringBuffer, &commandString, &commandName](size_t bytesRead) {
     	std::vector<uint8_t> &waveData = inStringBuffer.collection();
     	BOOST_LOG_TRIVIAL(debug)<<"file "<<bytesRead;
-    WaveFile wave(&waveData);
-  //  WavePreprocesor processWave;
-    //processWave.run(&wave);
-    WaveFileAnalizator analyze;
-    WaveProperries waveProperties = analyze.getAllProperties();
-    waveProperties.name = name;
-    mainDB->put(waveProperties.toString(), commandString);
-
+            WaveFile wave(waveData);
+           //WavePreprocesor processWave;
+            //processWave.process(&wave);
+         /*   WaveFileAnalizator analizator;
+            WaveProperties waveProperties = analizator.getAllProperties(wave);
+            waveProperties.name = commandName;
+            mainDB->put(waveProperties.toString(), commandString);
+*/
 
     }).wait();
 

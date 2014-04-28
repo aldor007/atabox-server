@@ -9,7 +9,7 @@
 #define WAVEPROPERTIES_H_
 
 #include "cpprest/json.h"
-using web;
+using namespace web;
 class WaveProperties {
 public:
 	WaveProperties();
