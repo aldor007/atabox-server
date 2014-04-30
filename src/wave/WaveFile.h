@@ -34,18 +34,14 @@ public:
 	virtual unsigned int getBitsPerSample();
 	virtual char * getSubchunk2Id();
 	virtual unsigned int getSubchunk2Size();
-	virtual double getSample(unsigned int i);
 	virtual unsigned int getNumberOfSamples();
 	void loadFromFile(char* filename);
 	void loadFromVector(std::vector<uint8_t> &data);
 	virtual double	 operator[](unsigned int i);
-	virtual uint32_t getMaxOfRange();
+	virtual int32_t getRawSample(unsigned int i);
 protected:
 	WaveFile();
 	//chunk descriptor
-	virtual int32_t getRawSample(unsigned int i);
-	virtual inline int8_t get8BitRawSample(int i);
-	virtual inline int32_t getHighBitRawSample(int i);
 	char chunkID[4] = { 0 };
 	unsigned int chunkSize = 0;
 	char format[4] = { 0 };
@@ -65,14 +61,11 @@ protected:
 	unsigned int numberOfSamples = 0;
 
 	char * data = nullptr;
-	double * normalizedData = nullptr;
 
-	uint32_t maxOfRange = 0;
 
 	void readRIFFChunkDescriptor(FILE* file);
 	void readFmtSubchunk(FILE* file);
 	void ReadDataSubchunk(FILE* file);
-	void normalizeData();
 
 
 	void validateRIFFChunkDescriptor();

@@ -97,10 +97,10 @@ TEST_F(WaveFileTest, readsSubchunk2SizeCorrectly) {
 
 TEST_F(WaveFileTest, readsDataCorrectlyFor8Bits) {
 	WaveFile waveFile("test/wave/8bitSilence.wav");
-	int firstSample = waveFile.getSample(0);
-	for (int i = 0; i < waveFile.getNumberOfSamples(); ++i) {
-		int sample = waveFile.getSample(i);
-		ASSERT_TRUE(sample == 0 || sample == -1);
+	int firstSample = waveFile.getRawSample(0);
+	for (unsigned int i = 0; i < waveFile.getNumberOfSamples(); ++i) {
+		int sample = waveFile.getRawSample(i);
+		ASSERT_TRUE(sample == 127 || sample == 128);
 	}
 }
 
@@ -108,7 +108,7 @@ TEST_F(WaveFileTest, readsDataCorrectlyForMoreThan8Bits) {
 	WaveFile waveFile("test/wave/32bitSilence.wav");
 	for (int i = 0; i < waveFile.getNumberOfSamples(); ++i) {
 
-		ASSERT_EQ(waveFile.getSample(i), 0);
+		ASSERT_EQ(waveFile.getRawSample(i), 0);
 	}
 }
 
@@ -117,23 +117,19 @@ TEST_F(WaveFileTest, calculateNumberOfSamplesCorrectly) {
 	unsigned int numberOfSamples = waveFile.getNumberOfSamples();
 	ASSERT_EQ(numberOfSamples, 79334);
 }
-TEST_F(WaveFileTest, calculateMaxRangeCorrectly) {
-	WaveFile waveFile("test/wave/dziekuje8bit.wav");
-	uint32_t range = waveFile.getMaxOfRange();
-	ASSERT_EQ(range, 127);
-}
 
 TEST_F(WaveFileTest, lastSampleMachesEndOfFile) {
 	WaveFile waveFile("test/wave/8bitSilenceWithTenAtTheEnd.wav");
-	int indexOfLastSample = waveFile.getNumberOfSamples()-1;
-	ASSERT_EQ(waveFile.getSample(indexOfLastSample), 10./(waveFile.getMaxOfRange()));
+	int indexOfLastSample = waveFile.getNumberOfSamples() - 1;
+	ASSERT_EQ(waveFile.getRawSample(indexOfLastSample), 138);
 
 }
 TEST_F(WaveFileTest, canHandleCommentsInHeader) {
+	// given
 	WaveFile waveFile("test/wave/dziekuje32bit.wav");
-	double sample;
-	sample = waveFile.getSample(1);
-	double result = 446880.0/waveFile.getMaxOfRange();
-	ASSERT_EQ(result, sample);
+	// when
+	int sample = waveFile.getRawSample(1);
+	// then
+	ASSERT_EQ(446880, sample);
 
 }
