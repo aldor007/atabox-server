@@ -8,11 +8,13 @@
 #ifndef WAVEPREPROCESSOR_H_
 #define WAVEPREPROCESSOR_H_
 #include "WaveFile.h"
+#include "WaveFileAnalizator.h"
+
 class WavePreprocessor {
 public:
 	WavePreprocessor();
 	~WavePreprocessor();
-	void deleteSielienceFromBeginningAndEnd(WaveFile& waveFile);
+	void deleteSielienceFromBeginningAndEnd(NormalizedSamplesList& sampleList);
 	void normalize(WaveFile waveFile);
 };
 

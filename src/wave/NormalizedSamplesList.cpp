@@ -60,3 +60,10 @@ uint32_t NormalizedSamplesList::getNumberOfSamples() {
 NormalizedSamplesList::NormalizedSamplesList() {
 
 }
+void NormalizedSamplesList::setSampleListData(uint32_t numberOfSamples,double * data) {
+	if (this->samples != nullptr) {
+			delete this->samples;
+		}
+	this->samples = data;
+	this->numberOfSamples = numberOfSamples;
+}

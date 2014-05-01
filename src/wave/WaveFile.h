@@ -39,7 +39,6 @@ public:
 	void loadFromVector(std::vector<uint8_t> &data);
 	virtual double	 operator[](unsigned int i);
 	virtual int32_t getRawSample(unsigned int i);
-	void setSampleData(uint32_t numberOfSamples,double * data);
 protected:
 	WaveFile();
 	//chunk descriptor

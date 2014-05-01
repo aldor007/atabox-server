@@ -17,14 +17,14 @@ WavePreprocessor::~WavePreprocessor() {
 	// TODO Auto-generated destructor stub
 }
 
-void WavePreprocessor::deleteSielienceFromBeginningAndEnd(WaveFile& waveFile) {
+void WavePreprocessor::deleteSielienceFromBeginningAndEnd(NormalizedSamplesList & sampleList) {
 
 	WaveFileAnalizator analizator;
-	double amplitude = analizator.findAmplitude(waveFile);
+	double amplitude = analizator.findAmplitude(sampleList);
 	double percentSilence = 5.0/100;
 	uint32_t sampleCounter = 0;
-		for (uint32_t i = 0; i < waveFile.getNumberOfSamples(); ++i) {
-			double sample = waveFile.getSample(i);
+		for (uint32_t i = 0; i < sampleList.getNumberOfSamples(); ++i) {
+			double sample = sampleList.getSample(i);
 			if (abs(sample) > amplitude*percentSilence) {
 				++sampleCounter;
 			}
@@ -33,13 +33,13 @@ void WavePreprocessor::deleteSielienceFromBeginningAndEnd(WaveFile& waveFile) {
 	double * dataFixed = new double [sampleCounter];
 
 	sampleCounter = 0;
-	for (uint32_t i = 0; i < waveFile.getNumberOfSamples(); ++i) {
-				double sample = waveFile.getSample(i);
+	for (uint32_t i = 0; i < sampleList.getNumberOfSamples(); ++i) {
+				double sample = sampleList.getSample(i);
 				if (abs(sample) > amplitude*percentSilence) {
-					dataFixed[++sampleCounter] = waveFile.getSample(i);
+					dataFixed[++sampleCounter] = sampleList.getSample(i);
 				}
 			}
-	waveFile.setSampleData(sampleCounter+1,dataFixed);
+	sampleList.setSampleListData(sampleCounter+1,dataFixed);
 }
 
 void WavePreprocessor::normalize(WaveFile waveFile) {
