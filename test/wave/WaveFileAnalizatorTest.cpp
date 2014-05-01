@@ -1,6 +1,6 @@
 #include "wave/WaveFileAnalizator.h"
-#include "wave/WaveFile.h"
-#include "../test/wave/WaveFileMock.h"
+#include "wave/NormalizedSamplesList.h"
+#include "../test/wave/NormalizedSampleListMock.h"
 #include "gtest/gtest.h"
 #include "gmock/gmock.h"
 
@@ -12,30 +12,30 @@ class WaveFileAnalizatorTest: public ::testing::Test {
 
 TEST_F(WaveFileAnalizatorTest, findsMaximumCorrectly) {
 	//given
-	WaveFileMock waveFile;
+	NormalizedSampleListMock waveFile;
 	ON_CALL(waveFile, getNumberOfSamples()).WillByDefault(Return(4));
-	ON_CALL(waveFile, getSample(0)).WillByDefault(Return(128));
-	ON_CALL(waveFile, getSample(1)).WillByDefault(Return(130));
-	ON_CALL(waveFile, getSample(2)).WillByDefault(Return(148));
-	ON_CALL(waveFile, getSample(3)).WillByDefault(Return(130));
+	ON_CALL(waveFile, getSample(0)).WillByDefault(Return(0.128));
+	ON_CALL(waveFile, getSample(1)).WillByDefault(Return(-0.5));
+	ON_CALL(waveFile, getSample(2)).WillByDefault(Return(0.16));
+	ON_CALL(waveFile, getSample(3)).WillByDefault(Return(0.130));
 
 	//when
 	WaveFileAnalizator analizator;
-	int amplitude = analizator.findAmplitude(waveFile);
+	double amplitude = analizator.findAmplitude(waveFile);
 
 	//then
-	ASSERT_EQ(amplitude, 148);
+	ASSERT_DOUBLE_EQ(amplitude, 0.5);
 }
 
 TEST_F(WaveFileAnalizatorTest, countsZeroCrossingsCorrectly) {
 	//given
-	WaveFileMock waveFile;
+	NormalizedSampleListMock waveFile;
 	ON_CALL(waveFile, getNumberOfSamples()).WillByDefault(Return(5));
-	ON_CALL(waveFile, getSample(0)).WillByDefault(Return(-12));
-	ON_CALL(waveFile, getSample(1)).WillByDefault(Return(-130));
-	ON_CALL(waveFile, getSample(2)).WillByDefault(Return(148));
-	ON_CALL(waveFile, getSample(3)).WillByDefault(Return(130));
-	ON_CALL(waveFile, getSample(4)).WillByDefault(Return(-1));
+	ON_CALL(waveFile, getSample(0)).WillByDefault(Return(-0.12));
+	ON_CALL(waveFile, getSample(1)).WillByDefault(Return(-0.130));
+	ON_CALL(waveFile, getSample(2)).WillByDefault(Return(0.148));
+	ON_CALL(waveFile, getSample(3)).WillByDefault(Return(0.130));
+	ON_CALL(waveFile, getSample(4)).WillByDefault(Return(-0.1));
 
 	//when
 	WaveFileAnalizator analizator;
@@ -47,14 +47,12 @@ TEST_F(WaveFileAnalizatorTest, countsZeroCrossingsCorrectly) {
 
 TEST_F(WaveFileAnalizatorTest, countsPercentageAboveCorrectly) {
 	//given
-	WaveFileMock waveFile;
-	ON_CALL(waveFile, getBitsPerSample()).WillByDefault(Return(8));
-	ON_CALL(waveFile, getMaxOfRange()).WillByDefault(Return(127));
+	NormalizedSampleListMock waveFile;
 	ON_CALL(waveFile, getNumberOfSamples()).WillByDefault(Return(5));
-	ON_CALL(waveFile, getSample(0)).WillByDefault(Return(-12));
-	ON_CALL(waveFile, getSample(1)).WillByDefault(Return(-130));
-	ON_CALL(waveFile, getSample(2)).WillByDefault(Return(148));
-	ON_CALL(waveFile, getSample(3)).WillByDefault(Return(130));
+	ON_CALL(waveFile, getSample(0)).WillByDefault(Return(-0.11));
+	ON_CALL(waveFile, getSample(1)).WillByDefault(Return(0.7));
+	ON_CALL(waveFile, getSample(2)).WillByDefault(Return(0.2));
+	ON_CALL(waveFile, getSample(3)).WillByDefault(Return(1));
 	ON_CALL(waveFile, getSample(4)).WillByDefault(Return(-1));
 
 	//when
@@ -67,14 +65,12 @@ TEST_F(WaveFileAnalizatorTest, countsPercentageAboveCorrectly) {
 
 TEST_F(WaveFileAnalizatorTest, countsPercentageBelowCorrectly) {
 	//given
-	WaveFileMock waveFile;
-	ON_CALL(waveFile, getBitsPerSample()).WillByDefault(Return(8));
-	ON_CALL(waveFile, getMaxOfRange()).WillByDefault(Return(127));
+	NormalizedSampleListMock waveFile;
 	ON_CALL(waveFile, getNumberOfSamples()).WillByDefault(Return(5));
-	ON_CALL(waveFile, getSample(0)).WillByDefault(Return(-12));
-	ON_CALL(waveFile, getSample(1)).WillByDefault(Return(-130));
-	ON_CALL(waveFile, getSample(2)).WillByDefault(Return(148));
-	ON_CALL(waveFile, getSample(3)).WillByDefault(Return(130));
+	ON_CALL(waveFile, getSample(0)).WillByDefault(Return(-0.11));
+	ON_CALL(waveFile, getSample(1)).WillByDefault(Return(0.7));
+	ON_CALL(waveFile, getSample(2)).WillByDefault(Return(0.2));
+	ON_CALL(waveFile, getSample(3)).WillByDefault(Return(1));
 	ON_CALL(waveFile, getSample(4)).WillByDefault(Return(-1));
 
 	//when
@@ -89,9 +85,10 @@ TEST_F(WaveFileAnalizatorTest, countsPercentageBelowCorrectly) {
 TEST_F(WaveFileAnalizatorTest, realFileHasPositiveNumberOfZeroCrossings) {
 	//given
 	WaveFile waveFile("test/wave/dziekuje32bit.wav");
+	NormalizedSamplesList samples(waveFile);
 	WaveFileAnalizator analizator;
 	//when
-	int crossings= analizator.countZeroCrossings(waveFile);
+	int crossings= analizator.countZeroCrossings(samples);
 	//then
 	ASSERT_GT(crossings, 0);
 }
