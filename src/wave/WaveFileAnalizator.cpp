@@ -39,7 +39,7 @@ int WaveFileAnalizator::countZeroCrossings(NormalizedSamplesList& samples) {
 	return result;
 }
 
-// FIXME write test for this function and uncomment
+// FIXME Issue #22 write test for this function and uncomment
 //double WaveFileAnalizator::findPeriod(NormalizedSamplesList& samples) {
 //
 //	int result = 0;

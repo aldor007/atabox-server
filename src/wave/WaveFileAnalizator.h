@@ -20,7 +20,7 @@ public:
 	double percentageAbove(NormalizedSamplesList& samples, double percentOfMax);
 	double percetnageBelow(NormalizedSamplesList& samples, double percentOfMax);
 	WaveProperties getAllProperties(NormalizedSamplesList& samples);
-	// FIXME write test for this function and uncomment
+	// FIXME Issue #22 write test for this function and uncomment
 	//	double findPeriod(NormalizedSamplesList& samples);
 
 };
