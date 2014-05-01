@@ -51,7 +51,6 @@ void WaveFile::loadFromFile(char* filename) {
 	ReadDataSubchunk(file);
 	validateDataSubchunk();
 	fclose(file);
-	normalizeData();
 }
 
 WaveFile::WaveFile(char * filename) {
@@ -121,65 +120,12 @@ char * WaveFile::getSubchunk2Id() {
 	return subchunk2Id;
 }
 
-int8_t WaveFile::get8BitRawSample(int i) {
-	int8_t result = ((unsigned char) data[i * bytePerSample]);
-	result -= 128;
-	return result;
-}
-
-int32_t WaveFile::getHighBitRawSample(int i) {
-	int32_t result = 0;
-	memcpy(&result, data+(i * bytePerSample), bytePerSample);
-
-	return result;
-}
-
 int32_t WaveFile::getRawSample(unsigned int i) {
-	if (bytePerSample == 1) {
-		return get8BitRawSample(i);
-	} else {
-		return getHighBitRawSample(i);
-	}
-}
-double WaveFile::getSample(unsigned int i) {
-	return this->normalizedData[i];
+	int32_t result = 0;
+	memcpy(&result, data + (i * bytePerSample), bytePerSample);
+	return result;
 }
 
-
-/**
- * Returns max amplitude. This function is used because with different bit-per-sample factor it has different maximum values.
- * For example if we use 8-bits sample value 255 is maximum. When we use 32-bit sample value 255 is relatively small.
- * @param waveFile input file
- * @return maximum value
- */
-uint32_t WaveFile::getMaxOfRange() {
-	return this->maxOfRange;
-}
-
-/**
- * Returns max amplitude. This function is used because with different bit-per-sample factor it has different maximum values.
- * For example if we use 8-bits sample value 255 is maximum. When we use 32-bit sample value 255 is relatively small.
- * @param waveFile input file
- * @return maximum value
- */
-void WaveFile::normalizeData() {
-	try {
-		this->normalizedData = new double[this->numberOfSamples];
-	}
-	catch(std::bad_alloc) {
-		throw "No memmory";
-	}
-	this->maxOfRange = (1 << (this->bitsPerSample - 1)) - 1;
-	for(uint32_t i = 0; i < this->numberOfSamples; i++) {
-		this->normalizedData[i] = (double)this->getRawSample(i)/this->maxOfRange;
-
-	}
-	if (data != nullptr) {
-		delete data;
-		data = nullptr;
-	}
-
-}
 unsigned int WaveFile::getNumberOfSamples() {
 	return numberOfSamples;
 }
@@ -201,13 +147,13 @@ void WaveFile::validateRIFFChunkDescriptor() {
 
 void WaveFile::skipExtraParams(FILE* file) {
 	fread(&subchunk2Id, 1, 4, file);
-	while (strncmp(subchunk2Id, "data", 4) != 0){
+	while (strncmp(subchunk2Id, "data", 4) != 0) {
 		fseek(file, -3, SEEK_CUR);
 		fread(&subchunk2Id, 1, 4, file);
 	}
 }
 double WaveFile::operator[](unsigned int i) {
-	return this->getSample(i);
+	return data[i];
 }
 void WaveFile::setSampleData(uint32_t numberOfSamples,double * data) {
 	if (this->normalizedData != nullptr) {

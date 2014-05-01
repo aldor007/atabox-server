@@ -4,28 +4,31 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
+../test/wave/NormalizedSampleListMock.cpp \
+../test/wave/NormalizedSamplesList.cpp \
 ../test/wave/WaveFileAnalizatorTest.cpp \
 ../test/wave/WaveFileMock.cpp \
 ../test/wave/WaveFileTest.cpp \
 ../test/wave/WavePreprocessorTest.cpp \
-../test/wave/WavePropertiesTest.cpp \
-../test/wave/waveWavePreprocessorTest.cpp 
+../test/wave/WavePropertiesTest.cpp 
 
 OBJS += \
+./test/wave/NormalizedSampleListMock.o \
+./test/wave/NormalizedSamplesList.o \
 ./test/wave/WaveFileAnalizatorTest.o \
 ./test/wave/WaveFileMock.o \
 ./test/wave/WaveFileTest.o \
 ./test/wave/WavePreprocessorTest.o \
-./test/wave/WavePropertiesTest.o \
-./test/wave/waveWavePreprocessorTest.o 
+./test/wave/WavePropertiesTest.o 
 
 CPP_DEPS += \
+./test/wave/NormalizedSampleListMock.d \
+./test/wave/NormalizedSamplesList.d \
 ./test/wave/WaveFileAnalizatorTest.d \
 ./test/wave/WaveFileMock.d \
 ./test/wave/WaveFileTest.d \
 ./test/wave/WavePreprocessorTest.d \
-./test/wave/WavePropertiesTest.d \
-./test/wave/waveWavePreprocessorTest.d 
+./test/wave/WavePropertiesTest.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

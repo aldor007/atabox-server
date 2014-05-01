@@ -11,6 +11,7 @@
 #include "wave/WaveFile.h"
 #include "wave/WaveFileAnalizator.h"
 #include "wave/WaveProperties.h"
+#include "wave/NormalizedSamplesList.h"
 
 class PropertiesComparatorTest: public ::testing::Test {
 
@@ -19,9 +20,10 @@ class PropertiesComparatorTest: public ::testing::Test {
 TEST_F(PropertiesComparatorTest, theSameFileReturnsZeroDistance) {
 	//given
 	WaveFile waveFile("test/wave/dziekuje32bit.wav");
+	NormalizedSamplesList samples(waveFile);
 	WaveFileAnalizator analizator;
 	WaveProperties properties;
-	properties = analizator.getAllProperties(waveFile);
+	properties = analizator.getAllProperties(samples);
 	//when
 	PropertiesComparator comparator;
 	double result;
@@ -33,12 +35,14 @@ TEST_F(PropertiesComparatorTest, theSameFileReturnsZeroDistance) {
 
 TEST_F(PropertiesComparatorTest, theDiffrenWordReturnsNotZeroDistance) {
 	//given
-	WaveFile waveFile("test/wave/dziekuje32bit.wav");
+	WaveFile waveFile1("test/wave/dziekuje32bit.wav");
+	NormalizedSamplesList samples1(waveFile1);
 	WaveFile waveFile2("test/wave/prosze32bit.wav");
+	NormalizedSamplesList samples2(waveFile2);
 	WaveFileAnalizator analizator;
 	WaveProperties properties, properties2;
-	properties = analizator.getAllProperties(waveFile);
-	properties2 = analizator.getAllProperties(waveFile2);
+	properties = analizator.getAllProperties(samples1);
+	properties2 = analizator.getAllProperties(samples2);
 	//when
 	PropertiesComparator comparator;
 	double result;
@@ -49,12 +53,15 @@ TEST_F(PropertiesComparatorTest, theDiffrenWordReturnsNotZeroDistance) {
 }
 TEST_F(PropertiesComparatorTest, theSameWordDiffrentBitsReturnsZeroDistance) {
 	//given
-	WaveFile waveFile("test/wave/dziekuje32bit.wav");
+	WaveFile waveFile1("test/wave/dziekuje32bit.wav");
+	NormalizedSamplesList samples1(waveFile1);
 	WaveFile waveFile2("test/wave/dziekuje8bit.wav");
+	NormalizedSamplesList samples2(waveFile2);
+
 	WaveFileAnalizator analizator;
 	WaveProperties properties, properties2;
-	properties = analizator.getAllProperties(waveFile);
-	properties2 = analizator.getAllProperties(waveFile2);
+	properties = analizator.getAllProperties(samples1);
+	properties2 = analizator.getAllProperties(samples2);
 	//when
 	PropertiesComparator comparator;
 	double result;

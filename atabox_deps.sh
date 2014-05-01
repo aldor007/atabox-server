@@ -22,5 +22,22 @@ sudo apt-get install libboost-log-dev -y
 sudo apt-get install libboost-log1.54.0 -y 
 sudo apt-get install libboost-thread1.54.0 -y 
 sudo apt-get install libboost1.54-dev -y 
-
-
+#test
+cd /tmp
+ wget http://googletest.googlecode.com/files/gtest-1.7.0.zip
+unzip gtest-1.7.0.zip
+cd gtest-1.7.0
+./configure
+make
+sudo cp -a include/gtest /usr/include
+sudo cp -a lib/.libs/* /usr/lib/
+cd /tmp
+wget https://googlemock.googlecode.com/files/gmock-1.7.0.zip
+unzip gmock-1.7.0
+cd gmock-1.7.0
+./configure
+make
+sudo cp -a include/gmock /usr/include
+sudo cp -a lib/.libs/* /usr/lib/
+sudo ldconfig -v | grep gtest
+sudo ldconfig -v | grep gmock

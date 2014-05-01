@@ -7,7 +7,7 @@
 
 #ifndef WAVEFILEANALIZATOR_H_
 #define WAVEFILEANALIZATOR_H_
-#include "WaveFile.h"
+#include "NormalizedSamplesList.h"
 #include "WaveProperties.h"
 #include <cmath>
 
@@ -15,13 +15,13 @@ class WaveFileAnalizator {
 public:
 	WaveFileAnalizator();
 	virtual ~WaveFileAnalizator();
-	double findAmplitude(WaveFile &waveFile);
-	int countZeroCrossings(WaveFile &waveFile);
-	int maxOfRange(WaveFile& waveFile);
-	double percentageAbove(WaveFile& waveFile, double percentOfMax);
-	double percetnageBelow(WaveFile& waveFile, double percentOfMax);
-	WaveProperties getAllProperties(WaveFile &waveFile);
-	double findPeriod(WaveFile &waveFile);
+	double findAmplitude(NormalizedSamplesList& samples);
+	int countZeroCrossings(NormalizedSamplesList& samples);
+	double percentageAbove(NormalizedSamplesList& samples, double percentOfMax);
+	double percetnageBelow(NormalizedSamplesList& samples, double percentOfMax);
+	WaveProperties getAllProperties(NormalizedSamplesList& samples);
+	// FIXME Issue #22 write test for this function and uncomment
+	//	double findPeriod(NormalizedSamplesList& samples);
 
 };
 
