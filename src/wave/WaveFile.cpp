@@ -55,48 +55,35 @@ WaveFile::WaveFile(char * filename) {
 	loadFromFile(filename);
 }
 
-WaveFile::WaveFile(std::vector<uint8_t> &data) {
-	std::cout<<"wave size "<<data.size()<<std::endl;
-	loadFromVector(data);
+WaveFile::WaveFile(uint8_t * tmpdata, uint64_t length) {
+	loadFromMemory(tmpdata, length);
 
 }
 
-void WaveFile::loadFromVector(std::vector<uint8_t> &vdata) {
-//TODO:
-	uint32_t currenIndex = 34;
-	uint8_t * tmpData = new uint8_t[vdata.size()];
-		tmpData = vdata.data();
-	std::memcpy(&bitsPerSample, tmpData + currenIndex, 2 );
+void WaveFile::loadFromMemory(uint8_t *tmpData, uint64_t  lenght) {
 
-	currenIndex += 2;
-
+	uint32_t currentIndex = 34;
+	std::memcpy(&bitsPerSample, tmpData + currentIndex, 2 );
+	currentIndex += 2;
 	bytePerSample = bitsPerSample / 8;
-	std::cout<<"test byteps "<<bytePerSample<< " "<<bitsPerSample<< "  "<<( bitsPerSample>>8 | bitsPerSample <<8)<<std::endl;
-
-	std::memcpy(subchunk2Id,
-			tmpData + currenIndex, 4 );
-	currenIndex += 4;
+	std::memcpy(subchunk2Id, tmpData + currentIndex, 4 );
+	currentIndex += 4;
 	std::ofstream test("/tmp/wave.wav", std::ios::out | std::ios::binary);
-	test.write(reinterpret_cast<const char*>(tmpData), vdata.size());
+	test.write(reinterpret_cast<const char*>(tmpData), lenght);
 	test.close();
-	/*while (strncmp(subchunk2Id, "data", 4) != 0){
-		//fseek(file, -3, SEEK_CUR);
-		std::cout<<"subczunk " << subchunk2Id[0]<<std::endl;
-		currenIndex -= 3;
-		std::memcpy(&subchunk2Id, &tmpData[currenIndex], 4);
-		currenIndex += 4;
-		//fread(&subchunk2Id, 1, 4, file);
-	}*/
-	/*
+	while (strncmp(subchunk2Id, "data", 4) != 0){
+		currentIndex -= 3;
+		std::memcpy(subchunk2Id, tmpData + currentIndex, 4);
+		currentIndex += 4;
+	}
 	freeDataIfNotNull();
-	std::memcpy(&subchunk2Size, &tmpData[currenIndex], 4);
-	currenIndex += 4;
-
+	std::memcpy(&subchunk2Size, &tmpData[currentIndex], 4);
+	currentIndex += 4;
 	data = new char[subchunk2Size];
-	numberOfChanels = 1; //FIXME: now only 1 channel support
+	std::memcpy(&numberOfChanels, tmpData + 22, 2);
 	numberOfSamples = subchunk2Size / (bytePerSample * numberOfChanels);
-	std::memcpy(&data, &tmpData[currenIndex], subchunk2Size);
-*/
+	std::memcpy(data, tmpData + currentIndex, subchunk2Size);
+
 }
 
 void WaveFile::freeDataIfNotNull() {

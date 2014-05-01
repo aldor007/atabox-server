@@ -4,18 +4,21 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
+../src/wave/NormalizedSamplesList.cpp \
 ../src/wave/WaveFile.cpp \
 ../src/wave/WaveFileAnalizator.cpp \
 ../src/wave/WavePreprocessor.cpp \
 ../src/wave/WaveProperties.cpp 
 
 OBJS += \
+./src/wave/NormalizedSamplesList.o \
 ./src/wave/WaveFile.o \
 ./src/wave/WaveFileAnalizator.o \
 ./src/wave/WavePreprocessor.o \
 ./src/wave/WaveProperties.o 
 
 CPP_DEPS += \
+./src/wave/NormalizedSamplesList.d \
 ./src/wave/WaveFile.d \
 ./src/wave/WaveFileAnalizator.d \
 ./src/wave/WavePreprocessor.d \
@@ -26,7 +29,7 @@ CPP_DEPS += \
 src/wave/%.o: ../src/wave/%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
-	g++-4.8 -std=c++1y -I"/home/aldor/workspace/atabox-server/external/rocksdb_source/include" -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
+	g++ -I../external/rocksdb_source/include -I../src -I../external/casablanca/Release/include -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -fprofile-arcs -ftest-coverage -DBOOST_LOG_DYN_LINK -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
