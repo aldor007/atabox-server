@@ -15,14 +15,13 @@ TEST_F(WaveFileAnalizatorTest, findsMaximumCorrectly) {
 	NormalizedSampleListMock waveFile;
 	ON_CALL(waveFile, getNumberOfSamples()).WillByDefault(Return(4));
 	ON_CALL(waveFile, getSample(0)).WillByDefault(Return(0.128));
-	ON_CALL(waveFile, getSample(1)).WillByDefault(Return(0.130));
+	ON_CALL(waveFile, getSample(1)).WillByDefault(Return(-0.5));
 	ON_CALL(waveFile, getSample(2)).WillByDefault(Return(0.16));
 	ON_CALL(waveFile, getSample(3)).WillByDefault(Return(0.130));
 
 	//when
 	WaveFileAnalizator analizator;
-	int amplitude;
-	amplitude = analizator.findAmplitude(waveFile);
+	double amplitude = analizator.findAmplitude(waveFile);
 
 	//then
 	ASSERT_DOUBLE_EQ(amplitude, 0.5);
