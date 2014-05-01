@@ -7,6 +7,10 @@
 
 #ifndef ROCKSDBPROVIDER_H_
 #define ROCKSDBPROVIDER_H_
+#include <string>
+#include <map>
+#include <iostream>
+
 #include "BaseDataProvider.h"
 #include "rocksdb/db.h"
 
@@ -22,6 +26,7 @@ class RocksdbProvider: public BaseDataProvider<KeyClass, ValueClass> {
             virtual ValueClass get(KeyClass key);
             virtual std::map<KeyClass, ValueClass> getAllKV();
             virtual bool put(KeyClass key, ValueClass value);
+
             virtual ~RocksdbProvider();
 /*            static RocksdbProvider& getInstance() const {
             	return this->instance;
@@ -59,17 +64,39 @@ RocksdbProvider<Key, Value>::RocksdbProvider(std::string filename) {
 
 }
 
+template <>
+bool RocksdbProvider<std::string, std::string>::put(std::string key, std::string value) {
+	rocksdb::Status status;
+	std::string tmpKey, tmpValue;
+	status = this->db->Put(rocksdb::WriteOptions(), key, value);
+	return status.ok();
+}
 template <class Key, class Value>
 bool RocksdbProvider<Key, Value>::put(Key key, Value value) {
 	rocksdb::Status status;
-	status = this->db->Put(rocksdb::WriteOptions(), key, value);
+	status = this->db->Put(rocksdb::WriteOptions(), key.toString(), value);
 	return status.ok();
 }
 
 template <class Key, class Value>
 Value RocksdbProvider<Key, Value>::get(Key key) {
 	rocksdb::Status status;
-	Value value;
+	std::string tmpValue;
+	status = this->db->Get(rocksdb::ReadOptions(), key.toString(), &tmpValue);
+	if (status.ok()) {
+		Value value(tmpValue);
+		return value;
+	}
+	else {
+		return nullptr;
+	}
+
+}
+
+template <>
+std::string RocksdbProvider<std::string, std::string>::get(std::string key) {
+	rocksdb::Status status;
+	std::string value;
 	status = this->db->Get(rocksdb::ReadOptions(), key, &value);
 	if (status.ok()) {
 		return value;
@@ -79,14 +106,25 @@ Value RocksdbProvider<Key, Value>::get(Key key) {
 	}
 
 }
+template <>
+std::map<std::string, std::string>  RocksdbProvider<std::string, std::string>::getAllKV() {
+	std::map<std::string, std::string> dbmap;
+	rocksdb::Iterator* it = db->NewIterator(rocksdb::ReadOptions());
+	  for (it->SeekToFirst(); it->Valid(); it->Next()) {
+		 dbmap[it->key().ToString()] = it->value().ToString();
+	  }
+	  assert(it->status().ok());  // Check for any errors found during the scan
+	  delete it;
+	  return dbmap;
+}
 
 template <class Key, class Value>
 std::map<Key, Value>  RocksdbProvider<Key, Value>::getAllKV() {
-	std::map<std::string, Value> dbmap;
+	std::map<Key, Value> dbmap;
 	rocksdb::Iterator* it = db->NewIterator(rocksdb::ReadOptions());
 	  for (it->SeekToFirst(); it->Valid(); it->Next()) {
-		//cout << it->key().ToString() << ": "  << it->value().ToString() << endl;
-		 dbmap[it->key().ToString()] = it->value().ToString();
+		std::cout << it->key().ToString() << ": "  << it->value().ToString() << std::endl;
+		 dbmap[Key(it->key().ToString())] = Value(it->value().ToString());
 	  }
 	  assert(it->status().ok());  // Check for any errors found during the scan
 	  delete it;

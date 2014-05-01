@@ -14,6 +14,7 @@ class WaveProperties {
 public:
 	WaveProperties();
 	WaveProperties(std::string data);
+	WaveProperties(json::value data);
 	~WaveProperties();
 	double amplitude = 0;
 	int zeroCrossings = 0;
@@ -27,8 +28,13 @@ public:
 	double percentageAbove20percentage = 0.0;
 	double percentageAbove10percentage = 0.0;
 	std::string name = "commandName";
-	std::string toString();
-	json::value toJSON();
+	std::string toString() const;
+	json::value toJSON() const;
+	bool operator<( const WaveProperties& other) const {
+		//PropertiesComparator tmp;
+		//double distance = tmp.getDistance(*this, other);
+		return amplitude > other.amplitude;
+	}
 };
 
 #endif /* WAVEPROPERTIES_H_ */

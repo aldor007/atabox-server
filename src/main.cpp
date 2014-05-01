@@ -41,7 +41,7 @@ enum severity_level
     error,
     critical
 };
-BaseDataProvider<std::string, std::string> * mainDB;
+BaseDataProvider<WaveProperties, std::string> * mainDB;
 void handle_add(web::http::http_request request) {
 
 	json::value response;
@@ -74,7 +74,6 @@ void handle_add(web::http::http_request request) {
     WaveFileAnalizator analizator;
     WaveProperties waveProperties = analizator.getAllProperties(waveSamples);
     waveProperties.name = commandName;
-    BOOST_LOG_TRIVIAL(debug)<<"to string " <<waveProperties.toString();
 
     try {
     mainDB->put(waveProperties.toString(), commandString);
@@ -123,7 +122,22 @@ void handle_execute(web::http::http_request request) {
 }
 
 void handle_list(web::http::http_request request) {
-  request.reply(status_codes::Forbidden, U("Not implemented yet"));
+	std::map<WaveProperties, std::string> list;
+	list = mainDB->getAllKV();
+	std::cout<<"size " << list.size();
+	json::value result;
+	typedef std::map<WaveProperties, std::string>::iterator map_it;
+	uint32_t counter = 0;
+	for (map_it iterator = list.begin(); iterator != list.end(); iterator++) {
+		json::value tmp;
+		std::cout<<"tmp "<< iterator->first.toString();
+		tmp["key"] = iterator->first.toJSON();
+		tmp["value"] = json::value::string(iterator->second);
+		result[counter++] =  tmp;
+	}
+
+
+  request.reply(status_codes::OK, result);
 
 }
 
@@ -131,7 +145,16 @@ void handle_list(web::http::http_request request) {
 
 int main() {
 
-    mainDB  = new RocksdbProvider<std::string, std::string>("atabox.db"); //FIXME: database name read from config file
+    BOOST_LOG_TRIVIAL(debug)<<"Server listening localhost:8111. Db name atabox.db";
+    mainDB  = new RocksdbProvider<WaveProperties, std::string>("atabox.db"); //FIXME: database name read from config file
+	std::map<WaveProperties, std::string> list;
+	list = mainDB->getAllKV();
+	std::cout<<"size " << list.size();
+	typedef std::map<WaveProperties, std::string>::iterator map_it;
+	uint32_t counter = 0;
+	for (map_it iterator = list.begin(); iterator != list.end(); iterator++) {
+		std::cout<<"tmp "<< iterator->first.toString();
+	}
     AtaboxApi mainApi("127.0.0.1", "8111");
     mainApi.addMethod("add", handle_add);
     mainApi.addMethod("execute", handle_execute);
