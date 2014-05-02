@@ -18,8 +18,8 @@
 class WaveFile {
 public:
 
-	WaveFile(char * filename);
-	WaveFile(uint8_t  *data, uint64_t  length);
+	WaveFile(const char * filename);
+	WaveFile(uint8_t  *data);
 	virtual ~WaveFile();
 	virtual char * getChunkID();
 	virtual unsigned int getChunkSize();
@@ -35,8 +35,8 @@ public:
 	virtual char * getSubchunk2Id();
 	virtual unsigned int getSubchunk2Size();
 	virtual unsigned int getNumberOfSamples();
-	void loadFromFile(char* filename);
-	void loadFromMemory(uint8_t  * data, uint64_t length );
+	void loadFromFile(const char* filename);
+	void loadFromMemory(uint8_t  * data);
 	virtual double	 operator[](unsigned int i);
 	virtual int32_t getRawSample(unsigned int i);
 protected:

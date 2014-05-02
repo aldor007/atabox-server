@@ -25,6 +25,7 @@
 #include "wave/WaveProperties.h"
 #include "wave/WaveFile.h"
 #include "wave/WavePreprocessor.h"
+#include "recognition/PropertiesComparator.h"
 
 using namespace web;
 using namespace web::http;
@@ -66,7 +67,7 @@ void handle_add(web::http::http_request request) {
     uint8_t * waveData = new uint8_t[content_lenght];
     Concurrency::streams::rawptr_buffer<uint8_t> buffer(waveData, content_lenght);
     body.read(buffer, content_lenght).get();
-    WaveFile wave(waveData, content_lenght);
+    WaveFile wave(waveData);
     delete waveData;
     //WavePreprocesor processWave;
             //processWave.process(&wave);
@@ -76,7 +77,7 @@ void handle_add(web::http::http_request request) {
     waveProperties.name = commandName;
 
     try {
-    mainDB->put(waveProperties.toString(), commandString);
+    	mainDB->put(waveProperties.toString(), commandString);
     } catch (std::exception const & ex) {
     	BOOST_LOG_TRIVIAL(error)<<"Error "<<ex.what();
     }
@@ -85,54 +86,52 @@ void handle_add(web::http::http_request request) {
 }
 
 void handle_execute(web::http::http_request request) {
+
+    concurrency::streams::istream body = request.body();
+    uint64_t content_lenght = request.headers().content_length();
+    BOOST_LOG_TRIVIAL(debug)<<"Content lenght of request "<<content_lenght;
+    uint8_t * waveData = new uint8_t[content_lenght];
+    Concurrency::streams::rawptr_buffer<uint8_t> buffer(waveData, content_lenght);
+    body.read(buffer, content_lenght).get();
+    WaveFile wave(waveData);
+    delete waveData;
+    NormalizedSamplesList waveSamples(wave);
+    WaveFileAnalizator analizator;
+    WaveProperties waveProperties = analizator.getAllProperties(waveSamples);
+
+	std::map<WaveProperties, std::string> list;
+	list = mainDB->getAllKV();
+	typedef std::map<WaveProperties, std::string>::iterator map_it;
+	PropertiesComparator comparator;
 	json::value response;
-    auto path = request.relative_uri().path();
 
-    response["path"] = json::value::string(path);
+	for (map_it iterator = list.begin(); iterator != list.end(); iterator++) {
+		double distance =  comparator.getDistance(iterator->first, waveProperties);
+		if (distance == 0) {
+			BOOST_LOG_TRIVIAL(debug)<<"Run command "<<iterator->second;
+			//TODO: runner here
+			response["status"] = json::value::string("OK");
+			response["command_ret"] = json::value::number(0);
+			request.reply(status_codes::OK, response);
+			return;
+		}
+	}
+	response["status"] = json::value::string("NOT_FOUND");
 
-	   request
-	      .extract_json()
-
-	      .then([&response,&request](pplx::task<json::value> task) {
-	         try
-	         {
-	           auto jvalue = task.get();
-	           if(!jvalue.is_null()) {
-	           //auto &jsonObject = jvalue.as_object();
-	         //  std::string name = jsonObject["name"].is_string()?jsonObject["name"].serialize():"test";
-	        //   std::string command = jsonObject["command"].serialize();
-	         // BOOST_LOG_TRIVIAL(debug)<<" "<<jsonObject["waveFile"];
-	           }
-	         }
-	         catch (http_exception const & e)
-	         {
-	            std::cout << "errror "<<e.what() << std::endl;
-	            BOOST_LOG_TRIVIAL(error) << "An error severity message";
-	            response["error"] = json::value::string(	e.what());
-
-	         //   	request.reply(status_codes::OK, response );
-
-	         }
-	            BOOST_LOG_TRIVIAL(error) << "End of then";
-	      }).wait();
-
-	request.reply(status_codes::OK, response);
-
+    request.reply(status_codes::OK, response);
 
 }
 
 void handle_list(web::http::http_request request) {
 	std::map<WaveProperties, std::string> list;
 	list = mainDB->getAllKV();
-	std::cout<<"size " << list.size();
 	json::value result;
 	typedef std::map<WaveProperties, std::string>::iterator map_it;
 	uint32_t counter = 0;
 	for (map_it iterator = list.begin(); iterator != list.end(); iterator++) {
 		json::value tmp;
-		std::cout<<"tmp "<< iterator->first.toString();
-		tmp["key"] = iterator->first.toJSON();
-		tmp["value"] = json::value::string(iterator->second);
+		tmp["waveProperties"] = iterator->first.toJSON();
+		tmp["command"] = json::value::string(iterator->second);
 		result[counter++] =  tmp;
 	}
 
@@ -147,14 +146,6 @@ int main() {
 
     BOOST_LOG_TRIVIAL(debug)<<"Server listening localhost:8111. Db name atabox.db";
     mainDB  = new RocksdbProvider<WaveProperties, std::string>("atabox.db"); //FIXME: database name read from config file
-	std::map<WaveProperties, std::string> list;
-	list = mainDB->getAllKV();
-	std::cout<<"size " << list.size();
-	typedef std::map<WaveProperties, std::string>::iterator map_it;
-	uint32_t counter = 0;
-	for (map_it iterator = list.begin(); iterator != list.end(); iterator++) {
-		std::cout<<"tmp "<< iterator->first.toString();
-	}
     AtaboxApi mainApi("127.0.0.1", "8111");
     mainApi.addMethod("add", handle_add);
     mainApi.addMethod("execute", handle_execute);
@@ -162,7 +153,8 @@ int main() {
     mainApi.open().wait();
     std::string line;
     std::getline(std::cin, line);
-     mainApi.close().wait();
+    mainApi.close().wait();
+    BOOST_LOG_TRIVIAL(debug)<<"End of work. Bye ;)";
 
 
 

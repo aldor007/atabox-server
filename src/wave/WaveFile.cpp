@@ -36,7 +36,7 @@ void WaveFile::ReadDataSubchunk(FILE* file) {
 WaveFile::WaveFile() {
 }
 
-void WaveFile::loadFromFile(char* filename) {
+void WaveFile::loadFromFile(const char* filename) {
 	FILE* file = fopen(filename, "r");
 	if (file == NULL) {
 		std::bad_alloc exception;
@@ -51,16 +51,16 @@ void WaveFile::loadFromFile(char* filename) {
 	fclose(file);
 }
 
-WaveFile::WaveFile(char * filename) {
+WaveFile::WaveFile(const char * filename) {
 	loadFromFile(filename);
 }
 
-WaveFile::WaveFile(uint8_t * tmpdata, uint64_t length) {
-	loadFromMemory(tmpdata, length);
+WaveFile::WaveFile(uint8_t * tmpdata) {
+	loadFromMemory(tmpdata);
 
 }
 
-void WaveFile::loadFromMemory(uint8_t *tmpData, uint64_t  lenght) {
+void WaveFile::loadFromMemory(uint8_t *tmpData) {
 
 	uint32_t currentIndex = 34;
 	std::memcpy(&bitsPerSample, tmpData + currentIndex, 2 );
@@ -68,9 +68,6 @@ void WaveFile::loadFromMemory(uint8_t *tmpData, uint64_t  lenght) {
 	bytePerSample = bitsPerSample / 8;
 	std::memcpy(subchunk2Id, tmpData + currentIndex, 4 );
 	currentIndex += 4;
-	std::ofstream test("/tmp/wave.wav", std::ios::out | std::ios::binary);
-	test.write(reinterpret_cast<const char*>(tmpData), lenght);
-	test.close();
 	while (strncmp(subchunk2Id, "data", 4) != 0){
 		currentIndex -= 3;
 		std::memcpy(subchunk2Id, tmpData + currentIndex, 4);

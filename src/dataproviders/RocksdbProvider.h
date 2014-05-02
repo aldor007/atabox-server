@@ -123,7 +123,6 @@ std::map<Key, Value>  RocksdbProvider<Key, Value>::getAllKV() {
 	std::map<Key, Value> dbmap;
 	rocksdb::Iterator* it = db->NewIterator(rocksdb::ReadOptions());
 	  for (it->SeekToFirst(); it->Valid(); it->Next()) {
-		std::cout << it->key().ToString() << ": "  << it->value().ToString() << std::endl;
 		 dbmap[Key(it->key().ToString())] = Value(it->value().ToString());
 	  }
 	  assert(it->status().ok());  // Check for any errors found during the scan
