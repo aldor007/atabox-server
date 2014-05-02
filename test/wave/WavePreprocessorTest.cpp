@@ -6,4 +6,15 @@
  */
 
 #include "wave/WavePreprocessor.h"
+#include "wave/WaveFileAnalizator.h"
+#include "gtest/gtest.h"
 
+class WavePreprocessorTest: public ::testing::Test {
+
+};
+
+TEST_F(WavePreprocessorTest, deleteSielienceFromBeginningAndEnd) {
+	//NormalizedSamplesList sampleList;
+	int number = 1;
+	ASSERT_EQ(number, 1);
+}

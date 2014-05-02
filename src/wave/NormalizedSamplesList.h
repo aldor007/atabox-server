@@ -18,6 +18,7 @@ public:
 	virtual double getSample(unsigned int i);
 	static uint32_t getMaxOfRange(unsigned int bitsPerSample);
 	virtual uint32_t getNumberOfSamples();
+	void setSampleListData(uint32_t numberOfSamples,double * data);
 protected:
 	NormalizedSamplesList();
 	double *samples = nullptr;
