@@ -6,8 +6,11 @@
  */
 
 #include "dataproviders/RocksdbProvider.h"
-#include "gtest/gtest.h"
 #include <string>
+#ifndef GTEST_H_
+	#define GTEST_H_
+	#include "gtest/gtest.h"
+#endif
 class RocksdbProviderTest: public ::testing::Test {
 
 };

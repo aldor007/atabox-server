@@ -6,7 +6,6 @@
  */
 
 #include "AtaboxApi.h"
-using namespace std;
 using namespace web;
 using namespace http;
 using namespace utility;

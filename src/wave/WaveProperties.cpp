@@ -7,7 +7,6 @@
 
 #include "WaveProperties.h"
 #include <cpprest/json.h>
-#include <sstream>
 
 WaveProperties::WaveProperties() {
 	// TODO Auto-generated constructor stub
@@ -16,7 +15,7 @@ WaveProperties::WaveProperties() {
 
 WaveProperties::WaveProperties(std::string data) {
 	// TODO Auto-generated constructor stub
-	json::value tmpData = json::value::parse(data.c_str());
+	web::json::value tmpData = web::json::value::parse(data.c_str());
 	amplitude = tmpData["amplitude"].as_double();
 	name = tmpData["name"].as_string();
 	zeroCrossings = tmpData["zeroCrossings"].as_double();
@@ -37,24 +36,24 @@ WaveProperties::~WaveProperties() {
 
 std::string WaveProperties::toString() const {
 
-	json::value tmpData = this->toJSON();
+	web::json::value tmpData = this->toJSON();
 	return tmpData.to_string(); //XXX:to_string works as_string doesn't
 }
 
-json::value WaveProperties::toJSON() const {
+web::json::value WaveProperties::toJSON() const {
 
-	json::value tmpData;
-	tmpData["amplitude"] = json::value::number(amplitude);
-	tmpData["name"] = json::value::string(name);
-	tmpData["zeroCrossings"] = json::value::number(zeroCrossings);
-	tmpData["percentageAbove90percentage"] = json::value::number(percentageAbove90percentage);
-	tmpData["percentageAbove80percentage"] = json::value::number(percentageAbove80percentage);
-	tmpData["percentageAbove70percentage"] = json::value::number(percentageAbove70percentage);
-	tmpData["percentageAbove60percentage"] = json::value::number(percentageAbove60percentage);
-	tmpData["percentageAbove50percentage"] = json::value::number(percentageAbove50percentage);
-	tmpData["percentageAbove40percentage"] = json::value::number(percentageAbove40percentage);
-	tmpData["percentageAbove30percentage"] = json::value::number(percentageAbove30percentage);
-	tmpData["percentageAbove20percentage"] = json::value::number(percentageAbove20percentage);
-	tmpData["percentageAbove10percentage"] = json::value::number(percentageAbove10percentage);
+	web::json::value tmpData;
+	tmpData["amplitude"] = web::json::value::number(amplitude);
+	tmpData["name"] = web::json::value::string(name);
+	tmpData["zeroCrossings"] = web::json::value::number(zeroCrossings);
+	tmpData["percentageAbove90percentage"] = web::json::value::number(percentageAbove90percentage);
+	tmpData["percentageAbove80percentage"] = web::json::value::number(percentageAbove80percentage);
+	tmpData["percentageAbove70percentage"] = web::json::value::number(percentageAbove70percentage);
+	tmpData["percentageAbove60percentage"] = web::json::value::number(percentageAbove60percentage);
+	tmpData["percentageAbove50percentage"] = web::json::value::number(percentageAbove50percentage);
+	tmpData["percentageAbove40percentage"] = web::json::value::number(percentageAbove40percentage);
+	tmpData["percentageAbove30percentage"] = web::json::value::number(percentageAbove30percentage);
+	tmpData["percentageAbove20percentage"] = web::json::value::number(percentageAbove20percentage);
+	tmpData["percentageAbove10percentage"] = web::json::value::number(percentageAbove10percentage);
 	return tmpData;
 }

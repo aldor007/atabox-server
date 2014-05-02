@@ -8,6 +8,8 @@
 #ifndef NORMALIZEDSAMPLELISTMOCK_H_
 #define NORMALIZEDSAMPLELISTMOCK_H_
 #include "wave/NormalizedSamplesList.h"
+#undef U
+
 #include "gmock/gmock.h"
 
 class NormalizedSampleListMock: public NormalizedSamplesList {

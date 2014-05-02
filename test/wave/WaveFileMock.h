@@ -9,6 +9,8 @@
 #define WAVEFILEMOCK_H_
 
 #include <wave/WaveFile.h>
+#undef U
+
 #include "gmock/gmock.h"
 
 class WaveFileMock: public WaveFile {

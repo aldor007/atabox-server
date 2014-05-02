@@ -1,6 +1,7 @@
 #include "wave/WaveFileAnalizator.h"
 #include "wave/NormalizedSamplesList.h"
 #include "../test/wave/NormalizedSampleListMock.h"
+#undef U
 #include "gtest/gtest.h"
 #include "gmock/gmock.h"
 
@@ -21,11 +22,11 @@ TEST_F(WaveFileAnalizatorTest, findsMaximumCorrectly) {
 
 	//when
 	WaveFileAnalizator analizator;
-	int amplitude;
+	double amplitude;
 	amplitude = analizator.findAmplitude(waveFile);
 
 	//then
-	ASSERT_DOUBLE_EQ(amplitude, 0.5);
+	ASSERT_DOUBLE_EQ(amplitude, 0.16);
 }
 
 TEST_F(WaveFileAnalizatorTest, countsZeroCrossingsCorrectly) {
@@ -89,7 +90,7 @@ TEST_F(WaveFileAnalizatorTest, realFileHasPositiveNumberOfZeroCrossings) {
 	NormalizedSamplesList samples(waveFile);
 	WaveFileAnalizator analizator;
 	//when
-	int crossings= analizator.countZeroCrossings(samples);
+	int crossings = analizator.countZeroCrossings(samples);
 	//then
 	ASSERT_GT(crossings, 0);
 }

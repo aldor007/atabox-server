@@ -1,12 +1,13 @@
 
-#include "recognition/PropertiesComparator.h"
-
-#include "gtest/gtest.h"
 #include "utils/FastFourierTransform.h"
 #include "wave/WaveFile.h"
 #include <complex>
 #include <cmath>
 
+#ifndef GTEST_H_
+	#define GTEST_H_
+	#include "gtest/gtest.h"
+#endif
 
 class FastFourierTransformTest: public ::testing::Test {
 

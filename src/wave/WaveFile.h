@@ -11,7 +11,6 @@
 #include <stdio.h>
 #include <iostream>
 #include <cstring>
-#include <vector>
 /**
  * Class describes wave file. It supports only mono files.
  */

@@ -7,11 +7,17 @@
 
 #include "recognition/PropertiesComparator.h"
 
-#include "gtest/gtest.h"
 #include "wave/WaveFile.h"
 #include "wave/WaveFileAnalizator.h"
 #include "wave/WaveProperties.h"
 #include "wave/NormalizedSamplesList.h"
+#undef U //XXX: potrzebne zeby sie kompilowala z casablanca
+//#include "gtest/gtest.h" XXX: WTF!!!! nie kompiluje sie u mnie jak to jest. (Po reinstalacji systemuu)
+
+#ifndef GTEST_H_
+	#define GTEST_H_
+	#include "gtest/gtest.h"
+#endif
 
 class PropertiesComparatorTest: public ::testing::Test {
 
@@ -70,6 +76,7 @@ TEST_F(PropertiesComparatorTest, theSameWordDiffrentBitsReturnsZeroDistance) {
 
 	ASSERT_NE(result, 0);
 }
+
 //TODO
 /*
 TEST_F(PropertiesComparatorTest, theSameFileReturnZeroDistanceHidghNoise) {
