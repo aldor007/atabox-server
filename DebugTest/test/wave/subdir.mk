@@ -10,7 +10,8 @@ CPP_SRCS += \
 ../test/wave/WaveFileMock.cpp \
 ../test/wave/WaveFileTest.cpp \
 ../test/wave/WavePreprocessorTest.cpp \
-../test/wave/WavePropertiesTest.cpp 
+../test/wave/WavePropertiesTest.cpp \
+../test/wave/WaveUtilsTest.cpp 
 
 OBJS += \
 ./test/wave/NormalizedSampleListMock.o \
@@ -19,7 +20,8 @@ OBJS += \
 ./test/wave/WaveFileMock.o \
 ./test/wave/WaveFileTest.o \
 ./test/wave/WavePreprocessorTest.o \
-./test/wave/WavePropertiesTest.o 
+./test/wave/WavePropertiesTest.o \
+./test/wave/WaveUtilsTest.o 
 
 CPP_DEPS += \
 ./test/wave/NormalizedSampleListMock.d \
@@ -28,7 +30,8 @@ CPP_DEPS += \
 ./test/wave/WaveFileMock.d \
 ./test/wave/WaveFileTest.d \
 ./test/wave/WavePreprocessorTest.d \
-./test/wave/WavePropertiesTest.d 
+./test/wave/WavePropertiesTest.d \
+./test/wave/WaveUtilsTest.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

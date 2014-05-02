@@ -9,6 +9,7 @@
 #define SAMPLELIST_H_
 #include <stdint.h>
 #include "WaveFile.h"
+#include "WaveUtils.h"
 
 class NormalizedSamplesList {
 public:
@@ -16,13 +17,14 @@ public:
 	virtual ~NormalizedSamplesList();
 	virtual double operator[](unsigned int i);
 	virtual double getSample(unsigned int i);
-	static uint32_t getMaxOfRange(unsigned int bitsPerSample);
 	virtual uint32_t getNumberOfSamples();
+	virtual double getLenghtInSeconds();
 	void setSampleListData(uint32_t numberOfSamples,double * data);
 protected:
 	NormalizedSamplesList();
 	double *samples = nullptr;
 	uint32_t numberOfSamples;
+	double lenghtInSeconds;
 };
 
 #endif /* SAMPLELIST_H_ */
