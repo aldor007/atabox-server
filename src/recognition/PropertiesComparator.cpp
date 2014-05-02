@@ -26,6 +26,10 @@ double PropertiesComparator::getDistance(WaveProperties newSample,
 		result += relativeError(newSample.zeroCrossings,
 				patternSample.zeroCrossings);
 	}
+	if (patternSample.lenghtInSeconds != 0) {
+			result += relativeError(newSample.lenghtInSeconds,
+					patternSample.lenghtInSeconds);
+		}
 	return result;
 }
 

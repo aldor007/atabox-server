@@ -66,8 +66,8 @@ TEST_F(PropertiesComparatorTest, theSameWordDiffrentBitsReturnsZeroDistance) {
 	PropertiesComparator comparator;
 	double result;
 	result = comparator.getDistance(properties, properties2);
-	//then
 
+	//then
 	ASSERT_NE(result, 0);
 }
 //TODO

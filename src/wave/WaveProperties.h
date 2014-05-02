@@ -25,6 +25,7 @@ public:
 	double percentageAbove10percentage = 0.0;
 	double period = 0;
 	double frequency = 0;
+	double lenghtInSeconds = 0.0;
 
 };
 

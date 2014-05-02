@@ -94,7 +94,7 @@ WaveProperties WaveFileAnalizator::getAllProperties(NormalizedSamplesList& sampl
 	WaveProperties result;
 	result.amplitude = findAmplitude(samples);
 	result.zeroCrossings = countZeroCrossings(samples);
-
+	result.lenghtInSeconds = samples.getLenghtInSeconds();
 	return result;
 }
 
