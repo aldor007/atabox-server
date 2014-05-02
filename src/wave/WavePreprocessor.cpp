@@ -16,7 +16,7 @@ WavePreprocessor::~WavePreprocessor() {
 }
 
 void WavePreprocessor::deleteSielienceFromBeginningAndEnd(NormalizedSamplesList & sampleList) {
-
+	// TODO Issue #23 https://bitbucket.org/jaworekmichal/atabox-server/issue/23/uwzgl-dni-w-wavepreprocessor
 	WaveFileAnalizator analizator;
 	double amplitude = analizator.findAmplitude(sampleList);
 	double percentSilence = 5.0/100; // TODO: proposal: introduce percentSilence as a parameter of this method with default value
