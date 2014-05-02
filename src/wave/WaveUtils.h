@@ -14,7 +14,7 @@ public:
 	WaveUtils();
 	~WaveUtils();
 	static uint32_t getMaxOfRange(unsigned int bitsPerSample);
-
+	static double calculateLenghtInSeconds(uint32_t numberOfSamples, unsigned int sampleRate);
 };
 
 #endif /* WAVEUTILS_H_ */

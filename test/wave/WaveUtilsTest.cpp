@@ -21,3 +21,13 @@ TEST_F(WaveUtilsTest, getMaxOfRange) {
 	// then
 	ASSERT_EQ(127, result);
 }
+
+TEST_F(WaveUtilsTest, calculateLenghtInSeconds) {
+	// given (data from bells.wave)
+	unsigned int sampleRate = 11025;
+	uint32_t numberOfSamples = 79334;
+	// when
+	double result = WaveUtils::calculateLenghtInSeconds(numberOfSamples, sampleRate);
+	// then
+	ASSERT_NEAR(7.196, result, 0.001);
+}

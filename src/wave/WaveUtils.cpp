@@ -25,3 +25,8 @@ WaveUtils::~WaveUtils() {
 uint32_t WaveUtils::getMaxOfRange(unsigned int bitsPerSample) {
 	return (1 << (bitsPerSample - 1)) - 1;
 }
+
+double WaveUtils::calculateLenghtInSeconds(uint32_t numberOfSamples,
+		unsigned int sampleRate) {
+	return (double)numberOfSamples / sampleRate;
+}
