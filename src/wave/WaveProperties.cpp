@@ -8,11 +8,9 @@
 #include "WaveProperties.h"
 
 WaveProperties::WaveProperties() {
-	// TODO Auto-generated constructor stub
 
 }
 
 WaveProperties::~WaveProperties() {
-	// TODO Auto-generated destructor stub
 }
 

@@ -8,12 +8,10 @@
 #include "WaveFileAnalizator.h"
 
 WaveFileAnalizator::WaveFileAnalizator() {
-	// TODO Auto-generated constructor stub
 
 }
 
 WaveFileAnalizator::~WaveFileAnalizator() {
-	// TODO Auto-generated destructor stub
 }
 
 double WaveFileAnalizator::findAmplitude(NormalizedSamplesList& samples) {
@@ -93,7 +91,6 @@ double WaveFileAnalizator::percetnageBelow(NormalizedSamplesList& samples,
 
 
 WaveProperties WaveFileAnalizator::getAllProperties(NormalizedSamplesList& samples) {
-	//TODO not yet implemented
 	WaveProperties result;
 	result.amplitude = findAmplitude(samples);
 	result.zeroCrossings = countZeroCrossings(samples);

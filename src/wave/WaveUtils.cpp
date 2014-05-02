@@ -8,12 +8,10 @@
 #include <wave/WaveUtils.h>
 
 WaveUtils::WaveUtils() {
-	// TODO Auto-generated constructor stub
 
 }
 
 WaveUtils::~WaveUtils() {
-	// TODO Auto-generated destructor stub
 }
 
 /**
