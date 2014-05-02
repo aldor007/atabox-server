@@ -17,6 +17,7 @@ RM := rm -rf
 -include src/utils/subdir.mk
 -include src/recognition/subdir.mk
 -include src/dataproviders/subdir.mk
+-include src/api/subdir.mk
 -include subdir.mk
 -include objects.mk
 
