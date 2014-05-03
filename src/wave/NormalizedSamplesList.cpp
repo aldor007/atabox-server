@@ -18,7 +18,7 @@ NormalizedSamplesList::NormalizedSamplesList(WaveFile & waveFile) {
 	lenghtInSeconds = WaveUtils::calculateLenghtInSeconds(numberOfSamples, waveFile.getSampleRate());
 	for (uint32_t i = 0; i < numberOfSamples; i++) {
 		if (waveFile.getBitsPerSample() == 8) {
-			samples[i] = (double) (waveFile.getRawSample(i)-128 / maxOfRange);
+			samples[i] = (double) ((waveFile.getRawSample(i)-128) / maxOfRange);
 		} else {
 			samples[i] = (double) waveFile.getRawSample(i) / maxOfRange;
 		}

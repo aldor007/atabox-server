@@ -42,7 +42,7 @@ enum severity_level
     error,
     critical
 };
-BaseDataProvider<WaveProperties, std::string> * mainDB;
+BaseDataProvider<WaveProperties, std::string> * g_mainDB;
 void handle_add(web::http::http_request request) {
 
 	json::value response;
@@ -77,7 +77,7 @@ void handle_add(web::http::http_request request) {
     waveProperties.name = commandName;
 
     try {
-    	mainDB->put(waveProperties.toString(), commandString);
+    	g_mainDB->put(waveProperties.toString(), commandString);
     } catch (std::exception const & ex) {
     	BOOST_LOG_TRIVIAL(error)<<"Error "<<ex.what();
     }
@@ -100,7 +100,7 @@ void handle_execute(web::http::http_request request) {
     WaveProperties waveProperties = analizator.getAllProperties(waveSamples);
 
 	std::map<WaveProperties, std::string> list;
-	list = mainDB->getAllKV();
+	list = g_mainDB->getAllKV();
 	typedef std::map<WaveProperties, std::string>::iterator map_it;
 	PropertiesComparator comparator;
 	json::value response;
@@ -124,7 +124,7 @@ void handle_execute(web::http::http_request request) {
 
 void handle_list(web::http::http_request request) {
 	std::map<WaveProperties, std::string> list;
-	list = mainDB->getAllKV();
+	list = g_mainDB->getAllKV();
 	json::value result;
 	typedef std::map<WaveProperties, std::string>::iterator map_it;
 	uint32_t counter = 0;
@@ -145,7 +145,7 @@ void handle_list(web::http::http_request request) {
 int main() {
 
     BOOST_LOG_TRIVIAL(debug)<<"Server listening localhost:8111. Db name atabox.db";
-    mainDB  = new RocksdbProvider<WaveProperties, std::string>("atabox.db"); //FIXME: database name read from config file
+    g_mainDB  = new RocksdbProvider<WaveProperties, std::string>("atabox.db"); //FIXME: database name read from config file
     AtaboxApi mainApi("127.0.0.1", "8111");
     mainApi.addMethod("add", handle_add);
     mainApi.addMethod("execute", handle_execute);

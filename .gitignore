@@ -4,7 +4,7 @@
 *.o
 *.obj
 *.gcno
-
+*.gcda
 # Compiled Dynamic libraries
 *.so
 *.dylib

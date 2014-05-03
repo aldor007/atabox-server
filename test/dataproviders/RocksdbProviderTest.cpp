@@ -6,6 +6,8 @@
  */
 
 #include "dataproviders/RocksdbProvider.h"
+#include "wave/WaveProperties.h"
+#undef U
 #include <string>
 #ifndef GTEST_H_
 	#define GTEST_H_
@@ -36,6 +38,20 @@ TEST_F(RocksdbProviderTest, getListOfKeys) {
 	auto mapdata = db.getAllKV();
 
 	ASSERT_TRUE(mapdata.size() >0);
+
+}
+
+TEST_F(RocksdbProviderTest, putAndGetWaveProperies) {
+	std::string dbname = "test/file.db";
+
+	RocksdbProvider<WaveProperties, std::string> db(dbname);
+	WaveProperties test;
+	test.name ="vim";
+	test.amplitude = 0.2;
+	std::string expected = "vim /tmp/test";
+	db.put(test, expected);
+	ASSERT_EQ(db.get(test), expected);
+
 
 }
 

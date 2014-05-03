@@ -47,7 +47,9 @@ AtaboxApi::~AtaboxApi() {
 	m_listener.close();
 }
 
-
+std::map<utility::string_t, handle_request_fun> AtaboxApi::getMethods() {
+	return m_router;
+}
 void AtaboxApi::handle_error(pplx::task<void>& t)
 {
     try

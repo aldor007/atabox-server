@@ -74,7 +74,7 @@ bool RocksdbProvider<std::string, std::string>::put(std::string key, std::string
 template <class Key, class Value>
 bool RocksdbProvider<Key, Value>::put(Key key, Value value) {
 	rocksdb::Status status;
-	status = this->db->Put(rocksdb::WriteOptions(), key.toString(), value);
+	status = this->db->Put(rocksdb::WriteOptions(), static_cast<std::string>(key), static_cast<std::string>(value));
 	return status.ok();
 }
 
@@ -82,7 +82,7 @@ template <class Key, class Value>
 Value RocksdbProvider<Key, Value>::get(Key key) {
 	rocksdb::Status status;
 	std::string tmpValue;
-	status = this->db->Get(rocksdb::ReadOptions(), key.toString(), &tmpValue);
+	status = this->db->Get(rocksdb::ReadOptions(), static_cast<std::string>(key), &tmpValue);
 	if (status.ok()) {
 		Value value(tmpValue);
 		return value;

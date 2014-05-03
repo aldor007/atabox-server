@@ -5,7 +5,7 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
 ../test/wave/NormalizedSampleListMock.cpp \
-../test/wave/NormalizedSamplesList.cpp \
+../test/wave/NormalizedSamplesListTest.cpp \
 ../test/wave/WaveFileAnalizatorTest.cpp \
 ../test/wave/WaveFileMock.cpp \
 ../test/wave/WaveFileTest.cpp \
@@ -15,7 +15,7 @@ CPP_SRCS += \
 
 OBJS += \
 ./test/wave/NormalizedSampleListMock.o \
-./test/wave/NormalizedSamplesList.o \
+./test/wave/NormalizedSamplesListTest.o \
 ./test/wave/WaveFileAnalizatorTest.o \
 ./test/wave/WaveFileMock.o \
 ./test/wave/WaveFileTest.o \
@@ -25,7 +25,7 @@ OBJS += \
 
 CPP_DEPS += \
 ./test/wave/NormalizedSampleListMock.d \
-./test/wave/NormalizedSamplesList.d \
+./test/wave/NormalizedSamplesListTest.d \
 ./test/wave/WaveFileAnalizatorTest.d \
 ./test/wave/WaveFileMock.d \
 ./test/wave/WaveFileTest.d \

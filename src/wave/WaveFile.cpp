@@ -62,7 +62,23 @@ WaveFile::WaveFile(uint8_t * tmpdata) {
 
 void WaveFile::loadFromMemory(uint8_t *tmpData) {
 
-	uint32_t currentIndex = 34;
+
+	uint32_t currentIndex = 0;
+	std::memcpy(chunkID, tmpData + currentIndex, 4);
+	currentIndex += 4;
+	std::memcpy(&chunkSize, tmpData + currentIndex, 4);
+	currentIndex += 4;
+	std::memcpy(format,  tmpData, 4);
+	currentIndex += 4;
+	std::memcpy(&numberOfChanels, tmpData + 22, 2);
+	std::memcpy(&subchunk1Id, tmpData + 12, 4);
+	std::memcpy(&subchunk1Size, tmpData + 16, 4);
+	std::memcpy(&audioFormat, tmpData + 20, 2);
+	std::memcpy(&numberOfChanels, tmpData + 22, 2);
+	std::memcpy(&sampleRate, tmpData + 24, 4);
+	std::memcpy(&byteRate, tmpData + 28, 4);
+	std::memcpy(&blockAlign, tmpData + 32, 2);
+	currentIndex = 34;
 	std::memcpy(&bitsPerSample, tmpData + currentIndex, 2 );
 	currentIndex += 2;
 	bytePerSample = bitsPerSample / 8;
@@ -77,7 +93,6 @@ void WaveFile::loadFromMemory(uint8_t *tmpData) {
 	std::memcpy(&subchunk2Size, &tmpData[currentIndex], 4);
 	currentIndex += 4;
 	data = new char[subchunk2Size];
-	std::memcpy(&numberOfChanels, tmpData + 22, 2);
 	numberOfSamples = subchunk2Size / (bytePerSample * numberOfChanels);
 	std::memcpy(data, tmpData + currentIndex, subchunk2Size);
 

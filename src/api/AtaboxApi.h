@@ -32,6 +32,7 @@ public:
 	pplx::task<void> open();
 	pplx::task<void> close();
 	void addMethod(std::string name, handle_request_fun fun);
+	std::map<utility::string_t, handle_request_fun> getMethods();
 private:
 	static void handle_error(pplx::task<void>&t);
 	void  inline listenerSetSupports();

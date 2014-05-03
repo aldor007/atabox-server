@@ -27,6 +27,7 @@ test/wave \
 test/utils \
 test/recognition \
 test/dataproviders \
+test/api \
 test \
 src/wave \
 src/utils \
