@@ -7,15 +7,22 @@
 
 #include "WaveProperties.h"
 #include <cpprest/json.h>
+#include <boost/log/trivial.hpp>
 
 WaveProperties::WaveProperties() {
-	// TODO Auto-generated constructor stub
 
 }
 
 WaveProperties::WaveProperties(std::string data) {
-	// TODO Auto-generated constructor stub
-	web::json::value tmpData = web::json::value::parse(data.c_str());
+
+    web::json::value tmpData;
+	try {
+		tmpData = web::json::value::parse(data.c_str());
+	} catch (web::json::json_exception &e) {
+		BOOST_LOG_TRIVIAL(error)<<"Bad json "<<e.what();
+		throw e;
+
+	}
 	amplitude = tmpData["amplitude"].as_double();
 	name = tmpData["name"].as_string();
 	zeroCrossings = tmpData["zeroCrossings"].as_double();
@@ -28,11 +35,21 @@ WaveProperties::WaveProperties(std::string data) {
 	percentageAbove30percentage = tmpData["percentageAbove30percentage"].as_double();
 	percentageAbove20percentage = tmpData["percentageAbove20percentage"].as_double();
 	percentageAbove10percentage = tmpData["percentageAbove10percentage"].as_double();
+	lenghtInSeconds = tmpData["lengthInSeconds"].as_double();
 }
 WaveProperties::~WaveProperties() {
-	// TODO Auto-generated destructor stub
 }
 
+
+WaveProperties::operator std::string () const {
+	return this->toString();
+}
+
+bool WaveProperties::operator<( const WaveProperties& other) const {
+		//PropertiesComparator tmp;
+		//double distance = tmp.getDistance(*this, other);
+		return amplitude > other.amplitude;
+}
 
 std::string WaveProperties::toString() const {
 
@@ -55,5 +72,6 @@ web::json::value WaveProperties::toJSON() const {
 	tmpData["percentageAbove30percentage"] = web::json::value::number(percentageAbove30percentage);
 	tmpData["percentageAbove20percentage"] = web::json::value::number(percentageAbove20percentage);
 	tmpData["percentageAbove10percentage"] = web::json::value::number(percentageAbove10percentage);
+	tmpData["lengthInSeconds"] = web::json::value::number(lenghtInSeconds);
 	return tmpData;
 }

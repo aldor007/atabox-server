@@ -29,11 +29,12 @@ public:
 	std::string name = "commandName";
 	std::string toString() const;
 	web::json::value toJSON() const;
-	bool operator<( const WaveProperties& other) const {
-		//PropertiesComparator tmp;
-		//double distance = tmp.getDistance(*this, other);
-		return amplitude > other.amplitude;
-	}
+	operator std::string () const;
+	bool operator<( const WaveProperties& other) const;
+	double period = 0;
+	double frequency = 0;
+	double lenghtInSeconds = 0.0;
+
 };
 
 #endif /* WAVEPROPERTIES_H_ */

@@ -8,21 +8,24 @@ CPP_SRCS += \
 ../src/wave/WaveFile.cpp \
 ../src/wave/WaveFileAnalizator.cpp \
 ../src/wave/WavePreprocessor.cpp \
-../src/wave/WaveProperties.cpp 
+../src/wave/WaveProperties.cpp \
+../src/wave/WaveUtils.cpp 
 
 OBJS += \
 ./src/wave/NormalizedSamplesList.o \
 ./src/wave/WaveFile.o \
 ./src/wave/WaveFileAnalizator.o \
 ./src/wave/WavePreprocessor.o \
-./src/wave/WaveProperties.o 
+./src/wave/WaveProperties.o \
+./src/wave/WaveUtils.o 
 
 CPP_DEPS += \
 ./src/wave/NormalizedSamplesList.d \
 ./src/wave/WaveFile.d \
 ./src/wave/WaveFileAnalizator.d \
 ./src/wave/WavePreprocessor.d \
-./src/wave/WaveProperties.d 
+./src/wave/WaveProperties.d \
+./src/wave/WaveUtils.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

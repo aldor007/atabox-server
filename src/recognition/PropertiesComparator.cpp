@@ -8,12 +8,10 @@
 #include "PropertiesComparator.h"
 
 PropertiesComparator::PropertiesComparator() {
-	// TODO Auto-generated constructor stub
 
 }
 
 PropertiesComparator::~PropertiesComparator() {
-	// TODO Auto-generated destructor stub
 }
 
 double PropertiesComparator::getDistance(WaveProperties newSample,
@@ -28,6 +26,10 @@ double PropertiesComparator::getDistance(WaveProperties newSample,
 		result += relativeError(newSample.zeroCrossings,
 				patternSample.zeroCrossings);
 	}
+	if (patternSample.lenghtInSeconds != 0) {
+			result += relativeError(newSample.lenghtInSeconds,
+					patternSample.lenghtInSeconds);
+		}
 	return result;
 }
 

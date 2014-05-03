@@ -7,6 +7,7 @@
 
 #include "wave/WavePreprocessor.h"
 #include "wave/WaveFileAnalizator.h"
+#undef U
 #include "gtest/gtest.h"
 
 class WavePreprocessorTest: public ::testing::Test {

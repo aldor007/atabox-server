@@ -9,19 +9,17 @@
 #include "WaveFileAnalizator.h"
 
 WavePreprocessor::WavePreprocessor() {
-	// TODO Auto-generated constructor stub
 
 }
 
 WavePreprocessor::~WavePreprocessor() {
-	// TODO Auto-generated destructor stub
 }
 
 void WavePreprocessor::deleteSielienceFromBeginningAndEnd(NormalizedSamplesList & sampleList) {
-
+	// TODO Issue #23 https://bitbucket.org/jaworekmichal/atabox-server/issue/23/uwzgl-dni-w-wavepreprocessor
 	WaveFileAnalizator analizator;
 	double amplitude = analizator.findAmplitude(sampleList);
-	double percentSilence = 5.0/100;
+	double percentSilence = 5.0/100; // TODO: proposal: introduce percentSilence as a parameter of this method with default value
 	uint32_t sampleCounter = 0;
 		for (uint32_t i = 0; i < sampleList.getNumberOfSamples(); ++i) {
 			double sample = sampleList.getSample(i);

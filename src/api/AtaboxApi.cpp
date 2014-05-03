@@ -13,7 +13,6 @@ using namespace http::experimental::listener;
 std::string AtaboxApi::m_apiMainPath = "/api/";
 
 AtaboxApi::AtaboxApi(std::string host, std::string port) {
-	// TODO Auto-generated constructor stub
 	m_url = U("http://");
 	m_url.append(host);
 	m_url.append(":");
@@ -45,7 +44,6 @@ void  AtaboxApi::listenerSetSupports() {
 
 }
 AtaboxApi::~AtaboxApi() {
-	// TODO Auto-generated destructor stub
 	m_listener.close();
 }
 
