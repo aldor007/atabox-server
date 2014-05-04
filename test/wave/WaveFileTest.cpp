@@ -134,7 +134,7 @@ TEST_F(WaveFileTest, canHandleCommentsInHeader) {
 	ASSERT_EQ(446880, sample);
 
 }
-TEST_F(WaveFileTest, canReadWaveDataFromMemory) {
+TEST_F(WaveFileTest, canRead8BitsWaveDataFromMemory) {
 	// given
 	const uint16_t size = 200;
 	uint8_t tmpData[size];
@@ -166,3 +166,32 @@ TEST_F(WaveFileTest, canReadWaveDataFromMemory) {
 
 }
 
+TEST_F(WaveFileTest, canRead32BitsWaveDataFromMemory) {
+	const uint16_t size = 204;
+	uint8_t tmpData[size];
+	uint16_t bitspersample = 32;
+	int32_t  sampleRate = 60;
+	std::memcpy(tmpData + 24, &sampleRate, 4);
+	uint8_t currentIndex  = 34;
+	std::memcpy(tmpData + currentIndex, &bitspersample, 2);
+	currentIndex += 2;
+	uint8_t subchunk2Id[] = { 'd', 'a', 't', 'a'};
+	std::memcpy(tmpData + currentIndex, &subchunk2Id, 4);
+	currentIndex += 4;
+	uint16_t numOfChannels = 1;
+	std::memcpy(tmpData + 22, &numOfChannels, 2);
+	int32_t subchunk2size = (size - currentIndex - 4)/4;
+	std::memcpy(tmpData + currentIndex, &subchunk2size, 4);
+	currentIndex += 4;
+
+	for (uint32_t i = currentIndex; i < size; i = i + 4) {
+		int32_t tmpValue = i * (-1) * i%2;
+		std::memcpy(tmpData + i, &tmpValue, 4);
+	}
+	WaveFile waveFile(tmpData);
+	int32_t result = 0;
+	std::memcpy(&result, &tmpData[currentIndex], 4);
+	ASSERT_EQ(waveFile.getBitsPerSample(), bitspersample);
+	ASSERT_EQ(waveFile.getNumberOfSamples(), subchunk2size/4);
+	ASSERT_EQ(waveFile[0], result);
+}

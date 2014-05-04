@@ -20,11 +20,11 @@ WaveUtils::~WaveUtils() {
  * @param waveFile input file
  * @return maximum value
  */
-uint32_t WaveUtils::getMaxOfRange(unsigned int bitsPerSample) {
+uint32_t WaveUtils::getMaxOfRange(uint16_t bitsPerSample) {
 	return (1 << (bitsPerSample - 1)) - 1;
 }
 
 double WaveUtils::calculateLenghtInSeconds(uint32_t numberOfSamples,
-		unsigned int sampleRate) {
+		uint32_t sampleRate) {
 	return (double)numberOfSamples / sampleRate;
 }

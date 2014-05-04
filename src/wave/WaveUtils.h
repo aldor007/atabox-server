@@ -13,8 +13,8 @@ class WaveUtils {
 public:
 	WaveUtils();
 	~WaveUtils();
-	static uint32_t getMaxOfRange(unsigned int bitsPerSample);
-	static double calculateLenghtInSeconds(uint32_t numberOfSamples, unsigned int sampleRate);
+	static uint32_t getMaxOfRange(uint16_t bitsPerSample);
+	static double calculateLenghtInSeconds(uint32_t numberOfSamples, uint32_t sampleRate);
 };
 
 #endif /* WAVEUTILS_H_ */
