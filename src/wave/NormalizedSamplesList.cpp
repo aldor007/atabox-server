@@ -15,7 +15,8 @@ NormalizedSamplesList::NormalizedSamplesList(WaveFile & waveFile) {
 	}
 	int32_t maxOfRange = WaveUtils::getMaxOfRange(waveFile.getBitsPerSample());
 	numberOfSamples = waveFile.getNumberOfSamples();
-	lenghtInSeconds = WaveUtils::calculateLenghtInSeconds(numberOfSamples, waveFile.getSampleRate());
+	this->sampleRate = waveFile.getSampleRate();
+	lenghtInSeconds = WaveUtils::calculateLenghtInSeconds(numberOfSamples, this->sampleRate);
 	for (uint32_t i = 0; i < numberOfSamples; i++) {
 		if (waveFile.getBitsPerSample() == 8) {
 			samples[i] = (double) ((waveFile.getRawSample(i)-128) / maxOfRange);
@@ -53,10 +54,12 @@ double NormalizedSamplesList::getLenghtInSeconds() {
 NormalizedSamplesList::NormalizedSamplesList() {
 
 }
-void NormalizedSamplesList::setSampleListData(uint32_t numberOfSamples,double * data) {
+void NormalizedSamplesList::setSampleListData(uint32_t numberOfSamples, double * data) {
 	if (this->samples != nullptr) {
 			delete this->samples;
 		}
 	this->samples = data;
 	this->numberOfSamples = numberOfSamples;
+	this->lenghtInSeconds =
+			WaveUtils::calculateLenghtInSeconds(this->numberOfSamples, this->sampleRate);
 }

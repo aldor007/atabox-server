@@ -67,9 +67,9 @@ protected:
 	void ReadDataSubchunk(FILE* file);
 
 
-	void validateRIFFChunkDescriptor();
-	void validateFmtSubchunk();
-	void validateDataSubchunk();
+	void validateRIFFChunkDescriptor() const;
+	void validateFmtSubchunk() const;
+	void validateDataSubchunk() const;
 	void freeDataIfNotNull();
 	void skipExtraParams(FILE* file);
 };

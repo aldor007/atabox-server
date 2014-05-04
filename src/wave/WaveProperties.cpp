@@ -10,7 +10,19 @@
 #include <boost/log/trivial.hpp>
 
 WaveProperties::WaveProperties() {
-
+	amplitude = 0;
+	name = "commandName";
+	zeroCrossings = 0;
+	percentageAbove90percentage = 0;
+	percentageAbove80percentage = 0;
+	percentageAbove70percentage = 0;
+	percentageAbove60percentage = 0;
+	percentageAbove50percentage = 0;
+	percentageAbove40percentage = 0;
+	percentageAbove30percentage = 0;
+	percentageAbove20percentage = 0;
+	percentageAbove10percentage = 0;
+	lenghtInSeconds = 0;
 }
 
 WaveProperties::WaveProperties(std::string data) {

@@ -162,16 +162,16 @@ unsigned int WaveFile::getNumberOfSamples() {
 	return numberOfSamples;
 }
 
-void WaveFile::validateDataSubchunk() {
+void WaveFile::validateDataSubchunk() const{
 
 }
 
-void WaveFile::validateFmtSubchunk() {
+void WaveFile::validateFmtSubchunk() const{
 	if (numberOfChanels != 1) {
 		throw "Only mono files are supported";
 	}
 }
-void WaveFile::validateRIFFChunkDescriptor() {
+void WaveFile::validateRIFFChunkDescriptor() const{
 	if (strncmp(chunkID, "RIFF", 4) != 0) {
 		throw "This is not WAVE file.";
 	}

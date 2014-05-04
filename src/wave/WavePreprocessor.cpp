@@ -15,30 +15,28 @@ WavePreprocessor::WavePreprocessor() {
 WavePreprocessor::~WavePreprocessor() {
 }
 
-void WavePreprocessor::deleteSielienceFromBeginningAndEnd(NormalizedSamplesList & sampleList) {
-	// TODO Issue #23 https://bitbucket.org/jaworekmichal/atabox-server/issue/23/uwzgl-dni-w-wavepreprocessor
+void WavePreprocessor::deleteSielienceFromBeginningAndEnd(NormalizedSamplesList & sampleList, double percentSilence) const {
 	WaveFileAnalizator analizator;
 	double amplitude = analizator.findAmplitude(sampleList);
-	double percentSilence = 5.0/100; // TODO: proposal: introduce percentSilence as a parameter of this method with default value
 	uint32_t sampleCounter = 0;
 		for (uint32_t i = 0; i < sampleList.getNumberOfSamples(); ++i) {
 			double sample = sampleList.getSample(i);
-			if (abs(sample) > amplitude*percentSilence) {
+			if (fabs(sample) > amplitude*percentSilence) {
 				++sampleCounter;
 			}
 		}
 
-	double * dataFixed = new double [sampleCounter];
+	double * dataFixed = new double [sampleCounter + 1];
 
 	sampleCounter = 0;
 	for (uint32_t i = 0; i < sampleList.getNumberOfSamples(); ++i) {
-				double sample = sampleList.getSample(i);
-				if (abs(sample) > amplitude*percentSilence) {
-					dataFixed[++sampleCounter] = sampleList.getSample(i);
-				}
+			double sample = sampleList.getSample(i);
+			if (fabs(sample) > amplitude*percentSilence) {
+				dataFixed[++sampleCounter] = sampleList.getSample(i);
 			}
+		}
 	sampleList.setSampleListData(sampleCounter+1,dataFixed);
 }
 
-void WavePreprocessor::normalize(WaveFile waveFile) {
+void WavePreprocessor::normalize(WaveFile waveFile) const{
 }
