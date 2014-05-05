@@ -14,6 +14,8 @@
 #include <boost/log/sources/severity_feature.hpp>
 #include <boost/log/sources/severity_logger.hpp>
 #include <boost/log/trivial.hpp>
+#include <boost/program_options.hpp>
+
 
 #include "cpprest/containerstream.h"
 #include "cpprest/rawptrstream.h"
@@ -142,7 +144,48 @@ void handle_list(web::http::http_request request) {
 
 
 
-int main() {
+int main(int argc, char** argv) {
+//TODO: http://www.radmangames.com/programming/how-to-use-boost-program_options
+	 /** Define and parse the program options
+	     */
+	    namespace po = boost::program_options;
+	    po::options_description desc("Options");
+	    desc.add_options()
+	      ("help", "Print help messages")
+	      ("add", "additional options")
+	      ("like", "this");
+
+	    po::variables_map vm;
+	    try
+	    {
+	      po::store(po::parse_command_line(argc, argv, desc),
+	                vm); // can throw
+
+	      /** --help option
+	       */
+	      if ( vm.count("help")  )
+	      {
+	        std::cout << "Basic Command Line Parameter App" << std::endl
+	                  << desc << std::endl;
+	        return 0;
+	      }
+
+	      po::notify(vm); // throws on error, so do after help in case
+	                      // there are any problems
+	    }
+	    catch(po::error& e)
+	    {
+	      std::cerr << "ERROR: " << e.what() << std::endl << std::endl;
+	      std::cerr << desc << std::endl;
+	      return 2;
+	    }
+
+	    // application code here //
+
+
+
+
+
 
     BOOST_LOG_TRIVIAL(debug)<<"Server listening localhost:8111. Db name atabox.db";
     g_mainDB  = new RocksdbProvider<WaveProperties, std::string>("atabox.db"); //FIXME: database name read from config file
