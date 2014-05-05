@@ -163,7 +163,10 @@ TEST_F(WaveFileTest, canRead8BitsWaveDataFromMemory) {
 	ASSERT_EQ(currentIndex + 1, sample);
 	ASSERT_EQ(waveFile.getBitsPerSample(), bitspersample);
 	ASSERT_EQ(waveFile[0], waveFile.getRawSample(0));
-
+	for (uint8_t i = 0; i< waveFile.getNumberOfSamples(); i++) {
+				ASSERT_LE(waveFile[i], 800);
+				ASSERT_GE(waveFile.getRawSample(i), -800.0);
+			}
 }
 
 TEST_F(WaveFileTest, canRead32BitsWaveDataFromMemory) {
@@ -194,4 +197,9 @@ TEST_F(WaveFileTest, canRead32BitsWaveDataFromMemory) {
 	ASSERT_EQ(waveFile.getBitsPerSample(), bitspersample);
 	ASSERT_EQ(waveFile.getNumberOfSamples(), subchunk2size/4);
 	ASSERT_EQ(waveFile[0], result);
+	for (uint8_t i = 0; i< waveFile.getNumberOfSamples(); i++) {
+			ASSERT_LE(waveFile[i], 800);
+			ASSERT_GE(waveFile.getRawSample(i), -800.0);
+		}
+
 }

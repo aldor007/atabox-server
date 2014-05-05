@@ -21,7 +21,14 @@ TEST_F(WaveUtilsTest, getMaxOfRange) {
 	// then
 	ASSERT_EQ(127, result);
 }
-
+TEST_F(WaveUtilsTest, getMaxOfRange32bity) {
+	// given
+	unsigned int bitsPerSample = 32;
+	// when
+	int result = WaveUtils::getMaxOfRange(bitsPerSample);
+	// then
+	ASSERT_EQ(2147483647, result);
+}
 TEST_F(WaveUtilsTest, calculateLenghtInSeconds) {
 	// given (data from bells.wave)
 	unsigned int sampleRate = 11025;

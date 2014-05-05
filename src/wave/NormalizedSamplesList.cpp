@@ -13,7 +13,7 @@ NormalizedSamplesList::NormalizedSamplesList(WaveFile & waveFile) {
 	} catch (std::bad_alloc) {
 		throw "No memory";
 	}
-	uint32_t maxOfRange = WaveUtils::getMaxOfRange(waveFile.getBitsPerSample());
+	int32_t maxOfRange = WaveUtils::getMaxOfRange(waveFile.getBitsPerSample());
 	numberOfSamples = waveFile.getNumberOfSamples();
 	this->sampleRate = waveFile.getSampleRate();
 	lenghtInSeconds = WaveUtils::calculateLenghtInSeconds(numberOfSamples, this->sampleRate);
