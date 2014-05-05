@@ -122,29 +122,29 @@ char * WaveFile::getSubchunk1Id() {
 	return subchunk1Id;
 }
 
-unsigned int WaveFile::getSubchunk1Size() {
+uint32_t WaveFile::getSubchunk1Size() {
 	return subchunk1Size;
 }
-unsigned int WaveFile::getAudioFormat() {
+uint16_t WaveFile::getAudioFormat() {
 	return audioFormat;
 }
-unsigned int WaveFile::getNumberOfChanels() {
+uint16_t WaveFile::getNumberOfChanels() {
 	return numberOfChanels;
 }
-unsigned int WaveFile::getSampleRate() {
+uint32_t WaveFile::getSampleRate() {
 	return sampleRate;
 }
-unsigned int WaveFile::getByteRate() {
+uint32_t WaveFile::getByteRate() {
 	return byteRate;
 }
-unsigned int WaveFile::getBlockAlign() {
+uint16_t WaveFile::getBlockAlign() {
 	return blockAlign;
 }
-unsigned int WaveFile::getBitsPerSample() {
+uint16_t WaveFile::getBitsPerSample() {
 	return bitsPerSample;
 }
 
-unsigned int WaveFile::getSubchunk2Size() {
+uint32_t WaveFile::getSubchunk2Size() {
 	return subchunk2Size;
 }
 
@@ -158,7 +158,7 @@ int32_t WaveFile::getRawSample(unsigned int i) {
 	return result;
 }
 
-unsigned int WaveFile::getNumberOfSamples() {
+uint32_t WaveFile::getNumberOfSamples() {
 	return numberOfSamples;
 }
 

@@ -20,15 +20,9 @@ template<class T>
 std::complex<double>* FastFourierTransform(T &a, uint32_t n)
 {
 	std::complex<double>* b;
-	//typedef typename std::iterator_traits<Iter_T>::value_type complex2;
 	uint32_t log2n = ceil(log2((double)n));
 	uint32_t n2 = 1<<log2n;
-		 /*if (b != nullptr) {
-			 delete b;
-		 }*/
-		 b = new   std::complex<double>[n2];
-	//b = new std::complex<double>[1<<log2n];
-
+	b = new   std::complex<double>[n2];
 	const std::complex<double> J(0, 1);
 	for (uint32_t i=0; i < n; ++i) {
 		b[bitReverse(i, log2n)] = a[i];
@@ -41,10 +35,6 @@ std::complex<double>* FastFourierTransform(T &a, uint32_t n)
 		std::complex<double> wm = exp(-J * (M_PI / m2));
 		for (uint32_t j=0; j < m2; ++j) {
 			for (uint32_t k=j; k < n; k+= m) {
-				if (k + m2 >= n) {
-				//std::cout<<"K + m2 " << k + m2<<" k "<<k<<" m2 "<<m<<" n "<<n<<std::endl;
-				break;
-				}
 				std::complex<double> t = w * b[k + m2];
 				std::complex<double> u = b[k];
 				b[k] = u + t;
@@ -53,8 +43,6 @@ std::complex<double>* FastFourierTransform(T &a, uint32_t n)
 		w *= wm;
 		}
 	}
-//	DanielsonLanczos dft(n);
-//	dft.apply(b);
 	return b;
 }
 

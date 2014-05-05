@@ -21,19 +21,19 @@ public:
 	WaveFile(uint8_t  *data);
 	virtual ~WaveFile();
 	virtual char * getChunkID();
-	virtual unsigned int getChunkSize();
+	virtual uint32_t getChunkSize();
 	virtual char * getFormat();
 	virtual char * getSubchunk1Id();
-	virtual unsigned int getSubchunk1Size();
-	virtual unsigned int getAudioFormat();
-	virtual unsigned int getNumberOfChanels();
-	virtual unsigned int getSampleRate();
-	virtual unsigned int getByteRate();
-	virtual unsigned int getBlockAlign();
-	virtual unsigned int getBitsPerSample();
+	virtual uint32_t getSubchunk1Size();
+	virtual uint16_t getAudioFormat();
+	virtual uint16_t getNumberOfChanels();
+	virtual uint32_t getSampleRate();
+	virtual uint32_t getByteRate();
+	virtual uint16_t getBlockAlign();
+	virtual uint16_t getBitsPerSample();
 	virtual char * getSubchunk2Id();
-	virtual unsigned int getSubchunk2Size();
-	virtual unsigned int getNumberOfSamples();
+	virtual uint32_t getSubchunk2Size();
+	virtual uint32_t getNumberOfSamples();
 	void loadFromFile(const char* filename);
 	void loadFromMemory(uint8_t  * data);
 	virtual double	 operator[](unsigned int i);
@@ -42,22 +42,22 @@ protected:
 	WaveFile();
 	//chunk descriptor
 	char chunkID[4] = { 0 };
-	unsigned int chunkSize = 0;
+	uint32_t chunkSize = 0;
 	char format[4] = { 0 };
 	// subchunk 1
 	char subchunk1Id[4] = { 0 };
-	unsigned int subchunk1Size = 0;
-	unsigned int audioFormat = 0;
-	unsigned int numberOfChanels = 0;
-	unsigned int sampleRate = 0;
-	unsigned int byteRate = 0;
-	unsigned int blockAlign = 0;
+	uint32_t subchunk1Size = 0;
+	uint16_t audioFormat = 0;
+	uint16_t numberOfChanels = 0;
+	uint32_t sampleRate = 0;
+	uint32_t byteRate = 0;
+	uint16_t blockAlign = 0;
 	uint16_t bitsPerSample = 0;
-	unsigned int bytePerSample = 0;
+	uint8_t bytePerSample = 0;
 	//subchunk 2
 	char subchunk2Id[4] = { 0 };
-	unsigned int subchunk2Size = 0;
-	unsigned int numberOfSamples = 0;
+	uint32_t subchunk2Size = 0;
+	uint32_t numberOfSamples = 0;
 
 	char * data = nullptr;
 

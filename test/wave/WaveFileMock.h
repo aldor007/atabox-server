@@ -17,10 +17,9 @@ class WaveFileMock: public WaveFile {
 public:
 	WaveFileMock();
 	~WaveFileMock();
-	MOCK_METHOD0(getNumberOfSamples, unsigned int());
+	MOCK_METHOD0(getNumberOfSamples, uint32_t());
 	MOCK_METHOD1(getSample, double(unsigned int i));
-	MOCK_METHOD0(getBitsPerSample, unsigned int());
-
+	MOCK_METHOD0(getBitsPerSample, uint16_t());
 };
 
 #endif /* WAVEFILEMOCK_H_ */

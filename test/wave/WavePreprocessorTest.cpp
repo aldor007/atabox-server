@@ -20,8 +20,8 @@ TEST_F(WavePreprocessorTest, deleteSielienceFromBeginningAndEnd) {
 	WaveFile waveSilence("test/wave/dziekuje32bit300msecSilence.wav");
 	NormalizedSamplesList samples1(wave1);
 	NormalizedSamplesList samplesSilence(waveSilence);
-	ASSERT_NE(samples1[0], samplesSilence[0]);
-	ASSERT_TRUE(samples1[1] != samplesSilence[1]);
+	ASSERT_NE(samples1[300], samplesSilence[300]);
+	ASSERT_TRUE(samples1[232] != samplesSilence[232]);
 	ASSERT_NE(samples1.getNumberOfSamples() , samplesSilence.getNumberOfSamples());
 	WavePreprocessor processor;
 	processor.deleteSielienceFromBeginningAndEnd(samplesSilence, 0.05);

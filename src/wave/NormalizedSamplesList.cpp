@@ -13,7 +13,7 @@ NormalizedSamplesList::NormalizedSamplesList(WaveFile & waveFile) {
 	} catch (std::bad_alloc) {
 		throw "No memory";
 	}
-	int32_t maxOfRange = WaveUtils::getMaxOfRange(waveFile.getBitsPerSample());
+	uint32_t maxOfRange = WaveUtils::getMaxOfRange(waveFile.getBitsPerSample());
 	numberOfSamples = waveFile.getNumberOfSamples();
 	this->sampleRate = waveFile.getSampleRate();
 	lenghtInSeconds = WaveUtils::calculateLenghtInSeconds(numberOfSamples, this->sampleRate);
@@ -23,7 +23,6 @@ NormalizedSamplesList::NormalizedSamplesList(WaveFile & waveFile) {
 		} else {
 			samples[i] = (double) waveFile.getRawSample(i) / maxOfRange;
 		}
-
 	}
 
 }
@@ -36,7 +35,7 @@ NormalizedSamplesList::~NormalizedSamplesList() {
 }
 
 double NormalizedSamplesList::operator [](unsigned int i) {
-	getSample(i);
+	return getSample(i);
 }
 
 double NormalizedSamplesList::getSample(unsigned int i) {
