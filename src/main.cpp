@@ -56,7 +56,7 @@ void handle_add(web::http::http_request request) {
     if (paths.size() != 3) {
     	BOOST_LOG_TRIVIAL(error)<<"Bad request";
     	response["error_msg"] = json::value::string("Bad request. Read doc for info");
-    	response["status"] = json::value::string("error");
+    	response["status"] = json::value::string("ERROR");
     	request.reply(status_codes::BadRequest, response);
     	return;
     }
@@ -82,6 +82,10 @@ void handle_add(web::http::http_request request) {
     	g_mainDB->put(waveProperties.toString(), commandString);
     } catch (std::exception const & ex) {
     	BOOST_LOG_TRIVIAL(error)<<"Error "<<ex.what();
+    	response["status"] = json::value::string("ERROR");
+    	response["error_msg"] = json::value::string(ex.what());
+    	request.reply(status_codes::InternalError, response);
+    	return;
     }
     request.reply(status_codes::OK, response);
 
