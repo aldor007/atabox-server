@@ -50,6 +50,9 @@ void handle_add(web::http::http_request request) {
 	json::value response;
     auto path = request.relative_uri().path();
 
+    	BOOST_LOG_TRIVIAL(error)<<request.to_string();
+    	std::map<std::string, std::string> querymap = uri::split_query(request.relative_uri().query());
+    std::cout<<"test log"<<querymap["name"]<<" "<<uri::decode(querymap["command"]);
     response["path"] = json::value::string(path);
 
     auto paths = uri::split_path(uri::decode(request.relative_uri().path()));
