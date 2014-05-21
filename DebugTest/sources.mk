@@ -30,6 +30,7 @@ test/dataproviders \
 test/api \
 test \
 src/wave \
+src/runner \
 src/recognition \
 src/dataproviders \
 src/api \

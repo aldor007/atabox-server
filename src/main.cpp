@@ -15,7 +15,7 @@
 #include <boost/log/sources/severity_logger.hpp>
 #include <boost/log/trivial.hpp>
 #include <boost/program_options.hpp>
-
+#include <boost/asio/io_service.hpp>
 
 #include "cpprest/containerstream.h"
 #include "cpprest/rawptrstream.h"
@@ -28,6 +28,7 @@
 #include "wave/WaveFile.h"
 #include "wave/WavePreprocessor.h"
 #include "recognition/PropertiesComparator.h"
+#include <runner/Runner.h>
 
 using namespace web;
 using namespace web::http;
@@ -45,6 +46,9 @@ enum severity_level
     critical
 };
 BaseDataProvider<WaveProperties, std::string> * g_mainDB;
+boost::asio::io_service g_io_service;
+Runner g_runner(g_io_service);
+
 void handle_add(web::http::http_request request) {
 
 	json::value response;
@@ -131,9 +135,10 @@ void handle_execute(web::http::http_request request) {
 		BOOST_LOG_TRIVIAL(debug)<<" Distance "<<distance;
 		if (fabs(distance - 0) < 0.000001) { //FIXME: get compersion precision from config file
 			BOOST_LOG_TRIVIAL(debug)<<"Run command "<<iterator->second;
-			//TODO: runner here
+
+			web::json::value cmdResult = g_runner.run(iterator->second, " ");
 			response["status"] = json::value::string("OK");
-			response["command_ret"] = json::value::number(0);
+			response["command_ret"] = cmdResult;
 			request.reply(status_codes::OK, response);
 			return;
 		}
@@ -228,6 +233,7 @@ int main(int argc, char** argv) {
     mainApi.addMethod("execute", handle_execute);
     mainApi.addMethod("list", handle_list);
     mainApi.addMethod("test", handle_test);
+    //g_io_service.run();
     mainApi.open().wait();
     std::string line;
     std::getline(std::cin, line);
