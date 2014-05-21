@@ -8,6 +8,7 @@
 #include "WaveProperties.h"
 #include <cpprest/json.h>
 #include <boost/log/trivial.hpp>
+#include <recognition/PropertiesComparator.h>
 
 WaveProperties::WaveProperties() {
 	amplitude = 0;
@@ -58,9 +59,9 @@ WaveProperties::operator std::string () const {
 }
 
 bool WaveProperties::operator<( const WaveProperties& other) const {
-		//PropertiesComparator tmp;
-		//double distance = tmp.getDistance(*this, other);
-		return amplitude > other.amplitude;
+		PropertiesComparator tmp;
+		double distance = tmp.getDistance(*this, other);
+		return distance > 0;
 }
 
 std::string WaveProperties::toString() const {

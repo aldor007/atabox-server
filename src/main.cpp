@@ -29,14 +29,14 @@
 #include "wave/WavePreprocessor.h"
 #include "recognition/PropertiesComparator.h"
 #include <runner/Runner.h>
-
+#include <utils/execution_policy.h>
 using namespace web;
 using namespace web::http;
 using namespace web::http::client;
 
-static const int num_threads = 3;
-//TODO move somewhere
 
+
+const std::string DEFAULT_POLICY = "nonstrict";
 enum severity_level
 {
     normal,
@@ -48,6 +48,8 @@ enum severity_level
 BaseDataProvider<WaveProperties, std::string> * g_mainDB;
 boost::asio::io_service g_io_service;
 Runner g_runner(g_io_service);
+typedef std::string(*policy_fun)(std::map<WaveProperties,std::string>&, WaveProperties&);
+std::map<std::string, policy_fun>  g_policies;
 
 void handle_add(web::http::http_request request) {
 
@@ -127,22 +129,19 @@ void handle_execute(web::http::http_request request) {
 
 	std::map<WaveProperties, std::string> list;
 	list = g_mainDB->getAllKV();
-	typedef std::map<WaveProperties, std::string>::iterator map_it;
-	PropertiesComparator comparator;
+	auto tmpFun = g_policies[DEFAULT_POLICY];
 
-	for (map_it iterator = list.begin(); iterator != list.end(); iterator++) {
-		double distance =  comparator.getDistance(iterator->first, waveProperties);
-		BOOST_LOG_TRIVIAL(debug)<<" Distance "<<distance;
-		if (fabs(distance - 0) < 0.000001) { //FIXME: get compersion precision from config file
-			BOOST_LOG_TRIVIAL(debug)<<"Run command "<<iterator->second;
+	std::string command = tmpFun(list, waveProperties);
+	if (!command.empty()) {
 
-			web::json::value cmdResult = g_runner.run(iterator->second, " ");
+			web::json::value cmdResult = g_runner.run(command, " ");
 			response["status"] = json::value::string("OK");
+			response["command"] = json::value::string(command);
 			response["command_ret"] = cmdResult;
 			request.reply(status_codes::OK, response);
 			return;
-		}
 	}
+
 	response["status"] = json::value::string("NOT_FOUND");
 
     request.reply(status_codes::OK, response);
@@ -162,7 +161,6 @@ void handle_list(web::http::http_request request) {
     	request.reply(status_codes::InternalError, result);
     	return;
     }
-	typedef std::map<WaveProperties, std::string>::iterator map_it;
 	uint32_t counter = 0;
     json::value tmp;
     result[0] = tmp;
@@ -228,6 +226,8 @@ int main(int argc, char** argv) {
 
     BOOST_LOG_TRIVIAL(debug)<<"Server listening localhost:8111. Db name atabox.db";
     g_mainDB  = new RocksdbProvider<WaveProperties, std::string>("atabox.db"); //FIXME: database name read from config file
+    g_policies["strict"] = execution_policy_strict;
+    g_policies["nonstrict"] = execution_policy_nonstrict;
     AtaboxApi mainApi("127.0.0.1", "8111");
     mainApi.addMethod("add", handle_add);
     mainApi.addMethod("execute", handle_execute);
