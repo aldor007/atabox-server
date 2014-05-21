@@ -235,8 +235,9 @@ int main(int argc, char** argv) {
     mainApi.addMethod("test", handle_test);
     //g_io_service.run();
     mainApi.open().wait();
-    std::string line;
-    std::getline(std::cin, line);
+    //std::string line;
+    //std::getline(std::cin, line);
+    while(1) {}
     mainApi.close().wait();
     BOOST_LOG_TRIVIAL(debug)<<"End of work. Bye ;)";
 
