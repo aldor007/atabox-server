@@ -14,8 +14,8 @@ class WavePreprocessor {
 public:
 	WavePreprocessor();
 	~WavePreprocessor();
-	void deleteSielienceFromBeginningAndEnd(NormalizedSamplesList& sampleList,
-			double percentSilence = 0.02) const;
+	static void deleteSielienceFromBeginningAndEnd(NormalizedSamplesList& sampleList,
+			double percentSilence = 0.02) ;
 	void normalize(WaveFile waveFile) const;
 };
 

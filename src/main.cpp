@@ -48,35 +48,36 @@ BaseDataProvider<WaveProperties, std::string> * g_mainDB;
 void handle_add(web::http::http_request request) {
 
 	json::value response;
-    auto path = request.relative_uri().path();
-
-    	BOOST_LOG_TRIVIAL(error)<<request.to_string();
-    	std::map<std::string, std::string> querymap = uri::split_query(request.relative_uri().query());
-    std::cout<<"test log"<<querymap["name"]<<" "<<uri::decode(querymap["command"]);
-    response["path"] = json::value::string(path);
-
-    auto paths = uri::split_path(uri::decode(request.relative_uri().path()));
-    if (paths.size() != 3) {
+    std::map<std::string, std::string> querymap = uri::split_query(request.relative_uri().query());
+    if (querymap.find("name") == querymap.end() || querymap.find("command") == querymap.end()) {
     	BOOST_LOG_TRIVIAL(error)<<"Bad request";
-    	response["error_msg"] = json::value::string("Bad request. Read doc for info");
+    	response["error_msg"] = json::value::string("Bad request. Read doc for info. Missing name or command field in request.");
     	response["status"] = json::value::string("ERROR");
     	request.reply(status_codes::BadRequest, response);
     	return;
+
     }
-    std::string commandName = paths[1];
-    std::string commandString = paths[2];
+    std::string commandName = uri::decode(querymap["name"]);
+    std::string commandString = uri::decode(querymap["command"]);
     BOOST_LOG_TRIVIAL(debug)<<"Add command name "<<commandName<<" command string: "<<commandString;
     concurrency::streams::istream body = request.body();
     uint64_t content_lenght = request.headers().content_length();
     BOOST_LOG_TRIVIAL(debug)<<"Content lenght of request "<<content_lenght;
+    if (content_lenght == 0) {
+    	BOOST_LOG_TRIVIAL(error)<<"Bad request! Empty body";
+    	response["error_msg"] = json::value::string("Bad request.Empty body!");
+    	response["status"] = json::value::string("ERROR");
+    	request.reply(status_codes::BadRequest, response);
+    	return;
+
+    }
     uint8_t * waveData = new uint8_t[content_lenght];
     Concurrency::streams::rawptr_buffer<uint8_t> buffer(waveData, content_lenght);
     body.read(buffer, content_lenght).get();
     WaveFile wave(waveData);
     delete waveData;
-    //WavePreprocesor processWave;
-            //processWave.process(&wave);
     NormalizedSamplesList waveSamples(wave);
+    WavePreprocessor::deleteSielienceFromBeginningAndEnd(waveSamples);
     WaveFileAnalizator analizator;
     WaveProperties waveProperties = analizator.getAllProperties(waveSamples);
     waveProperties.name = commandName;
@@ -90,21 +91,33 @@ void handle_add(web::http::http_request request) {
     	request.reply(status_codes::InternalError, response);
     	return;
     }
+    response["status"] = json::value::string("OK");
+    response["command"] = json::value::string(commandString);
     request.reply(status_codes::OK, response);
 
 }
 
 void handle_execute(web::http::http_request request) {
 
+	json::value response;
     concurrency::streams::istream body = request.body();
     uint64_t content_lenght = request.headers().content_length();
     BOOST_LOG_TRIVIAL(debug)<<"Content lenght of request "<<content_lenght;
+    if (content_lenght == 0) {
+    	BOOST_LOG_TRIVIAL(error)<<"Bad request! Empty body";
+    	response["error_msg"] = json::value::string("Bad request.Empty body!");
+    	response["status"] = json::value::string("ERROR");
+    	request.reply(status_codes::BadRequest, response);
+    	return;
+
+    }
     uint8_t * waveData = new uint8_t[content_lenght];
     Concurrency::streams::rawptr_buffer<uint8_t> buffer(waveData, content_lenght);
     body.read(buffer, content_lenght).get();
     WaveFile wave(waveData);
     delete waveData;
     NormalizedSamplesList waveSamples(wave);
+    WavePreprocessor::deleteSielienceFromBeginningAndEnd(waveSamples);
     WaveFileAnalizator analizator;
     WaveProperties waveProperties = analizator.getAllProperties(waveSamples);
 
@@ -112,11 +125,11 @@ void handle_execute(web::http::http_request request) {
 	list = g_mainDB->getAllKV();
 	typedef std::map<WaveProperties, std::string>::iterator map_it;
 	PropertiesComparator comparator;
-	json::value response;
 
 	for (map_it iterator = list.begin(); iterator != list.end(); iterator++) {
 		double distance =  comparator.getDistance(iterator->first, waveProperties);
-		if (distance == 0) {
+		BOOST_LOG_TRIVIAL(debug)<<" Distance "<<distance;
+		if (fabs(distance - 0) < 0.000001) { //FIXME: get compersion precision from config file
 			BOOST_LOG_TRIVIAL(debug)<<"Run command "<<iterator->second;
 			//TODO: runner here
 			response["status"] = json::value::string("OK");
@@ -133,12 +146,22 @@ void handle_execute(web::http::http_request request) {
 
 void handle_list(web::http::http_request request) {
 	std::map<WaveProperties, std::string> list;
-	list = g_mainDB->getAllKV();
 	json::value result;
+	try {
+
+		list = g_mainDB->getAllKV();
+    } catch (std::exception const & ex) {
+    	BOOST_LOG_TRIVIAL(error)<<"DB Error "<<ex.what();
+    	result["status"] = json::value::string("ERROR");
+    	result["error_msg"] = json::value::string(ex.what());
+    	request.reply(status_codes::InternalError, result);
+    	return;
+    }
 	typedef std::map<WaveProperties, std::string>::iterator map_it;
 	uint32_t counter = 0;
+    json::value tmp;
+    result[0] = tmp;
 	for (map_it iterator = list.begin(); iterator != list.end(); iterator++) {
-		json::value tmp;
 		tmp["waveProperties"] = iterator->first.toJSON();
 		tmp["command"] = json::value::string(iterator->second);
 		result[counter++] =  tmp;
@@ -149,7 +172,11 @@ void handle_list(web::http::http_request request) {
 
 }
 
-
+void handle_test(web::http::http_request request) {
+	json::value result;
+	result["status"] = json::value::string("OK");
+	request.reply(status_codes::OK, result);
+}
 
 int main(int argc, char** argv) {
 //TODO: http://www.radmangames.com/programming/how-to-use-boost-program_options
@@ -200,6 +227,7 @@ int main(int argc, char** argv) {
     mainApi.addMethod("add", handle_add);
     mainApi.addMethod("execute", handle_execute);
     mainApi.addMethod("list", handle_list);
+    mainApi.addMethod("test", handle_test);
     mainApi.open().wait();
     std::string line;
     std::getline(std::cin, line);

@@ -30,24 +30,24 @@ WaveProperties::WaveProperties(std::string data) {
     web::json::value tmpData;
 	try {
 		tmpData = web::json::value::parse(data.c_str());
+        amplitude = tmpData["amplitude"].as_double();
+        name = tmpData["name"].as_string();
+        zeroCrossings = tmpData["zeroCrossings"].as_double();
+        percentageAbove90percentage = tmpData["percentageAbove90percentage"].as_double();
+        percentageAbove80percentage = tmpData["percentageAbove80percentage"].as_double();
+        percentageAbove70percentage = tmpData["percentageAbove70percentage"].as_double();
+        percentageAbove60percentage = tmpData["percentageAbove50percentage"].as_double();
+        percentageAbove50percentage = tmpData["percentageAbove50percentage"].as_double();
+        percentageAbove40percentage = tmpData["percentageAbove40percentage"].as_double();
+        percentageAbove30percentage = tmpData["percentageAbove30percentage"].as_double();
+        percentageAbove20percentage = tmpData["percentageAbove20percentage"].as_double();
+        percentageAbove10percentage = tmpData["percentageAbove10percentage"].as_double();
+        lenghtInSeconds = tmpData["lengthInSeconds"].as_double();
 	} catch (web::json::json_exception &e) {
 		BOOST_LOG_TRIVIAL(error)<<"Bad json "<<e.what();
 		throw e;
 
 	}
-	amplitude = tmpData["amplitude"].as_double();
-	name = tmpData["name"].as_string();
-	zeroCrossings = tmpData["zeroCrossings"].as_double();
-	percentageAbove90percentage = tmpData["percentageAbove90percentage"].as_double();
-	percentageAbove80percentage = tmpData["percentageAbove80percentage"].as_double();
-	percentageAbove70percentage = tmpData["percentageAbove70percentage"].as_double();
-	percentageAbove60percentage = tmpData["percentageAbove50percentage"].as_double();
-	percentageAbove50percentage = tmpData["percentageAbove50percentage"].as_double();
-	percentageAbove40percentage = tmpData["percentageAbove40percentage"].as_double();
-	percentageAbove30percentage = tmpData["percentageAbove30percentage"].as_double();
-	percentageAbove20percentage = tmpData["percentageAbove20percentage"].as_double();
-	percentageAbove10percentage = tmpData["percentageAbove10percentage"].as_double();
-	lenghtInSeconds = tmpData["lengthInSeconds"].as_double();
 }
 WaveProperties::~WaveProperties() {
 }

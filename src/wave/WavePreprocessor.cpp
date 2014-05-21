@@ -15,7 +15,7 @@ WavePreprocessor::WavePreprocessor() {
 WavePreprocessor::~WavePreprocessor() {
 }
 
-void WavePreprocessor::deleteSielienceFromBeginningAndEnd(NormalizedSamplesList & sampleList, double percentSilence) const {
+void WavePreprocessor::deleteSielienceFromBeginningAndEnd(NormalizedSamplesList & sampleList, double percentSilence) {
 	WaveFileAnalizator analizator;
 	double amplitude = analizator.findAmplitude(sampleList);
 	uint32_t sampleCounter = 0;
@@ -39,4 +39,5 @@ void WavePreprocessor::deleteSielienceFromBeginningAndEnd(NormalizedSamplesList 
 }
 
 void WavePreprocessor::normalize(WaveFile waveFile) const{
+
 }
