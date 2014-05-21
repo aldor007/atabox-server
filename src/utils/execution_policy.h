@@ -27,6 +27,7 @@ std::string execution_policy_nonstrict(std::map<WaveProperties, std::string> &li
 		BOOST_LOG_TRIVIAL(debug)<<" Distance "<<distance;
 		if (minDistance > distance) {
 			currentCommand = iterator->second;
+			minDistance = distance;
 		}
 	}
 	return currentCommand;
