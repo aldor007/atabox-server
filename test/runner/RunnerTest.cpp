@@ -43,3 +43,10 @@ TEST_F(RunnerTest, notCommandNoPathArgs) {
 	ASSERT_TRUE(result["cmd_status"].as_string() == "ERROR");
 	ASSERT_NE(result["cmd_code"].as_integer(), 0);
 }
+
+TEST_F(RunnerTest, commandErrorRun) {
+	Runner runTest(g_io_service);
+	web::json::value result = runTest.run("ls", "-jiq");
+	ASSERT_TRUE(result["cmd_status"].as_string() == "RUN");
+	ASSERT_NE(result["cmd_code"].as_integer(), 0);
+}
