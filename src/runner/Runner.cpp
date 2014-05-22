@@ -28,7 +28,10 @@ wj::value Runner::run(std::string command, std::string args/*,
 
         logFileName = command;
     }
-    std::string commandLine = command + " " +  args;
+    std::string commandLine = command;
+    if (!args.empty())
+    	commandLine += std::string(" ") +  args;
+    {
     bi::file_descriptor_sink sink_stdout(logFileName + std::string("_stdout.log"));
     bi::file_descriptor_sink sink_stderr(logFileName + std::string("_stderr.log"));
     #if defined(BOOST_POSIX_API)
@@ -66,11 +69,13 @@ wj::value Runner::run(std::string command, std::string args/*,
             );
     	#endif
             );
-          uint8_t exit_code = 0;
-          exit_code = bp::wait_for_exit(c);
+          int32_t exit_code = bp::wait_for_exit(c);
+          if (exit_code)
+        	  exit_code /= 256;
 
         		result["cmd_status"] = wj::value::string("RUN");
         		result["cmd_code"] = wj::value::number(exit_code);
+
 
         } catch(boost::system::system_error &e)
         {
@@ -79,6 +84,7 @@ wj::value Runner::run(std::string command, std::string args/*,
         	result["cmd_error_msg"] = wj::value::string(e.what());
 
         }
+    }
     return result;
 
 }

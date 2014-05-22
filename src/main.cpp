@@ -225,7 +225,7 @@ int main(int argc, char** argv) {
 
 
     BOOST_LOG_TRIVIAL(debug)<<"Server listening localhost:8111. Db name atabox.db";
-    g_mainDB  = new RocksdbProvider<WaveProperties, std::string>("atabox.db"); //FIXME: database name read from config file
+    g_mainDB  = new RocksdbProvider<WaveProperties, std::string>("/tmp/atabox.db"); //FIXME: database name read from config file
     g_policies["strict"] = execution_policy_strict;
     g_policies["nonstrict"] = execution_policy_nonstrict;
     AtaboxApi mainApi("127.0.0.1", "8111");

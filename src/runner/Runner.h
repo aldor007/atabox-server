@@ -9,12 +9,14 @@
 #define RUNNER_H_
 #include <boost/process.hpp>
 #include <boost/asio.hpp>
+/*
 #if defined(BOOST_WINDOWS_API)
 #   include <Windows.h>
+
 #elif defined(BOOST_POSIX_API)
 #   include <sys/wait.h>
 #   include <errno.h>
-#endif
+#endif*/
 #include <boost/system/error_code.hpp>
 #include <boost/iostreams/device/file_descriptor.hpp>
 #include <boost/algorithm/string.hpp>
@@ -36,7 +38,7 @@ private:
 public:
 	Runner(boost::asio::io_service&);
 	virtual ~Runner();
-	virtual wj::value run(std::string, std::string/*,
+	virtual wj::value run(std::string command, std::string args=""/*,
 			std::function<void(const boost::system::error_code&,int)> lambda*/);
 };
 

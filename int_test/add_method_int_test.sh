@@ -6,7 +6,7 @@ else
     port='8111'
 fi
 
-result=$(curl -X POST   --data-binary @../test/wave/prosze32bit.wav http://${host}:${port}/api/add\?name\=nastepna\&command\=ls| grep "OK" | grep "ls"| wc -l)
+result=$(curl -X POST   --data-binary @../test/wave/prosze32bit.wav http://${host}:${port}/api/add\?name\=nastepna\&command\=ala| grep "OK" | grep "ls"| wc -l)
 if [ $result -eq 1 ];then
     echo "OK"
     exit 0

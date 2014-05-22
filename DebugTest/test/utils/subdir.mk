@@ -4,13 +4,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../test/utils/FastFourierTransformTest.cpp 
+../test/utils/FastFourierTransformTest.cpp \
+../test/utils/execution_policyTest.cpp 
 
 OBJS += \
-./test/utils/FastFourierTransformTest.o 
+./test/utils/FastFourierTransformTest.o \
+./test/utils/execution_policyTest.o 
 
 CPP_DEPS += \
-./test/utils/FastFourierTransformTest.d 
+./test/utils/FastFourierTransformTest.d \
+./test/utils/execution_policyTest.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

@@ -30,7 +30,7 @@ done
 echo "All test passed!"
 pkill  -9 -f atabox-server
 cleanDB
-rm *.log
+# rm *.log
 exit 0
 
 
