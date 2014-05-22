@@ -15,7 +15,7 @@
 *.la
 *.a
 *.lib
-
+*.log
 # Executables
 *.exe
 *.out
