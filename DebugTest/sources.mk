@@ -25,6 +25,7 @@ C_UPPER_DEPS :=
 SUBDIRS := \
 test/wave \
 test/utils \
+test/runner \
 test/recognition \
 test/dataproviders \
 test/api \

@@ -44,8 +44,6 @@ wj::value Runner::run(std::string command, std::string args/*,
             }
         );*/
 	#endif
-        		result["cmd_status"] = wj::value::string("RUN");
-        		result["cmd_code"] = wj::value::number(status);
     try
       {
           bp::child c = bp::execute(
@@ -68,14 +66,17 @@ wj::value Runner::run(std::string command, std::string args/*,
             );
     	#endif
             );
-          auto exit_code = bp::wait_for_exit(c);
+          uint8_t exit_code = 0;
+          exit_code = bp::wait_for_exit(c);
+
         		result["cmd_status"] = wj::value::string("RUN");
         		result["cmd_code"] = wj::value::number(exit_code);
 
         } catch(boost::system::system_error &e)
         {
         	result["cmd_status"] = wj::value::string("ERROR");
-        	result["cmd_code"] = wj::value::string(e.what());
+        	result["cmd_code"] = wj::value::number(e.code().value());
+        	result["cmd_error_msg"] = wj::value::string(e.what());
 
         }
     return result;

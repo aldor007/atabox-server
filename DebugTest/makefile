@@ -10,6 +10,7 @@ RM := rm -rf
 -include sources.mk
 -include test/wave/subdir.mk
 -include test/utils/subdir.mk
+-include test/runner/subdir.mk
 -include test/recognition/subdir.mk
 -include test/dataproviders/subdir.mk
 -include test/api/subdir.mk
