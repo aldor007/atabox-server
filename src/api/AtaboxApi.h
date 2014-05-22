@@ -21,6 +21,7 @@
 #include "pplx/pplxtasks.h"
 
 
+#include <utils/atabox_log.h>
 
 typedef void (* handle_request_fun)(web::http::http_request);
 //TODO: touple for diffrent method type POST,GEt etc

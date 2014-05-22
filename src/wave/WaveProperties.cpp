@@ -7,8 +7,9 @@
 
 #include "WaveProperties.h"
 #include <cpprest/json.h>
-#include <boost/log/trivial.hpp>
 #include <recognition/PropertiesComparator.h>
+#include <utils/atabox_log.h>
+
 
 WaveProperties::WaveProperties() {
 	amplitude = 0;
@@ -45,7 +46,7 @@ WaveProperties::WaveProperties(std::string data) {
         percentageAbove10percentage = tmpData["percentageAbove10percentage"].as_double();
         lenghtInSeconds = tmpData["lengthInSeconds"].as_double();
 	} catch (web::json::json_exception &e) {
-		BOOST_LOG_TRIVIAL(error)<<"Bad json "<<e.what();
+		LOG(error)<<"Bad json "<<e.what();
 		throw e;
 
 	}

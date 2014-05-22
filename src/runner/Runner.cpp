@@ -35,7 +35,6 @@ wj::value Runner::run(std::string command, std::string args/*,
     bi::file_descriptor_sink sink_stdout(logFileName + std::string("_stdout.log"));
     bi::file_descriptor_sink sink_stderr(logFileName + std::string("_stderr.log"));
     #if defined(BOOST_POSIX_API)
-        int status = 11;
         boost::asio::signal_set set(m_io_service, SIGCHLD);
      //   set.async_wait(lambda);
         /*[&status, &result](const boost::system::error_code&, int test)

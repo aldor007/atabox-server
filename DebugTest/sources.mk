@@ -31,6 +31,7 @@ test/dataproviders \
 test/api \
 test \
 src/wave \
+src/utils \
 src/runner \
 src/recognition \
 src/dataproviders \

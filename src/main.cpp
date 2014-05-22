@@ -16,10 +16,16 @@
 #include <boost/log/trivial.hpp>
 #include <boost/program_options.hpp>
 #include <boost/asio/io_service.hpp>
+#include <boost/log/attributes/named_scope.hpp>
+
+// Supporting headers
+#include <boost/log/support/exception.hpp>
+
 
 #include "cpprest/containerstream.h"
 #include "cpprest/rawptrstream.h"
 
+#include <utils/atabox_log.h>
 #include "dataproviders/BaseDataProvider.h"
 #include "dataproviders/RocksdbProvider.h"
 #include "api/AtaboxApi.h"
@@ -37,26 +43,20 @@ using namespace web::http::client;
 
 
 const std::string DEFAULT_POLICY = "nonstrict";
-enum severity_level
-{
-    normal,
-    notification,
-    warning,
-    error,
-    critical
-};
 BaseDataProvider<WaveProperties, std::string> * g_mainDB;
 boost::asio::io_service g_io_service;
 Runner g_runner(g_io_service);
 typedef std::string(*policy_fun)(std::map<WaveProperties,std::string>&, WaveProperties&);
 std::map<std::string, policy_fun>  g_policies;
 
+extern atabox_log::logger g_log;
+
 void handle_add(web::http::http_request request) {
 
 	json::value response;
     std::map<std::string, std::string> querymap = uri::split_query(request.relative_uri().query());
     if (querymap.find("name") == querymap.end() || querymap.find("command") == querymap.end()) {
-    	BOOST_LOG_TRIVIAL(error)<<"Bad request";
+    	LOG(error)<<"Bad request";
     	response["error_msg"] = json::value::string("Bad request. Read doc for info. Missing name or command field in request.");
     	response["status"] = json::value::string("ERROR");
     	request.reply(status_codes::BadRequest, response);
@@ -65,12 +65,12 @@ void handle_add(web::http::http_request request) {
     }
     std::string commandName = uri::decode(querymap["name"]);
     std::string commandString = uri::decode(querymap["command"]);
-    BOOST_LOG_TRIVIAL(debug)<<"Add command name "<<commandName<<" command string: "<<commandString;
+    LOG(debug)<<"Add command name "<<commandName<<" command string: "<<commandString;
     concurrency::streams::istream body = request.body();
     uint64_t content_lenght = request.headers().content_length();
-    BOOST_LOG_TRIVIAL(debug)<<"Content lenght of request "<<content_lenght;
+    LOG(debug)<<"Content lenght of request "<<content_lenght;
     if (content_lenght == 0) {
-    	BOOST_LOG_TRIVIAL(error)<<"Bad request! Empty body";
+    	LOG(error)<<"Bad request! Empty body";
     	response["error_msg"] = json::value::string("Bad request.Empty body!");
     	response["status"] = json::value::string("ERROR");
     	request.reply(status_codes::BadRequest, response);
@@ -91,7 +91,7 @@ void handle_add(web::http::http_request request) {
     try {
     	g_mainDB->put(waveProperties.toString(), commandString);
     } catch (std::exception const & ex) {
-    	BOOST_LOG_TRIVIAL(error)<<"Error "<<ex.what();
+    	LOG(error)<<"Error "<<ex.what();
     	response["status"] = json::value::string("ERROR");
     	response["error_msg"] = json::value::string(ex.what());
     	request.reply(status_codes::InternalError, response);
@@ -108,9 +108,9 @@ void handle_execute(web::http::http_request request) {
 	json::value response;
     concurrency::streams::istream body = request.body();
     uint64_t content_lenght = request.headers().content_length();
-    BOOST_LOG_TRIVIAL(debug)<<"Content lenght of request "<<content_lenght;
+    LOG(debug)<<"Content lenght of request "<<content_lenght;
     if (content_lenght == 0) {
-    	BOOST_LOG_TRIVIAL(error)<<"Bad request! Empty body";
+    	LOG(error)<<"Bad request! Empty body";
     	response["error_msg"] = json::value::string("Bad request.Empty body!");
     	response["status"] = json::value::string("ERROR");
     	request.reply(status_codes::BadRequest, response);
@@ -155,7 +155,7 @@ void handle_list(web::http::http_request request) {
 
 		list = g_mainDB->getAllKV();
     } catch (std::exception const & ex) {
-    	BOOST_LOG_TRIVIAL(error)<<"DB Error "<<ex.what();
+    	LOG(error)<<"DB Error "<<ex.what();
     	result["status"] = json::value::string("ERROR");
     	result["error_msg"] = json::value::string(ex.what());
     	request.reply(status_codes::InternalError, result);
@@ -185,6 +185,15 @@ int main(int argc, char** argv) {
 //TODO: http://www.radmangames.com/programming/how-to-use-boost-program_options
 	 /** Define and parse the program options
 	     */
+		atabox_log::init_logging();
+        BOOST_LOG_FUNCTION();
+        LOG( error) <<"Hello, world!";
+
+        LOG( warning) <<"Hello, world!";
+         LOG(debug) <<"Hello, world!";
+        LOG(fatal) <<"Hello, world!";
+        LOG(info) <<"Hello, world!";
+
 	    namespace po = boost::program_options;
 	    po::options_description desc("Options");
 	    desc.add_options()
@@ -224,7 +233,7 @@ int main(int argc, char** argv) {
 
 
 
-    BOOST_LOG_TRIVIAL(debug)<<"Server listening localhost:8111. Db name atabox.db";
+    LOG(info)<<"Server listening localhost:8111. Db name atabox.db";
     g_mainDB  = new RocksdbProvider<WaveProperties, std::string>("/tmp/atabox.db"); //FIXME: database name read from config file
     g_policies["strict"] = execution_policy_strict;
     g_policies["nonstrict"] = execution_policy_nonstrict;
@@ -239,7 +248,7 @@ int main(int argc, char** argv) {
     //std::getline(std::cin, line);
     while(1) {}
     mainApi.close().wait();
-    BOOST_LOG_TRIVIAL(debug)<<"End of work. Bye ;)";
+    LOG(info)<<"End of work. Bye ;)";
 
 
 
