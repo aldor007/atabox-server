@@ -5,10 +5,14 @@
  *      Author: aldor
  */
 
-#include <runner/Runner.h>
-Runner::Runner(boost::asio::io_service &l_io_service) : m_io_service(l_io_service) {
-}
+#include "runner/Runner.h"
 
+//Runner::Runner(boost::asio::io_service &l_io_service) : m_io_service(l_io_service) {
+//}
+
+Runner::Runner() {
+
+}
 Runner::~Runner() {
 }
 wj::value Runner::run(std::string command, std::string args/*,
@@ -35,7 +39,7 @@ wj::value Runner::run(std::string command, std::string args/*,
     bi::file_descriptor_sink sink_stdout(logFileName + std::string("_stdout.log"));
     bi::file_descriptor_sink sink_stderr(logFileName + std::string("_stderr.log"));
     #if defined(BOOST_POSIX_API)
-        boost::asio::signal_set set(m_io_service, SIGCHLD);
+     //   boost::asio::signal_set set(m_io_service, SIGCHLD);
      //   set.async_wait(lambda);
         /*[&status, &result](const boost::system::error_code&, int test)
             {
@@ -60,12 +64,12 @@ wj::value Runner::run(std::string command, std::string args/*,
     	#endif
 
 		#if defined(BOOST_WINDOWS_API)
-            DWORD exit_code;
-            boost::asio::windows::object_handle handle(m_io_service, c.process_handle());
-            handle.async_wait(
-                [&handle, &exit_code](const boost::system::error_code&)
-                    { ::GetExitCodeProcess(handle.native(), &exit_code); }
-            );
+           // DWORD exit_code;
+           // boost::asio::windows::object_handle handle(m_io_service, c.process_handle());
+            //handle.async_wait(
+            //    [&handle, &exit_code](const boost::system::error_code&)
+             //       { ::GetExitCodeProcess(handle.native(), &exit_code); }
+            //);
     	#endif
             );
           int32_t exit_code = bp::wait_for_exit(c);

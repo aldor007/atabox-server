@@ -18,26 +18,20 @@ AtaboxApi::AtaboxApi(std::string host, std::string port) {
 	m_url.append(":");
 	m_url.append(port);
 	m_url.append(m_apiMainPath);
-	m_host = host;
-	m_port = port;
-	m_listener = http_listener(m_url);
-	listenerSetSupports();
 }
 void AtaboxApi::addMethod(std::string name, handle_request_fun fun) {
 	m_router[name] = fun;
 }
-/*
-AtaboxApi::AtaboxApi(utility::string_t url): m_listener(url) {
-	m_url = url;
-	url.
-	auto tmpTab = url.substr();
-	tmptab[1].erase(0, 2);
-	m_host = tmptab[1];
-	m_port = tmptab[2];
-	listenerSetSupports();
+
+AtaboxApi::AtaboxApi(utility::string_t url) {
+	m_url = U("http://");
+	m_url.append(url);
+	m_url.append(m_apiMainPath);
 }
-*/
+
 void  AtaboxApi::listenerSetSupports() {
+	//m_listener.configuration().set_timeout()
+	m_listener = http_listener(m_url);
 	m_listener.support(methods::GET, std::bind(&AtaboxApi::handle_get, this, std::placeholders::_1));
 	m_listener.support(methods::POST, std::bind(&AtaboxApi::handle_post, this, std::placeholders::_1));
 	m_listener.support(methods::PUT, std::bind(&AtaboxApi::handle_put, this, std::placeholders::_1));
@@ -65,9 +59,11 @@ void AtaboxApi::handle_error(pplx::task<void>& t)
 pplx::task<void> AtaboxApi::open()
 {
   //  return m_listener.open().then(std::bind(&handle_error, std::placeholders::_1));
+	listenerSetSupports();
    return m_listener.open().then([]()
         {
             //...
+	   	   LOG(debug)<<"Open listener";
         });
 }
 

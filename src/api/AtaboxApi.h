@@ -28,7 +28,7 @@ typedef void (* handle_request_fun)(web::http::http_request);
 class AtaboxApi {
 public:
 	AtaboxApi(std::string host, std::string port);
-	//AtaboxApi(utility::string_t url);
+	AtaboxApi(utility::string_t url);
 	virtual ~AtaboxApi();
 	pplx::task<void> open();
 	pplx::task<void> close();

@@ -27,6 +27,7 @@
 #include <boost/log/expressions/formatters/if.hpp>
 #include <boost/log/expressions/attr_fwd.hpp>
 #include <boost/log/expressions/attr.hpp>
+#include <boost/log/sinks/syslog_backend.hpp>
 
 #include "utils/atabox_log.h"
 
@@ -45,7 +46,7 @@ namespace atabox_log {
     BOOST_LOG_ATTRIBUTE_KEYWORD(timestamp, "TimeStamp", boost::posix_time::ptime)
     BOOST_LOG_ATTRIBUTE_KEYWORD(scopes, "Scopes", boost::log::attributes::named_scope)
 
-    void init_logging() {
+    void init_logging(bool color, bool deamonize) {
         namespace logging = boost::log;
         namespace src = boost::log::sources;
         namespace expr = boost::log::expressions;
@@ -54,15 +55,38 @@ namespace atabox_log {
         namespace keywords = boost::log::keywords;
         boost::shared_ptr< logging::core > core = logging::core::get();
 
-        // Create a backend and attach a couple of streams to it
-        typedef sinks::synchronous_sink< sinks::text_ostream_backend > text_sink;
-           boost::shared_ptr< text_sink > backend = boost::make_shared< text_sink >();
-        backend->locked_backend()->add_stream(boost::shared_ptr< std::ostream >(&std::clog, logging::empty_deleter()));
 
-      //  backend->locked_backend()->add_stream(boost::make_shared< std::ofstream >("testapp.log"));
+
+        // Create a backend and attach a couple of streams to it
+        	typedef sinks::synchronous_sink< sinks::text_ostream_backend > text_sink;
+        	boost::shared_ptr< text_sink > backend = boost::make_shared< text_sink >();
+
+        	boost::shared_ptr< sinks::synchronous_sink<sinks::syslog_backend> >
+        	syslog_backend(new sinks::synchronous_sink<sinks::syslog_backend>(
+        	       keywords::facility = sinks::syslog::user,
+        	       keywords::use_impl = sinks::syslog::udp_socket_based
+        	    ));
+
+        	    // Setup the target address and port to send syslog messages to
+        	    syslog_backend->locked_backend()->set_target_address("127.0.0.1");
+        	    // Create and fill in another level translator for "MyLevel" attribute of type string
+        	    sinks::syslog::custom_severity_mapping< severity_level > mapping("Severity");
+        	    mapping[debug] = sinks::syslog::debug;
+        	    mapping[info] = sinks::syslog::info;
+        	    mapping[warning] = sinks::syslog::warning;
+        	    mapping[fatal] = sinks::syslog::critical;
+        	    syslog_backend->locked_backend()->set_severity_mapper(mapping);
+
+        //}
+        //else {
+        	backend->locked_backend()->add_stream(boost::shared_ptr< std::ostream >(&std::clog, logging::empty_deleter()));
+      //  }
+//          backend->locked_backend()->add_stream(boost::make_shared< std::ofstream >("testapp.log"));
         //TODO: log to file, active colors on paramter
-        logging::formatter frm =
-            expr::stream
+
+        if (color && !deamonize) {
+        logging::formatter frm
+            = expr::stream
             << expr::if_(expr::attr<severity_level>("Severity") == error)[
                  expr::stream<< "\x1b[31m"
                  ]
@@ -96,15 +120,42 @@ namespace atabox_log {
             << expr::attr<severity_level>("Severity")
             << "] " << expr::smessage << "\x1b[0m";
         backend->set_formatter(frm);
+        } else {
+        logging::formatter frm
+            = expr::stream
+            <<expr::attr< unsigned int >("RecordID")
+           <<  "["<<expr::format_date_time< boost::posix_time::ptime >("TimeStamp", std::string("%Y-%m-%d %H:%M:%S"))
+           << "] ["
+            <<  expr::attr<boost::log::attributes::current_process_id::value_type >("ProcessID")
+            << "."
+            <<  expr::attr<boost::log::attributes::current_thread_id::value_type >("ThreadID")
+            << "] "
+            << "("<<
+            expr::attr< std::string >("Function")
+            << ":"
+            << expr::attr< std::string >("File")
+            << ":"
+            << expr::attr<int >("Line")
+            << ") ["
+            << expr::attr<severity_level>("Severity")
+            << "] " << expr::smessage;
+        backend->set_formatter(frm);
+        syslog_backend->set_formatter(frm);
+
+        }
 
         logging::add_common_attributes();
         // Enable auto-flushing after each log record written
         backend->locked_backend()->auto_flush(true);
-
         // Wrap it into the frontend and register in the core.
         // The backend requires synchronization in the frontend.
-        core->add_sink(backend);
+
+        if (deamonize)
+        	core->add_sink(syslog_backend);
+        else
+        	core->add_sink(backend);
         core->add_global_attribute("Scope", attrs::named_scope());
+        core->add_global_attribute("RecordID", attrs::counter< unsigned int >());
         g_log.add_attribute("File", *atabox_log::file_attr);
         g_log.add_attribute("Line", *atabox_log::line_attr);
         g_log.add_attribute("Function", *atabox_log::function_attr);

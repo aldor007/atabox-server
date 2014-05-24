@@ -46,7 +46,7 @@ namespace atabox_log {
         return log_;
     }
 
-    void init_logging();
+    void init_logging(bool color=false, bool deamon = false);
 }
 
 extern atabox_log::logger g_log;

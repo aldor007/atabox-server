@@ -8,7 +8,7 @@
 #ifndef RUNNER_H_
 #define RUNNER_H_
 #include <boost/process.hpp>
-#include <boost/asio.hpp>
+//#include <boost/asio.hpp>
 /*
 #if defined(BOOST_WINDOWS_API)
 #   include <Windows.h>
@@ -33,12 +33,13 @@ namespace bi = boost::iostreams;
 namespace  wj = web::json;
 
 class Runner {
-private:
-    boost::asio::io_service &m_io_service;
+//private:
+  //  boost::asio::io_service &m_io_service;
 public:
-	Runner(boost::asio::io_service&);
+//	Runner(boost::asio::io_service&);
+	Runner();
 	virtual ~Runner();
-	virtual wj::value run(std::string command, std::string args=""/*,
+	static wj::value run(std::string command, std::string args=""/*,
 			std::function<void(const boost::system::error_code&,int)> lambda*/);
 };
 
