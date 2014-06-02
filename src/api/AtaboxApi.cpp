@@ -69,7 +69,11 @@ pplx::task<void> AtaboxApi::open()
 
 pplx::task<void> AtaboxApi::close()
 {
-    return m_listener.close();
+	LOG(debug)<<"IN close";
+    return m_listener.close().then([](){
+
+  	   LOG(debug)<<"Close listener";
+    });
 }
 
 void AtaboxApi::commonHandler(http_request request) {

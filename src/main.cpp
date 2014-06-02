@@ -196,6 +196,7 @@ void handle_test(web::http::http_request request) {
 	result["status"] = json::value::string("OK");
 	request.reply(status_codes::OK, result);
 }
+
 inline void daemonize(const std::string &dir = "/",
                const std::string &stdinfile = "/dev/null",
                const std::string &stdoutfile = "/dev/null",
@@ -223,12 +224,10 @@ inline void daemonize(const std::string &dir = "/",
     exit(0);
 
   }
-  else if (pid == 0 ) {
-  }
   if (setsid() < 0)
   {
 	  LOG(fatal)<<"Set sid error";
-        // exit(EXIT_FAILURE);
+      exit(EXIT_FAILURE);
   }
 
 
@@ -280,106 +279,106 @@ inline void daemonize(const std::string &dir = "/",
   }
 }
 
+
 int main(int argc, char** argv) {
-//TODO: http://www.radmangames.com/programming/how-to-use-boost-program_options
-	 /** Define and parse the program options
-	     */
     try
     {
-   std::string listen = "127.0.0.1:8111";
-    namespace po = boost::program_options;
-    po::options_description desc("Options");
-    bool color = false;
-    bool atabox_daemon = false;
-    std::string databasename = "/tmp/atabox.db";
-    std::string configFile;
-    desc.add_options()
-      ("help,h", "Print help messages")
-      ("listen,l", po::value<std::string>(&listen), " host:port listen ")
-      ("config", po::value<std::string>(&configFile), "config file ")
-      ("color,c",  "turn on color")
-      ("database,f", po::value<std::string>(&databasename), "database name and location")
-      ("daemon,d",  "Deamoznie")
-      ;
-    po::variables_map vm;
-    try
-    {
-      po::store(po::parse_command_line(argc, argv, desc),
-                vm); // can throw
+    	std::string listen = "127.0.0.1:8111";
+    	namespace po = boost::program_options;
+    	po::options_description desc("Options");
+        bool color = false;
+        bool atabox_daemon = false;
+        std::string databasename = "/tmp/atabox.db";
+        std::string configFile;
+        desc.add_options()
+          ("help,h", "Print help messages")
+          ("listen,l", po::value<std::string>(&listen), " host:port listen ")
+          ("config", po::value<std::string>(&configFile), "config file ")
+          ("color,c",  "turn on color")
+          ("database,f", po::value<std::string>(&databasename), "database name and location")
+          ("daemon,d",  "Deamoznie")
+          ;
+        po::variables_map vm;
+        try
+        {
+          po::store(po::parse_command_line(argc, argv, desc),
+                    vm); // can throw
 
-      // --help option
-       //
-      if ( vm.count("help")  )
+          // --help option
+           //
+          if ( vm.count("help")  )
+          {
+            std::cout << "atabox server options" << std::endl
+                      << desc << std::endl;
+            return 0;
+          }
+          color = vm.count("color");
+          atabox_daemon = vm.count("daemon");
+          po::notify(vm); // throws on error, so do after help in case
+                          // there are any problems
+        }
+        catch(po::error& e)
+        {
+          std::cerr << "ERROR: " << e.what() << std::endl << std::endl;
+          std::cerr << desc << std::endl;
+          return 2;
+        }
+        BOOST_LOG_FUNCTION();
+        atabox_log::init_logging(color, atabox_daemon);
+        LOG(debug) <<"Hello, world!";
+        AtaboxApi mainApi(listen);
+        mainApi.addMethod("add", handle_add);
+        mainApi.addMethod("execute", handle_execute);
+        mainApi.addMethod("list", handle_list);
+        mainApi.addMethod("test", handle_test);
+        LOG(info)<<"Server listening "<<listen<<" Db name "<<databasename;
+        g_mainDB  = new RocksdbProvider<WaveProperties, std::string>(databasename);
+        g_policies["strict"] = execution_policy_strict;
+        g_policies["nonstrict"] = execution_policy_nonstrict;
+        try {
+           mainApi.open().wait();
+        } catch(std::exception &e) {
+
+            LOG(fatal)<<"ERROR "<<e.what();
+            exit(2);
+        }
+      if (atabox_daemon)
       {
-        std::cout << "Basic Command Line Parameter App" << std::endl
-                  << desc << std::endl;
-        return 0;
+        //FIXME: deamon NOT workigin
+        mainApi.close().wait();
+        boost::asio::signal_set  signals(g_io_service, SIGINT, SIGTERM);
+        signals.async_wait(boost::bind(&boost::asio::io_service::stop, &g_io_service));
+        g_io_service.notify_fork(boost::asio::io_service::fork_prepare);
+        g_io_service.stop();
+        LOG(debug)<<"Io "<<crossplat::threadpool::shared_instance().service().stopped();
+        daemon(1, 1);
+
+       //crossplat::threadpool::shared_instance().service().reset();
+         LOG(debug)<<"Io "<<crossplat::threadpool::shared_instance().service().stopped();
+        //daemonize();
+        //g_io_service.notify_fork(boost::asio::io_service::fork_child);
+        //g_io_service.run();
+        mainApi.open().get();
+
       }
-      color = vm.count("color");
-      atabox_daemon = vm.count("daemon");
-      po::notify(vm); // throws on error, so do after help in case
-                      // there are any problems
-    }
-    catch(po::error& e)
-    {
-      std::cerr << "ERROR: " << e.what() << std::endl << std::endl;
-      std::cerr << desc << std::endl;
-      return 2;
-    }
-    char cCurrentPath[FILENAME_MAX];
-    boost::asio::signal_set signals(g_io_service, SIGINT, SIGTERM);
-    if (atabox_daemon) {
-	    signals.async_wait(
-	        boost::bind(&boost::asio::io_service::stop, &g_io_service));
+      LOG(info)<<"After listener open.";
+      std::string line;
+      std::getline(std::cin, line);
+
+      mainApi.close().wait();
+       LOG(info)<<"End of work. Bye ;)";
+
+    } catch(boost::system::system_error& e) {
+        LOG(fatal)<<e.code();
+        LOG(fatal)<<"Info: "  << boost::diagnostic_information(e) ;
+        exit(1);
+       }
+    catch (std::exception &e) {
+        LOG(fatal)<<e.what();
+        LOG(fatal)<<"Info: "  << boost::diagnostic_information(e) ;
+        exit(1);
 
     }
-    atabox_daemon = true;
-  if (atabox_daemon)
-  {
-	  //g_io_service.stop();
-	  //	daemon(1, 1);
-    	daemonize();//cCurrentPath);
-    	g_io_service.notify_fork(boost::asio::io_service::fork_child);
-  }//  getcwd(cCurrentPath, sizeof(cCurrentPath));
-
-    BOOST_LOG_FUNCTION();
-    atabox_log::init_logging(color, atabox_daemon);
-    LOG( error) <<"Hello, world!";
-
-    std::unique_ptr<AtaboxApi> mainApi(new AtaboxApi(listen));
-    mainApi->addMethod("add", handle_add);
-    mainApi->addMethod("execute", handle_execute);
-    mainApi->addMethod("list", handle_list);
-    mainApi->addMethod("test", handle_test);
-
-    // application code here //
-    LOG(info)<<"Server listening "<<listen<<" Db name "<<databasename;
-    g_mainDB  = new RocksdbProvider<WaveProperties, std::string>(databasename); //FIXME: database name read from config file
-    g_policies["strict"] = execution_policy_strict;
-    g_policies["nonstrict"] = execution_policy_nonstrict;
-    try {
-       mainApi->open().wait();
-    } catch(std::exception &e) {
-
-    	LOG(fatal)<<"ERROR "<<e.what();
-    	exit(2);
-    }
-    while(1) {}
-   mainApi->close().wait();
-    LOG(info)<<"End of work. Bye ;)";
-} catch(boost::system::system_error& e)
-    {
-	LOG(info)<<e.code();
-    LOG(info)<<"Info: "  << boost::diagnostic_information(e) ;
-    exit(1);
-
-    }
-catch (std::exception &e) {
-	LOG(info)<<e.what();
-    LOG(info)<<"Info: "  << boost::diagnostic_information(e) ;
-    exit(1);
-
-}
 
     return 0;
 }
