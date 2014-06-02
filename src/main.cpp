@@ -93,29 +93,37 @@ void handle_add(web::http::http_request request) {
     	return;
 
     }
-    uint8_t * waveData = new uint8_t[content_lenght];
-    Concurrency::streams::rawptr_buffer<uint8_t> buffer(waveData, content_lenght);
-    body.read(buffer, content_lenght).get();
-    WaveFile wave(waveData);
-    delete waveData;
-    NormalizedSamplesList waveSamples(wave);
-    WavePreprocessor::deleteSielienceFromBeginningAndEnd(waveSamples);
-    WaveFileAnalizator analizator;
-    WaveProperties waveProperties = analizator.getAllProperties(waveSamples);
-    waveProperties.name = commandName;
-
     try {
-    	g_mainDB->put(waveProperties.toString(), commandString);
-    } catch (std::exception const & ex) {
-    	LOG(error)<<"Error "<<ex.what();
-    	response["status"] = json::value::string("ERROR");
-    	response["error_msg"] = json::value::string(ex.what());
-    	request.reply(status_codes::InternalError, response);
-    	return;
-    }
-    response["status"] = json::value::string("OK");
-    response["command"] = json::value::string(commandString);
-    request.reply(status_codes::OK, response);
+    	uint8_t * waveData = new uint8_t[content_lenght];
+    	Concurrency::streams::rawptr_buffer<uint8_t> buffer(waveData, content_lenght);
+    	body.read(buffer, content_lenght).get();
+    	WaveFile wave(waveData);
+    	delete waveData;
+    	NormalizedSamplesList waveSamples(wave);
+    	WavePreprocessor::deleteSielienceFromBeginningAndEnd(waveSamples);
+    	WaveFileAnalizator analizator;
+    	WaveProperties waveProperties = analizator.getAllProperties(waveSamples);
+    	waveProperties.name = commandName;
+
+    	try {
+    		g_mainDB->put(waveProperties.toString(), commandString);
+    	} catch (std::exception const & ex) {
+    		LOG(error)<<"Error "<<ex.what();
+    		response["status"] = json::value::string("ERROR");
+    		response["error_msg"] = json::value::string(ex.what());
+    		request.reply(status_codes::InternalError, response);
+    		return;
+    	}
+    	response["status"] = json::value::string("OK");
+    	response["command"] = json::value::string(commandString);
+    	request.reply(status_codes::OK, response);
+    } catch (std::exception &e) {
+
+  		LOG(error)<<"Error "<<e.what();
+   		response["status"] = json::value::string("ERROR");
+   		response["command"] = json::value::string(e.what());
+   		request.reply(status_codes::BadRequest, response);
+   	}
 
 }
 
