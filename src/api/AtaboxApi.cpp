@@ -17,7 +17,7 @@ AtaboxApi::AtaboxApi(std::string host, std::string port) {
 	m_url.append(host);
 	m_url.append(":");
 	m_url.append(port);
-	m_url.append(m_apiMainPath);
+	//m_url.append(m_apiMainPath);
 }
 void AtaboxApi::addMethod(std::string name, handle_request_fun fun) {
 	m_router[name] = fun;
@@ -26,12 +26,14 @@ void AtaboxApi::addMethod(std::string name, handle_request_fun fun) {
 AtaboxApi::AtaboxApi(utility::string_t url) {
 	m_url = U("http://");
 	m_url.append(url);
-	m_url.append(m_apiMainPath);
+	//m_url.append(m_apiMainPath);
 }
 
 void  AtaboxApi::listenerSetSupports() {
 	//m_listener.configuration().set_timeout()
-	m_listener = http_listener(m_url);
+	http_listener_config conf;
+	utility::seconds timeoutAtabox(30);
+	m_listener = http_listener(m_url, conf);
 	m_listener.support(methods::GET, std::bind(&AtaboxApi::handle_get, this, std::placeholders::_1));
 	m_listener.support(methods::POST, std::bind(&AtaboxApi::handle_post, this, std::placeholders::_1));
 	m_listener.support(methods::PUT, std::bind(&AtaboxApi::handle_put, this, std::placeholders::_1));
@@ -79,25 +81,32 @@ pplx::task<void> AtaboxApi::close()
 void AtaboxApi::commonHandler(http_request request) {
 
     auto path = request.relative_uri().path();
-    auto paths = uri::split_path(uri::decode(request.relative_uri().path()));
+    LOG(info)<<"Path "<<path;
+    std::string req_method = path;
+    std::string req_headers = "";
+    for (auto it = request.headers().begin(); it != request.headers().end(); it++)
+          req_headers += it->first  + ": " +it->second + ", ";
+    LOG(info) <<"Request headers "<<req_headers;
 
-    auto handle_fun = m_router.find(paths[0]);
-    LOG(debug) <<"Path "<<path<<" "<<paths[0];//<<" q "<<queryItr->second;
+    if (req_method[req_method.size() - 1] == '/')
+    	req_method.pop_back();
+
+    auto handle_fun = m_router.find(req_method);
     if (handle_fun == m_router.end())
     {
-    	LOG(debug) <<"Path "<<path<<" "<<paths[0];//<<" q "<<queryItr->second;
-        request.reply(status_codes::NotFound, U("Path not found"));
-
+    	LOG(error) <<"Method "<<path<<" not found ";//<<" q "<<queryItr->second;
+        request.reply(status_codes::NotFound, U("Method " + path + " not found ")).get();
         return;
-
     }
+
     (handle_fun->second)(request);
 }
 // Handler to process HTTP::GET requests.
 // Replies to the request with data.
 void AtaboxApi::handle_get(http_request request)
 {
-    LOG(debug) <<" Handle GET method";
+
+       // request.reply(status_codes::NotFound, U("Method ")).get();
 	commonHandler(request);
 }
 
@@ -106,7 +115,6 @@ void AtaboxApi::handle_get(http_request request)
 // Aggregate location data from different services and reply to the POST request.
 void AtaboxApi::handle_post(http_request request)
 {
-    LOG(debug) <<" Handle POST method";
 	commonHandler(request);
 }
 
