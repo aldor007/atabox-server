@@ -6,7 +6,7 @@
  */
 
 #include "WavePreprocessor.h"
-#include "WaveFileAnalizator.h"
+#include "../analysis/SamplesAnalizator.h"
 
 WavePreprocessor::WavePreprocessor() {
 
@@ -15,8 +15,8 @@ WavePreprocessor::WavePreprocessor() {
 WavePreprocessor::~WavePreprocessor() {
 }
 
-void WavePreprocessor::deleteSielienceFromBeginningAndEnd(NormalizedSamplesList & sampleList, double percentSilence) {
-	WaveFileAnalizator analizator;
+void WavePreprocessor::deleteSielienceFromBeginningAndEnd(Samples & sampleList, double percentSilence) {
+	SamplesAnalizator analizator;
 	double amplitude = analizator.findAmplitude(sampleList);
 	uint32_t sampleCounter = 0;
 		for (uint32_t i = 0; i < sampleList.getNumberOfSamples(); ++i) {

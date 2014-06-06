@@ -6,7 +6,7 @@
  */
 
 #include "dataproviders/RocksdbProvider.h"
-#include "wave/WaveProperties.h"
+#include "wave/analysis/WaveProperties.h"
 #undef U
 #include <string>
 #ifndef GTEST_H_

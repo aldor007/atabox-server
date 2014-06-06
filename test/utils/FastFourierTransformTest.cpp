@@ -59,11 +59,11 @@ TEST_F(FastFourierTransformTest, exampleData) {
 TEST_F(FastFourierTransformTest, TheSameWaveData) {
 	//given
 	typedef std::complex<double> cx;
-	WaveFile waveFile("test/wave/dziekuje32bit.wav");
+	WaveFile waveFile("test/wave/waveFiles/dziekuje32bit.wav");
 	//std::vector<cx> outdata;
 	std::complex<double> * outdata = FastFourierTransform(waveFile, waveFile.getNumberOfSamples());
 
-	WaveFile waveFile2("test/wave/dziekuje32bit.wav");
+	WaveFile waveFile2("test/wave/waveFiles/dziekuje32bit.wav");
 	cx *  outdata2 = FastFourierTransform(waveFile2, waveFile2.getNumberOfSamples());
 	ASSERT_EQ(outdata[0], outdata2[0]);
 
@@ -72,11 +72,11 @@ TEST_F(FastFourierTransformTest, TheSameWaveData) {
 TEST_F(FastFourierTransformTest, TheSameWaveDataDiffrenBits) {
 	//given
 	typedef std::complex<double> cx;
-	WaveFile waveFile("test/wave/dziekuje32bit.wav");
+	WaveFile waveFile("test/wave/waveFiles/dziekuje32bit.wav");
 	//std::vector<cx> outdata;
 	std::complex<double> * outdata = FastFourierTransform(waveFile, waveFile.getNumberOfSamples());
 
-	WaveFile waveFile2("test/wave/dziekuje8bit.wav");
+	WaveFile waveFile2("test/wave/waveFiles/dziekuje8bit.wav");
 	cx *  outdata2 = FastFourierTransform(waveFile2, waveFile2.getNumberOfSamples());
 	ASSERT_EQ(outdata[0], outdata2[0]);
 
@@ -84,11 +84,11 @@ TEST_F(FastFourierTransformTest, TheSameWaveDataDiffrenBits) {
 TEST_F(FastFourierTransformTest, DiffrentWaveData) {
 	//given
 	typedef std::complex<double> cx;
-	WaveFile waveFile("test/wave/dziekuje32bit.wav");
+	WaveFile waveFile("test/wave/waveFiles/dziekuje32bit.wav");
 	//std::vector<cx> outdata;
 	std::complex<double> * outdata = FastFourierTransform(waveFile, waveFile.getNumberOfSamples());
 
-	WaveFile waveFile2("test/wave/prosze32bit.wav");
+	WaveFile waveFile2("test/wave/waveFiles/prosze32bit.wav");
 	cx *  outdata2 = FastFourierTransform(waveFile2, waveFile2.getNumberOfSamples());
 	ASSERT_NE(outdata[0], outdata2[0]);
 }

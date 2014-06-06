@@ -5,7 +5,7 @@
 
 #include <utils/atabox_log.h>
 #include <recognition/PropertiesComparator.h>
-#include <wave/WaveProperties.h>
+#include <wave/analysis/WaveProperties.h>
 
 
 typedef std::map<WaveProperties, std::string>::iterator map_it;

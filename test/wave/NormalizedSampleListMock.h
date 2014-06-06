@@ -7,12 +7,12 @@
 
 #ifndef NORMALIZEDSAMPLELISTMOCK_H_
 #define NORMALIZEDSAMPLELISTMOCK_H_
-#include "wave/NormalizedSamplesList.h"
+#include "wave/Samples.h"
 #undef U
 
 #include "gmock/gmock.h"
 
-class NormalizedSampleListMock: public NormalizedSamplesList {
+class NormalizedSampleListMock: public Samples {
 public:
 	NormalizedSampleListMock();
 	virtual ~NormalizedSampleListMock();

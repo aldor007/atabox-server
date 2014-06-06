@@ -23,6 +23,8 @@ C_UPPER_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+src/wave/preprocessing \
+src/wave/analysis \
 src/wave \
 src/utils \
 src/runner \

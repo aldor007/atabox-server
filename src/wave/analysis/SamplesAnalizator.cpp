@@ -5,16 +5,16 @@
  *      Author: mj
  */
 
-#include "WaveFileAnalizator.h"
+#include "SamplesAnalizator.h"
 
-WaveFileAnalizator::WaveFileAnalizator() {
+SamplesAnalizator::SamplesAnalizator() {
 
 }
 
-WaveFileAnalizator::~WaveFileAnalizator() {
+SamplesAnalizator::~SamplesAnalizator() {
 }
 
-double WaveFileAnalizator::findAmplitude(NormalizedSamplesList& samples) {
+double SamplesAnalizator::findAmplitude(Samples& samples) {
 	double result = 0;
 	for (unsigned int i = 0; i < samples.getNumberOfSamples(); ++i) {
 		double sample = samples.getSample(i);
@@ -25,7 +25,7 @@ double WaveFileAnalizator::findAmplitude(NormalizedSamplesList& samples) {
 	return result;
 }
 
-int WaveFileAnalizator::countZeroCrossings(NormalizedSamplesList& samples) {
+int SamplesAnalizator::countZeroCrossings(Samples& samples) {
 	int result = 0;
 	for (unsigned int i = 0; i < samples.getNumberOfSamples() - 1; ++i) {
 		double sample = samples.getSample(i);
@@ -67,7 +67,7 @@ int WaveFileAnalizator::countZeroCrossings(NormalizedSamplesList& samples) {
 //}
 
 
-double WaveFileAnalizator::percentageAbove(NormalizedSamplesList& samples,
+double SamplesAnalizator::percentageAbove(Samples& samples,
 		double percentOfMax) {
 	int aboveCounter = 0;
 	int allCounter = 0;
@@ -83,14 +83,14 @@ double WaveFileAnalizator::percentageAbove(NormalizedSamplesList& samples,
 	return aboveCounter * 1.0 / allCounter;
 }
 
-double WaveFileAnalizator::percetnageBelow(NormalizedSamplesList& samples,
+double SamplesAnalizator::percetnageBelow(Samples& samples,
 		double percentOfMax) {
 	return 1.0 - percentageAbove(samples, percentOfMax);
 }
 
 
 
-WaveProperties WaveFileAnalizator::getAllProperties(NormalizedSamplesList& samples) {
+WaveProperties SamplesAnalizator::getAllProperties(Samples& samples) {
 	WaveProperties result;
 	result.amplitude = findAmplitude(samples);
 	result.zeroCrossings = countZeroCrossings(samples);

@@ -7,7 +7,7 @@
 
 #ifndef PROPERTIESCOMPARATOR_H_
 #define PROPERTIESCOMPARATOR_H_
-#include "wave/WaveProperties.h"
+#include "wave/analysis/WaveProperties.h"
 #include <math.h>
 
 class PropertiesComparator {

@@ -11,17 +11,17 @@
 #include "WaveFile.h"
 #include "WaveUtils.h"
 
-class NormalizedSamplesList {
+class Samples {
 public:
-	NormalizedSamplesList(WaveFile & waveFile);
-	virtual ~NormalizedSamplesList();
+	Samples(WaveFile & waveFile);
+	virtual ~Samples();
 	virtual double operator[](unsigned int i);
 	virtual double getSample(unsigned int i);
 	virtual uint32_t getNumberOfSamples();
 	virtual double getLenghtInSeconds();
 	void setSampleListData(uint32_t numberOfSamples, double * data);
 protected:
-	NormalizedSamplesList();
+	Samples();
 	double *samples = nullptr;
 	uint32_t numberOfSamples;
 	double lenghtInSeconds;

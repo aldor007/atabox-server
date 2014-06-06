@@ -1,7 +1,7 @@
 #include <map>
 #include <string>
 
-#include <wave/WaveProperties.h>
+#include <wave/analysis/WaveProperties.h>
 #include <recognition/PropertiesComparator.h>
 
 #include <boost/log/trivial.hpp>

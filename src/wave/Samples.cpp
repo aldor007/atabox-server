@@ -5,9 +5,9 @@
  *      Author: mj
  */
 
-#include <wave/NormalizedSamplesList.h>
+#include <wave/Samples.h>
 
-NormalizedSamplesList::NormalizedSamplesList(WaveFile & waveFile) {
+Samples::Samples(WaveFile & waveFile) {
 	try {
 		samples = new double[waveFile.getNumberOfSamples()];
 	} catch (std::bad_alloc) {
@@ -27,33 +27,33 @@ NormalizedSamplesList::NormalizedSamplesList(WaveFile & waveFile) {
 
 }
 
-NormalizedSamplesList::~NormalizedSamplesList() {
+Samples::~Samples() {
 	if (samples != nullptr) {
 		delete samples;
 		samples = nullptr;
 	}
 }
 
-double NormalizedSamplesList::operator [](unsigned int i) {
+double Samples::operator [](unsigned int i) {
 	return getSample(i);
 }
 
-double NormalizedSamplesList::getSample(unsigned int i) {
+double Samples::getSample(unsigned int i) {
 	return samples[i];
 }
 
-uint32_t NormalizedSamplesList::getNumberOfSamples() {
+uint32_t Samples::getNumberOfSamples() {
 	return numberOfSamples;
 }
 
-double NormalizedSamplesList::getLenghtInSeconds() {
+double Samples::getLenghtInSeconds() {
 	return lenghtInSeconds;
 }
 
-NormalizedSamplesList::NormalizedSamplesList() {
+Samples::Samples() {
 
 }
-void NormalizedSamplesList::setSampleListData(uint32_t numberOfSamples, double * data) {
+void Samples::setSampleListData(uint32_t numberOfSamples, double * data) {
 	if (this->samples != nullptr) {
 			delete this->samples;
 		}

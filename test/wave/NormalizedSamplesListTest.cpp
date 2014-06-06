@@ -5,7 +5,7 @@
  *      Author: mj
  */
 
-#include <wave/NormalizedSamplesList.h>
+#include <wave/Samples.h>
 #undef U
 #include "gtest/gtest.h"
 #include "gmock/gmock.h"
@@ -42,7 +42,7 @@ TEST_F(NormalizedSamplesListTest, canHandleWaveFile8bitsReadedFromMemory) {
 	int32_t maxOfRange = WaveUtils::getMaxOfRange(bitspersample);
 	double result = (double)(((int32_t)currentIndex - 128)/maxOfRange);
 
-	NormalizedSamplesList test(waveFile);
+	Samples test(waveFile);
 	ASSERT_EQ(test.getLenghtInSeconds(), 8./3.);
 	ASSERT_EQ(test.getNumberOfSamples(), subchunk2size);
 	for (uint8_t i = 0; i< test.getNumberOfSamples(); i++) {
@@ -87,7 +87,7 @@ TEST_F(NormalizedSamplesListTest, canHandleWaveFile32bitsReadedFromMemory) {
 	std::memcpy(&tmpResult, &tmpData[currentIndex], 4);
 	double result = (double)(tmpResult/maxOfRange);
 
-	NormalizedSamplesList test(waveFile);
+	Samples test(waveFile);
 	ASSERT_EQ(test.getLenghtInSeconds(), lengthInSecond);
 	ASSERT_EQ(test.getNumberOfSamples(), subchunk2size/4);
 	ASSERT_EQ(waveFile.getSampleRate(), sampleRate);

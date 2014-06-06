@@ -7,14 +7,14 @@
 
 #ifndef WAVEPREPROCESSOR_H_
 #define WAVEPREPROCESSOR_H_
-#include "WaveFile.h"
-#include "WaveFileAnalizator.h"
+#include "../WaveFile.h"
+#include "../analysis/SamplesAnalizator.h"
 
 class WavePreprocessor {
 public:
 	WavePreprocessor();
 	~WavePreprocessor();
-	static void deleteSielienceFromBeginningAndEnd(NormalizedSamplesList& sampleList,
+	static void deleteSielienceFromBeginningAndEnd(Samples& sampleList,
 			double percentSilence = 0.02) ;
 	void normalize(WaveFile waveFile) const;
 };

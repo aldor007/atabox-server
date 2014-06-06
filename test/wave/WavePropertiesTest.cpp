@@ -5,7 +5,7 @@
  *      Author: mj
  */
 
-#include "wave/WaveProperties.h"
+#include "wave/analysis/WaveProperties.h"
 #include "cpprest/json.h"
 #undef U
 #include "gtest/gtest.h"

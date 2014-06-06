@@ -45,10 +45,10 @@
 #include "dataproviders/BaseDataProvider.h"
 #include "dataproviders/RocksdbProvider.h"
 #include "api/AtaboxApi.h"
-#include "wave/WaveFileAnalizator.h"
-#include "wave/WaveProperties.h"
+#include "wave/analysis/SamplesAnalizator.h"
+#include "wave/analysis/WaveProperties.h"
 #include "wave/WaveFile.h"
-#include "wave/WavePreprocessor.h"
+#include "wave/preprocessing/WavePreprocessor.h"
 #include "recognition/PropertiesComparator.h"
 #include "runner/Runner.h"
 #include "utils/execution_policy.h"
@@ -99,9 +99,9 @@ void handle_add(web::http::http_request request) {
     	body.read(buffer, content_lenght).get();
     	WaveFile wave(waveData);
     	delete waveData;
-    	NormalizedSamplesList waveSamples(wave);
+    	Samples waveSamples(wave);
     	WavePreprocessor::deleteSielienceFromBeginningAndEnd(waveSamples);
-    	WaveFileAnalizator analizator;
+    	SamplesAnalizator analizator;
     	WaveProperties waveProperties = analizator.getAllProperties(waveSamples);
     	waveProperties.name = commandName;
 
@@ -146,9 +146,9 @@ void handle_execute(web::http::http_request request) {
     body.read(buffer, content_lenght).get();
     WaveFile wave(waveData);
     delete waveData;
-    NormalizedSamplesList waveSamples(wave);
+    Samples waveSamples(wave);
     WavePreprocessor::deleteSielienceFromBeginningAndEnd(waveSamples);
-    WaveFileAnalizator analizator;
+    SamplesAnalizator analizator;
     WaveProperties waveProperties = analizator.getAllProperties(waveSamples);
 
 	std::map<WaveProperties, std::string> list;

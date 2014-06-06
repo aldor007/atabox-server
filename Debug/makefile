@@ -8,6 +8,8 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include src/wave/preprocessing/subdir.mk
+-include src/wave/analysis/subdir.mk
 -include src/wave/subdir.mk
 -include src/utils/subdir.mk
 -include src/runner/subdir.mk

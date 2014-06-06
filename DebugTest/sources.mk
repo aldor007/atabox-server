@@ -30,6 +30,8 @@ test/recognition \
 test/dataproviders \
 test/api \
 test \
+src/wave/preprocessing \
+src/wave/analysis \
 src/wave \
 src/utils \
 src/runner \
