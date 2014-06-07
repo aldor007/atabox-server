@@ -88,7 +88,15 @@ double SamplesAnalizator::percetnageBelow(Samples& samples,
 	return 1.0 - percentageAbove(samples, percentOfMax);
 }
 
+void SamplesAnalizator::addProperty(Property& property) {
+	properties.push_back(&property);
+}
 
+void SamplesAnalizator::getPropertiesSummary(Samples& samples) {
+	for (int i = 0; i < properties.size(); ++i) {
+			properties[i]->getValue(samples);
+		}
+}
 
 WaveProperties SamplesAnalizator::getAllProperties(Samples& samples) {
 	WaveProperties result;

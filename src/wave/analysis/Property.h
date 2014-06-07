@@ -7,11 +7,17 @@
 
 #ifndef PROPERTY_H_
 #define PROPERTY_H_
+#include <string>
 #include "../Samples.h"
+
+using std::string;
+
 class Property {
 public:
 	virtual ~Property(){};
 	virtual double getValue(Samples& samples) = 0;
+	virtual string getName() = 0;
+
 	//TODO getJSON()
 };
 

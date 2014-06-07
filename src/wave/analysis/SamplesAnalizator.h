@@ -10,11 +10,25 @@
 #include "../Samples.h"
 #include "WaveProperties.h"
 #include <cmath>
+#include "Property.h"
+
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+
 
 class SamplesAnalizator {
 public:
 	SamplesAnalizator();
 	virtual ~SamplesAnalizator();
+	vector<Property*> properties;
+	void addProperty(Property & property);
+	void getPropertiesSummary(Samples & samples);
+
+	// TODO move below to subclasses of Property
 	double findAmplitude(Samples& samples);
 	int countZeroCrossings(Samples& samples);
 	double percentageAbove(Samples& samples, double percentOfMax);

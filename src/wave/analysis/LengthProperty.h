@@ -11,7 +11,8 @@
 class LengthProperty : Property {
 public:
 	LengthProperty();
-	double getValue(Samples& samples);
+	virtual double getValue(Samples& samples);
+	virtual string getName();
 };
 
 #endif /* LENGTHPROPERTY_H_ */

@@ -15,3 +15,7 @@ LengthProperty::LengthProperty() {
 double LengthProperty::getValue(Samples& samples) {
 	return samples.getLenghtInSeconds();
 }
+
+string LengthProperty::getName() {
+	return "length";
+}

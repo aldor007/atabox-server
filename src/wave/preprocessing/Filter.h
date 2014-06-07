@@ -12,7 +12,7 @@ class Filter {
 public:
 	virtual ~Filter(){};
 	virtual void applyOn(Samples& samples) = 0;
-	// TODO virtual Samples applyOn(Samples& samples) = 0;
+	// TODO virtual Samples apply(Samples& samples) = 0;
 };
 
 #endif /* FILTER_H_ */
