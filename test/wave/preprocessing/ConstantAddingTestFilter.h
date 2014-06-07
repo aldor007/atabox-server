@@ -1,11 +1,11 @@
 #ifndef FILTERMOCK_H_
 #define FILTERMOCK_H_
 #include "wave/preprocessing/Filter.h"
-class ConstantAddindTestFilter: public virtual Filter {
+class ConstantAddingTestFilter: public virtual Filter {
 
 public:
 
-	ConstantAddindTestFilter(double value){
+	ConstantAddingTestFilter(double value){
 		this->value = value;
 	}
 

@@ -11,7 +11,7 @@
 #include "gmock/gmock.h"
 #include "wave/preprocessing/Preprocessor.h"
 #include "../SamplesMock.h"
-#include "ConstantAddindTestFilter.h"
+#include "ConstantAddingTestFilter.h"
 
 
 
@@ -52,7 +52,7 @@ TEST_F(PreprocessorTest, changesSamplesWhenFiltersAreAdded) {
 	values[2] = 0.16;
 	values[3] =  0.130;
 	samples.setSampleListData(4, values);
-	ConstantAddindTestFilter filter(0.5);
+	ConstantAddingTestFilter filter(0.5);
 	Preprocessor preprocessor;
 	preprocessor.addToFilterChain(filter);
 
@@ -76,8 +76,8 @@ TEST_F(PreprocessorTest, changesSamplesWhenMoreThanOneFiltersAreAdded) {
 	values[2] = 0.16;
 	values[3] =  0.130;
 	samples.setSampleListData(4, values);
-	ConstantAddindTestFilter filter(0.2);
-	ConstantAddindTestFilter filter2(0.3);
+	ConstantAddingTestFilter filter(0.2);
+	ConstantAddingTestFilter filter2(0.3);
 	Preprocessor preprocessor;
 	preprocessor.addToFilterChain(filter);
 	preprocessor.addToFilterChain(filter2);
