@@ -12,24 +12,6 @@ class SamplesAnalizatorTest: public ::testing::Test {
 };
 
 
-TEST_F(SamplesAnalizatorTest, countsZeroCrossingsCorrectly) {
-	//given
-	SamplesMock samples;
-	ON_CALL(samples, getNumberOfSamples()).WillByDefault(Return(5));
-	ON_CALL(samples, getSample(0)).WillByDefault(Return(-0.12));
-	ON_CALL(samples, getSample(1)).WillByDefault(Return(-0.130));
-	ON_CALL(samples, getSample(2)).WillByDefault(Return(0.148));
-	ON_CALL(samples, getSample(3)).WillByDefault(Return(0.130));
-	ON_CALL(samples, getSample(4)).WillByDefault(Return(-0.1));
-
-	//when
-	SamplesAnalizator analizator;
-	int zeroCrossings = analizator.countZeroCrossings(samples);
-
-	//then
-	ASSERT_EQ(zeroCrossings, 2);
-}
-
 TEST_F(SamplesAnalizatorTest, countsPercentageAboveCorrectly) {
 	//given
 	SamplesMock samples;
@@ -67,16 +49,7 @@ TEST_F(SamplesAnalizatorTest, countsPercentageBelowCorrectly) {
 }
 
 
-TEST_F(SamplesAnalizatorTest, realFileHasPositiveNumberOfZeroCrossings) {
-	//given
-	WaveFile waveFile("test/wave/waveFiles/dziekuje32bit.wav");
-	Samples samples(waveFile);
-	SamplesAnalizator analizator;
-	//when
-	int crossings = analizator.countZeroCrossings(samples);
-	//then
-	ASSERT_GT(crossings, 0);
-}
+
 
 
 

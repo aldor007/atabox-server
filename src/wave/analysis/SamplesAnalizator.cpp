@@ -51,18 +51,6 @@ void SamplesAnalizator::getPropertiesSummary(Samples& samples) {
 // //////////////////////////////////////////////////////////////////////
 
 
-int SamplesAnalizator::countZeroCrossings(Samples& samples) {
-	int result = 0;
-	for (unsigned int i = 0; i < samples.getNumberOfSamples() - 1; ++i) {
-		double sample = samples.getSample(i);
-		double nextSample = samples.getSample(i + 1);
-		if (sample * nextSample <= 0) {
-			++result;
-		}
-	}
-	return result;
-}
-
 
 
 double SamplesAnalizator::percentageAbove(Samples& samples,

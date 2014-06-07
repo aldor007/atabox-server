@@ -18,8 +18,8 @@ class LengthPropertyTest: public ::testing::Test {
 };
 
 TEST_F(LengthPropertyTest, returnCorrectValueOfProperty) {
-	SamplesMock samples;
 	//given
+	SamplesMock samples;
 	ON_CALL(samples, getLenghtInSeconds()).WillByDefault(Return(4.5));
 	LengthProperty property;
 	//when
@@ -28,4 +28,16 @@ TEST_F(LengthPropertyTest, returnCorrectValueOfProperty) {
 			//property.getValue(samples);
 	//then
 	ASSERT_DOUBLE_EQ(value, 4.5);
+}
+
+
+TEST_F(LengthPropertyTest, returnsCorrectName) {
+	//given
+	LengthProperty property;
+
+	//when
+	string name = property.getName();
+
+	//then
+	ASSERT_STRCASEEQ("length", name.c_str());
 }

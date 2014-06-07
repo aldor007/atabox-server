@@ -29,7 +29,6 @@ public:
 	void getPropertiesSummary(Samples & samples);
 
 	// TODO move below to subclasses of Property
-	int countZeroCrossings(Samples& samples);
 	double percentageAbove(Samples& samples, double percentOfMax);
 	double percetnageBelow(Samples& samples, double percentOfMax);
 	// FIXME Issue #22 write test for this function and uncomment
