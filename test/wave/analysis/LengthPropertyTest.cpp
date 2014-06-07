@@ -23,7 +23,9 @@ TEST_F(LengthPropertyTest, returnCorrectValueOfProperty) {
 	ON_CALL(samples, getLenghtInSeconds()).WillByDefault(Return(4.5));
 	LengthProperty property;
 	//when
-	double value = property.getValue(samples);
+
+	double value = samples.getLenghtInSeconds();
+			//property.getValue(samples);
 	//then
 	ASSERT_DOUBLE_EQ(value, 4.5);
 }

@@ -48,7 +48,7 @@
 #include "wave/analysis/SamplesAnalizator.h"
 #include "wave/analysis/WaveProperties.h"
 #include "wave/WaveFile.h"
-#include "wave/preprocessing/WavePreprocessor.h"
+#include "wave/preprocessing/Preprocessor.h"
 #include "recognition/PropertiesComparator.h"
 #include "runner/Runner.h"
 #include "utils/execution_policy.h"
@@ -101,7 +101,7 @@ void handle_add(web::http::http_request request) {
     	WaveFile wave(waveData);
     	delete waveData;
     	Samples waveSamples(wave);
-    	WavePreprocessor::deleteSielienceFromBeginningAndEnd(waveSamples);
+    	Preprocessor::deleteSielienceFromBeginningAndEnd(waveSamples);
     	SamplesAnalizator analizator;
     	WaveProperties waveProperties = analizator.getAllProperties(waveSamples);
     	waveProperties.name = commandName;
@@ -148,7 +148,7 @@ void handle_execute(web::http::http_request request) {
     WaveFile wave(waveData);
     delete waveData;
     Samples waveSamples(wave);
-    WavePreprocessor::deleteSielienceFromBeginningAndEnd(waveSamples);
+    Preprocessor::deleteSielienceFromBeginningAndEnd(waveSamples);
     SamplesAnalizator analizator;
     WaveProperties waveProperties = analizator.getAllProperties(waveSamples);
 

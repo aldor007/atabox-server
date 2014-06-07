@@ -5,7 +5,7 @@
  *      Author: mj
  */
 
-#include "wave/preprocessing/WavePreprocessor.h"
+#include "wave/preprocessing/Preprocessor.h"
 #include "wave/analysis/SamplesAnalizator.h"
 #undef U
 #include "gtest/gtest.h"
@@ -23,7 +23,7 @@ TEST_F(WavePreprocessorTest, deleteSielienceFromBeginningAndEnd) {
 	ASSERT_NE(samples1[300], samplesSilence[300]);
 	ASSERT_TRUE(samples1[232] != samplesSilence[232]);
 	ASSERT_NE(samples1.getNumberOfSamples() , samplesSilence.getNumberOfSamples());
-	WavePreprocessor processor;
+	Preprocessor processor;
 	processor.deleteSielienceFromBeginningAndEnd(samplesSilence, 0.05);
 	//ASSERT_DOUBLE_EQ(samples1[80], samplesSilence[80]);
 	//ASSERT_DOUBLE_EQ(samples1[150], samplesSilence[150]);

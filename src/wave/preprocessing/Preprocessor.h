@@ -18,10 +18,10 @@
 using namespace std;
 
 
-class WavePreprocessor {
+class Preprocessor {
 public:
-	WavePreprocessor();
-	~WavePreprocessor();
+	Preprocessor();
+	~Preprocessor();
 	vector<Filter> filters;
 	void addToFilterChain(Filter & filter);
 	void applyFilterChainOn(Samples & samples);

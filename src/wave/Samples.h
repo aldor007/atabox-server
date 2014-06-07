@@ -17,6 +17,7 @@ public:
 	virtual ~Samples();
 	virtual double operator[](unsigned int i);
 	virtual double getSample(unsigned int i);
+	virtual void setSample(uint32_t index, double value);
 	virtual uint32_t getNumberOfSamples();
 	virtual double getLenghtInSeconds();
 	void setSampleListData(uint32_t numberOfSamples, double * data);

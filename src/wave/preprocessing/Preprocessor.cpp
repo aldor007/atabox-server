@@ -5,27 +5,27 @@
  *      Author: mj
  */
 
-#include "WavePreprocessor.h"
+#include "Preprocessor.h"
 #include "../analysis/SamplesAnalizator.h"
 
-WavePreprocessor::WavePreprocessor() {
+Preprocessor::Preprocessor() {
 
 }
 
-WavePreprocessor::~WavePreprocessor() {
+Preprocessor::~Preprocessor() {
 }
 
-void WavePreprocessor::addToFilterChain(Filter& filter) {
+void Preprocessor::addToFilterChain(Filter& filter) {
 	filters.push_back(filter);
 }
 
-void WavePreprocessor::applyFilterChainOn(Samples& samples) {
+void Preprocessor::applyFilterChainOn(Samples& samples) {
 	for (int i = 0; i < filters.size(); ++i) {
 		filters[i].applyOn(samples);
 	}
 }
 // TODO move to Filter subclasses
-void WavePreprocessor::deleteSielienceFromBeginningAndEnd(Samples & sampleList, double percentSilence) {
+void Preprocessor::deleteSielienceFromBeginningAndEnd(Samples & sampleList, double percentSilence) {
 	SamplesAnalizator analizator;
 	double amplitude = analizator.findAmplitude(sampleList);
 	uint32_t sampleCounter = 0;
@@ -48,6 +48,6 @@ void WavePreprocessor::deleteSielienceFromBeginningAndEnd(Samples & sampleList, 
 	sampleList.setSampleListData(sampleCounter+1,dataFixed);
 }
 
-void WavePreprocessor::normalize(WaveFile waveFile) const{
+void Preprocessor::normalize(WaveFile waveFile) const{
 
 }

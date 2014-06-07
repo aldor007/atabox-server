@@ -34,6 +34,7 @@ Samples::~Samples() {
 	}
 }
 
+//TODO a jak ktos będzie chcial ustawiac tak wartosc? samples[5] = 3.3 - będzie się dziwić czemu nic się nie zmienia
 double Samples::operator [](unsigned int i) {
 	return getSample(i);
 }
@@ -50,9 +51,14 @@ double Samples::getLenghtInSeconds() {
 	return lenghtInSeconds;
 }
 
+void Samples::setSample(uint32_t index, double value) {
+	samples[index] = value;
+}
+
 Samples::Samples() {
 
 }
+
 void Samples::setSampleListData(uint32_t numberOfSamples, double * data) {
 	if (this->samples != nullptr) {
 			delete this->samples;

@@ -19,6 +19,7 @@ public:
 	MOCK_METHOD0(getNumberOfSamples, uint32_t());
 	MOCK_METHOD0(getLenghtInSeconds, double());
 	MOCK_METHOD1(getSample, double(unsigned int i));
+	MOCK_METHOD2(setSample, void(uint32_t, double));
 };
 
 #endif /* NORMALIZEDSAMPLELISTMOCK_H_ */
