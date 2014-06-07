@@ -21,12 +21,12 @@ public:
 		}
 		return result;
 	}
-	;
+
 
 	virtual string getName() {
 		return "amplitude";
 	}
-	;
+
 };
 
 #endif /* AMPLITUDEPROPERTY_H_ */

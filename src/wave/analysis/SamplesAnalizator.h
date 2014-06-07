@@ -27,13 +27,6 @@ public:
 	vector<Property*> properties;
 	void addProperty(Property & property);
 	void getPropertiesSummary(Samples & samples);
-
-	// TODO move below to subclasses of Property
-	double percentageAbove(Samples& samples, double percentOfMax);
-	double percetnageBelow(Samples& samples, double percentOfMax);
-	// FIXME Issue #22 write test for this function and uncomment
-	//	double findPeriod(NormalizedSamplesList& samples);
-
 };
 
 #endif /* WAVEFILEANALIZATOR_H_ */
