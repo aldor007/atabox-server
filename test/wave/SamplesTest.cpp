@@ -12,11 +12,11 @@
 
 using ::testing::Return;
 
-class NormalizedSamplesListTest: public ::testing::Test {
+class SamplesTest: public ::testing::Test {
 
 };
 
-TEST_F(NormalizedSamplesListTest, canHandleWaveFile8bitsReadedFromMemory) {
+TEST_F(SamplesTest, canHandleWaveFile8bitsReadedFromMemory) {
 	//given
 	const uint16_t size = 200;
 	uint8_t tmpData[size];
@@ -51,7 +51,7 @@ TEST_F(NormalizedSamplesListTest, canHandleWaveFile8bitsReadedFromMemory) {
 	}
 	ASSERT_EQ(test.getSample(0), result);
 }
-TEST_F(NormalizedSamplesListTest, canHandleWaveFile32bitsReadedFromMemory) {
+TEST_F(SamplesTest, canHandleWaveFile32bitsReadedFromMemory) {
 	//given
 	const uint16_t size = 204;
 	uint8_t tmpData[size];

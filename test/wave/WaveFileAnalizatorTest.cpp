@@ -1,6 +1,6 @@
 #include "wave/analysis/SamplesAnalizator.h"
 #include "wave/Samples.h"
-#include "../test/wave/NormalizedSampleListMock.h"
+#include "../test/wave/SamplesMock.h"
 #undef U
 #include "gtest/gtest.h"
 #include "gmock/gmock.h"
@@ -13,7 +13,7 @@ class SamplesAnalizatorTest: public ::testing::Test {
 
 TEST_F(SamplesAnalizatorTest, findsMaximumCorrectly) {
 	//given
-	NormalizedSampleListMock samples;
+	SamplesMock samples;
 	ON_CALL(samples, getNumberOfSamples()).WillByDefault(Return(4));
 	ON_CALL(samples, getSample(0)).WillByDefault(Return(0.128));
 	ON_CALL(samples, getSample(1)).WillByDefault(Return(-0.5));
@@ -30,7 +30,7 @@ TEST_F(SamplesAnalizatorTest, findsMaximumCorrectly) {
 
 TEST_F(SamplesAnalizatorTest, countsZeroCrossingsCorrectly) {
 	//given
-	NormalizedSampleListMock samples;
+	SamplesMock samples;
 	ON_CALL(samples, getNumberOfSamples()).WillByDefault(Return(5));
 	ON_CALL(samples, getSample(0)).WillByDefault(Return(-0.12));
 	ON_CALL(samples, getSample(1)).WillByDefault(Return(-0.130));
@@ -48,7 +48,7 @@ TEST_F(SamplesAnalizatorTest, countsZeroCrossingsCorrectly) {
 
 TEST_F(SamplesAnalizatorTest, countsPercentageAboveCorrectly) {
 	//given
-	NormalizedSampleListMock samples;
+	SamplesMock samples;
 	ON_CALL(samples, getNumberOfSamples()).WillByDefault(Return(5));
 	ON_CALL(samples, getSample(0)).WillByDefault(Return(-0.11));
 	ON_CALL(samples, getSample(1)).WillByDefault(Return(0.7));
@@ -66,7 +66,7 @@ TEST_F(SamplesAnalizatorTest, countsPercentageAboveCorrectly) {
 
 TEST_F(SamplesAnalizatorTest, countsPercentageBelowCorrectly) {
 	//given
-	NormalizedSampleListMock samples;
+	SamplesMock samples;
 	ON_CALL(samples, getNumberOfSamples()).WillByDefault(Return(5));
 	ON_CALL(samples, getSample(0)).WillByDefault(Return(-0.11));
 	ON_CALL(samples, getSample(1)).WillByDefault(Return(0.7));

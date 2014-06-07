@@ -12,11 +12,12 @@
 
 #include "gmock/gmock.h"
 
-class NormalizedSampleListMock: public Samples {
+class SamplesMock: public Samples {
 public:
-	NormalizedSampleListMock();
-	virtual ~NormalizedSampleListMock();
+	SamplesMock(){};
+	virtual ~SamplesMock(){};
 	MOCK_METHOD0(getNumberOfSamples, uint32_t());
+	MOCK_METHOD0(getLenghtInSeconds, double());
 	MOCK_METHOD1(getSample, double(unsigned int i));
 };
 
