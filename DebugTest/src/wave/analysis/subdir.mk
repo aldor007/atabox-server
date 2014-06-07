@@ -4,20 +4,20 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../test/api/AtaboxApiTest.cpp \
-../test/api/casablancaMocks.cpp 
+../src/wave/analysis/SamplesAnalizator.cpp \
+../src/wave/analysis/WaveProperties.cpp 
 
 OBJS += \
-./test/api/AtaboxApiTest.o \
-./test/api/casablancaMocks.o 
+./src/wave/analysis/SamplesAnalizator.o \
+./src/wave/analysis/WaveProperties.o 
 
 CPP_DEPS += \
-./test/api/AtaboxApiTest.d \
-./test/api/casablancaMocks.d 
+./src/wave/analysis/SamplesAnalizator.d \
+./src/wave/analysis/WaveProperties.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
-test/api/%.o: ../test/api/%.cpp
+src/wave/analysis/%.o: ../src/wave/analysis/%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
 	g++ -I../external/rocksdb_source/include -I../src -I../external/casablanca/Release/include -I../external/boost -O0 -g3 -c -fmessage-length=0 -std=c++11 -fprofile-arcs -ftest-coverage -DBOOST_LOG_DYN_LINK -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"

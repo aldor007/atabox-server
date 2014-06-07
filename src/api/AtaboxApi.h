@@ -23,7 +23,7 @@
 
 #include <utils/atabox_log.h>
 
-typedef void (* handle_request_fun)(web::http::http_request);
+typedef void (* handle_request_fun)(web::http::http_request&);
 //TODO: touple for diffrent method type POST,GEt etc
 class AtaboxApi {
 public:
@@ -37,7 +37,7 @@ public:
 private:
 	static void handle_error(pplx::task<void>&t);
 	void  inline listenerSetSupports();
-	void inline commonHandler(web::http::http_request);
+	void inline commonHandler(web::http::http_request&);
 	void handle_get(web::http::http_request);
 	void handle_post(web::http::http_request);
 	void handle_put(web::http::http_request);
