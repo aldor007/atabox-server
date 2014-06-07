@@ -67,7 +67,7 @@ std::map<std::string, policy_fun>  g_policies;
 
 extern atabox_log::logger g_log;
 
-void handle_add(web::http::http_request request) {
+void handle_add(web::http::http_request&request) {
 
 	json::value response;
     std::map<std::string, std::string> querymap = uri::split_query(request.relative_uri().query());
@@ -75,7 +75,7 @@ void handle_add(web::http::http_request request) {
     	LOG(error)<<"Bad request";
     	response["error_msg"] = json::value::string("Bad request. Read doc for info. Missing name or command field in request.");
     	response["status"] = json::value::string("ERROR");
-    	request.reply(status_codes::BadRequest, response).get();
+    	request.reply(status_codes::BadRequest, response).wait();
     	return;
 
     }
@@ -89,15 +89,15 @@ void handle_add(web::http::http_request request) {
     	LOG(error)<<"Bad request! Empty body";
     	response["error_msg"] = json::value::string("Bad request.Empty body!");
     	response["status"] = json::value::string("ERROR");
-    	request.reply(status_codes::BadRequest, response).get();
+    	request.reply(status_codes::BadRequest, response).wait();
     	return;
 
     }
     try {
     	uint8_t * waveData = new uint8_t[content_lenght];
     	Concurrency::streams::rawptr_buffer<uint8_t> buffer(waveData, content_lenght);
-    	//body.read_to_end(buffer).get();
-    	body.read(buffer, content_lenght).get();
+    	//body.read_to_end(buffer).wait();
+    	body.read(buffer, content_lenght).wait();
     	WaveFile wave(waveData);
     	delete waveData;
     	Samples waveSamples(wave);
@@ -112,23 +112,23 @@ void handle_add(web::http::http_request request) {
     		LOG(error)<<"Error "<<ex.what();
     		response["status"] = json::value::string("ERROR");
     		response["error_msg"] = json::value::string(ex.what());
-    		request.reply(status_codes::InternalError, response).get();
+    		request.reply(status_codes::InternalError, response).wait();
     		return;
     	}
     	response["status"] = json::value::string("OK");
     	response["command"] = json::value::string(commandString);
-    	request.reply(status_codes::OK, response).get();
+    	request.reply(status_codes::OK, response).wait();
     } catch (std::exception &e) {
 
   		LOG(error)<<"Error "<<e.what();
    		response["status"] = json::value::string("ERROR");
    		response["command"] = json::value::string(e.what());
-   		request.reply(status_codes::BadRequest, response).get();
+   		request.reply(status_codes::BadRequest, response).wait();
    	}
 
 }
 
-void handle_execute(web::http::http_request request) {
+void handle_execute(web::http::http_request& request) {
 
 	json::value response;
     concurrency::streams::istream body = request.body();
@@ -138,13 +138,13 @@ void handle_execute(web::http::http_request request) {
     	LOG(error)<<"Bad request! Empty body";
     	response["error_msg"] = json::value::string("Bad request.Empty body!");
     	response["status"] = json::value::string("ERROR");
-    	request.reply(status_codes::BadRequest, response).get();
+    	request.reply(status_codes::BadRequest, response).wait();
     	return;
 
     }
     uint8_t * waveData = new uint8_t[content_lenght];
     Concurrency::streams::rawptr_buffer<uint8_t> buffer(waveData, content_lenght);
-    body.read(buffer, content_lenght).get();
+    body.read(buffer, content_lenght).wait();
     WaveFile wave(waveData);
     delete waveData;
     Samples waveSamples(wave);
@@ -163,7 +163,7 @@ void handle_execute(web::http::http_request request) {
 			response["status"] = json::value::string("OK");
 			response["command"] = json::value::string(command);
 			response["command_ret"] = cmdResult;
-			request.reply(status_codes::OK, response).get();
+			request.reply(status_codes::OK, response).wait();
 			return;
 	}
 
@@ -173,7 +173,7 @@ void handle_execute(web::http::http_request request) {
 
 }
 
-void handle_list(web::http::http_request request) {
+void handle_list(web::http::http_request& request) {
 	std::map<WaveProperties, std::string> list;
 	json::value result;
 	try {
@@ -183,7 +183,7 @@ void handle_list(web::http::http_request request) {
     	LOG(error)<<"DB Error "<<ex.what();
     	result["status"] = json::value::string("ERROR");
     	result["error_msg"] = json::value::string(ex.what());
-    	request.reply(status_codes::InternalError, result).get();
+    	request.reply(status_codes::InternalError, result).wait();
     	return;
     }
 	uint32_t counter = 0;
@@ -196,14 +196,14 @@ void handle_list(web::http::http_request request) {
 	}
 
 
-  request.reply(status_codes::OK, result);
+  request.reply(status_codes::OK, result).wait();
 
 }
 
-void handle_test(web::http::http_request request) {
+void handle_test(web::http::http_request& request) {
 	json::value result;
 	result["status"] = json::value::string("OK");
-	request.reply(status_codes::OK, result).get();
+	request.reply(status_codes::OK, result).wait();
 }
 
 inline void daemonize(const std::string &dir = "/",
@@ -215,7 +215,7 @@ inline void daemonize(const std::string &dir = "/",
       umask(0);
   if (getrlimit(RLIMIT_NOFILE, &rl) < 0)
   {
-    //can't get file limit
+    //can't wait file limit
     throw std::runtime_error(strerror(errno));
   }
 
@@ -370,7 +370,8 @@ int main(int argc, char** argv) {
       std::string line;
       std::getline(std::cin, line);
 
-      mainApi.close().wait();
+      mainApi.close().get();
+
        LOG(info)<<"End of work. Bye ;)";
 
     } catch(boost::system::system_error& e) {

@@ -32,7 +32,7 @@ AtaboxApi::AtaboxApi(utility::string_t url) {
 void  AtaboxApi::listenerSetSupports() {
 	//m_listener.configuration().set_timeout()
 	http_listener_config conf;
-	utility::seconds timeoutAtabox(30);
+	utility::seconds timeoutAtabox(10);
 	m_listener = http_listener(m_url, conf);
 	m_listener.support(methods::GET, std::bind(&AtaboxApi::handle_get, this, std::placeholders::_1));
 	m_listener.support(methods::POST, std::bind(&AtaboxApi::handle_post, this, std::placeholders::_1));
@@ -78,7 +78,7 @@ pplx::task<void> AtaboxApi::close()
     });
 }
 
-void AtaboxApi::commonHandler(http_request request) {
+void AtaboxApi::commonHandler(http_request& request) {
 
     auto path = request.relative_uri().path();
     LOG(info)<<"Path "<<path;
@@ -95,7 +95,7 @@ void AtaboxApi::commonHandler(http_request request) {
     if (handle_fun == m_router.end())
     {
     	LOG(error) <<"Method "<<path<<" not found ";//<<" q "<<queryItr->second;
-        request.reply(status_codes::NotFound, U("Method " + path + " not found ")).get();
+        request.reply(status_codes::NotFound, U("Method " + path + " not found ")).wait();
         return;
     }
 
@@ -106,8 +106,9 @@ void AtaboxApi::commonHandler(http_request request) {
 void AtaboxApi::handle_get(http_request request)
 {
 
-       // request.reply(status_codes::NotFound, U("Method ")).get();
-	commonHandler(request);
+    //request.reply(status_codes::NotFound, U("Method ")).get();//.wait();
+	//return;
+    commonHandler(request);
 }
 
 // Respond to HTTP::POST messages
