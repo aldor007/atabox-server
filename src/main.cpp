@@ -75,7 +75,7 @@ void handle_add(web::http::http_request request) {
     	LOG(error)<<"Bad request";
     	response["error_msg"] = json::value::string("Bad request. Read doc for info. Missing name or command field in request.");
     	response["status"] = json::value::string("ERROR");
-    	request.reply(status_codes::BadRequest, response);
+    	request.reply(status_codes::BadRequest, response).get();
     	return;
 
     }
@@ -89,13 +89,14 @@ void handle_add(web::http::http_request request) {
     	LOG(error)<<"Bad request! Empty body";
     	response["error_msg"] = json::value::string("Bad request.Empty body!");
     	response["status"] = json::value::string("ERROR");
-    	request.reply(status_codes::BadRequest, response);
+    	request.reply(status_codes::BadRequest, response).get();
     	return;
 
     }
     try {
     	uint8_t * waveData = new uint8_t[content_lenght];
     	Concurrency::streams::rawptr_buffer<uint8_t> buffer(waveData, content_lenght);
+    	//body.read_to_end(buffer).get();
     	body.read(buffer, content_lenght).get();
     	WaveFile wave(waveData);
     	delete waveData;
@@ -111,18 +112,18 @@ void handle_add(web::http::http_request request) {
     		LOG(error)<<"Error "<<ex.what();
     		response["status"] = json::value::string("ERROR");
     		response["error_msg"] = json::value::string(ex.what());
-    		request.reply(status_codes::InternalError, response);
+    		request.reply(status_codes::InternalError, response).get();
     		return;
     	}
     	response["status"] = json::value::string("OK");
     	response["command"] = json::value::string(commandString);
-    	request.reply(status_codes::OK, response);
+    	request.reply(status_codes::OK, response).get();
     } catch (std::exception &e) {
 
   		LOG(error)<<"Error "<<e.what();
    		response["status"] = json::value::string("ERROR");
    		response["command"] = json::value::string(e.what());
-   		request.reply(status_codes::BadRequest, response);
+   		request.reply(status_codes::BadRequest, response).get();
    	}
 
 }
@@ -137,7 +138,7 @@ void handle_execute(web::http::http_request request) {
     	LOG(error)<<"Bad request! Empty body";
     	response["error_msg"] = json::value::string("Bad request.Empty body!");
     	response["status"] = json::value::string("ERROR");
-    	request.reply(status_codes::BadRequest, response);
+    	request.reply(status_codes::BadRequest, response).get();
     	return;
 
     }
@@ -162,7 +163,7 @@ void handle_execute(web::http::http_request request) {
 			response["status"] = json::value::string("OK");
 			response["command"] = json::value::string(command);
 			response["command_ret"] = cmdResult;
-			request.reply(status_codes::OK, response);
+			request.reply(status_codes::OK, response).get();
 			return;
 	}
 
@@ -182,7 +183,7 @@ void handle_list(web::http::http_request request) {
     	LOG(error)<<"DB Error "<<ex.what();
     	result["status"] = json::value::string("ERROR");
     	result["error_msg"] = json::value::string(ex.what());
-    	request.reply(status_codes::InternalError, result);
+    	request.reply(status_codes::InternalError, result).get();
     	return;
     }
 	uint32_t counter = 0;
@@ -202,7 +203,7 @@ void handle_list(web::http::http_request request) {
 void handle_test(web::http::http_request request) {
 	json::value result;
 	result["status"] = json::value::string("OK");
-	request.reply(status_codes::OK, result);
+	request.reply(status_codes::OK, result).get();
 }
 
 inline void daemonize(const std::string &dir = "/",
@@ -335,10 +336,10 @@ int main(int argc, char** argv) {
         atabox_log::init_logging(color, atabox_daemon);
         LOG(debug) <<"Hello, world!";
         AtaboxApi mainApi(listen);
-        mainApi.addMethod("add", handle_add);
-        mainApi.addMethod("execute", handle_execute);
-        mainApi.addMethod("list", handle_list);
-        mainApi.addMethod("test", handle_test);
+        mainApi.addMethod("/api/add", handle_add);
+        mainApi.addMethod("/api/execute", handle_execute);
+        mainApi.addMethod("/api/list", handle_list);
+        mainApi.addMethod("/api/test", handle_test);
         LOG(info)<<"Server listening "<<listen<<" Db name "<<databasename;
         g_mainDB  = new RocksdbProvider<WaveProperties, std::string>(databasename);
         g_policies["strict"] = execution_policy_strict;
@@ -373,7 +374,7 @@ int main(int argc, char** argv) {
       std::string line;
       std::getline(std::cin, line);
 
-      mainApi.close().wait();
+      mainApi.close().get();
        LOG(info)<<"End of work. Bye ;)";
 
     } catch(boost::system::system_error& e) {

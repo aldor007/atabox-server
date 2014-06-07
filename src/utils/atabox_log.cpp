@@ -56,19 +56,6 @@ namespace atabox_log {
         boost::shared_ptr< logging::core > core = logging::core::get();
         typedef sinks::synchronous_sink< sinks::text_ostream_backend > text_sink;
         boost::shared_ptr< text_sink > backend = boost::make_shared< text_sink >();
-        boost::shared_ptr< sinks::synchronous_sink<sinks::syslog_backend> >
-        syslog_backend(new sinks::synchronous_sink<sinks::syslog_backend>(
-               keywords::facility = sinks::syslog::user,
-               keywords::use_impl = sinks::syslog::udp_socket_based
-            ));
-
-            //syslog_backend->locked_backend()->set_target_address("localhost");
-        sinks::syslog::custom_severity_mapping< severity_level > mapping("Severity");
-        mapping[debug] = sinks::syslog::debug;
-        mapping[info] = sinks::syslog::info;
-        mapping[warning] = sinks::syslog::warning;
-        mapping[fatal] = sinks::syslog::critical;
-        syslog_backend->locked_backend()->set_severity_mapper(mapping);
 
         backend->locked_backend()->add_stream(boost::shared_ptr< std::ostream >(&std::clog, logging::empty_deleter()));
 
@@ -128,8 +115,23 @@ namespace atabox_log {
                     << ") ["
                     << expr::attr<severity_level>("Severity")
                     << "] " << expr::smessage;
-            backend->set_formatter(frm);
+               backend->set_formatter(frm);
+        /**syslog*-*/
+               boost::shared_ptr< sinks::synchronous_sink<sinks::syslog_backend> >
+              syslog_backend(new sinks::synchronous_sink<sinks::syslog_backend>(
+               keywords::facility = sinks::syslog::user,
+               keywords::use_impl = sinks::syslog::udp_socket_based
+            ));
+
+            //syslog_backend->locked_backend()->set_target_address("localhost");
+        sinks::syslog::custom_severity_mapping< severity_level > mapping("Severity");
+        mapping[debug] = sinks::syslog::debug;
+        mapping[info] = sinks::syslog::info;
+        mapping[warning] = sinks::syslog::warning;
+        mapping[fatal] = sinks::syslog::critical;
+        syslog_backend->locked_backend()->set_severity_mapper(mapping);
             syslog_backend->set_formatter(frm);
+        	core->add_sink(syslog_backend);
 
         }
 
@@ -137,9 +139,7 @@ namespace atabox_log {
         // Enable auto-flushing after each log record written
         backend->locked_backend()->auto_flush(true);
 
-        if (deamonize)
-        	core->add_sink(syslog_backend);
-        else
+        if (!deamonize)
         	core->add_sink(backend);
         core->add_global_attribute("Scope", attrs::named_scope());
         g_log.add_attribute("File", *atabox_log::file_attr);
