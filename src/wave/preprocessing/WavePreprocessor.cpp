@@ -15,6 +15,16 @@ WavePreprocessor::WavePreprocessor() {
 WavePreprocessor::~WavePreprocessor() {
 }
 
+void WavePreprocessor::addToFilterChain(Filter& filter) {
+	filters.push_back(filter);
+}
+
+void WavePreprocessor::applyFilterChainOn(Samples& samples) {
+	for (int i = 0; i < filters.size(); ++i) {
+		filters[i].applyOn(samples);
+	}
+}
+// TODO move to Filter subclasses
 void WavePreprocessor::deleteSielienceFromBeginningAndEnd(Samples & sampleList, double percentSilence) {
 	SamplesAnalizator analizator;
 	double amplitude = analizator.findAmplitude(sampleList);
