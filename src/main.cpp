@@ -65,10 +65,9 @@ std::map<std::string, policy_fun> g_policies;
 
 extern atabox_log::logger g_log;
 
-void handle_add(web::http::http_request&request) {
+void handle_add(web::http::http_request request) {
 
 	json::value response;
-<<<<<<< HEAD
 	std::map<std::string, std::string> querymap = uri::split_query(
 			request.relative_uri().query());
 	if (querymap.find("name") == querymap.end()
@@ -78,17 +77,7 @@ void handle_add(web::http::http_request&request) {
 		response["status"] = json::value::string("ERROR");
 		request.reply(status_codes::BadRequest, response).get();
 		return;
-=======
-    std::map<std::string, std::string> querymap = uri::split_query(request.relative_uri().query());
-    if (querymap.find("name") == querymap.end() || querymap.find("command") == querymap.end()) {
-    	LOG(error)<<"Bad request";
-    	response["error_msg"] = json::value::string("Bad request. Read doc for info. Missing name or command field in request.");
-    	response["status"] = json::value::string("ERROR");
-    	request.reply(status_codes::BadRequest, response).wait();
-    	return;
->>>>>>> branch 'master' of https://jaworekmichal@bitbucket.org/studiaPK/atabox-server.git
 
-<<<<<<< HEAD
 	}
 	std::string commandName = uri::decode(querymap["name"]);
 	std::string commandString = uri::decode(querymap["command"]);
@@ -102,23 +91,7 @@ void handle_add(web::http::http_request&request) {
 		response["status"] = json::value::string("ERROR");
 		request.reply(status_codes::BadRequest, response).get();
 		return;
-=======
-    }
-    std::string commandName = uri::decode(querymap["name"]);
-    std::string commandString = uri::decode(querymap["command"]);
-    LOG(debug)<<"Add command name "<<commandName<<" command string: "<<commandString;
-    concurrency::streams::istream body = request.body();
-    uint64_t content_lenght = request.headers().content_length();
-    LOG(debug)<<"Content lenght of request "<<content_lenght;
-    if (content_lenght == 0) {
-    	LOG(error)<<"Bad request! Empty body";
-    	response["error_msg"] = json::value::string("Bad request.Empty body!");
-    	response["status"] = json::value::string("ERROR");
-    	request.reply(status_codes::BadRequest, response).wait();
-    	return;
->>>>>>> branch 'master' of https://jaworekmichal@bitbucket.org/studiaPK/atabox-server.git
 
-<<<<<<< HEAD
 	}
 	try {
 		uint8_t * waveData = new uint8_t[content_lenght];
@@ -134,43 +107,11 @@ void handle_add(web::http::http_request&request) {
 		preprocessor.addToFilterChain(silenceCuttingFilter);
 		preprocessor.applyFilterChainOn(waveSamples);
 		SamplesAnalizator analizator;
-=======
-    }
-    try {
-    	uint8_t * waveData = new uint8_t[content_lenght];
-    	Concurrency::streams::rawptr_buffer<uint8_t> buffer(waveData, content_lenght);
-    	//body.read_to_end(buffer).wait();
-    	body.read(buffer, content_lenght).wait();
-    	WaveFile wave(waveData);
-    	delete waveData;
-    	Samples waveSamples(wave);
-    	WavePreprocessor::deleteSielienceFromBeginningAndEnd(waveSamples);
-    	SamplesAnalizator analizator;
-    	WaveProperties waveProperties = analizator.getAllProperties(waveSamples);
-    	waveProperties.name = commandName;
->>>>>>> branch 'master' of https://jaworekmichal@bitbucket.org/studiaPK/atabox-server.git
 
-<<<<<<< HEAD
 		WaveProperties waveProperties = analizator.getAllProperties(
 				waveSamples);
 		waveProperties.name = commandName;
-=======
-    	try {
-    		g_mainDB->put(waveProperties.toString(), commandString);
-    	} catch (std::exception const & ex) {
-    		LOG(error)<<"Error "<<ex.what();
-    		response["status"] = json::value::string("ERROR");
-    		response["error_msg"] = json::value::string(ex.what());
-    		request.reply(status_codes::InternalError, response).wait();
-    		return;
-    	}
-    	response["status"] = json::value::string("OK");
-    	response["command"] = json::value::string(commandString);
-    	request.reply(status_codes::OK, response).wait();
-    } catch (std::exception &e) {
->>>>>>> branch 'master' of https://jaworekmichal@bitbucket.org/studiaPK/atabox-server.git
 
-<<<<<<< HEAD
 		try {
 			g_mainDB->put(waveProperties.toString(), commandString);
 		} catch (std::exception const & ex) {
@@ -190,20 +131,12 @@ void handle_add(web::http::http_request&request) {
 		response["command"] = json::value::string(e.what());
 		request.reply(status_codes::BadRequest, response).get();
 	}
-=======
-  		LOG(error)<<"Error "<<e.what();
-   		response["status"] = json::value::string("ERROR");
-   		response["command"] = json::value::string(e.what());
-   		request.reply(status_codes::BadRequest, response).wait();
-   	}
->>>>>>> branch 'master' of https://jaworekmichal@bitbucket.org/studiaPK/atabox-server.git
 
 }
 
-void handle_execute(web::http::http_request& request) {
+void handle_execute(web::http::http_request request) {
 
 	json::value response;
-<<<<<<< HEAD
 	concurrency::streams::istream body = request.body();
 	uint64_t content_lenght = request.headers().content_length();
 	LOG(debug)<<"Content lenght of request "<<content_lenght;
@@ -213,19 +146,7 @@ void handle_execute(web::http::http_request& request) {
 		response["status"] = json::value::string("ERROR");
 		request.reply(status_codes::BadRequest, response).get();
 		return;
-=======
-    concurrency::streams::istream body = request.body();
-    uint64_t content_lenght = request.headers().content_length();
-    LOG(debug)<<"Content lenght of request "<<content_lenght;
-    if (content_lenght == 0) {
-    	LOG(error)<<"Bad request! Empty body";
-    	response["error_msg"] = json::value::string("Bad request.Empty body!");
-    	response["status"] = json::value::string("ERROR");
-    	request.reply(status_codes::BadRequest, response).wait();
-    	return;
->>>>>>> branch 'master' of https://jaworekmichal@bitbucket.org/studiaPK/atabox-server.git
 
-<<<<<<< HEAD
 	}
 	uint8_t * waveData = new uint8_t[content_lenght];
 	Concurrency::streams::rawptr_buffer<uint8_t> buffer(waveData,
@@ -240,18 +161,6 @@ void handle_execute(web::http::http_request& request) {
 	preprocessor.applyFilterChainOn(waveSamples);
 	SamplesAnalizator analizator;
 	WaveProperties waveProperties = analizator.getAllProperties(waveSamples);
-=======
-    }
-    uint8_t * waveData = new uint8_t[content_lenght];
-    Concurrency::streams::rawptr_buffer<uint8_t> buffer(waveData, content_lenght);
-    body.read(buffer, content_lenght).wait();
-    WaveFile wave(waveData);
-    delete waveData;
-    Samples waveSamples(wave);
-    WavePreprocessor::deleteSielienceFromBeginningAndEnd(waveSamples);
-    SamplesAnalizator analizator;
-    WaveProperties waveProperties = analizator.getAllProperties(waveSamples);
->>>>>>> branch 'master' of https://jaworekmichal@bitbucket.org/studiaPK/atabox-server.git
 
 	std::map<WaveProperties, std::string> list;
 	list = g_mainDB->getAllKV();
@@ -260,21 +169,12 @@ void handle_execute(web::http::http_request& request) {
 	std::string command = tmpFun(list, waveProperties);
 	if (!command.empty()) {
 
-<<<<<<< HEAD
 		web::json::value cmdResult = Runner::run(command, " ");
 		response["status"] = json::value::string("OK");
 		response["command"] = json::value::string(command);
 		response["command_ret"] = cmdResult;
 		request.reply(status_codes::OK, response).get();
 		return;
-=======
-			web::json::value cmdResult = Runner::run(command, " ");
-			response["status"] = json::value::string("OK");
-			response["command"] = json::value::string(command);
-			response["command_ret"] = cmdResult;
-			request.reply(status_codes::OK, response).wait();
-			return;
->>>>>>> branch 'master' of https://jaworekmichal@bitbucket.org/studiaPK/atabox-server.git
 	}
 
 	response["status"] = json::value::string("NOT_FOUND");
@@ -283,13 +183,12 @@ void handle_execute(web::http::http_request& request) {
 
 }
 
-void handle_list(web::http::http_request& request) {
+void handle_list(web::http::http_request request) {
 	std::map<WaveProperties, std::string> list;
 	json::value result;
 	try {
 
 		list = g_mainDB->getAllKV();
-<<<<<<< HEAD
 	} catch (std::exception const & ex) {
 		LOG(error)<<"DB Error "<<ex.what();
 		result["status"] = json::value::string("ERROR");
@@ -297,15 +196,6 @@ void handle_list(web::http::http_request& request) {
 		request.reply(status_codes::InternalError, result).get();
 		return;
 	}
-=======
-    } catch (std::exception const & ex) {
-    	LOG(error)<<"DB Error "<<ex.what();
-    	result["status"] = json::value::string("ERROR");
-    	result["error_msg"] = json::value::string(ex.what());
-    	request.reply(status_codes::InternalError, result).wait();
-    	return;
-    }
->>>>>>> branch 'master' of https://jaworekmichal@bitbucket.org/studiaPK/atabox-server.git
 	uint32_t counter = 0;
 	json::value tmp;
 	result[0] = tmp;
@@ -315,23 +205,17 @@ void handle_list(web::http::http_request& request) {
 		result[counter++] = tmp;
 	}
 
-<<<<<<< HEAD
 	request.reply(status_codes::OK, result);
-=======
-
-  request.reply(status_codes::OK, result).wait();
->>>>>>> branch 'master' of https://jaworekmichal@bitbucket.org/studiaPK/atabox-server.git
 
 }
 
-void handle_test(web::http::http_request& request) {
+void handle_test(web::http::http_request request) {
 	json::value result;
 	result["status"] = json::value::string("OK");
-	request.reply(status_codes::OK, result).wait();
+	request.reply(status_codes::OK, result).get();
 }
 
 inline void daemonize(const std::string &dir = "/",
-<<<<<<< HEAD
 		const std::string &stdinfile = "/dev/null",
 		const std::string &stdoutfile = "/dev/null",
 		const std::string &stderrfile = "/dev/null") {
@@ -341,19 +225,6 @@ inline void daemonize(const std::string &dir = "/",
 		//can't get file limit
 		throw std::runtime_error(strerror(errno));
 	}
-=======
-               const std::string &stdinfile = "/dev/null",
-               const std::string &stdoutfile = "/dev/null",
-               const std::string &stderrfile = "/dev/null")
-{
-  rlimit rl;
-      umask(0);
-  if (getrlimit(RLIMIT_NOFILE, &rl) < 0)
-  {
-    //can't wait file limit
-    throw std::runtime_error(strerror(errno));
-  }
->>>>>>> branch 'master' of https://jaworekmichal@bitbucket.org/studiaPK/atabox-server.git
 
 	pid_t pid;
 	g_io_service.notify_fork(boost::asio::io_service::fork_prepare);
@@ -469,7 +340,6 @@ int main(int argc, char** argv) {
 			mainApi.open().wait();
 		} catch (std::exception &e) {
 
-<<<<<<< HEAD
 			LOG(fatal)<<"ERROR "<<e.what();
 			exit(2);
 		}
@@ -483,47 +353,21 @@ int main(int argc, char** argv) {
 			g_io_service.stop();
 			LOG(debug)<<"Io "<<crossplat::threadpool::shared_instance().service().stopped();
 			daemon(1, 1);
-=======
-            LOG(fatal)<<"ERROR "<<e.what();
-            exit(2);
-        }
-      if (atabox_daemon)
-      {
-        //FIXME: deamon NOT working
-        mainApi.close().wait();
-        boost::asio::signal_set  signals(g_io_service, SIGINT, SIGTERM);
-        signals.async_wait(boost::bind(&boost::asio::io_service::stop, &g_io_service));
-        g_io_service.notify_fork(boost::asio::io_service::fork_prepare);
-        g_io_service.stop();
-        LOG(debug)<<"Io "<<crossplat::threadpool::shared_instance().service().stopped();
-        daemon(1, 1);
->>>>>>> branch 'master' of https://jaworekmichal@bitbucket.org/studiaPK/atabox-server.git
 
-<<<<<<< HEAD
 			//crossplat::threadpool::shared_instance().service().reset();
 			LOG(debug)<<"Io "<<crossplat::threadpool::shared_instance().service().stopped();
 			//daemonize();
 			//g_io_service.notify_fork(boost::asio::io_service::fork_child);
 			//g_io_service.run();
 			mainApi.open().get();
-=======
-        LOG(debug)<<"Io "<<crossplat::threadpool::shared_instance().service().stopped();
-        mainApi.open().wait();
->>>>>>> branch 'master' of https://jaworekmichal@bitbucket.org/studiaPK/atabox-server.git
 
 		}
 		LOG(info)<<"After listener open.";
 		std::string line;
 		std::getline(std::cin, line);
 
-<<<<<<< HEAD
 		mainApi.close().get();
 		LOG(info)<<"End of work. Bye ;)";
-=======
-      mainApi.close().get();
-
-       LOG(info)<<"End of work. Bye ;)";
->>>>>>> branch 'master' of https://jaworekmichal@bitbucket.org/studiaPK/atabox-server.git
 
 	} catch(boost::system::system_error& e) {
 		LOG(fatal)<<e.code();
