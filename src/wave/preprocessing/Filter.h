@@ -11,6 +11,7 @@
 class Filter {
 public:
 	virtual void applyOn(Samples& samples) = 0;
+	// TODO virtual Samples applyOn(Samples& samples) = 0;
 	virtual ~Filter(){};
 };
 
