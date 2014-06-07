@@ -367,14 +367,14 @@ int main(int argc, char** argv) {
         //daemonize();
         //g_io_service.notify_fork(boost::asio::io_service::fork_child);
         //g_io_service.run();
-        mainApi.open().get();
+        mainApi.open().wait();
 
       }
       LOG(info)<<"After listener open.";
       std::string line;
       std::getline(std::cin, line);
 
-      mainApi.close().get();
+      mainApi.close().wait();
        LOG(info)<<"End of work. Bye ;)";
 
     } catch(boost::system::system_error& e) {
