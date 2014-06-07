@@ -25,12 +25,9 @@ public:
 	vector<Filter*> filters;
 	void addToFilterChain(Filter & filter);
 	void applyFilterChainOn(Samples & samples);
-	// TODO Sample applyFilterChain(Samples & samples);
+	// TODO (optional) Sample applyFilterChain(Samples & samples);
 
- //TODO move to Filter subclasses
-	static void deleteSielienceFromBeginningAndEnd(Samples& sampleList,
-			double percentSilence = 0.02) ;
-	void normalize(WaveFile waveFile) const;
+
 };
 
 #endif /* WAVEPREPROCESSOR_H_ */

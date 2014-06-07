@@ -11,22 +11,6 @@ class SamplesAnalizatorTest: public ::testing::Test {
 
 };
 
-TEST_F(SamplesAnalizatorTest, findsMaximumCorrectly) {
-	//given
-	SamplesMock samples;
-	ON_CALL(samples, getNumberOfSamples()).WillByDefault(Return(4));
-	ON_CALL(samples, getSample(0)).WillByDefault(Return(0.128));
-	ON_CALL(samples, getSample(1)).WillByDefault(Return(-0.5));
-	ON_CALL(samples, getSample(2)).WillByDefault(Return(0.16));
-	ON_CALL(samples, getSample(3)).WillByDefault(Return(0.130));
-
-	//when
-	SamplesAnalizator analizator;
-	double amplitude = analizator.findAmplitude(samples);
-
-	//then
-	ASSERT_DOUBLE_EQ(amplitude, 0.5);
-}
 
 TEST_F(SamplesAnalizatorTest, countsZeroCrossingsCorrectly) {
 	//given
