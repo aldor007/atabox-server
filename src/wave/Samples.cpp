@@ -33,9 +33,7 @@ Samples::Samples(WaveFile && waveFile) {
 	try {
 		samples = new cx[waveFile.getNumberOfSamples()];
 	} catch (std::bad_alloc) {
-		printf("----------------------");
 		throw "No memory";
-		exit(222);
 	}
 	int32_t maxOfRange = WaveUtils::getMaxOfRange(waveFile.getBitsPerSample());
 	numberOfSamples = waveFile.getNumberOfSamples();
@@ -80,9 +78,9 @@ void Samples::setSample(uint32_t index, double value) {
 Samples::Samples() {
 
 }
-void Samples::setSampleListData(uint32_t numberOfSamples, double * data) {
+void Samples::setSampleListData(uint32_t numberOfSamples, cx * data) {
 	if (this->samples != nullptr) {
-			delete this->samples;
+			delete[] this->samples;
 		}
 	this->samples = data;
 	this->numberOfSamples = numberOfSamples;

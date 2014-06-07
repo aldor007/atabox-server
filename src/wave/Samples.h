@@ -29,8 +29,10 @@ public:
 	virtual void setSample(uint32_t index, double value);
 	virtual uint32_t getNumberOfSamples();
 	virtual double getLenghtInSeconds();
+	void setSampleListData(uint32_t numberOfSamples, cx * data);
 	Samples();
 protected:
+	cx * samples = nullptr;
 	uint32_t numberOfSamples;
 	double lenghtInSeconds;
 	uint32_t sampleRate;

@@ -14,6 +14,7 @@
 #include "BaseDataProvider.h"
 #include "rocksdb/db.h"
 
+
 template <class KeyClass, class ValueClass>
 class RocksdbProvider: public BaseDataProvider<KeyClass, ValueClass> {
 		protected:

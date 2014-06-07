@@ -16,6 +16,9 @@
 #include <vector>
 #include <string>
 
+#include "cpprest/json.h"
+namespace webjs = web::json;
+
 using namespace std;
 
 
@@ -26,7 +29,7 @@ public:
 	virtual ~SamplesAnalizator();
 	vector<Property*> properties;
 	void addProperty(Property & property);
-	void getPropertiesSummary(Samples & samples);
+	webjs::value getPropertiesSummary(Samples & samples);
 };
 
 #endif /* WAVEFILEANALIZATOR_H_ */
