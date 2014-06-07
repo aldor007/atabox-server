@@ -353,7 +353,7 @@ int main(int argc, char** argv) {
         }
       if (atabox_daemon)
       {
-        //FIXME: deamon NOT workigin
+        //FIXME: deamon NOT working
         mainApi.close().wait();
         boost::asio::signal_set  signals(g_io_service, SIGINT, SIGTERM);
         signals.async_wait(boost::bind(&boost::asio::io_service::stop, &g_io_service));
@@ -362,11 +362,7 @@ int main(int argc, char** argv) {
         LOG(debug)<<"Io "<<crossplat::threadpool::shared_instance().service().stopped();
         daemon(1, 1);
 
-       //crossplat::threadpool::shared_instance().service().reset();
-         LOG(debug)<<"Io "<<crossplat::threadpool::shared_instance().service().stopped();
-        //daemonize();
-        //g_io_service.notify_fork(boost::asio::io_service::fork_child);
-        //g_io_service.run();
+        LOG(debug)<<"Io "<<crossplat::threadpool::shared_instance().service().stopped();
         mainApi.open().wait();
 
       }
