@@ -9,11 +9,43 @@
 #define SILENCECUTTINGFILTER_H_
 #include "Filter.h"
 
+class SilenceCuttingFilter: public Filter {
+	double treshold;
 
-class SilenceCuttingFilter: Filter {
+public:
+	SilenceCuttingFilter(double threshold) {
+		this->treshold = threshold;
+	}
+	void applyOn(Samples &samples) {
+		uint32_t lastBadFromBeginning = -1;
+		uint32_t lastGoodFromMiddle = samples.getNumberOfSamples();
 
-void applyOn(Samples &samples);
-	~SilenceCuttingFilter();
+		bool beginningFound = false;
+
+		for (uint32_t i = 0; i < samples.getNumberOfSamples(); ++i) {
+			double sample = samples.getSample(i);
+			if (fabs(sample) < treshold) {
+				if (!beginningFound) {
+					lastBadFromBeginning = i;
+				}
+			} else {
+				beginningFound = true;
+				lastGoodFromMiddle = i;
+			}
+		}
+
+		int numberOfFramesToDelete = (lastBadFromBeginning+1) + (samples.getNumberOfSamples()-1-lastGoodFromMiddle);
+		uint32_t sizeOfNewArray = samples.getNumberOfSamples()
+				- numberOfFramesToDelete;
+		double * framesWithoutSilence = new double[sizeOfNewArray];
+		for (uint32_t i = 0; i < sizeOfNewArray; ++i) {
+			framesWithoutSilence[i] = samples.getSample(lastBadFromBeginning+1+i);
+		}
+
+		samples.setSampleListData(sizeOfNewArray, framesWithoutSilence);
+
+	}
+	~SilenceCuttingFilter(){};
 };
 
 #endif /* SILENCECUTTINGFILTER_H_ */

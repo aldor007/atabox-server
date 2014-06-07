@@ -10,8 +10,9 @@
 #include "../Samples.h"
 class Filter {
 public:
-	virtual void applyOn(Samples& samples) = 0;
 	virtual ~Filter(){};
+	virtual void applyOn(Samples& samples) = 0;
+	// TODO virtual Samples apply(Samples& samples) = 0;
 };
 
 #endif /* FILTER_H_ */

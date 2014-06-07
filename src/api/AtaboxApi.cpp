@@ -32,7 +32,7 @@ AtaboxApi::AtaboxApi(utility::string_t url) {
 void  AtaboxApi::listenerSetSupports() {
 	//m_listener.configuration().set_timeout()
 	http_listener_config conf;
-	utility::seconds timeoutAtabox(10);
+	utility::seconds timeoutAtabox(30);
 	m_listener = http_listener(m_url, conf);
 	m_listener.support(methods::GET, std::bind(&AtaboxApi::handle_get, this, std::placeholders::_1));
 	m_listener.support(methods::POST, std::bind(&AtaboxApi::handle_post, this, std::placeholders::_1));
