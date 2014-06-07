@@ -21,8 +21,8 @@ public:
 	virtual uint32_t getNumberOfSamples();
 	virtual double getLenghtInSeconds();
 	void setSampleListData(uint32_t numberOfSamples, double * data);
-protected:
 	Samples();
+protected:
 	double *samples = nullptr;
 	uint32_t numberOfSamples;
 	double lenghtInSeconds;

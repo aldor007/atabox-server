@@ -16,12 +16,12 @@ Preprocessor::~Preprocessor() {
 }
 
 void Preprocessor::addToFilterChain(Filter& filter) {
-	filters.push_back(filter);
+	filters.push_back(&filter);
 }
 
 void Preprocessor::applyFilterChainOn(Samples& samples) {
 	for (int i = 0; i < filters.size(); ++i) {
-		filters[i].applyOn(samples);
+		filters[i]->applyOn(samples);
 	}
 }
 // TODO move to Filter subclasses

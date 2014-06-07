@@ -22,7 +22,7 @@ class Preprocessor {
 public:
 	Preprocessor();
 	~Preprocessor();
-	vector<Filter> filters;
+	vector<Filter*> filters;
 	void addToFilterChain(Filter & filter);
 	void applyFilterChainOn(Samples & samples);
 	// TODO Sample applyFilterChain(Samples & samples);
