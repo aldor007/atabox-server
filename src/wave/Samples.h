@@ -8,21 +8,30 @@
 #ifndef SAMPLELIST_H_
 #define SAMPLELIST_H_
 #include <stdint.h>
+#include <complex>
+
 #include "WaveFile.h"
 #include "WaveUtils.h"
 
+typedef std::complex<double> cx;
+
+
+
 class Samples {
 public:
+	friend cx * fast_fourier_transform(Samples& a);
+public:
 	Samples(WaveFile & waveFile);
+	Samples(WaveFile && waveFile);
 	virtual ~Samples();
 	virtual double operator[](unsigned int i);
 	virtual double getSample(unsigned int i);
 	virtual uint32_t getNumberOfSamples();
 	virtual double getLenghtInSeconds();
-	void setSampleListData(uint32_t numberOfSamples, double * data);
+	void setSampleListData(uint32_t numberOfSamples, cx * data);
 protected:
 	Samples();
-	double *samples = nullptr;
+	cx *samples = nullptr;
 	uint32_t numberOfSamples;
 	double lenghtInSeconds;
 	uint32_t sampleRate;

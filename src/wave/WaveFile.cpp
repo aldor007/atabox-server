@@ -5,7 +5,7 @@
  *      Author: mj
  */
 
-#include "WaveFile.h"
+#include "wave/Samples.h"
 #include <fstream>
 void WaveFile::readRIFFChunkDescriptor(FILE* file) {
 	fread(chunkID, 1, 4, file);
@@ -84,6 +84,7 @@ void WaveFile::loadFromMemory(uint8_t *tmpData) {
 	bytePerSample = bitsPerSample / 8;
 	std::memcpy(subchunk2Id, tmpData + currentIndex, 4 );
 	currentIndex += 4;
+	//TODO: throw error after x attemp find data
 	while (strncmp(subchunk2Id, "data", 4) != 0){
 		currentIndex -= 3;
 		std::memcpy(subchunk2Id, tmpData + currentIndex, 4);
@@ -187,3 +188,28 @@ void WaveFile::skipExtraParams(FILE* file) {
 double WaveFile::operator[](unsigned int i) {
 	return data[i];
 }
+WaveFile::operator Samples()  const {
+	return Samples(*this);
+
+}
+/*
+WaveFile& WaveFile::operator=(WaveFile&& other) {
+
+
+	other.chunkID =  chunkID;
+	other.chunkSize = chunkSize;
+	other.format = format;
+	other.subchunk1Id = subchunk1Id;
+	other.subchunk1Size = subchunk1Size;
+	other.audioFormat = audioFormat;
+	other.numberOfChanels = numberOfChanels;
+	other.sampleRate = sampleRate;
+	other.byteRate = byteRate;
+	other.blockAlign = blockAlign;
+	other.bitsPerSample = bitsPerSample;
+	other.subchunk2Id = subchunk2Id;
+	other.subchunk2Size = subchunk2Size;
+	other.numberOfSamples = numberOfSamples;
+	other.data = data;
+}
+*/

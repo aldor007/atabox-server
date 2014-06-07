@@ -26,7 +26,7 @@ void WavePreprocessor::deleteSielienceFromBeginningAndEnd(Samples & sampleList, 
 			}
 		}
 
-	double * dataFixed = new double [sampleCounter + 1];
+	cx * dataFixed = new cx [sampleCounter + 1];
 
 	sampleCounter = 0;
 	for (uint32_t i = 0; i < sampleList.getNumberOfSamples(); ++i) {
