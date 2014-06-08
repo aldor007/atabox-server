@@ -47,7 +47,7 @@ Samples::Samples(WaveFile && waveFile) {
 }
 Samples::~Samples() {
 	if (samples != nullptr) {
-		delete samples;
+		delete[] samples;
 		samples = nullptr;
 	}
 }

@@ -40,7 +40,20 @@ public:
 			return static_cast<web::json::value>(*this) !=
 					static_cast<web::json::value>(other);
         }
+        jsonextend& operator+=(const jsonextend& second) {
+        	for (auto iter = second.as_object().cbegin(); iter != second.as_object().cend(); iter++)
+        	   this->operator [](iter->first) = web::json::value(iter->second);
+        	return *this;
+        }
+        jsonextend operator+(const jsonextend& second) {
+        	jsonextend first;
+        	for (auto iter = this->as_object().cbegin(); iter != this->as_object().cend(); iter++)
+        	   first[iter->first] = iter->second;
+        	for (auto iter = second.as_object().cbegin(); iter != second.as_object().cend(); iter++)
+        	   first[iter->first] = iter->second;
 
+        	return first;
+        }
 };
 
 

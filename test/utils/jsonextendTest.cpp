@@ -42,6 +42,27 @@ TEST_F(jsonextendTest, storeinmap) {
 
      ASSERT_EQ(testowa[value], "ala");
 }
+TEST_F(jsonextendTest, testoperatoraddeq) {
+	jsonextend value;
+     value["test"] = web::json::value::string(std::string("a"));
+     jsonextend value1;
+     value1["tomek"] = web::json::value::string(std::string("karolina"));
+     value1 += value;
+     ASSERT_TRUE(value1.has_field("tomek"));
+     ASSERT_EQ(value1["test"].as_string(), "a");
+     ASSERT_EQ(value1["tomek"].as_string(), "karolina");
+}
+TEST_F(jsonextendTest, testoperatoradd) {
+	jsonextend value;
+     value["test"] = web::json::value::string(std::string("a"));
+     jsonextend value1;
+     value1["tomek"] = web::json::value::string(std::string("karolina"));
+     jsonextend result = value1 + value;
+     ASSERT_TRUE(result.has_field("tomek"));
+     ASSERT_EQ(result["tomek"].as_string(), "karolina");
+     ASSERT_TRUE(result.has_field("test"));
+     ASSERT_EQ(result["test"].as_string(), "a");
+}
 
 TEST_F(jsonextendTest, throwExectpionWhenWrongJSON) {
 

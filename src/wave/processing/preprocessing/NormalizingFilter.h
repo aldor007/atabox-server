@@ -9,7 +9,7 @@
 #define NORMALIZINGFILTER_H_
 #include "wave/processing/Filter.h"
 
-class NormalizingFilter: Filter {
+class NormalizingFilter: public Filter {
 private:
 	double toLevel;
 public:

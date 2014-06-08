@@ -39,11 +39,8 @@
 #include "dataproviders/BaseDataProvider.h"
 #include "dataproviders/RocksdbProvider.h"
 #include "api/AtaboxApi.h"
-#include "wave/analysis/SamplesAnalizator.h"
-#include "wave/preprocessing/SilenceCuttingFilter.h"
 
 #include "wave/WaveFile.h"
-#include "wave/preprocessing/Preprocessor.h"
 #include "recognition/PropertiesComparator.h"
 #include "runner/Runner.h"
 #include "utils/execution_policy.h"
@@ -67,10 +64,7 @@ std::map<std::string, policy_fun> g_policies;
 
 extern atabox_log::logger g_log;
 
-SamplesAnalizator g_analizator;
-Processor g_preprocessor;
-
-
+ProcessAndAnalyze g_processAndAnlyze;
 
 void handle_add(web::http::http_request& request) {
 
@@ -107,10 +101,9 @@ void handle_add(web::http::http_request& request) {
 		//body.read_to_end(buffer).get();
 		body.read(buffer, content_lenght).get();
 		WaveFile wave(waveData);
-		delete waveData;
+		delete[] waveData;
 		Samples waveSamples(wave);
-		g_preprocessor.applyFilterChainOn(waveSamples);
-		jsonextend wavepropertiesJSON = g_analizator.getPropertiesSummary(waveSamples);
+		jsonextend wavepropertiesJSON = g_processAndAnlyze.getSummary(waveSamples);
 		wavepropertiesJSON["name"] =  web::json::value::string(commandName);
 
 		try {
@@ -155,10 +148,9 @@ void handle_execute(web::http::http_request& request) {
 			content_lenght);
 	body.read(buffer, content_lenght).get();
 	WaveFile wave(waveData);
-	delete waveData;
+	delete[] waveData;
 	Samples waveSamples(wave);
-	g_preprocessor.applyFilterChainOn(waveSamples);
-	jsonextend wavePropertiesJSON = g_analizator.getPropertiesSummary(waveSamples);
+	jsonextend wavePropertiesJSON = g_processAndAnlyze.getSummary(waveSamples);
 
 	std::map<jsonextend, std::string> list;
 	list = g_mainDB->getAllKV();
@@ -289,8 +281,7 @@ inline void daemonize(const std::string &dir = "/",
 
 int main(int argc, char** argv) {
 	try {
-		inti_SampleAnalizator(g_analizator);
-		init_Preprocessor(g_preprocessor);
+		init_ProcessAndAnalize(g_processAndAnlyze);
 
 		std::string listen = "127.0.0.1:8111";
 		namespace po = boost::program_options;

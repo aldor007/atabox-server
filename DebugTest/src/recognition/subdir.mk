@@ -4,12 +4,15 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
+../src/recognition/ProcessAndAnalyze.cpp \
 ../src/recognition/PropertiesComparator.cpp 
 
 OBJS += \
+./src/recognition/ProcessAndAnalyze.o \
 ./src/recognition/PropertiesComparator.o 
 
 CPP_DEPS += \
+./src/recognition/ProcessAndAnalyze.d \
 ./src/recognition/PropertiesComparator.d 
 
 

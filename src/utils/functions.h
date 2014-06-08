@@ -10,12 +10,18 @@
 
 #include "wave/analysis/Property.h"
 
+#include "recognition/ProcessAndAnalyze.h"
+
 
 /*PROPERTY*/
 #include "wave/analysis/AmplitudeProperty.h"
 #include "wave/analysis/LengthProperty.h"
 #include "wave/analysis/ZeroCrossingsProperty.h"
+#include "wave/analysis/PercentageAboveProperty.h"
+#include "wave/analysis/WhereIsAmplitudeProperty.h"
+#include "wave/analysis/AverageValueProperty.h"
 
+#include "wave/analysis/SpectrumProperty.h"
 
 /*FILTER*/
 
@@ -27,19 +33,32 @@
 
 
 
-void inti_SampleAnalizator(SamplesAnalizator &analizator) {
-
-	analizator.addProperty(new AmplitudeProperty());
-	analizator.addProperty(new LengthProperty());
-	analizator.addProperty(new ZeroCrossingsProperty());
 
 
-}
+void init_ProcessAndAnalize(ProcessAndAnalyze &monstru) {
 
-void init_Preprocessor(Processor &preprocessor) {
 
-		preprocessor.addToFilterChain(new NormalizingFilter(0.02));
-		preprocessor.addToFilterChain(new SilenceCuttingFilter(0.02));
+	Processor firstProcessor;
+	firstProcessor.addToFilterChain(new NormalizingFilter(1.0));
+	firstProcessor.addToFilterChain(new SilenceCuttingFilter(0.02));
+	SamplesAnalizator  firstAnalizator;// = new SamplesAnalizator();
+	firstAnalizator.addProperty(new AmplitudeProperty());
+	firstAnalizator.addProperty(new LengthProperty());
+	firstAnalizator.addProperty(new ZeroCrossingsProperty());
+	firstAnalizator.addProperty(new PercentageAboveProperty(0.5));
+	firstAnalizator.addProperty(new WhereIsAmplitudeProperty());
+	firstAnalizator.addProperty(new AverageValueProperty());
+
+	monstru.add(std::make_pair(firstProcessor, firstAnalizator ));
+	Processor secondProssor;
+	secondProssor.addToFilterChain(new FastFourierTransformFilter());
+	secondProssor.addToFilterChain(new HannWindowFilter());
+	SamplesAnalizator secondAnalizator;
+	secondAnalizator.addProperty(new SpectrumProperty());
+	monstru.add(std::make_pair(secondProssor, secondAnalizator));
+
+
+
 }
 
 #endif /* FUNCTIONS_H_ */

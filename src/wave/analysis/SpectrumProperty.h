@@ -30,7 +30,6 @@ private:
 	  }
 
 public:
-
 	virtual double getValue(Samples& samples) {
 		callculateMagnitude(samples);
 		std::log10(m_magnitude);

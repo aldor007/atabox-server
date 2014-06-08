@@ -101,7 +101,7 @@ void WaveFile::loadFromMemory(uint8_t *tmpData) {
 
 void WaveFile::freeDataIfNotNull() {
 	if (data != nullptr) {
-		delete data;
+		delete[] data;
 		data = nullptr;
 	}
 }
