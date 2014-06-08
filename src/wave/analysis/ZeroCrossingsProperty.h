@@ -9,7 +9,7 @@
 #define ZeroCrossingsProperty_H_
 #include "Property.h"
 
-class ZeroCrossingsProperty: Property {
+class ZeroCrossingsProperty: public Property {
 public:
 	virtual double getValue(Samples& samples) {
 		int result = 0;

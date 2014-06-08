@@ -6,7 +6,6 @@
 CPP_SRCS += \
 ../test/wave/PreprocessorTest.cpp \
 ../test/wave/SamplesTest.cpp \
-../test/wave/WaveFileAnalizatorTest.cpp \
 ../test/wave/WaveFileMock.cpp \
 ../test/wave/WaveFileTest.cpp \
 ../test/wave/WavePropertiesTest.cpp \
@@ -15,7 +14,6 @@ CPP_SRCS += \
 OBJS += \
 ./test/wave/PreprocessorTest.o \
 ./test/wave/SamplesTest.o \
-./test/wave/WaveFileAnalizatorTest.o \
 ./test/wave/WaveFileMock.o \
 ./test/wave/WaveFileTest.o \
 ./test/wave/WavePropertiesTest.o \
@@ -24,7 +22,6 @@ OBJS += \
 CPP_DEPS += \
 ./test/wave/PreprocessorTest.d \
 ./test/wave/SamplesTest.d \
-./test/wave/WaveFileAnalizatorTest.d \
 ./test/wave/WaveFileMock.d \
 ./test/wave/WaveFileTest.d \
 ./test/wave/WavePropertiesTest.d \
@@ -35,7 +32,7 @@ CPP_DEPS += \
 test/wave/%.o: ../test/wave/%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
-	g++ -I../external/rocksdb_source/include -I../src -I../external/casablanca/Release/include -I../external/boost -I../external/kiss_fft -O0 -g3 -c -fmessage-length=0 -std=c++11 -fprofile-arcs -ftest-coverage -DBOOST_LOG_DYN_LINK -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
+	g++ -D__GXX_EXPERIMENTAL_CXX0X__ -I../external/rocksdb_source/include -I../src -I../external/casablanca/Release/include -I../external/boost -I../external/kiss_fft -O0 -g3 -c -fmessage-length=0 -std=c++11 -fprofile-arcs -ftest-coverage -DBOOST_LOG_DYN_LINK -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
