@@ -13,11 +13,11 @@
 
 using ::testing::Return;
 
-class ZeroCrossingsPropertyPropertyTest: public ::testing::Test {
+class ZeroCrossingsPropertyTest: public ::testing::Test {
 
 };
 
-TEST_F(ZeroCrossingsPropertyPropertyTest, returnCorrectValueOfPropertyForAllSamples) {
+TEST_F(ZeroCrossingsPropertyTest, returnCorrectValueOfPropertyForAllSamples) {
 	//given
 	SamplesMock samples;
 	ON_CALL(samples, getNumberOfSamples()).WillByDefault(Return(5));
@@ -35,7 +35,7 @@ TEST_F(ZeroCrossingsPropertyPropertyTest, returnCorrectValueOfPropertyForAllSamp
 	ASSERT_EQ(zeroCrossings, 2);
 }
 
-TEST_F(ZeroCrossingsPropertyPropertyTest, returnsCorrectNameForAllSamples) {
+TEST_F(ZeroCrossingsPropertyTest, returnsCorrectNameForAllSamples) {
 	//given
 	ZeroCrossingsProperty property;
 
@@ -46,7 +46,7 @@ TEST_F(ZeroCrossingsPropertyPropertyTest, returnsCorrectNameForAllSamples) {
 	ASSERT_STRCASEEQ("zeroCrossings_from_0_to_100_percent", name.c_str());
 }
 
-TEST_F(ZeroCrossingsPropertyPropertyTest, realFileHasPositiveNumberOfZeroCrossings) {
+TEST_F(ZeroCrossingsPropertyTest, realFileHasPositiveNumberOfZeroCrossings) {
 	//given
 	WaveFile waveFile("test/wave/waveFiles/dziekuje32bit.wav");
 	Samples samples(waveFile);
@@ -60,7 +60,7 @@ TEST_F(ZeroCrossingsPropertyPropertyTest, realFileHasPositiveNumberOfZeroCrossin
 }
 
 
-TEST_F(ZeroCrossingsPropertyPropertyTest, returnCorrectValueOfPropertyForPartOfSamples) {
+TEST_F(ZeroCrossingsPropertyTest, returnCorrectValueOfPropertyForPartOfSamples) {
 	//given
 	SamplesMock samples;
 	ON_CALL(samples, getNumberOfSamples()).WillByDefault(Return(10));
@@ -82,10 +82,10 @@ TEST_F(ZeroCrossingsPropertyPropertyTest, returnCorrectValueOfPropertyForPartOfS
 	//then
 	ASSERT_EQ(zeroCrossings, 1);
 }
-TEST_F(ZeroCrossingsPropertyPropertyTest, returnCorrectValueOfPropertyForHalfOfSamples) {
+TEST_F(ZeroCrossingsPropertyTest, returnCorrectValueOfPropertyForHalfOfSamples) {
 	//given
 	SamplesMock samples;
-	ON_CALL(samples, getNumberOfSamples()).WillByDefault(Return(10));
+	ON_CALL(samples, getNumberOfSamples()).WillByDefault(Return(11));
 	ON_CALL(samples, getSample(0)).WillByDefault(Return(-0.12));
 	ON_CALL(samples, getSample(1)).WillByDefault(Return(0.130));
 	ON_CALL(samples, getSample(2)).WillByDefault(Return(-0.148));
@@ -96,6 +96,7 @@ TEST_F(ZeroCrossingsPropertyPropertyTest, returnCorrectValueOfPropertyForHalfOfS
 	ON_CALL(samples, getSample(7)).WillByDefault(Return(0.1));
 	ON_CALL(samples, getSample(8)).WillByDefault(Return(-0.1));
 	ON_CALL(samples, getSample(9)).WillByDefault(Return(0.1));
+	ON_CALL(samples, getSample(10)).WillByDefault(Return(-0.1));
 	ZeroCrossingsProperty property(50, 100);
 
 	//when
