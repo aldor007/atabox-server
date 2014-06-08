@@ -4,15 +4,12 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../src/wave/preprocessing/NormalizingFilter.cpp \
 ../src/wave/preprocessing/Preprocessor.cpp 
 
 OBJS += \
-./src/wave/preprocessing/NormalizingFilter.o \
 ./src/wave/preprocessing/Preprocessor.o 
 
 CPP_DEPS += \
-./src/wave/preprocessing/NormalizingFilter.d \
 ./src/wave/preprocessing/Preprocessor.d 
 
 

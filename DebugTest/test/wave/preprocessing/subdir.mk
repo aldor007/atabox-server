@@ -4,14 +4,17 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
+../test/wave/preprocessing/NormalizingFilterTest.cpp \
 ../test/wave/preprocessing/PreprocessorTest.cpp \
 ../test/wave/preprocessing/SilenceCuttingFilterTest.cpp 
 
 OBJS += \
+./test/wave/preprocessing/NormalizingFilterTest.o \
 ./test/wave/preprocessing/PreprocessorTest.o \
 ./test/wave/preprocessing/SilenceCuttingFilterTest.o 
 
 CPP_DEPS += \
+./test/wave/preprocessing/NormalizingFilterTest.d \
 ./test/wave/preprocessing/PreprocessorTest.d \
 ./test/wave/preprocessing/SilenceCuttingFilterTest.d 
 
