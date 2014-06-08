@@ -14,6 +14,7 @@ RM := rm -rf
 -include test/utils/subdir.mk
 -include test/runner/subdir.mk
 -include test/recognition/subdir.mk
+-include test/math/subdir.mk
 -include test/dataproviders/subdir.mk
 -include test/api/subdir.mk
 -include test/subdir.mk

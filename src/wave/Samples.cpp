@@ -11,9 +11,7 @@ Samples::Samples(WaveFile & waveFile) {
 	try {
 		samples = new cx[waveFile.getNumberOfSamples()];
 	} catch (std::bad_alloc) {
-		printf("----------------------");
 		throw "No memory";
-		exit(222);
 	}
 	int32_t maxOfRange = WaveUtils::getMaxOfRange(waveFile.getBitsPerSample());
 	numberOfSamples = waveFile.getNumberOfSamples();
@@ -55,8 +53,8 @@ Samples::~Samples() {
 }
 
 //TODO a jak ktos będzie chcial ustawiac tak wartosc? samples[5] = 3.3 - będzie się dziwić czemu nic się nie zmienia
-double Samples::operator [](unsigned int i) {
-	return getSample(i);
+cx& Samples::operator [](unsigned int i) {
+	return samples[i];
 }
 
 double Samples::getSample(unsigned int i) {
@@ -79,10 +77,15 @@ Samples::Samples() {
 
 }
 void Samples::setSampleListData(uint32_t numberOfSamples, cx * data) {
-	if (this->samples != nullptr) {
+	if (this->samples != nullptr || this->numberOfSamples < numberOfSamples) {
 			delete[] this->samples;
+			this->samples = new cx[numberOfSamples];
 		}
-	this->samples = data;
+	else {
+			this->samples = new cx[numberOfSamples];
+	}
+	std::memcpy(samples, data, numberOfSamples * sizeof(cx));
+
 	this->numberOfSamples = numberOfSamples;
 	this->lenghtInSeconds =
 			WaveUtils::calculateLenghtInSeconds(this->numberOfSamples, this->sampleRate);

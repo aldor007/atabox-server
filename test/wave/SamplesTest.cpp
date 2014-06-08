@@ -46,7 +46,7 @@ TEST_F(SamplesTest, canHandleWaveFile8bitsReadedFromMemory) {
 	ASSERT_EQ(test.getLenghtInSeconds(), 8./3.);
 	ASSERT_EQ(test.getNumberOfSamples(), subchunk2size);
 	for (uint8_t i = 0; i< test.getNumberOfSamples(); i++) {
-		ASSERT_LE(test[i], 1.0);
+		ASSERT_LE(test.getSample(i), 1.0);
 		ASSERT_GE(test.getSample(i), -1.0);
 	}
 	ASSERT_EQ(test.getSample(0), result);
@@ -93,11 +93,11 @@ TEST_F(SamplesTest, canHandleWaveFile32bitsReadedFromMemory) {
 	ASSERT_EQ(waveFile.getSampleRate(), sampleRate);
 
 	for (uint8_t i = 0; i< test.getNumberOfSamples(); i++) {
-		ASSERT_LE(test[i], 1.0);
+		ASSERT_LE(test.getSample(i), 1.0);
 		ASSERT_GE(test.getSample(i), -1.0);
 	}
 	ASSERT_EQ(test.getSample(0), result);
-    ASSERT_LE(test[subchunk2size/4 - 1], 1.0);
+    ASSERT_LE(test.getSample(subchunk2size/4 - 1), 1.0);
     ASSERT_GE(test.getSample(subchunk2size/4 - 1), -1.0);
 
 }
