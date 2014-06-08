@@ -9,7 +9,7 @@
 #define AMPLITUDEPROPERTY_H_
 #include "Property.h"
 
-class AmplitudeProperty: Property {
+class AmplitudeProperty: public Property {
 public:
 	virtual double getValue(Samples& samples) {
 		double result = 0;

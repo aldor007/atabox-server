@@ -19,7 +19,12 @@ double PropertiesComparator::getDistance(jsonextend newSample,
 	// TODO  not all properties implemented
 	// TODO to much copy paste!
 	double result = 0.0;
+	if (newSample.is_null())
+		return 10000;
+	if (patternSample.is_null())
+		return 10000;
 	for (auto iter = newSample.as_object().cbegin(); iter != newSample.as_object().cend(); iter++) {
+		if (iter->first != "name")
 		result += relativeError(iter->second.as_double(), patternSample[iter->first].as_double());
 
 

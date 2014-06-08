@@ -47,21 +47,32 @@
 #include "recognition/PropertiesComparator.h"
 #include "runner/Runner.h"
 #include "utils/execution_policy.h"
+#include "utils/functions.h"
+
+
 using namespace web;
 using namespace web::http;
 using namespace web::http::client;
 
 const std::string DEFAULT_POLICY = "nonstrict";
-BaseDataProvider<json::value, std::string> * g_mainDB;
+
+typedef std::string (*policy_fun)(std::map<jsonextend, std::string>&,
+		jsonextend&);
+
+BaseDataProvider<jsonextend, std::string> * g_mainDB;
 auto &g_io_service = crossplat::threadpool::shared_instance().service();
+
 Runner g_runner();
-typedef std::string (*policy_fun)(std::map<json::value, std::string>&,
-		json::value&);
 std::map<std::string, policy_fun> g_policies;
 
 extern atabox_log::logger g_log;
 
-void handle_add(web::http::http_request request) {
+SamplesAnalizator g_analizator;
+Preprocessor g_preprocessor;
+
+
+
+void handle_add(web::http::http_request& request) {
 
 	json::value response;
 	std::map<std::string, std::string> querymap = uri::split_query(
@@ -71,7 +82,7 @@ void handle_add(web::http::http_request request) {
 		LOG(error)<<"Bad request";
 		response["error_msg"] = json::value::string("Bad request. Read doc for info. Missing name or command field in request.");
 		response["status"] = json::value::string("ERROR");
-		request.reply(status_codes::BadRequest, response).get();
+		request.reply(status_codes::BadRequest, response).wait();
 		return;
 
 	}
@@ -85,7 +96,7 @@ void handle_add(web::http::http_request request) {
 		LOG(error)<<"Bad request! Empty body";
 		response["error_msg"] = json::value::string("Bad request.Empty body!");
 		response["status"] = json::value::string("ERROR");
-		request.reply(status_codes::BadRequest, response).get();
+		request.reply(status_codes::BadRequest, response).wait();
 		return;
 
 	}
@@ -98,35 +109,34 @@ void handle_add(web::http::http_request request) {
 		WaveFile wave(waveData);
 		delete waveData;
 		Samples waveSamples(wave);
-		Preprocessor preprocessor;
-		SilenceCuttingFilter silenceCuttingFilter(0.2);
-		preprocessor.addToFilterChain(silenceCuttingFilter);
-		preprocessor.applyFilterChainOn(waveSamples);
-		SamplesAnalizator analizator;
-		json::value wavepropertiesJSON = analizator.getPropertiesSummary(waveSamples);
+		g_preprocessor.applyFilterChainOn(waveSamples);
+		jsonextend wavepropertiesJSON = g_analizator.getPropertiesSummary(waveSamples);
+		wavepropertiesJSON["name"] =  web::json::value::string(commandName);
+
 		try {
+			LOG(debug)<<"Saving "<<wavepropertiesJSON.to_string();
 			g_mainDB->put(wavepropertiesJSON, commandString);
 		} catch (std::exception const & ex) {
 			LOG(error)<<"Error "<<ex.what();
 			response["status"] = json::value::string("ERROR");
 			response["error_msg"] = json::value::string(ex.what());
-			request.reply(status_codes::InternalError, response).get();
+			request.reply(status_codes::InternalError, response).wait();
 			return;
 		}
 		response["status"] = json::value::string("OK");
 		response["command"] = json::value::string(commandString);
-		request.reply(status_codes::OK, response).get();
+		request.reply(status_codes::OK, response).wait();
 	} catch (std::exception &e) {
 
 		LOG(error)<<"Error "<<e.what();
 		response["status"] = json::value::string("ERROR");
 		response["command"] = json::value::string(e.what());
-		request.reply(status_codes::BadRequest, response).get();
+		request.reply(status_codes::BadRequest, response).wait();
 	}
 
 }
 
-void handle_execute(web::http::http_request request) {
+void handle_execute(web::http::http_request& request) {
 
 	json::value response;
 	concurrency::streams::istream body = request.body();
@@ -136,7 +146,7 @@ void handle_execute(web::http::http_request request) {
 		LOG(error)<<"Bad request! Empty body";
 		response["error_msg"] = json::value::string("Bad request.Empty body!");
 		response["status"] = json::value::string("ERROR");
-		request.reply(status_codes::BadRequest, response).get();
+		request.reply(status_codes::BadRequest, response).wait();
 		return;
 
 	}
@@ -147,36 +157,33 @@ void handle_execute(web::http::http_request request) {
 	WaveFile wave(waveData);
 	delete waveData;
 	Samples waveSamples(wave);
-	Preprocessor preprocessor;
-	SilenceCuttingFilter silenceCuttingFilter;
-	preprocessor.addToFilterChain(silenceCuttingFilter);
-	preprocessor.applyFilterChainOn(waveSamples);
-	SamplesAnalizator analizator;
-	json::value wavePropertiesJSON = analizator.getPropertiesSummary(waveSamples);
+	g_preprocessor.applyFilterChainOn(waveSamples);
+	jsonextend wavePropertiesJSON = g_analizator.getPropertiesSummary(waveSamples);
 
-	std::map<WaveProperties, std::string> list;
+	std::map<jsonextend, std::string> list;
 	list = g_mainDB->getAllKV();
 	auto tmpFun = g_policies[DEFAULT_POLICY];
 
 	std::string command = tmpFun(list, wavePropertiesJSON);
+
 	if (!command.empty()) {
 
 		web::json::value cmdResult = Runner::run(command, " ");
 		response["status"] = json::value::string("OK");
 		response["command"] = json::value::string(command);
 		response["command_ret"] = cmdResult;
-		request.reply(status_codes::OK, response).get();
+		request.reply(status_codes::OK, response).wait();
 		return;
 	}
 
 	response["status"] = json::value::string("NOT_FOUND");
 
-	request.reply(status_codes::OK, response);
+	request.reply(status_codes::OK, response).wait();
 
 }
 
-void handle_list(web::http::http_request request) {
-	std::map<WaveProperties, std::string> list;
+void handle_list(web::http::http_request& request) {
+	std::map<jsonextend, std::string> list;
 	json::value result;
 	try {
 
@@ -185,26 +192,26 @@ void handle_list(web::http::http_request request) {
 		LOG(error)<<"DB Error "<<ex.what();
 		result["status"] = json::value::string("ERROR");
 		result["error_msg"] = json::value::string(ex.what());
-		request.reply(status_codes::InternalError, result).get();
+		request.reply(status_codes::InternalError, result).wait();
 		return;
 	}
 	uint32_t counter = 0;
 	json::value tmp;
 	result[0] = tmp;
-	for (map_it iterator = list.begin(); iterator != list.end(); iterator++) {
-		tmp["waveProperties"] = iterator->first.toJSON();
+	for (auto iterator = list.begin(); iterator != list.end(); iterator++) {
+		tmp["waveProperties"] = iterator->first;
 		tmp["command"] = json::value::string(iterator->second);
 		result[counter++] = tmp;
 	}
 
-	request.reply(status_codes::OK, result);
+	request.reply(status_codes::OK, result).wait();
 
 }
 
-void handle_test(web::http::http_request request) {
+void handle_test(web::http::http_request& request) {
 	json::value result;
 	result["status"] = json::value::string("OK");
-	request.reply(status_codes::OK, result).get();
+	request.reply(status_codes::OK, result).wait();
 }
 
 inline void daemonize(const std::string &dir = "/",
@@ -282,6 +289,9 @@ inline void daemonize(const std::string &dir = "/",
 
 int main(int argc, char** argv) {
 	try {
+		inti_SampleAnalizator(g_analizator);
+		init_Preprocessor(g_preprocessor);
+
 		std::string listen = "127.0.0.1:8111";
 		namespace po = boost::program_options;
 		po::options_description desc("Options");
@@ -324,7 +334,7 @@ int main(int argc, char** argv) {
 		mainApi.addMethod("/api/list", handle_list);
 		mainApi.addMethod("/api/test", handle_test);
 		LOG(info)<<"Server listening "<<listen<<" Db name "<<databasename;
-		g_mainDB = new RocksdbProvider<WaveProperties, std::string>(
+		g_mainDB = new RocksdbProvider<jsonextend, std::string>(
 				databasename);
 		g_policies["strict"] = execution_policy_strict;
 		g_policies["nonstrict"] = execution_policy_nonstrict;

@@ -6,7 +6,7 @@
  */
 
 #include "runner/Runner.h"
-
+#include "utils/atabox_log.h"
 //Runner::Runner(boost::asio::io_service &l_io_service) : m_io_service(l_io_service) {
 //}
 
@@ -18,6 +18,7 @@ Runner::~Runner() {
 wj::value Runner::run(std::string command, std::string args/*,
 			std::function<void(const boost::system::error_code&,int)> lambda*/) {
     wj::value result;
+    LOG(debug)<<"Running command "<<command<<" "<<args;
 
 	boost::system::error_code ec;
     std::string commandPath = bp::search_path(command);

@@ -19,6 +19,9 @@ SamplesAnalizator::~SamplesAnalizator() {
 void SamplesAnalizator::addProperty(Property& property) {
 	properties.push_back(&property);
 }
+void SamplesAnalizator::addProperty(Property* property) {
+	properties.push_back(property);
+}
 
 jsonextend SamplesAnalizator::getPropertiesSummary(Samples& samples) {
     jsonextend result;

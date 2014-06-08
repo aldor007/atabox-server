@@ -30,6 +30,16 @@ public:
 		jsonextend():web::json::value() {
 
 		}
+        bool operator==(const jsonextend& other) const {
+			return static_cast<web::json::value>(*this) ==
+					static_cast<web::json::value>(other);
+		}
+
+        bool operator!=(const jsonextend& other) const
+        {
+			return static_cast<web::json::value>(*this) !=
+					static_cast<web::json::value>(other);
+        }
 
 };
 

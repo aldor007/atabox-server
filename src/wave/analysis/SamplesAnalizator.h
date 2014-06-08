@@ -28,6 +28,7 @@ public:
 	virtual ~SamplesAnalizator();
 	vector<Property*> properties;
 	void addProperty(Property & property);
+	void addProperty(Property * property);
 	jsonextend getPropertiesSummary(Samples & samples);
 };
 

@@ -9,7 +9,7 @@
 #define PercentageAboveProperty_H_
 #include "Property.h"
 
-class PercentageAboveProperty: Property {
+class PercentageAboveProperty:public Property {
 	double treshold;
 
 public:

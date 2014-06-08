@@ -24,6 +24,7 @@ public:
 	~Preprocessor();
 	vector<Filter*> filters;
 	void addToFilterChain(Filter & filter);
+	void addToFilterChain(Filter * filter);
 	void applyFilterChainOn(Samples & samples);
 	// TODO (optional) Sample applyFilterChain(Samples & samples);
 

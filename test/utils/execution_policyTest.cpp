@@ -14,46 +14,49 @@ class execution_policyTest: public ::testing::Test {
 
 };
 
-/*
-TEST_F(execution_policyTest, strictFound) {
-	std::map<WaveProperties, std::string> testMap;
-	WaveProperties prop1;
-	prop1.amplitude = 1;
-	WaveProperties prop2;
-	prop2.amplitude = 3434;
 
-	WaveProperties given;
-	given.amplitude = 1;
+TEST_F(execution_policyTest, strictFound) {
+	std::map<jsonextend, std::string> testMap;
+	jsonextend prop1;
+	prop1["amplitude"] = web::json::value::number(1);
+
+	jsonextend prop2;
+	prop2["amplitude"] = web::json::value::number(2222);
+
+	jsonextend given;
+	given["amplitude"] = web::json::value::number(1);
 	testMap[prop1] = "jeden";
 	testMap[prop2] = "dwa";
 	std::string result = execution_policy_strict(testMap, prop1);
 	ASSERT_EQ(result, testMap[prop1]);
 }
 TEST_F(execution_policyTest, strictNotFound) {
-	std::map<WaveProperties, std::string> testMap;
-	WaveProperties prop1;
-	prop1.amplitude = 1;
-	WaveProperties prop2;
-	prop2.amplitude = 3434;
+	std::map<jsonextend, std::string> testMap;
+	jsonextend prop1;
+	prop1["amplitude"] = web::json::value::number(1);
 
-	WaveProperties given;
-	given.amplitude = 3;
+	jsonextend prop2;
+	prop2["amplitude"] = web::json::value::number(2222);
+
+	jsonextend given;
+	given["amplitude"] = web::json::value::number(2);
 	testMap[prop1] = "jeden";
 	testMap[prop2] = "dwa";
 	std::string result = execution_policy_strict(testMap, given);
 	ASSERT_EQ(result, std::string());
 }
 TEST_F(execution_policyTest, nonstrictFound) {
-	std::map<WaveProperties, std::string> testMap;
-	WaveProperties prop1;
-	prop1.amplitude = 1;
-	WaveProperties prop2;
-	prop2.amplitude = 3434;
+	std::map<jsonextend, std::string> testMap;
+	jsonextend prop1;
+	prop1["amplitude"] = web::json::value::number(1);
 
-	WaveProperties given;
-	given.amplitude = 2;
+	jsonextend prop2;
+	prop2["amplitude"] = web::json::value::number(2222);
+
+	jsonextend given;
+	given["amplitude"] = web::json::value::number(2);
 	testMap[prop1] = "jeden";
 	testMap[prop2] = "dwa";
 	std::string result = execution_policy_nonstrict(testMap, given);
 	ASSERT_EQ(result, testMap[prop1]);
-}*/
+}
