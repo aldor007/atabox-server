@@ -8,24 +8,24 @@ CPP_SRCS += \
 ../test/wave/analysis/AverageValuePropertyTest.cpp \
 ../test/wave/analysis/LengthPropertyTest.cpp \
 ../test/wave/analysis/PercentageAbovePropertyTest.cpp \
-../test/wave/analysis/PowerPropertyTest.cpp \
-../test/wave/analysis/SamplesAnalizatorTest.cpp 
+../test/wave/analysis/SamplesAnalizatorTest.cpp \
+../test/wave/analysis/ZeroCrossingsPropertyTest.cpp 
 
 OBJS += \
 ./test/wave/analysis/AmplitudePropertyTest.o \
 ./test/wave/analysis/AverageValuePropertyTest.o \
 ./test/wave/analysis/LengthPropertyTest.o \
 ./test/wave/analysis/PercentageAbovePropertyTest.o \
-./test/wave/analysis/PowerPropertyTest.o \
-./test/wave/analysis/SamplesAnalizatorTest.o 
+./test/wave/analysis/SamplesAnalizatorTest.o \
+./test/wave/analysis/ZeroCrossingsPropertyTest.o 
 
 CPP_DEPS += \
 ./test/wave/analysis/AmplitudePropertyTest.d \
 ./test/wave/analysis/AverageValuePropertyTest.d \
 ./test/wave/analysis/LengthPropertyTest.d \
 ./test/wave/analysis/PercentageAbovePropertyTest.d \
-./test/wave/analysis/PowerPropertyTest.d \
-./test/wave/analysis/SamplesAnalizatorTest.d 
+./test/wave/analysis/SamplesAnalizatorTest.d \
+./test/wave/analysis/ZeroCrossingsPropertyTest.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
