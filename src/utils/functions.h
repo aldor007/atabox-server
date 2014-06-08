@@ -18,7 +18,12 @@
 
 
 /*FILTER*/
-#include "wave/preprocessing/SilenceCuttingFilter.h"
+
+#include "wave/processing/preprocessing/SilenceCuttingFilter.h"
+#include "wave/processing/preprocessing/NormalizingFilter.h"
+
+#include "wave/processing/postprocessing/HannWindowFilter.h"
+#include "wave/processing/postprocessing/FastFourierTransformFilter.h"
 
 
 
@@ -31,8 +36,9 @@ void inti_SampleAnalizator(SamplesAnalizator &analizator) {
 
 }
 
-void init_Preprocessor(Preprocessor &preprocessor) {
+void init_Preprocessor(Processor &preprocessor) {
 
+		preprocessor.addToFilterChain(new NormalizingFilter(0.02));
 		preprocessor.addToFilterChain(new SilenceCuttingFilter(0.02));
 }
 

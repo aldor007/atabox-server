@@ -68,7 +68,7 @@ std::map<std::string, policy_fun> g_policies;
 extern atabox_log::logger g_log;
 
 SamplesAnalizator g_analizator;
-Preprocessor g_preprocessor;
+Processor g_preprocessor;
 
 
 

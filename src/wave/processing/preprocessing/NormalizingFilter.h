@@ -7,7 +7,7 @@
 
 #ifndef NORMALIZINGFILTER_H_
 #define NORMALIZINGFILTER_H_
-#include "Filter.h"
+#include "wave/processing/Filter.h"
 
 class NormalizingFilter: Filter {
 private:

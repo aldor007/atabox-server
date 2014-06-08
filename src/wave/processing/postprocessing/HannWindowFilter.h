@@ -7,7 +7,7 @@
 
 #ifndef HANN_WINDOW_H_
 #define HANN_WINDOW_H_
-#include "wave/preprocessing/Filter.h"
+#include "wave/processing/Filter.h"
 #include <cmath>
 
 

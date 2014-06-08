@@ -5,7 +5,7 @@
  *      Author: mj
  */
 
-#include "wave/preprocessing/Preprocessor.h"
+#include "wave/processing/Processor.h"
 #include "wave/analysis/SamplesAnalizator.h"
 #undef U
 #include "gtest/gtest.h"

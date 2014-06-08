@@ -16,7 +16,7 @@
 #undef U
 #include "gtest/gtest.h"
 #include "gmock/gmock.h"
-#include <wave/preprocessing/NormalizingFilter.h>
+#include <wave/processing/preprocessing/NormalizingFilter.h>
 
 using ::testing::Return;
 

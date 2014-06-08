@@ -1,5 +1,5 @@
 /*
- * PreprocessorTest.cpp
+ * ProcessorTest.cpp
  *
  *  Created on: 7 cze 2014
  *      Author: mj
@@ -9,7 +9,7 @@
 #undef U
 #include "gtest/gtest.h"
 #include "gmock/gmock.h"
-#include "wave/preprocessing/Preprocessor.h"
+#include "wave/processing/Processor.h"
 #include "../SamplesMock.h"
 #include "ConstantAddingTestFilter.h"
 
@@ -17,11 +17,11 @@
 
 using ::testing::Return;
 
-class PreprocessorTest: public ::testing::Test {
+class ProcessorTest: public ::testing::Test {
 
 };
 
-TEST_F(PreprocessorTest, doesNotChangesSamplesBeforeFilterAdd) {
+TEST_F(ProcessorTest, doesNotChangesSamplesBeforeFilterAdd) {
 
 	//given
 	SamplesMock samples;
@@ -30,7 +30,7 @@ TEST_F(PreprocessorTest, doesNotChangesSamplesBeforeFilterAdd) {
 	ON_CALL(samples, getSample(1)).WillByDefault(Return(-0.5));
 	ON_CALL(samples, getSample(2)).WillByDefault(Return(0.16));
 	ON_CALL(samples, getSample(3)).WillByDefault(Return(0.130));
-	Preprocessor preprocessor;
+	Processor preprocessor;
 
 	//when
 	preprocessor.applyFilterChainOn(samples);
@@ -42,7 +42,7 @@ TEST_F(PreprocessorTest, doesNotChangesSamplesBeforeFilterAdd) {
 	ASSERT_DOUBLE_EQ(samples.getSample(3), 0.130);
 }
 
-TEST_F(PreprocessorTest, changesSamplesWhenFiltersAreAdded) {
+TEST_F(ProcessorTest, changesSamplesWhenFiltersAreAdded) {
 
 	//given
 	Samples samples;
@@ -53,7 +53,7 @@ TEST_F(PreprocessorTest, changesSamplesWhenFiltersAreAdded) {
 	values[3] =  0.130;
 	samples.setSampleListData(4, values);
 	ConstantAddingTestFilter filter(0.5);
-	Preprocessor preprocessor;
+	Processor preprocessor;
 	preprocessor.addToFilterChain(filter);
 
 	//when
@@ -66,7 +66,7 @@ TEST_F(PreprocessorTest, changesSamplesWhenFiltersAreAdded) {
 	ASSERT_DOUBLE_EQ(samples.getSample(3), 0.630);
 }
 
-TEST_F(PreprocessorTest, changesSamplesWhenMoreThanOneFiltersAreAdded) {
+TEST_F(ProcessorTest, changesSamplesWhenMoreThanOneFiltersAreAdded) {
 
 	//given
 	Samples samples;
@@ -78,7 +78,7 @@ TEST_F(PreprocessorTest, changesSamplesWhenMoreThanOneFiltersAreAdded) {
 	samples.setSampleListData(4, values);
 	ConstantAddingTestFilter filter(0.2);
 	ConstantAddingTestFilter filter2(0.3);
-	Preprocessor preprocessor;
+	Processor preprocessor;
 	preprocessor.addToFilterChain(filter);
 	preprocessor.addToFilterChain(filter2);
 

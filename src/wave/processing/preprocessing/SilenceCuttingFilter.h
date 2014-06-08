@@ -7,7 +7,7 @@
 
 #ifndef SILENCECUTTINGFILTER_H_
 #define SILENCECUTTINGFILTER_H_
-#include "Filter.h"
+#include "wave/processing/Filter.h"
 
 class SilenceCuttingFilter: public Filter {
 	double treshold;

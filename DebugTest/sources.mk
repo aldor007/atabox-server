@@ -33,7 +33,7 @@ test/math \
 test/dataproviders \
 test/api \
 test \
-src/wave/preprocessing \
+src/wave/processing \
 src/wave/analysis \
 src/wave \
 src/utils \

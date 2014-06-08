@@ -6,7 +6,7 @@
  */
 
 /*
- * PreprocessorTest.cpp
+ * ProcessorTest.cpp
  *
  *  Created on: 7 cze 2014
  *      Author: mj
@@ -16,8 +16,8 @@
 #undef U
 #include "gtest/gtest.h"
 #include "gmock/gmock.h"
-#include "wave/preprocessing/Preprocessor.h"
-#include <wave/preprocessing/SilenceCuttingFilter.h>
+#include "wave/processing/Processor.h"
+#include <wave/processing/preprocessing/SilenceCuttingFilter.h>
 
 using ::testing::Return;
 
@@ -35,7 +35,7 @@ TEST_F(SilenceCuttingFilterTest, trivialExampleForBeginning) {
 
 	samples.setSampleListData(2, values);
 	SilenceCuttingFilter filter(0.1);
-	Preprocessor preprocessor;
+	Processor preprocessor;
 	preprocessor.addToFilterChain(filter);
 
 	//when
@@ -58,7 +58,7 @@ TEST_F(SilenceCuttingFilterTest, chanchesLenghtCorrectly) {
 	double oldLength = samples.getLenghtInSeconds();
 
 	SilenceCuttingFilter filter(0.1);
-	Preprocessor preprocessor;
+	Processor preprocessor;
 	preprocessor.addToFilterChain(filter);
 
 	//when
@@ -85,7 +85,7 @@ TEST_F(SilenceCuttingFilterTest, filterRemovesSilenceFromBeginningAndEnd) {
 	values[7] = 0.013;
 	samples.setSampleListData(8, values);
 	SilenceCuttingFilter filter(0.1);
-	Preprocessor preprocessor;
+	Processor preprocessor;
 	preprocessor.addToFilterChain(filter);
 
 	//when
@@ -110,7 +110,7 @@ TEST_F(SilenceCuttingFilterTest, filterRemovesSilenceFromEnd) {
 	values[3] = 0.0130;
 	samples.setSampleListData(4, values);
 	SilenceCuttingFilter filter(0.1);
-	Preprocessor preprocessor;
+	Processor preprocessor;
 	preprocessor.addToFilterChain(filter);
 
 	//when
@@ -133,7 +133,7 @@ TEST_F(SilenceCuttingFilterTest, doesNotRemovesAnythingWhenThereIsNoSilence) {
 	values[3] = 0.130;
 	samples.setSampleListData(4, values);
 	SilenceCuttingFilter filter(0.1);
-	Preprocessor preprocessor;
+	Processor preprocessor;
 	preprocessor.addToFilterChain(filter);
 
 	//when
@@ -158,7 +158,7 @@ TEST_F(SilenceCuttingFilterTest, doesNotRemovesSilenceFromMiddle) {
 	values[3] = 0.130;
 	samples.setSampleListData(4, values);
 	SilenceCuttingFilter filter(0.1);
-	Preprocessor preprocessor;
+	Processor preprocessor;
 	preprocessor.addToFilterChain(filter);
 
 	//when

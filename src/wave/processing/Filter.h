@@ -7,7 +7,7 @@
 
 #ifndef FILTER_H_
 #define FILTER_H_
-#include "../Samples.h"
+#include "wave/Samples.h"
 class Filter {
 public:
 	virtual ~Filter(){};

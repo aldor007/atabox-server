@@ -18,10 +18,10 @@
 using namespace std;
 
 
-class Preprocessor {
+class Processor {
 public:
-	Preprocessor();
-	~Preprocessor();
+	Processor();
+	~Processor();
 	vector<Filter*> filters;
 	void addToFilterChain(Filter & filter);
 	void addToFilterChain(Filter * filter);
