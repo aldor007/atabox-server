@@ -14,22 +14,17 @@ PropertiesComparator::PropertiesComparator() {
 PropertiesComparator::~PropertiesComparator() {
 }
 
-double PropertiesComparator::getDistance(WaveProperties newSample,
-		WaveProperties patternSample) {
+double PropertiesComparator::getDistance(jsonextend newSample,
+		jsonextend patternSample) {
 	// TODO  not all properties implemented
 	// TODO to much copy paste!
 	double result = 0.0;
-	if (patternSample.amplitude != 0) {
-		result += relativeError(newSample.amplitude, patternSample.amplitude);
+	for (auto iter = newSample.as_object().cbegin(); iter != newSample.as_object().cend(); iter++) {
+		result += relativeError(iter->second.as_double(), patternSample[iter->first].as_double());
+
+
 	}
-	if (patternSample.zeroCrossings != 0) {
-		result += relativeError(newSample.zeroCrossings,
-				patternSample.zeroCrossings);
-	}
-	if (patternSample.lenghtInSeconds != 0) {
-			result += relativeError(newSample.lenghtInSeconds,
-					patternSample.lenghtInSeconds);
-		}
+
 	return result;
 }
 

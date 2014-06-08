@@ -9,7 +9,6 @@ CPP_SRCS += \
 ../test/wave/WaveFileAnalizatorTest.cpp \
 ../test/wave/WaveFileMock.cpp \
 ../test/wave/WaveFileTest.cpp \
-../test/wave/WavePropertiesTest.cpp \
 ../test/wave/WaveUtilsTest.cpp 
 
 OBJS += \
@@ -18,7 +17,6 @@ OBJS += \
 ./test/wave/WaveFileAnalizatorTest.o \
 ./test/wave/WaveFileMock.o \
 ./test/wave/WaveFileTest.o \
-./test/wave/WavePropertiesTest.o \
 ./test/wave/WaveUtilsTest.o 
 
 CPP_DEPS += \
@@ -27,7 +25,6 @@ CPP_DEPS += \
 ./test/wave/WaveFileAnalizatorTest.d \
 ./test/wave/WaveFileMock.d \
 ./test/wave/WaveFileTest.d \
-./test/wave/WavePropertiesTest.d \
 ./test/wave/WaveUtilsTest.d 
 
 

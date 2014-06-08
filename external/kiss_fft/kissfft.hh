@@ -1,6 +1,7 @@
 #ifndef KISSFFT_CLASS_HH
 #include <complex>
 #include <valarray>
+#include <cmath>
 
 namespace kissfft_utils {
 
@@ -65,8 +66,25 @@ class kissfft
         typedef typename traits_type::cpx_type cpx_type;
 
         kissfft(uint64_t nfft,bool inverse,const traits_type & traits=traits_type() )
-            :_nfft(nfft),_inverse(inverse),_traits(traits),_stageRadix(nfft), _stageRemainder(nfft)
+            :_nfft(nfft),_inverse(inverse),_traits(traits)
         {
+
+        	uint64_t s = 2;
+        	double sqrt_nfft = std::sqrt(nfft);
+        	uint64_t i = 0;
+        	for (i=2; i<=sqrt_nfft;i++) {
+        		if ( nfft % i ==0 && i < sqrt_nfft) {
+        			s=s+2;
+        	    }
+
+        	}
+        	    if (i==sqrt_nfft)   {
+        	    	s=s+1;
+        	    }
+
+
+        	_stageRadix = std::valarray<uint64_t>(s);
+        	_stageRemainder = std::valarray<uint64_t>(s);
             _traits.prepare(_twiddles, _nfft,_inverse ,_stageRadix, _stageRemainder);
         }
 

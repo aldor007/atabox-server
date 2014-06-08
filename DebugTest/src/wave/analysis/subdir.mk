@@ -4,16 +4,13 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../src/wave/analysis/SamplesAnalizator.cpp \
-../src/wave/analysis/WaveProperties.cpp 
+../src/wave/analysis/SamplesAnalizator.cpp 
 
 OBJS += \
-./src/wave/analysis/SamplesAnalizator.o \
-./src/wave/analysis/WaveProperties.o 
+./src/wave/analysis/SamplesAnalizator.o 
 
 CPP_DEPS += \
-./src/wave/analysis/SamplesAnalizator.d \
-./src/wave/analysis/WaveProperties.d 
+./src/wave/analysis/SamplesAnalizator.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

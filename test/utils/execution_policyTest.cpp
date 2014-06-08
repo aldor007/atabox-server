@@ -1,11 +1,10 @@
 #include <map>
 #include <string>
 
-#include <wave/analysis/WaveProperties.h>
-#include <recognition/PropertiesComparator.h>
+#include "recognition/PropertiesComparator.h"
 
 #include <boost/log/trivial.hpp>
-#include <utils/execution_policy.h>
+#include "utils/execution_policy.h"
 #undef U
 #ifndef GTEST_H_
 	#define GTEST_H_

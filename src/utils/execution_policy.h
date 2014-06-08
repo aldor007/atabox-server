@@ -1,9 +1,12 @@
 
 
+#ifndef EXECPOL_H_
+#define EXECPOL_H_
 #include <map>
 #include <string>
 
 #include "cpprest/json.h"
+#include "utils/jsonextend.h"
 
 namespace webjson = web::json;
 
@@ -13,7 +16,7 @@ namespace webjson = web::json;
 
 typedef std::map<webjson::value, std::string>::iterator map_it;
 
-std::string execution_policy_strict(std::map<webjson::value, std::string> &list, webjson::value &waveProperties) {
+std::string execution_policy_strict(std::map<jsonextend, std::string> &list, jsonextend &waveProperties) {
 	/*PropertiesComparator comparator;
 	for (map_it iterator = list.begin(); iterator != list.end(); iterator++) {
 		double distance =  comparator.getDistance(iterator->first, waveProperties);
@@ -24,7 +27,7 @@ std::string execution_policy_strict(std::map<webjson::value, std::string> &list,
 	}*/
 	return "";
 }
-std::string execution_policy_nonstrict(std::map<WaveProperties, std::string> &list, WaveProperties &waveProperties) {
+std::string execution_policy_nonstrict(std::map<jsonextend, std::string> &list, jsonextend &waveProperties) {
 	/*PropertiesComparator comparator;
 	double minDistance = 10000;
 	std::string currentCommand;
@@ -38,3 +41,4 @@ std::string execution_policy_nonstrict(std::map<WaveProperties, std::string> &li
 	}*/
 	return  "";//currentCommand;
 }
+#endif

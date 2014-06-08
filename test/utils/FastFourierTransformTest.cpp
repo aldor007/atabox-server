@@ -91,7 +91,7 @@ TEST_F(fast_fourier_transformTest, furier440Hz) {
 	//ASSERT_EQ(outdata[0], cx(9.51086,0));
 
 }
-TEST_F(fast_fourier_transformTest, timetranformofdziekuje) {
+TEST_F(fast_fourier_transformTest, DISABLED_timetranformofdziekuje) {
 	//given
 	typedef std::complex<double> cx;
 	WaveFile waveFile("test/wave/waveFiles/dziekuje32bit.wav");
