@@ -7,31 +7,20 @@
 
 #ifndef AMPLITUDEPROPERTY_H_
 #define AMPLITUDEPROPERTY_H_
-#include "Property.h"
-#include <cmath>
+#include "PropertyWithRange.h"
 
-class AmplitudeProperty: public Property {
-private:
-
-	double rangeFromPercent;
-	double rangeToPercent;
-
+class AmplitudeProperty: public PropertyWithRange {
 public:
 
-	AmplitudeProperty(double rangeFromPercent = 0,
-			double rangeToPercent = 100) {
-		this->rangeFromPercent = rangeFromPercent;
-		this->rangeToPercent = rangeToPercent;
+	AmplitudeProperty(double rangeFromPercent = 0, double rangeToPercent = 100) :
+			PropertyWithRange(rangeFromPercent, rangeToPercent) {
 	}
 
 	virtual double getValue(Samples& samples) {
-		uint32_t firstSample = round(
-				(samples.getNumberOfSamples() - 1) * rangeFromPercent / 100.0);
-		uint32_t lastSample = round(
-				(samples.getNumberOfSamples() - 1) * rangeToPercent / 100.0);
 
 		double result = 0.0;
-		for (unsigned int i = firstSample; i <= lastSample; ++i) {
+		for (unsigned int i = firstSample(samples); i <= lastSample(samples);
+				++i) {
 			double sample = samples.getSample(i);
 			if (fabs(sample) > result) {
 				result = fabs(sample);
@@ -41,12 +30,10 @@ public:
 	}
 
 	virtual string getName() {
-		std::stringstream resutl;
-		resutl << "amplitude_from_" << rangeFromPercent << "_to_"
-				<< rangeToPercent << "_percent";
-		return resutl.str();
+		return getNameWithRanges("amplitude");
 	}
 
-};
+}
+;
 
 #endif /* AMPLITUDEPROPERTY_H_ */

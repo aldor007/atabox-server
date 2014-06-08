@@ -4,14 +4,17 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
+../src/wave/analysis/PropertyWithRange.cpp \
 ../src/wave/analysis/SamplesAnalizator.cpp \
 ../src/wave/analysis/WaveProperties.cpp 
 
 OBJS += \
+./src/wave/analysis/PropertyWithRange.o \
 ./src/wave/analysis/SamplesAnalizator.o \
 ./src/wave/analysis/WaveProperties.o 
 
 CPP_DEPS += \
+./src/wave/analysis/PropertyWithRange.d \
 ./src/wave/analysis/SamplesAnalizator.d \
 ./src/wave/analysis/WaveProperties.d 
 

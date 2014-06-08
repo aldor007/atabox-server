@@ -1,0 +1,42 @@
+/*
+ * PropertyWithRange.h
+ *
+ *  Created on: 8 cze 2014
+ *      Author: mj
+ */
+
+#ifndef PROPERTYWITHRANGE_H_
+#define PROPERTYWITHRANGE_H_
+#include "Property.h"
+#include <cmath>
+
+class PropertyWithRange: public Property {
+protected:
+	double rangeFromPercent;
+	double rangeToPercent;
+	double firstSample(Samples& samples) {
+		return round(
+				(samples.getNumberOfSamples() - 1) * rangeFromPercent / 100.0);
+	}
+	double lastSample(Samples& samples) {
+		return round(
+				(samples.getNumberOfSamples() - 1) * rangeToPercent / 100.0);
+	}
+	PropertyWithRange(double rangeFromPercent, double rangeToPercent) {
+		this->rangeFromPercent = rangeFromPercent;
+		this->rangeToPercent = rangeToPercent;
+	}
+
+	string getNameWithRanges(string className) {
+		std::stringstream resutl;
+		resutl << className << "_from_" << rangeFromPercent << "_to_"
+				<< rangeToPercent << "_percent";
+		return resutl.str();
+	}
+
+public:
+
+	virtual ~PropertyWithRange();
+};
+
+#endif /* PROPERTYWITHRANGE_H_ */
