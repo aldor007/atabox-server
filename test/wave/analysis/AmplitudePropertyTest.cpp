@@ -42,7 +42,7 @@ TEST_F(AmplitudePropertyTest, returnsCorrectName) {
 	string name = property.getName();
 
 	//then
-	ASSERT_STRCASEEQ("amplitude", name.c_str());
+	ASSERT_STRCASEEQ("amplitude_from_0_to_100_percent", name.c_str());
 }
 
 TEST_F(AmplitudePropertyTest, findsMaximumCorrectlyForPartOfSamples) {

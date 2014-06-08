@@ -10,7 +10,6 @@
 #include "Property.h"
 #include <cmath>
 
-
 class AmplitudeProperty: public Property {
 private:
 
@@ -19,17 +18,17 @@ private:
 
 public:
 
-	AmplitudeProperty(double rangeFromPercent = 0, double rangeToPercent =
-			100) {
+	AmplitudeProperty(double rangeFromPercent = 0,
+			double rangeToPercent = 100) {
 		this->rangeFromPercent = rangeFromPercent;
 		this->rangeToPercent = rangeToPercent;
 	}
 
 	virtual double getValue(Samples& samples) {
-		uint32_t firstSample = round((samples.getNumberOfSamples()-1) * rangeFromPercent
-				/ 100.0);
-		uint32_t lastSample = round((samples.getNumberOfSamples()-1) * rangeToPercent
-				/ 100.0);
+		uint32_t firstSample = round(
+				(samples.getNumberOfSamples() - 1) * rangeFromPercent / 100.0);
+		uint32_t lastSample = round(
+				(samples.getNumberOfSamples() - 1) * rangeToPercent / 100.0);
 
 		double result = 0.0;
 		for (unsigned int i = firstSample; i <= lastSample; ++i) {
@@ -41,9 +40,11 @@ public:
 		return result;
 	}
 
-
 	virtual string getName() {
-		return "amplitude";
+		std::stringstream resutl;
+		resutl << "amplitude_from_" << rangeFromPercent << "_to_"
+				<< rangeToPercent << "_percent";
+		return resutl.str();
 	}
 
 };
