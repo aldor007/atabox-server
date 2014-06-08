@@ -9,6 +9,7 @@ CPP_SRCS += \
 ../test/wave/analysis/LengthPropertyTest.cpp \
 ../test/wave/analysis/PercentageAbovePropertyTest.cpp \
 ../test/wave/analysis/SamplesAnalizatorTest.cpp \
+../test/wave/analysis/WhereIsAmplitudePropertyTest.cpp \
 ../test/wave/analysis/ZeroCrossingsPropertyTest.cpp 
 
 OBJS += \
@@ -17,6 +18,7 @@ OBJS += \
 ./test/wave/analysis/LengthPropertyTest.o \
 ./test/wave/analysis/PercentageAbovePropertyTest.o \
 ./test/wave/analysis/SamplesAnalizatorTest.o \
+./test/wave/analysis/WhereIsAmplitudePropertyTest.o \
 ./test/wave/analysis/ZeroCrossingsPropertyTest.o 
 
 CPP_DEPS += \
@@ -25,6 +27,7 @@ CPP_DEPS += \
 ./test/wave/analysis/LengthPropertyTest.d \
 ./test/wave/analysis/PercentageAbovePropertyTest.d \
 ./test/wave/analysis/SamplesAnalizatorTest.d \
+./test/wave/analysis/WhereIsAmplitudePropertyTest.d \
 ./test/wave/analysis/ZeroCrossingsPropertyTest.d 
 
 
