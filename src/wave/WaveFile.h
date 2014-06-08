@@ -14,6 +14,7 @@
 /**
  * Class describes wave file. It supports only mono files.
  */
+class Samples;
 class WaveFile {
 public:
 
@@ -38,6 +39,8 @@ public:
 	void loadFromMemory(uint8_t  * data);
 	virtual double	 operator[](unsigned int i);
 	virtual int32_t getRawSample(unsigned int i);
+	operator Samples () const;
+	WaveFile& operator=(WaveFile&& other)  = default;
 protected:
 	WaveFile();
 	//chunk descriptor

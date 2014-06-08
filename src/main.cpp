@@ -6,15 +6,11 @@
  */
 #include <string>
 #include <map>
-#include <iostream>
 #include <random>
-#include <fstream>
-#include <thread>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <cstdio>
 #include <cstdlib>
-#include <fcntl.h>
 #include <cerrno>
 #include <unistd.h>
 #include <cstring>
@@ -24,7 +20,6 @@
 
 #include <boost/log/sources/severity_feature.hpp>
 #include <boost/log/sources/severity_logger.hpp>
-#include <boost/log/trivial.hpp>
 #include <boost/exception/diagnostic_information.hpp>
 #include <boost/program_options.hpp>
 #include <boost/asio/io_service.hpp>
@@ -45,7 +40,8 @@
 #include "dataproviders/RocksdbProvider.h"
 #include "api/AtaboxApi.h"
 #include "wave/analysis/SamplesAnalizator.h"
-#include "wave/analysis/WaveProperties.h"
+#include "wave/preprocessing/SilenceCuttingFilter.h"
+
 #include "wave/WaveFile.h"
 #include "wave/preprocessing/Preprocessor.h"
 #include "recognition/PropertiesComparator.h"
@@ -56,11 +52,11 @@ using namespace web::http;
 using namespace web::http::client;
 
 const std::string DEFAULT_POLICY = "nonstrict";
-BaseDataProvider<WaveProperties, std::string> * g_mainDB;
+BaseDataProvider<json::value, std::string> * g_mainDB;
 auto &g_io_service = crossplat::threadpool::shared_instance().service();
 Runner g_runner();
-typedef std::string (*policy_fun)(std::map<WaveProperties, std::string>&,
-		WaveProperties&);
+typedef std::string (*policy_fun)(std::map<json::value, std::string>&,
+		json::value&);
 std::map<std::string, policy_fun> g_policies;
 
 extern atabox_log::logger g_log;
@@ -103,17 +99,13 @@ void handle_add(web::http::http_request request) {
 		delete waveData;
 		Samples waveSamples(wave);
 		Preprocessor preprocessor;
-		SilenceCuttingFilter silenceCuttingFilter;
+		SilenceCuttingFilter silenceCuttingFilter(0.2);
 		preprocessor.addToFilterChain(silenceCuttingFilter);
 		preprocessor.applyFilterChainOn(waveSamples);
 		SamplesAnalizator analizator;
-
-		WaveProperties waveProperties = analizator.getAllProperties(
-				waveSamples);
-		waveProperties.name = commandName;
-
+		json::value wavepropertiesJSON = analizator.getPropertiesSummary(waveSamples);
 		try {
-			g_mainDB->put(waveProperties.toString(), commandString);
+			g_mainDB->put(wavepropertiesJSON, commandString);
 		} catch (std::exception const & ex) {
 			LOG(error)<<"Error "<<ex.what();
 			response["status"] = json::value::string("ERROR");
@@ -160,13 +152,13 @@ void handle_execute(web::http::http_request request) {
 	preprocessor.addToFilterChain(silenceCuttingFilter);
 	preprocessor.applyFilterChainOn(waveSamples);
 	SamplesAnalizator analizator;
-	WaveProperties waveProperties = analizator.getAllProperties(waveSamples);
+	json::value wavePropertiesJSON = analizator.getPropertiesSummary(waveSamples);
 
 	std::map<WaveProperties, std::string> list;
 	list = g_mainDB->getAllKV();
 	auto tmpFun = g_policies[DEFAULT_POLICY];
 
-	std::string command = tmpFun(list, waveProperties);
+	std::string command = tmpFun(list, wavePropertiesJSON);
 	if (!command.empty()) {
 
 		web::json::value cmdResult = Runner::run(command, " ");

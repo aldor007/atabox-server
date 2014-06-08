@@ -37,7 +37,7 @@ public:
 		int numberOfFramesToDelete = (lastBadFromBeginning+1) + (samples.getNumberOfSamples()-1-lastGoodFromMiddle);
 		uint32_t sizeOfNewArray = samples.getNumberOfSamples()
 				- numberOfFramesToDelete;
-		double * framesWithoutSilence = new double[sizeOfNewArray];
+		std::complex<double> * framesWithoutSilence = new std::complex<double>[sizeOfNewArray];
 		for (uint32_t i = 0; i < sizeOfNewArray; ++i) {
 			framesWithoutSilence[i] = samples.getSample(lastBadFromBeginning+1+i);
 		}

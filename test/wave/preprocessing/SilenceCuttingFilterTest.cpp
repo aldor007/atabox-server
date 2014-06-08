@@ -29,7 +29,7 @@ TEST_F(SilenceCuttingFilterTest, trivialExampleForBeginning) {
 
 	//given
 	Samples samples;
-	double * values = new double[2];
+	cx * values = new cx[2];
 	values[0] = 0.0128;
 	values[1] = -0.5;
 
@@ -50,7 +50,7 @@ TEST_F(SilenceCuttingFilterTest, chanchesLenghtCorrectly) {
 
 	//given
 	Samples samples;
-	double * values = new double[2];
+	cx * values = new cx[2];
 	values[0] = 0.0128;
 	values[1] = -0.5;
 
@@ -74,7 +74,7 @@ TEST_F(SilenceCuttingFilterTest, filterRemovesSilenceFromBeginningAndEnd) {
 
 	//given
 	Samples samples;
-	double * values = new double[8];
+	cx * values = new cx[8];
 	values[0] = 0.0128;
 	values[1] = -0.05;
 	values[2] = 0.16;
@@ -103,7 +103,7 @@ TEST_F(SilenceCuttingFilterTest, filterRemovesSilenceFromEnd) {
 
 	//given
 	Samples samples;
-	double * values = new double[4];
+	cx * values = new cx[4];
 	values[0] = 0.128;
 	values[1] = -0.5;
 	values[2] = 0.016;
@@ -126,7 +126,7 @@ TEST_F(SilenceCuttingFilterTest, doesNotRemovesAnythingWhenThereIsNoSilence) {
 
 	//given
 	Samples samples;
-	double * values = new double[4];
+	cx * values = new cx[4];
 	values[0] = 0.128;
 	values[1] = -0.5;
 	values[2] = 0.16;
@@ -151,7 +151,7 @@ TEST_F(SilenceCuttingFilterTest, doesNotRemovesSilenceFromMiddle) {
 
 	//given
 	Samples samples;
-	double * values = new double[4];
+	cx * values = new cx[4];
 	values[0] = 0.128;
 	values[1] =	0;
 	values[2] = 0.16;

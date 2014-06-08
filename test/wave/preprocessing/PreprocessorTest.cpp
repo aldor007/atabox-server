@@ -46,7 +46,7 @@ TEST_F(PreprocessorTest, changesSamplesWhenFiltersAreAdded) {
 
 	//given
 	Samples samples;
-	double * values = new double[4];
+	cx * values = new cx[4];
 	values[0] = 0.128;
 	values[1] = -0.5;
 	values[2] = 0.16;
@@ -70,7 +70,7 @@ TEST_F(PreprocessorTest, changesSamplesWhenMoreThanOneFiltersAreAdded) {
 
 	//given
 	Samples samples;
-	double * values = new double[4];
+	cx * values = new cx[4];
 	values[0] = 0.128;
 	values[1] = -0.5;
 	values[2] = 0.16;
