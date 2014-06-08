@@ -7,15 +7,18 @@
 
 #ifndef PROPERTIESCOMPARATOR_H_
 #define PROPERTIESCOMPARATOR_H_
-#include "wave/analysis/WaveProperties.h"
-#include <math.h>
+
+#include "utils/jsonextend.h"
+
+
+#include <cmath>
 
 class PropertiesComparator {
 public:
 	PropertiesComparator();
 	~PropertiesComparator();
-	double getDistance(WaveProperties newSample,
-			WaveProperties patternSample);
+	double getDistance(jsonextend newSample,
+			jsonextend patternSample);
 private:
 	double relativeError(double newSample, double patternSample);
 };

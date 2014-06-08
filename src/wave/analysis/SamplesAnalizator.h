@@ -8,7 +8,6 @@
 #ifndef WAVEFILEANALIZATOR_H_
 #define WAVEFILEANALIZATOR_H_
 #include "../Samples.h"
-#include "WaveProperties.h"
 #include <cmath>
 #include "Property.h"
 
@@ -16,8 +15,8 @@
 #include <vector>
 #include <string>
 
-#include "cpprest/json.h"
-namespace webjs = web::json;
+#include "utils/jsonextend.h"
+
 
 using namespace std;
 
@@ -29,7 +28,8 @@ public:
 	virtual ~SamplesAnalizator();
 	vector<Property*> properties;
 	void addProperty(Property & property);
-	webjs::value getPropertiesSummary(Samples & samples);
+	void addProperty(Property * property);
+	jsonextend getPropertiesSummary(Samples & samples);
 };
 
 #endif /* WAVEFILEANALIZATOR_H_ */

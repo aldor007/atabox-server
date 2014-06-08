@@ -9,7 +9,6 @@
 
 #include "wave/WaveFile.h"
 #include "wave/analysis/SamplesAnalizator.h"
-#include "wave/analysis/WaveProperties.h"
 #include "wave/Samples.h"
 #undef U //XXX: potrzebne zeby sie kompilowala z casablanca
 //#include "gtest/gtest.h" XXX: WTF!!!! nie kompiluje sie u mnie jak to jest. (Po reinstalacji systemuu)

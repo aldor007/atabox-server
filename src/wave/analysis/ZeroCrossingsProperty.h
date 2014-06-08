@@ -28,6 +28,7 @@ public:
 		return result;
 	}
 
+
 	virtual string getName() {
 		return getNameWithRanges("zeroCrossings");
 	}

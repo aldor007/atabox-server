@@ -6,7 +6,8 @@
  */
 
 #include "dataproviders/RocksdbProvider.h"
-#include "wave/analysis/WaveProperties.h"
+#include "utils/jsonextend.h"
+
 #undef U
 #include <string>
 #ifndef GTEST_H_
@@ -44,10 +45,10 @@ TEST_F(RocksdbProviderTest, getListOfKeys) {
 TEST_F(RocksdbProviderTest, putAndGetWaveProperies) {
 	std::string dbname = "test/file.db";
 
-	RocksdbProvider<WaveProperties, std::string> db(dbname);
-	WaveProperties test;
-	test.name ="vim";
-	test.amplitude = 0.2;
+	RocksdbProvider<jsonextend, std::string> db(dbname);
+	jsonextend test;
+	test["name"] = web::json::value::string("vim");
+	test["amplitude"] = web::json::value::number(0.2);
 	std::string expected = "vim /tmp/test";
 	db.put(test, expected);
 	ASSERT_EQ(db.get(test), expected);

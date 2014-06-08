@@ -22,6 +22,7 @@
 *.app
 *.d
 *atabox.db*
+*callgrind*
 external/rocksdb_source
 external/casablance
 /documentation

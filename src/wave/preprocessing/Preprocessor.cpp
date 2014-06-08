@@ -18,6 +18,9 @@ Preprocessor::~Preprocessor() {
 void Preprocessor::addToFilterChain(Filter& filter) {
 	filters.push_back(&filter);
 }
+void Preprocessor::addToFilterChain(Filter* filter) {
+	filters.push_back(filter);
+}
 
 void Preprocessor::applyFilterChainOn(Samples& samples) {
 	for (int i = 0; i < filters.size(); ++i) {

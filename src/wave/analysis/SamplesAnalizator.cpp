@@ -19,15 +19,17 @@ SamplesAnalizator::~SamplesAnalizator() {
 void SamplesAnalizator::addProperty(Property& property) {
 	properties.push_back(&property);
 }
+void SamplesAnalizator::addProperty(Property* property) {
+	properties.push_back(property);
+}
 
-webjs::value SamplesAnalizator::getPropertiesSummary(Samples& samples) {
-    webjs::value result;
+jsonextend SamplesAnalizator::getPropertiesSummary(Samples& samples) {
+    jsonextend result;
 
 	for (int i = 0; i < properties.size(); ++i) {
 			double value = properties[i]->getValue(samples);
 			string name = properties[i]->getName();
-			result[name] = webjs::value::number(value);
-			// TODO collect JSON from this names and values and returns it
+			result[name] = web::json::value::number(value);
 		}
 	return result;
 }
