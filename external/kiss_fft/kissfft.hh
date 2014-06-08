@@ -1,6 +1,6 @@
 #ifndef KISSFFT_CLASS_HH
 #include <complex>
-#include <vector>
+#include <valarray>
 
 namespace kissfft_utils {
 
@@ -9,18 +9,18 @@ struct traits
 {
     typedef T_scalar scalar_type;
     typedef std::complex<scalar_type> cpx_type;
-    void fill_twiddles( std::complex<T_scalar> * dst ,int nfft,bool inverse)
+    void fill_twiddles( std::complex<T_scalar> * dst ,uint64_t nfft,bool inverse)
     {
         T_scalar phinc =  (inverse?2:-2)* acos( (T_scalar) -1)  / nfft;
-        for (int i=0;i<nfft;++i)
+        for (uint64_t i=0;i<nfft;++i)
             dst[i] = exp( std::complex<T_scalar>(0,i*phinc) );
     }
 
     void prepare(
-            std::vector< std::complex<T_scalar> > & dst,
-            int nfft,bool inverse, 
-            std::vector<int> & stageRadix, 
-            std::vector<int> & stageRemainder )
+            std::valarray< std::complex<T_scalar> > & dst,
+            uint64_t nfft,bool inverse,
+            std::valarray<uint64_t> & stageRadix,
+            std::valarray<uint64_t> & stageRemainder )
     {
         _twiddles.resize(nfft);
         fill_twiddles( &_twiddles[0],nfft,inverse);
@@ -28,8 +28,9 @@ struct traits
 
         //factorize
         //start factoring out 4's, then 2's, then 3,5,7,9,...
-        int n= nfft;
-        int p=4;
+        uint64_t n= nfft;
+        uint64_t p=4;
+        uint64_t i = 0;
         do {
             while (n % p) {
                 switch (p) {
@@ -41,14 +42,14 @@ struct traits
                     p=n;// no more factors
             }
             n /= p;
-            stageRadix.push_back(p);
-            stageRemainder.push_back(n);
+            stageRadix[i] = p;
+            stageRemainder[i++] = n;
         }while(n>1);
     }
-    std::vector<cpx_type> _twiddles;
+    std::valarray<cpx_type> _twiddles;
 
 
-    const cpx_type twiddle(int i) { return _twiddles[i]; }
+    const cpx_type twiddle(uint64_t i) { return _twiddles[i]; }
 };
 
 }
@@ -63,8 +64,8 @@ class kissfft
         typedef typename traits_type::scalar_type scalar_type;
         typedef typename traits_type::cpx_type cpx_type;
 
-        kissfft(int nfft,bool inverse,const traits_type & traits=traits_type() ) 
-            :_nfft(nfft),_inverse(inverse),_traits(traits)
+        kissfft(uint64_t nfft,bool inverse,const traits_type & traits=traits_type() )
+            :_nfft(nfft),_inverse(inverse),_traits(traits),_stageRadix(nfft), _stageRemainder(nfft)
         {
             _traits.prepare(_twiddles, _nfft,_inverse ,_stageRadix, _stageRemainder);
         }
@@ -75,10 +76,10 @@ class kissfft
         }
 
     private:
-        void kf_work( int stage,cpx_type * Fout, const cpx_type * f, size_t fstride,size_t in_stride)
+        void kf_work( uint64_t stage,cpx_type * Fout, const cpx_type * f, size_t fstride,size_t in_stride)
         {
-            int p = _stageRadix[stage];
-            int m = _stageRemainder[stage];
+            uint64_t p = _stageRadix[stage];
+            uint64_t m = _stageRemainder[stage];
             cpx_type * Fout_beg = Fout;
             cpx_type * Fout_end = Fout + p*m;
 
@@ -119,9 +120,9 @@ class kissfft
         scalar_type HALF_OF( const scalar_type & a) { return a*.5;}
         void C_MULBYSCALAR(cpx_type & c,const scalar_type & a) {c*=a;}
 
-        void kf_bfly2( cpx_type * Fout, const size_t fstride, int m)
+        void kf_bfly2( cpx_type * Fout, const size_t fstride, uint64_t m)
         {
-            for (int k=0;k<m;++k) {
+            for (uint64_t k=0;k<m;++k) {
                 cpx_type t = Fout[m+k] * _traits.twiddle(k*fstride);
                 Fout[m+k] = Fout[k] - t;
                 Fout[k] += t;
@@ -131,7 +132,7 @@ class kissfft
         void kf_bfly4( cpx_type * Fout, const size_t fstride, const size_t m)
         {
             cpx_type scratch[7];
-            int negative_if_inverse = _inverse * -2 +1;
+            uint64_t negative_if_inverse = _inverse * -2 +1;
             for (size_t k=0;k<m;++k) {
                 scratch[0] = Fout[k+m] * _traits.twiddle(k*fstride);
                 scratch[1] = Fout[k+2*m] * _traits.twiddle(k*fstride*2);
@@ -253,14 +254,14 @@ class kissfft
         void kf_bfly_generic(
                 cpx_type * Fout,
                 const size_t fstride,
-                int m,
-                int p
+                uint64_t m,
+                uint64_t p
                 )
         {
-            int u,k,q1,q;
+            uint64_t u,k,q1,q;
             cpx_type * twiddles = &_twiddles[0];
             cpx_type t;
-            int Norig = _nfft;
+            uint64_t Norig = _nfft;
             cpx_type scratchbuf[p];
 
             for ( u=0; u<m; ++u ) {
@@ -272,7 +273,7 @@ class kissfft
 
                 k=u;
                 for ( q1=0 ; q1<p ; ++q1 ) {
-                    int twidx=0;
+                    uint64_t twidx=0;
                     Fout[ k ] = scratchbuf[0];
                     for (q=1;q<p;++q ) {
                         twidx += fstride * k;
@@ -285,11 +286,11 @@ class kissfft
             }
         }
 
-        int _nfft;
+        uint64_t _nfft;
         bool _inverse;
-        std::vector<cpx_type> _twiddles;
-        std::vector<int> _stageRadix;
-        std::vector<int> _stageRemainder;
+        std::valarray<cpx_type> _twiddles;
+        std::valarray<uint64_t> _stageRadix;
+        std::valarray<uint64_t> _stageRemainder;
         traits_type _traits;
 };
 #endif
