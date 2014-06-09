@@ -16,7 +16,7 @@ public:
 			100): PropertyWithRange(rangeFromPercent, rangeToPercent) {
 	}
 
-	virtual double getValue(Samples& samples) {
+	virtual double getValue(const Samples& samples) {
 
 		double result = 0.0;
 		uint32_t numberOfSamplesInRange = 0;

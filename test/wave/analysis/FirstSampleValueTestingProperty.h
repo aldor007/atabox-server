@@ -11,7 +11,7 @@
 
 class FirstSampleValueTestingProperty: public Property {
 public:
-	virtual double getValue(Samples& samples) {
+	virtual double getValue(const Samples& samples) {
 		return samples.getSample(0);
 	}
 

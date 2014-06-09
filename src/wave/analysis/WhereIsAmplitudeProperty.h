@@ -15,7 +15,7 @@ class WhereIsAmplitudeProperty: public Property {
 
 public:
 
-	virtual double getValue(Samples& samples) {
+	virtual double getValue(const Samples& samples) {
 
 		double indexOfAmplitude = 0;
 		double amplitude = 0.0;

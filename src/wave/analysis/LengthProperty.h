@@ -10,7 +10,7 @@
 #include "Property.h"
 class LengthProperty: public Property {
 public:
-	virtual double getValue(Samples& samples) {
+	virtual double getValue(const Samples& samples) {
 		return samples.getLenghtInSeconds();
 	}
 

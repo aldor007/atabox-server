@@ -16,7 +16,7 @@ public:
 	PercentageAboveProperty(double treshold){
 		this->treshold = treshold;
 	}
-	virtual double getValue(Samples& samples) {
+	virtual double getValue(const Samples& samples) {
 		int aboveCounter = 0;
 		int allCounter = 0;
 

@@ -53,19 +53,19 @@ Samples::~Samples() {
 }
 
 //TODO a jak ktos będzie chcial ustawiac tak wartosc? samples[5] = 3.3 - będzie się dziwić czemu nic się nie zmienia
-cx& Samples::operator [](unsigned int i) {
+cx& Samples::operator [](unsigned int i) const{
 	return samples[i];
 }
 
-double Samples::getSample(unsigned int i) {
+double Samples::getSample(unsigned int i) const {
 	return samples[i].real();
 }
 
-uint32_t Samples::getNumberOfSamples() {
+uint32_t Samples::getNumberOfSamples() const {
 	return numberOfSamples;
 }
 
-double Samples::getLenghtInSeconds() {
+double Samples::getLenghtInSeconds() const {
 	return lenghtInSeconds;
 }
 

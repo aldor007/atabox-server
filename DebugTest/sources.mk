@@ -29,7 +29,6 @@ test/wave \
 test/utils \
 test/runner \
 test/recognition \
-test/math \
 test/dataproviders \
 test/api \
 test \

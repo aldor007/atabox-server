@@ -14,11 +14,11 @@ class PropertyWithRange: public Property {
 protected:
 	double rangeFromPercent;
 	double rangeToPercent;
-	double firstSample(Samples& samples) {
+	double firstSample(const Samples& samples) {
 		return round(
 				(samples.getNumberOfSamples() - 1) * rangeFromPercent / 100.0);
 	}
-	double lastSample(Samples& samples) {
+	double lastSample(const Samples& samples) {
 		return round(
 				(samples.getNumberOfSamples() - 1) * rangeToPercent / 100.0);
 	}

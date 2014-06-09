@@ -16,10 +16,10 @@ class SamplesMock: public Samples {
 public:
 	SamplesMock(){};
 	virtual ~SamplesMock(){};
-	MOCK_METHOD0(getNumberOfSamples, uint32_t());
-	MOCK_METHOD0(getLenghtInSeconds, double());
-	MOCK_METHOD1(getSample, double(unsigned int i));
-	MOCK_METHOD2(setSample, void(uint32_t, double));
+	MOCK_CONST_METHOD0(getNumberOfSamples, uint32_t());
+	MOCK_CONST_METHOD0(getLenghtInSeconds, double());
+	MOCK_CONST_METHOD1(getSample, double(unsigned int i));
+	MOCK_CONST_METHOD2(setSample, void(uint32_t, double));
 };
 
 #endif /* NORMALIZEDSAMPLELISTMOCK_H_ */

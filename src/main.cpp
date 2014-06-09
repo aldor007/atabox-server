@@ -316,8 +316,8 @@ int main(int argc, char** argv) {
 			std::cerr << desc << std::endl;
 			return 2;
 		}
-		BOOST_LOG_FUNCTION();
-		atabox_log::init_logging(color, atabox_daemon);
+		//BOOST_LOG_FUNCTION();
+		//atabox_log::init_logging(color, atabox_daemon);
 		LOG(debug)<<"Hello, world!";
 		AtaboxApi mainApi(listen);
 		mainApi.addMethod("/api/add", handle_add);
@@ -338,21 +338,19 @@ int main(int argc, char** argv) {
 		}
 		if (atabox_daemon) {
 			//FIXME: deamon NOT workigin
-			mainApi.close().wait();
 			boost::asio::signal_set signals(g_io_service, SIGINT, SIGTERM);
 			signals.async_wait(
 					boost::bind(&boost::asio::io_service::stop, &g_io_service));
 			g_io_service.notify_fork(boost::asio::io_service::fork_prepare);
-			g_io_service.stop();
+		    g_io_service.stop();
 			LOG(debug)<<"Io "<<crossplat::threadpool::shared_instance().service().stopped();
 			daemon(1, 1);
 
 			//crossplat::threadpool::shared_instance().service().reset();
 			LOG(debug)<<"Io "<<crossplat::threadpool::shared_instance().service().stopped();
 			//daemonize();
-			//g_io_service.notify_fork(boost::asio::io_service::fork_child);
-			//g_io_service.run();
-			mainApi.open().get();
+			g_io_service.notify_fork(boost::asio::io_service::fork_child);
+			g_io_service.run();
 
 		}
 		LOG(info)<<"After listener open.";

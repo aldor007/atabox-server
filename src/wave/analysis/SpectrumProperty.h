@@ -16,7 +16,7 @@
 class SpectrumProperty: public Property {
 private:
 	  std::valarray<double> m_magnitude;
-	  void callculateMagnitude(Samples& samples) {
+	  void callculateMagnitude(const Samples& samples) {
 
            uint32_t len = samples.getNumberOfSamples();
           if (m_magnitude.size() != len)
@@ -30,7 +30,7 @@ private:
 	  }
 
 public:
-	virtual double getValue(Samples& samples) {
+	virtual double getValue(const Samples& samples) {
 		callculateMagnitude(samples);
 		std::log10(m_magnitude);
 		double value = (m_magnitude.max() - m_magnitude.min()) / m_magnitude.sum();

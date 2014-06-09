@@ -15,7 +15,7 @@ using std::string;
 class Property {
 public:
 	virtual ~Property(){};
-	virtual double getValue(Samples& samples) = 0;
+	virtual double getValue(const Samples& samples) = 0;
 	virtual string getName() = 0;
 
 	//TODO getJSON()

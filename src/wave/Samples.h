@@ -19,17 +19,16 @@ typedef std::complex<double> cx;
 class FastFourierTransformFilter;
 class Samples {
 public:
-	friend cx * fast_fourier_transform(Samples& a);
 	friend class FastFourierTransformFilter;
 public:
 	Samples(WaveFile & waveFile);
 	Samples(WaveFile && waveFile);
 	virtual ~Samples();
-	virtual cx& operator[](unsigned int i);
-	virtual double getSample(unsigned int i);
+	virtual cx& operator[](unsigned int i) const;
+	virtual double getSample(unsigned int i) const;
 	virtual void setSample(uint32_t index, double value);
-	virtual uint32_t getNumberOfSamples();
-	virtual double getLenghtInSeconds();
+	virtual uint32_t getNumberOfSamples() const;
+	virtual double getLenghtInSeconds() const;
 	void setSampleListData(uint32_t numberOfSamples, cx * data);
 	Samples();
 protected:
