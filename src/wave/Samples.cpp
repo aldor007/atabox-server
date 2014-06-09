@@ -60,6 +60,9 @@ cx& Samples::operator [](unsigned int i) const{
 double Samples::getSample(unsigned int i) const {
 	return samples[i].real();
 }
+cx& Samples::getSampleCx(unsigned int i) const {
+	return samples[i];
+}
 
 uint32_t Samples::getNumberOfSamples() const {
 	return numberOfSamples;

@@ -26,6 +26,7 @@ public:
 	virtual ~Samples();
 	virtual cx& operator[](unsigned int i) const;
 	virtual double getSample(unsigned int i) const;
+	virtual cx& getSampleCx(unsigned int i) const;
 	virtual void setSample(uint32_t index, double value);
 	virtual uint32_t getNumberOfSamples() const;
 	virtual double getLenghtInSeconds() const;

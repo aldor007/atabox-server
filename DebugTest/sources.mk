@@ -23,7 +23,9 @@ C_UPPER_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
-test/wave/preprocessing \
+test/wave/processing/preprocessing \
+test/wave/processing/postprocessing \
+test/wave/processing \
 test/wave/analysis \
 test/wave \
 test/utils \

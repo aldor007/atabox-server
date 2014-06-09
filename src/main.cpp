@@ -316,9 +316,8 @@ int main(int argc, char** argv) {
 			std::cerr << desc << std::endl;
 			return 2;
 		}
-		//BOOST_LOG_FUNCTION();
-		//atabox_log::init_logging(color, atabox_daemon);
-		LOG(debug)<<"Hello, world!";
+		BOOST_LOG_FUNCTION();
+		atabox_log::init_logging(color, atabox_daemon);
 		AtaboxApi mainApi(listen);
 		mainApi.addMethod("/api/add", handle_add);
 		mainApi.addMethod("/api/execute", handle_execute);

@@ -11,7 +11,7 @@
 #include "gmock/gmock.h"
 #include "wave/processing/Processor.h"
 #include "../SamplesMock.h"
-#include "ConstantAddingTestFilter.h"
+#include "preprocessing/ConstantAddingTestFilter.h"
 
 
 
