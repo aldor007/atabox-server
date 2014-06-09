@@ -19,10 +19,10 @@
 
 class ProcessAndAnalyze {
 private:
-	std::vector<std::pair<Processor, SamplesAnalizator>> m_list;
+	std::vector<std::pair<Processor*, SamplesAnalizator*>> m_list;
 public:
 	ProcessAndAnalyze();
-	void add(std::pair<Processor, SamplesAnalizator> item);
+	void add(std::pair<Processor*, SamplesAnalizator*> item);
 	jsonextend getSummary(Samples & samples);
 	virtual ~ProcessAndAnalyze();
 };

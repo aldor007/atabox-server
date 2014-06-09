@@ -56,7 +56,7 @@ TEST_F(FastFourierTransformFilterTest, exampleDataWolfram) {
 
 }
 
-TEST_F(FastFourierTransformFilterTest, D2ISABLED_TheSameWaveData) {
+TEST_F(FastFourierTransformFilterTest, DIS1ABLED_TheSameWaveData) {
 	//given
 	typedef std::complex<double> cx;
 	WaveFile waveFile("test/wave/waveFiles/dziekuje32bit.wav");
@@ -71,7 +71,7 @@ TEST_F(FastFourierTransformFilterTest, D2ISABLED_TheSameWaveData) {
 
 }
 
-TEST_F(FastFourierTransformFilterTest, furier440Hz200Hz) {
+TEST_F(FastFourierTransformFilterTest, DIS1ABLED_furier440Hz200Hz) {
 	//given
 	typedef std::complex<double> cx;
 	WaveFile waveFile("test/wave/waveFiles/440Hz200Hz200ms.wav");
@@ -81,7 +81,7 @@ TEST_F(FastFourierTransformFilterTest, furier440Hz200Hz) {
   //   ASSERT_EQ(outdata[0], cx(4.21362,0));
 
 }
-TEST_F(FastFourierTransformFilterTest, furier440Hz) {
+TEST_F(FastFourierTransformFilterTest, DIS1ABLED_furier440Hz) {
 	//given
 	typedef std::complex<double> cx;
 	WaveFile waveFile("test/wave/waveFiles/440Hz200ms.wav");
@@ -91,7 +91,7 @@ TEST_F(FastFourierTransformFilterTest, furier440Hz) {
 	//ASSERT_EQ(outdata[0], cx(9.51086,0));
 
 }
-TEST_F(FastFourierTransformFilterTest, DI2SABLED_timetranformofdziekuje) {
+TEST_F(FastFourierTransformFilterTest, DIS1ABLED_timetranformofdziekuje) {
 	//given
 	typedef std::complex<double> cx;
 	WaveFile waveFile("test/wave/waveFiles/dziekuje32bit.wav");
@@ -103,7 +103,7 @@ TEST_F(FastFourierTransformFilterTest, DI2SABLED_timetranformofdziekuje) {
 
 	ASSERT_EQ(samplesFile[0], samplesFile[0]);
 }
-TEST_F(FastFourierTransformFilterTest, DIS2ABLED_DiffrentWaveData) {
+TEST_F(FastFourierTransformFilterTest, DIS1ABLED_DiffrentWaveData) {
 	//given
 	typedef std::complex<double> cx;
 	WaveFile waveFile("test/wave/waveFiles/dziekuje32bit.wav");

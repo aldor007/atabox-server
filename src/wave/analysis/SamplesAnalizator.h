@@ -27,9 +27,11 @@ public:
 	SamplesAnalizator();
 	virtual ~SamplesAnalizator();
 	vector<Property*> properties;
+	//virtual
 	void addProperty(Property & property);
+	//virtual
 	void addProperty(Property * property);
-	jsonextend getPropertiesSummary(Samples & samples);
+	virtual jsonextend getPropertiesSummary(Samples & samples);
 };
 
 #endif /* WAVEFILEANALIZATOR_H_ */

@@ -52,9 +52,8 @@ TEST_F(ProcessorTest, changesSamplesWhenFiltersAreAdded) {
 	values[2] = 0.16;
 	values[3] =  0.130;
 	samples.setSampleListData(4, values);
-	ConstantAddingTestFilter filter(0.5);
 	Processor preprocessor;
-	preprocessor.addToFilterChain(filter);
+	preprocessor.addToFilterChain(new ConstantAddingTestFilter(0.5));
 
 	//when
 	preprocessor.applyFilterChainOn(samples);

@@ -21,11 +21,13 @@ using namespace std;
 class Processor {
 public:
 	Processor();
-	~Processor();
+	virtual ~Processor();
 	vector<Filter*> filters;
+	/*virtual*/
 	void addToFilterChain(Filter & filter);
+	//virtual
 	void addToFilterChain(Filter * filter);
-	void applyFilterChainOn(Samples & samples);
+    virtual void applyFilterChainOn(Samples & samples);
 	// TODO (optional) Sample applyFilterChain(Samples & samples);
 
 

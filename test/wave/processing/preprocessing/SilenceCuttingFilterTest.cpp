@@ -34,6 +34,7 @@ TEST_F(SilenceCuttingFilterTest, trivialExampleForBeginning) {
 	values[1] = -0.5;
 
 	samples.setSampleListData(2, values);
+	//delete[] values;
 	SilenceCuttingFilter filter(0.1);
 	Processor preprocessor;
 	preprocessor.addToFilterChain(filter);

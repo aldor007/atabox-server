@@ -49,13 +49,13 @@ void init_ProcessAndAnalize(ProcessAndAnalyze &monstru) {
 	firstAnalizator.addProperty(new WhereIsAmplitudeProperty());
 	firstAnalizator.addProperty(new AverageValueProperty());
 
-	monstru.add(std::make_pair(firstProcessor, firstAnalizator ));
+	monstru.add(std::make_pair(&firstProcessor, &firstAnalizator ));
 	Processor secondProssor;
 	secondProssor.addToFilterChain(new HannWindowFilter());
 	secondProssor.addToFilterChain(new FastFourierTransformFilter());
 	SamplesAnalizator secondAnalizator;
 	secondAnalizator.addProperty(new SpectrumProperty());
-	monstru.add(std::make_pair(secondProssor, secondAnalizator));
+	monstru.add(std::make_pair(&secondProssor, &secondAnalizator));
 
 
 

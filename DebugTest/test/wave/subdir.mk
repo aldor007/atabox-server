@@ -5,6 +5,7 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
 ../test/wave/PreprocessorTest.cpp \
+../test/wave/ProcessAndAnalyzeTest.cpp \
 ../test/wave/SamplesTest.cpp \
 ../test/wave/WaveFileMock.cpp \
 ../test/wave/WaveFileTest.cpp \
@@ -12,6 +13,7 @@ CPP_SRCS += \
 
 OBJS += \
 ./test/wave/PreprocessorTest.o \
+./test/wave/ProcessAndAnalyzeTest.o \
 ./test/wave/SamplesTest.o \
 ./test/wave/WaveFileMock.o \
 ./test/wave/WaveFileTest.o \
@@ -19,6 +21,7 @@ OBJS += \
 
 CPP_DEPS += \
 ./test/wave/PreprocessorTest.d \
+./test/wave/ProcessAndAnalyzeTest.d \
 ./test/wave/SamplesTest.d \
 ./test/wave/WaveFileMock.d \
 ./test/wave/WaveFileTest.d \

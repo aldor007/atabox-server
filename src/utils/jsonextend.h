@@ -41,12 +41,16 @@ public:
 					static_cast<web::json::value>(other);
         }
         jsonextend& operator+=(const jsonextend& second) {
+        	if (second.is_null())
+        		return *this;
         	for (auto iter = second.as_object().cbegin(); iter != second.as_object().cend(); iter++)
         	   this->operator [](iter->first) = web::json::value(iter->second);
         	return *this;
         }
         jsonextend operator+(const jsonextend& second) {
         	jsonextend first;
+        	if (second.is_null())
+        		return first;
         	for (auto iter = this->as_object().cbegin(); iter != this->as_object().cend(); iter++)
         	   first[iter->first] = iter->second;
         	for (auto iter = second.as_object().cbegin(); iter != second.as_object().cend(); iter++)
