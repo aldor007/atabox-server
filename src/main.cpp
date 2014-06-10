@@ -319,6 +319,8 @@ int main(int argc, char** argv) {
 		BOOST_LOG_FUNCTION();
 		atabox_log::init_logging(color, atabox_daemon);
 		AtaboxApi mainApi(listen);
+		mainApi.enableStaticFiles();
+
 		mainApi.addMethod("/api/add", handle_add);
 		mainApi.addMethod("/api/execute", handle_execute);
 		mainApi.addMethod("/api/list", handle_list);

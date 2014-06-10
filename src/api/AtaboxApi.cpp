@@ -77,10 +77,37 @@ pplx::task<void> AtaboxApi::close()
   	   LOG(debug)<<"Close listener";
     });
 }
+bool AtaboxApi::staticFilesHandler(http_request& request) {
+	 auto path = request.relative_uri().path();
+	    auto content_data = m_htmlcontentmap.find(path);
+	    if (content_data == m_htmlcontentmap.end())
+	    {
+	        return false;
+	    }
 
+	    auto file_name = std::get<0>(content_data->second);
+	    auto content_type = std::get<1>(content_data->second);
+
+	     concurrency::streams::istream is  = concurrency::streams::fstream::open_istream(file_name, std::ios::in).get();
+
+	      if(!is.is_open())
+	        request.reply(status_codes::InternalError).wait();
+	      else
+	        request.reply(status_codes::OK, is, content_type).then([=](){
+	        LOG(debug)<<"Send file "<<file_name;
+	      });
+	    return true;
+
+}
 void AtaboxApi::commonHandler(http_request& request) {
 
+
+	try
+	{
+
     auto path = request.relative_uri().path();
+
+
     LOG(info)<<"Path "<<path;
     std::string req_method = path;
     std::string req_headers = "";
@@ -100,6 +127,11 @@ void AtaboxApi::commonHandler(http_request& request) {
     }
 
     (handle_fun->second)(request);
+	}
+	catch(std::exception &e) {
+		LOG(fatal)<<"Exception! "<<e.what();
+		request.reply(status_codes::InternalError);
+	}
 }
 // Handler to process HTTP::GET requests.
 // Replies to the request with data.
@@ -108,6 +140,7 @@ void AtaboxApi::handle_get(http_request request)
 
     //request.reply(status_codes::NotFound, U("Method ")).get();//.wait();
 	//return;
+	if(!staticFilesHandler(request))
     commonHandler(request);
 }
 
@@ -116,7 +149,15 @@ void AtaboxApi::handle_get(http_request request)
 // Aggregate location data from different services and reply to the POST request.
 void AtaboxApi::handle_post(http_request request)
 {
+	try
+	{
 	commonHandler(request);
+	}
+	catch(std::exception &e) {
+		LOG(fatal)<<"Exception! "<<e.what();
+		request.reply(status_codes::InternalError);
+	}
+
 }
 
 void AtaboxApi::handle_put(http_request request)
@@ -124,3 +165,15 @@ void AtaboxApi::handle_put(http_request request)
 	commonHandler(request);
 }
 
+void AtaboxApi::enableStaticFiles() {
+	 m_htmlcontentmap[U("/")] = std::make_tuple(U("index.html"), U("text/html"));
+	    m_htmlcontentmap[U("/js/main.js")] = std::make_tuple(U("js/main.js"), U("application/javascript"));
+	    m_htmlcontentmap[U("/js/audiodisplay.js")] = std::make_tuple(U("js/audiodisplay.js"), U("application/javascript"));
+	    m_htmlcontentmap[U("/js/recorderjs/recorder.js")] = std::make_tuple(U("js/recorderjs/recorder.js"), U("application/javascript"));
+	    m_htmlcontentmap[U("/js/recorderjs/recorderWorker.js")] = std::make_tuple(U("js/recorderjs/recorderWorker.js"), U("application/javascript"));
+	    m_htmlcontentmap[U("/css/default.css")] = std::make_tuple(U("css/default.css"), U("text/css"));
+	    m_htmlcontentmap[U("/img/logo.png")] = std::make_tuple(U("img/logo.png"), U("application/octet-stream"));
+	    m_htmlcontentmap[U("/img/mic128.png")] = std::make_tuple(U("img/mic128.png"), U("image/png"));
+	   m_htmlcontentmap[U("/img/save.svg")] = std::make_tuple(U("img/save.svg"), U("image/svg+xml"));
+
+}

@@ -11,6 +11,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <tuple>
 
 #include <boost/log/trivial.hpp>
 
@@ -19,6 +20,9 @@
 #include "cpprest/uri.h"
 #include "pplx/pplxlinux.h"
 #include "pplx/pplxtasks.h"
+#include "cpprest/filestream.h"
+#include "cpprest/containerstream.h"
+#include "cpprest/producerconsumerstream.h"
 
 
 #include <utils/atabox_log.h>
@@ -34,10 +38,12 @@ public:
 	pplx::task<void> close();
 	void addMethod(std::string name, handle_request_fun fun);
 	std::map<utility::string_t, handle_request_fun> getMethods();
+	void enableStaticFiles();
 private:
 	static void handle_error(pplx::task<void>&t);
 	void  inline listenerSetSupports();
 	void inline commonHandler(web::http::http_request&);
+	bool inline staticFilesHandler(web::http::http_request&);
 	void handle_get(web::http::http_request);
 	void handle_post(web::http::http_request);
 	void handle_put(web::http::http_request);
@@ -47,6 +53,7 @@ private:
 	std::string m_port;
 	utility::string_t m_url;
 	web::http::experimental::listener::http_listener m_listener;
+    std::map<utility::string_t, std::tuple<utility::string_t, utility::string_t>> m_htmlcontentmap;
 };
 
 #endif /* ATABOXAPI_H_ */
