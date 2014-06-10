@@ -13,10 +13,19 @@
 using std::string;
 
 class Property {
+protected:
+	double m_weight;
 public:
-	virtual ~Property(){};
+	 Property(double weight = 1.0){
+		m_weight = weight;
+	};
+	virtual ~Property(){
+	};
 	virtual double getValue(const Samples& samples) = 0;
 	virtual string getName() = 0;
+	virtual double getWeight() {
+		return m_weight;
+	}
 
 	//TODO getJSON()
 };

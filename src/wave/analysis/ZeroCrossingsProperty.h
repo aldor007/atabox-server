@@ -12,7 +12,7 @@
 class ZeroCrossingsProperty: public PropertyWithRange {
 public:
 	ZeroCrossingsProperty(double rangeFromPercent = 0, double rangeToPercent =
-			100) : PropertyWithRange(rangeFromPercent, rangeToPercent){
+			100, double weight = 1.0) : PropertyWithRange(rangeFromPercent, rangeToPercent, weight){
 	}
 
 	virtual double getValue(const Samples& samples) {

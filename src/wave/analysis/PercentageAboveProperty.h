@@ -13,7 +13,7 @@ class PercentageAboveProperty: public Property {
 	double treshold;
 
 public:
-	PercentageAboveProperty(double treshold){
+	PercentageAboveProperty(double treshold, double weight = 1.0) : Property(weight) {
 		this->treshold = treshold;
 	}
 	virtual double getValue(const Samples& samples) {
