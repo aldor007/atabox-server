@@ -36,9 +36,6 @@ public:
 	virtual string getName() {
 		return getNameWithRanges("amplitude");
 	}
-	virtual double getWeight() {
-		return 2.0;
-	}
 }
 ;
 
