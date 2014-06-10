@@ -58,22 +58,38 @@
 		#viz { height: 100%; width: 90%;}
 	}
     .method_prop {
-        display-style:none;
+        /*display:none;*/
         overflow: hidden
     }
 </style>
 <script>
-    $( "method_name" )
+    $(document).ready(function() {
+    $( "#method_name" )
       .change(function () {
-          var str = "";
+          var str = $("#method_name").val();
           $( "method_name option:selected" ).each(function() {
             str += $( this ).text() + " ";
         });
         $(".method_prop").hide();
-        $("#" + str).show();
+        console.log(str);
+        if (str == "add") {
+            console.log("add");
+          $("#method_add_properties").show();
+          $("#record").show();
+      }
+      else if(str == "list") {
+            $("#method_add_properties").show();
+            console.log("list");
+            $("#record").hide();
+        }
+            else if (str == "execute") {
+                $("#method_execute_properties").show();
+                $("#record").show();
+            console.log("execute");
+            }
       })
         .change();
-
+    });
 
 </script>
 </head>
@@ -86,7 +102,7 @@
 		<img id="record" src="img/mic128.png" onclick="toggleRecording(this);">
         <a id="save" href="#"><img src="img/save.svg"></a>
         Method
-        <select name="method_name">
+        <select name="method_name" id="method_name">
              <option value="method_add">add</option>
                     <option value="method_execute">execute</option>
                         <option value="method_list">list</option>
@@ -99,7 +115,7 @@
     <div id="method_list_properties" class="method_prop">
     </div>
 
-    <div id="method_list_execute" class="method_prop">
+    <div id="method_execute_properties" class="method_prop">
     </div>
 
 
