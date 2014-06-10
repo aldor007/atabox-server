@@ -67,28 +67,56 @@
     $( "#method_name" )
       .change(function () {
           var str = $("#method_name").val();
-          $( "method_name option:selected" ).each(function() {
-            str += $( this ).text() + " ";
-        });
         $(".method_prop").hide();
         console.log(str);
-        if (str == "add") {
+        if (str == "method_add") {
             console.log("add");
           $("#method_add_properties").show();
           $("#record").show();
       }
-      else if(str == "list") {
-            $("#method_add_properties").show();
+      else if(str == "method_list") {
+            $("#method_list_properties").show();
             console.log("list");
             $("#record").hide();
+          $("#method_add_properties").hide();
+
         }
-            else if (str == "execute") {
+            else if (str == "method_execute") {
                 $("#method_execute_properties").show();
                 $("#record").show();
             console.log("execute");
             }
       })
         .change();
+    
+    $("#getlist").click(function() {
+    $.ajax({
+        url: 'api/list',
+       type: "GET",
+      success: function(data){ // trigger when request was successfull
+        $("#list_json").text(JSON.stringify(data));
+    
+        },
+      error: function(data) {
+        alert("error " + JSON.stringify(data));
+    console.log("atabo" + data);
+      },
+     complete: function(data) {
+     
+    console.log("end" + data);
+     } // when request is completed -no matter if the error or not
+      // callbacks are of course not mandatory
+      }).done(function( data ) {
+        if ( console && console.log ) {
+              console.log( "Sample of data:" + JSON.stringify(data) );
+            }
+      });
+    
+    });
+    
+    
+    
+    
     });
 
 </script>
@@ -113,6 +141,8 @@
         <input type="text" id="commandargs" name="commandargs" value=""/>
     </div>
     <div id="method_list_properties" class="method_prop">
+        <button type="button" id="getlist" name="List">Get list</button>
+        <pre id="list_json"></pre>
     </div>
 
     <div id="method_execute_properties" class="method_prop">

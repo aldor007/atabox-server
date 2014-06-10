@@ -58,11 +58,17 @@ function doneEncoding( blob ) {
     recIndex++;
 }
 function postData(name, command, commandargs, blob) {
-
-    var ataboxurl = "api/add?name=" + encodeURIComponent(name) + "&command="+
+    var ataboxurl;
+    if ($( "#method_name" ).val() == "method_add")
+      {ataboxurl = "api/add?name=" + encodeURIComponent(name) + "&command="+
         encodeURIComponent(command);
     if (commandargs != "")
         ataboxurl += "&commandargs="+encodeURIComponent(commandargs);
+      
+      }
+    else {
+        ataboxurl = "api/execute";
+    }
     console.log("Data size" + blob.size);
     var fd = new FormData();
     fd.append('data', blob);
@@ -77,12 +83,12 @@ function postData(name, command, commandargs, blob) {
       console.log("beforesend");  
      },
       success: function(data){ // trigger when request was successfull
-        alert("Succes " + data);
+        alert("Success " + JSON.stringify(data));
     console.log("atabo" + data);
         },
       error: function(data) {
-        alert("error " + data);
-    console.log("atabo" + data);
+        alert("Error " + JSON.stringify(data));
+    console.log("" + data);
       },
      complete: function(data) {
      
@@ -91,7 +97,7 @@ function postData(name, command, commandargs, blob) {
       // callbacks are of course not mandatory
       }).done(function( data ) {
         if ( console && console.log ) {
-              console.log( "Sample of data:", data.slice( 0, 100 ) );
+              console.log( "Sample of data:", JSON.stringify(data) );
             }
       });
     ;

@@ -139,7 +139,8 @@ void AtaboxApi::commonHandler(http_request& request) {
 	}
 	catch(std::exception &e) {
 		LOG(fatal)<<"Exception! "<<e.what();
-		request.reply(status_codes::InternalError);
+		request.reply(status_codes::InternalError).wait();
+		return;
 	}
 }
 // Handler to process HTTP::GET requests.
@@ -164,7 +165,7 @@ void AtaboxApi::handle_post(http_request request)
 	}
 	catch(std::exception &e) {
 		LOG(fatal)<<"Exception! "<<e.what();
-		request.reply(status_codes::InternalError);
+		request.reply(status_codes::InternalError).wait();
 	}
 
 }
