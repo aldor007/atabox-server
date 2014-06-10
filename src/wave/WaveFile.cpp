@@ -55,12 +55,12 @@ WaveFile::WaveFile(const char * filename) {
 	loadFromFile(filename);
 }
 
-WaveFile::WaveFile(uint8_t * tmpdata) {
-	loadFromMemory(tmpdata);
+WaveFile::WaveFile(uint8_t * tmpdata, uint32_t content_len) {
+	loadFromMemory(tmpdata, content_len);
 
 }
 
-void WaveFile::loadFromMemory(uint8_t *tmpData) {
+void WaveFile::loadFromMemory(uint8_t *tmpData, uint32_t content_len) {
 
 
 	uint32_t currentIndex = 0;
@@ -85,7 +85,7 @@ void WaveFile::loadFromMemory(uint8_t *tmpData) {
 	std::memcpy(subchunk2Id, tmpData + currentIndex, 4 );
 	currentIndex += 4;
 	//TODO: throw error after x attemp find data
-	while (strncmp(subchunk2Id, "data", 4) != 0){
+	while (strncmp(subchunk2Id, "data", 4) != 0 && currentIndex < content_len){
 		currentIndex -= 3;
 		std::memcpy(subchunk2Id, tmpData + currentIndex, 4);
 		currentIndex += 4;

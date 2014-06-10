@@ -37,7 +37,7 @@ public:
 	pplx::task<void> open();
 	pplx::task<void> close();
 	void addMethod(std::string name, handle_request_fun fun);
-	std::map<utility::string_t, handle_request_fun> getMethods();
+	std::map<utility::string_t, handle_request_fun> getMethods() const;
 	void enableStaticFiles();
 private:
 	static void handle_error(pplx::task<void>&t);
@@ -48,7 +48,6 @@ private:
 	void handle_post(web::http::http_request);
 	void handle_put(web::http::http_request);
 	std::map<utility::string_t, handle_request_fun> m_router;
-	static std::string m_apiMainPath;
 	std::string m_host;
 	std::string m_port;
 	utility::string_t m_url;

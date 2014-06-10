@@ -10,7 +10,8 @@ using namespace web;
 using namespace http;
 using namespace utility;
 using namespace http::experimental::listener;
-std::string AtaboxApi::m_apiMainPath = "/api/";
+#include <sys/stat.h>
+
 
 AtaboxApi::AtaboxApi(std::string host, std::string port) {
 	m_url = U("http://");
@@ -43,7 +44,7 @@ AtaboxApi::~AtaboxApi() {
 	m_listener.close();
 }
 
-std::map<utility::string_t, handle_request_fun> AtaboxApi::getMethods() {
+std::map<utility::string_t, handle_request_fun> AtaboxApi::getMethods() const{
 	return m_router;
 }
 void AtaboxApi::handle_error(pplx::task<void>& t)
@@ -87,6 +88,14 @@ bool AtaboxApi::staticFilesHandler(http_request& request) {
 
 	    auto file_name = std::get<0>(content_data->second);
 	    auto content_type = std::get<1>(content_data->second);
+	    struct stat buffer;
+
+	    if (stat (file_name.c_str(), &buffer) != 0) {
+
+	    	LOG(error) <<"File not found "<<file_name;
+	    	request.reply(status_codes::NotFound, U("File " + file_name + " not found ")).wait();
+	    	return true;
+	    }
 
 	     concurrency::streams::istream is  = concurrency::streams::fstream::open_istream(file_name, std::ios::in).get();
 

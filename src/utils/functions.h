@@ -38,25 +38,25 @@
 void init_ProcessAndAnalize(ProcessAndAnalyze &monstru) {
 
 
-	Processor firstProcessor;
-	firstProcessor.addToFilterChain(new NormalizingFilter(1.0));
-	firstProcessor.addToFilterChain(new SilenceCuttingFilter(0.02));
-	SamplesAnalizator  firstAnalizator;// = new SamplesAnalizator();
-	firstAnalizator.addProperty(new AmplitudeProperty());
-	firstAnalizator.addProperty(new LengthProperty());
-	firstAnalizator.addProperty(new ZeroCrossingsProperty());
-	firstAnalizator.addProperty(new PercentageAboveProperty(0.5));
-	firstAnalizator.addProperty(new WhereIsAmplitudeProperty());
-	firstAnalizator.addProperty(new AverageValueProperty());
+	Processor * firstProcessor = new Processor();
+	firstProcessor->addToFilterChain(new NormalizingFilter(1.0));
+	firstProcessor->addToFilterChain(new SilenceCuttingFilter(0.02));
+	SamplesAnalizator * firstAnalizator = new SamplesAnalizator();
+	firstAnalizator->addProperty(new AmplitudeProperty());
+	firstAnalizator->addProperty(new LengthProperty());
+	firstAnalizator->addProperty(new ZeroCrossingsProperty());
+	firstAnalizator->addProperty(new PercentageAboveProperty(0.5));
+	firstAnalizator->addProperty(new WhereIsAmplitudeProperty());
+	firstAnalizator->addProperty(new AverageValueProperty());
 
-	monstru.add(std::make_pair(&firstProcessor, &firstAnalizator ));
-	Processor secondProssor;
-	secondProssor.addToFilterChain(new HannWindowFilter());
-	secondProssor.addToFilterChain(new FastFourierTransformFilter());
-	SamplesAnalizator secondAnalizator;
-	secondAnalizator.addProperty(new SpectrumProperty());
-	monstru.add(std::make_pair(&secondProssor, &secondAnalizator));
-
+	monstru.add(std::make_pair(firstProcessor, firstAnalizator ));
+	/*Processor * secondProssor = new Processor();
+	secondProssor->addToFilterChain(new HannWindowFilter());
+	secondProssor->addToFilterChain(new FastFourierTransformFilter());
+	SamplesAnalizator * secondAnalizator = new SamplesAnalizator();
+	secondAnalizator->addProperty(new SpectrumProperty());
+	monstru.add(std::make_pair(secondProssor, secondAnalizator));
+*/
 
 
 }

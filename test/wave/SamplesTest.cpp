@@ -37,7 +37,7 @@ TEST_F(SamplesTest, canHandleWaveFile8bitsReadedFromMemory) {
 	for (uint8_t i = 44; i < size; i++) {
 		tmpData[i] = i;
 	}
-	WaveFile waveFile(tmpData);
+	WaveFile waveFile(tmpData, 200);
 	ASSERT_EQ(waveFile.getBitsPerSample(), bitspersample);
 	int32_t maxOfRange = WaveUtils::getMaxOfRange(bitspersample);
 	double result = (double)(((int32_t)currentIndex - 128)/maxOfRange);
@@ -74,7 +74,7 @@ TEST_F(SamplesTest, canHandleWaveFile32bitsReadedFromMemory) {
 		int32_t tmpValue = i * (-1) * i%2;
 		std::memcpy(tmpData + i, &tmpValue, 4);
 	}
-	WaveFile waveFile(tmpData);
+	WaveFile waveFile(tmpData, 204);
 	ASSERT_EQ(waveFile.getBitsPerSample(), bitspersample);
 	for (uint8_t i = 0; i< waveFile.getNumberOfSamples(); i++) {
 				ASSERT_LE(waveFile[i], 800);

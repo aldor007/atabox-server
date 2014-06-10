@@ -17,7 +17,10 @@ public:
 
 		}
 		bool operator<( const jsonextend& other) const {
-			if (this->size() > other.size())
+			jsonextend tmp = other;
+			jsonextend tmpthis = *this;
+			if (tmpthis["length"].as_double() < tmp["length"].as_double()) //FIXME: naprawic
+
 				return true;
 			return false;
 		}

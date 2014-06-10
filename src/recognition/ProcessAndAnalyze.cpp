@@ -18,9 +18,9 @@ void ProcessAndAnalyze::add(std::pair<Processor*, SamplesAnalizator*> item) {
 jsonextend ProcessAndAnalyze::getSummary(Samples & samples) {
 	jsonextend result;
 	for (int i = 0; i < m_list.size(); i++) {
-		//if (m_list[i].first != nullptr)
+		if (m_list[i].first != nullptr)
 			m_list[i].first->applyFilterChainOn(samples);
-		// if (m_list[i].second != nullptr)
+		 if (m_list[i].second != nullptr)
 			 result  += m_list[i].second->getPropertiesSummary(samples);
 
 	}

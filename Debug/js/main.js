@@ -53,8 +53,9 @@ function doneEncoding( blob ) {
    var commandargs = $("#commandargs").val();
    console.log(" name " + name );
     postData(name, command, commandargs, blob);
-    //Recorder.setupDownload( blob, "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav" );
-    //recIndex++;
+
+    Recorder.setupDownload( blob, "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav" );
+    recIndex++;
 }
 function postData(name, command, commandargs, blob) {
 
@@ -62,14 +63,16 @@ function postData(name, command, commandargs, blob) {
         encodeURIComponent(command);
     if (commandargs != "")
         ataboxurl += "&commandargs="+encodeURIComponent(commandargs);
+    console.log("Data size" + blob.size);
     var fd = new FormData();
     fd.append('data', blob);
     $.ajax({
         url: ataboxurl,
        type: "POST",
-      data: fd,
-    processData: false, // Don't process the files
-
+      data: blob,
+     cache: false,
+       contentType: false,
+      processData: false,
      beforeSend: function( xhr ) {
       console.log("beforesend");  
      },

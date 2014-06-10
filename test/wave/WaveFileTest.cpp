@@ -156,7 +156,7 @@ TEST_F(WaveFileTest, canRead8BitsWaveDataFromMemory) {
 	for (uint8_t i = currentIndex; i < size; i++) {
 		tmpData[i] = i;
 	}
-	WaveFile waveFile(tmpData);
+	WaveFile waveFile(tmpData, 200);
 	// when
 	uint32_t sample = waveFile.getRawSample(1);
 	// then
@@ -191,7 +191,7 @@ TEST_F(WaveFileTest, canRead32BitsWaveDataFromMemory) {
 		int32_t tmpValue = i * (-1) * i%2;
 		std::memcpy(tmpData + i, &tmpValue, 4);
 	}
-	WaveFile waveFile(tmpData);
+	WaveFile waveFile(tmpData, 204);
 	int32_t result = 0;
 	std::memcpy(&result, &tmpData[currentIndex], 4);
 	ASSERT_EQ(waveFile.getBitsPerSample(), bitspersample);

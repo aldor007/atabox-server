@@ -100,7 +100,7 @@ void handle_add(web::http::http_request& request) {
 				content_lenght);
 		//body.read_to_end(buffer).get();
 		body.read(buffer, content_lenght).get();
-		WaveFile wave(waveData);
+		WaveFile wave(waveData, content_lenght);
 		delete[] waveData;
 		Samples waveSamples(wave);
 		jsonextend wavepropertiesJSON = g_processAndAnlyze.getSummary(waveSamples);
@@ -147,7 +147,7 @@ void handle_execute(web::http::http_request& request) {
 	Concurrency::streams::rawptr_buffer<uint8_t> buffer(waveData,
 			content_lenght);
 	body.read(buffer, content_lenght).get();
-	WaveFile wave(waveData);
+	WaveFile wave(waveData, content_lenght);
 	delete[] waveData;
 	Samples waveSamples(wave);
 	jsonextend wavePropertiesJSON = g_processAndAnlyze.getSummary(waveSamples);

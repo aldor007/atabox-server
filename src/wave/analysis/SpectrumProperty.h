@@ -26,7 +26,6 @@ private:
 
           for (uint32_t i = 0; i <len; i++)	{
               m_magnitude[i] = std::abs(samples[i]);
-        	  LOG(debug)<<"magintude "<<m_magnitude[i];
 
                 }
 
