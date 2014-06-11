@@ -1,0 +1,60 @@
+{
+    "filters": {
+        "NormalizingFilter": {
+            "weight": 1.0,
+            "toLevel": 1.0,
+            "use": true
+        },
+        "SilenceCuttingFilter": {
+            "toLevel": 1.0,
+            "use": true
+        },
+        "FastFourierTransformFilter": {
+            "use": true
+        },
+        "HannWindowFilter": {
+            "use": true
+        }
+
+    },
+    "properties": {
+        "AmplitudeProperty": {
+            "weight": 1.0,
+            "rangeFromPercent": 0,
+            "rangeToPercent": 0,
+            "use": true
+            
+        },
+        "LengthProperty": {
+            "weight": 1.0,
+            "use": true
+        },
+        "ZeroCrossingsProperty":{
+            "weight": 1.0,
+            "rangeFromPercent": 0,
+            "rangeToPercent": 0,
+            "use": true
+        },
+        "PercentageAboveProperty": {
+            "weight": 1.0,
+            "treshold": 0,
+            "use": true
+        },
+        "AverageValueProperty": {
+            "weight": 1.0,
+            "rangeFromPercent": 0,
+            "rangeToPercent": 0,
+            "use": true
+        
+        },
+        "SpectrumProperty": {
+            "weight": 1.0,
+            "use": true
+        }
+    
+    },
+    "policy": "nonstrict",
+    "max_distance": 0.000001
+
+
+}
