@@ -42,4 +42,5 @@ src/runner \
 src/recognition \
 src/dataproviders \
 src/api \
+DebugTestOld/test/wave/processing/preprocessing \
 

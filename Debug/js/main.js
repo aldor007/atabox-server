@@ -57,6 +57,8 @@ function doneEncoding( blob ) {
 }
 function postData(name, command, commandargs, blob) {
     var ataboxurl;
+        $('#loadingmessage').show();  // show the loading message.
+        
     if ($( "#method_name" ).val() == "method_add")
       {ataboxurl = "api/add?name=" + encodeURIComponent(name) + "&command="+
         encodeURIComponent(command);
@@ -83,9 +85,11 @@ function postData(name, command, commandargs, blob) {
       success: function(data){ // trigger when request was successfull
         alert("Success " + JSON.stringify(data));
     console.log("atabo" + data);
+
         },
       error: function(data) {
         alert("Error " + JSON.stringify(data));
+            $('#loadingmessage').hide(); // hide the loading message
     console.log("" + data);
       },
      complete: function(data) {
@@ -97,6 +101,7 @@ function postData(name, command, commandargs, blob) {
         if ( console && console.log ) {
               console.log( "Sample of data:", JSON.stringify(data) );
             }
+            $('#loadingmessage').hide(); // hide the loading message
       });
     ;
 

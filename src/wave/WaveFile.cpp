@@ -7,6 +7,7 @@
 
 #include "wave/Samples.h"
 #include "utils/ataboxexception.h"
+#include <sstream>      // std::ostringstream
 
 #include <fstream>
 void WaveFile::readRIFFChunkDescriptor(FILE* file) {
@@ -95,6 +96,13 @@ void WaveFile::loadFromMemory(uint8_t *tmpData, uint32_t content_len) {
 	std::memcpy(&subchunk2Size, &tmpData[currentIndex], 4);
 	currentIndex += 4;
 	data = new char[subchunk2Size];
+	if (numberOfChanels == 0 )
+		numberOfChanels = 1;
+	if (bytePerSample == 0) {
+		std::ostringstream ss;
+		ss<<currentIndex;
+		throw ataboxExeption(std::string("Wrong wave byte per sample 0. Current index ") + ss.str());
+	}
 	numberOfSamples = subchunk2Size / (bytePerSample * numberOfChanels);
 	if (currentIndex + subchunk2Size > content_len )
 		throw ataboxExeption("Error. Wrong wave file?");

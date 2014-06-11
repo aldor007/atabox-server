@@ -185,6 +185,6 @@ void AtaboxApi::enableStaticFiles() {
 	    m_htmlcontentmap[U("/css/default.css")] = std::make_tuple(U("css/default.css"), U("text/css"));
 	    m_htmlcontentmap[U("/img/logo.png")] = std::make_tuple(U("img/logo.png"), U("application/octet-stream"));
 	    m_htmlcontentmap[U("/img/mic128.png")] = std::make_tuple(U("img/mic128.png"), U("image/png"));
-	   m_htmlcontentmap[U("/img/save.svg")] = std::make_tuple(U("img/save.svg"), U("image/svg+xml"));
+	   m_htmlcontentmap[U("/img/load.gif")] = std::make_tuple(U("img/load.gif"), U("image/gifl"));
 
 }
