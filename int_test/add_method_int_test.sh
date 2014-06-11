@@ -1,4 +1,4 @@
-if [ $# -eq 2 ]; then
+if [ $# -eq 3 ]; then
     host=$1
     port=$2
     file_name=$3

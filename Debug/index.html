@@ -14,7 +14,7 @@
 		font: 14pt Arial, sans-serif; 
 		background: lightgrey;
 		display: flex;
-		flex-direction: column;
+		flex-direction: row;
 		height: 100vh;
 		width: 100%;
 		margin: 0 0;
@@ -68,8 +68,35 @@
 	}
     .method_prop {
         /*display:none;*/
-        overflow: hidden
+        overflow: hidden;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;
     }
+    #left, #right {
+    float: left;
+}
+select, input,textarea {
+  border: solid 1px #888;
+    display: block;
+  font: normal 1.4em Arial;
+    max-width: 100% !important;
+  margin: 0.2em 0 !important;
+    padding: 0.1em 0 !important;
+  text-indent: 0 !important;
+    white-space: nowrap;
+  text-overflow:ellipsis;
+    width: 98% !important;
+  outline: none;
+    word-wrap: break-word;
+  word-wrap: break-all;
+    white-space: nowrap;
+  ms-box-sizing:content-box;
+    -moz-box-sizing:content-box;
+  -webkit-box-sizing:content-box;
+    box-sizing:content-box; 
+}
 </style>
 <script>
     $(document).ready(function() {
@@ -98,16 +125,21 @@
       })
         .change();
     
-    $("#getlist").click(function() {
+        $("#getlist").click(function() {
+                $('#loadingmessage').show();  // show the loading message.
+
     $.ajax({
         url: 'api/list',
        type: "GET",
       success: function(data){ // trigger when request was successfull
-        $("#list_json").text(JSON.stringify(data));
+          $("#list_json").text(JSON.stringify(data, null, 4));
+                      $('#loadingmessage').hide(); // hide the loading message
+
     
         },
       error: function(data) {
         alert("error " + JSON.stringify(data));
+            $('#loadingmessage').hide(); // hide the loading message
     console.log("atabo" + data);
       },
      complete: function(data) {
@@ -117,8 +149,9 @@
       // callbacks are of course not mandatory
       }).done(function( data ) {
         if ( console && console.log ) {
-              console.log( "Sample of data:" + JSON.stringify(data) );
+              console.log( "Sample of data:" + JSON.stringify(data,  null, 4) );
             }
+            $('#loadingmessage').hide(); // hide the loading message
       });
     
     });
@@ -134,13 +167,13 @@
 	<div id="viz">
 		<canvas id="analyser" width="1024" height="500"></canvas>
 		<canvas id="wavedisplay" width="1024" height="500"></canvas>
-	</div>
+    </div>
+<div id="right">
 	<div id="controls">
 		<img id="record" src="img/mic128.png" onclick="toggleRecording(this);">
-        <a id="save" href="#"><img src="img/save.svg"></a>
     </div>
     <div id="methods">
-        <h1>Methods:</h1>
+        <h4>Methods:</h4>
         <select name="method_name" id="method_name">
              <option value="method_add">add</option>
              <option value="method_execute">execute</option>
@@ -153,12 +186,15 @@
         </div>
         <div id="method_list_properties" class="method_prop">
             <button type="button" id="getlist" name="List">Get list</button>
-            <pre id="list_json"></pre>
+            <textarea id="list_json" rows="4" cols="20"></textarea>
         </div>
 
         <div id="method_execute_properties" class="method_prop">
         </div>
+        <div id='loadingmessage' style='display:none'>
+              <img src='img/load.gif' alt="load"/>
+          </div>
     </div>
-
+</div>
 </body>
 </html>
