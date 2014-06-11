@@ -22,7 +22,7 @@ protected:
 		return round(
 				(samples.getNumberOfSamples() - 1) * rangeToPercent / 100.0);
 	}
-	PropertyWithRange(double rangeFromPercent, double rangeToPercent) {
+	PropertyWithRange(double rangeFromPercent, double rangeToPercent, double weight = 1.0): Property(weight) {
 		this->rangeFromPercent = rangeFromPercent;
 		this->rangeToPercent = rangeToPercent;
 	}
@@ -35,7 +35,6 @@ protected:
 	}
 
 public:
-
 	virtual ~PropertyWithRange();
 };
 

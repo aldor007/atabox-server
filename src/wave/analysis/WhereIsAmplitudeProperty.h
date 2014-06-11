@@ -14,7 +14,9 @@
 class WhereIsAmplitudeProperty: public Property {
 
 public:
+	WhereIsAmplitudeProperty(double weight = 1.0):Property(weight) {
 
+	}
 	virtual double getValue(const Samples& samples) {
 
 		double indexOfAmplitude = 0;

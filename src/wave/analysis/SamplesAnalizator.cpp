@@ -27,7 +27,9 @@ jsonextend SamplesAnalizator::getPropertiesSummary(Samples& samples) {
     jsonextend result;
 
 	for (int i = 0; i < properties.size(); ++i) {
-			double value = properties[i]->getValue(samples);
+			double value = properties[i]->getValue(samples) * properties[i]->getWeight();
+			if (std::abs(value) != std::abs(value))
+				value = 0;
 			string name = properties[i]->getName();
 			result[name] = web::json::value::number(value);
 		}

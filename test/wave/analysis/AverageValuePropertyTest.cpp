@@ -45,6 +45,16 @@ TEST_F(AverageValuePropertyTest, returnsCorrectNameForAllSamples) {
 	//then
 	ASSERT_STRCASEEQ("averageValue_from_0_to_100_percent", name.c_str());
 }
+TEST_F(AverageValuePropertyTest, returnsCorrectWeight) {
+	//given
+	AverageValueProperty property(0, 100, 2.0);
+
+	//when
+	double weight = property.getWeight();
+
+	//then
+	ASSERT_EQ(weight, 2.0);
+}
 
 
 TEST_F(AverageValuePropertyTest, returnCorrectValueOfPropertyForPartOfSamples) {

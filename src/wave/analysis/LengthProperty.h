@@ -10,6 +10,9 @@
 #include "Property.h"
 class LengthProperty: public Property {
 public:
+	LengthProperty(double weight = 1.): Property(weight) {
+
+	}
 	virtual double getValue(const Samples& samples) {
 		return samples.getLenghtInSeconds();
 	}

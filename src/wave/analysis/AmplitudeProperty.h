@@ -12,10 +12,13 @@
 class AmplitudeProperty: public PropertyWithRange {
 public:
 
-	AmplitudeProperty(double rangeFromPercent = 0, double rangeToPercent = 100) :
-			PropertyWithRange(rangeFromPercent, rangeToPercent) {
+	AmplitudeProperty(double rangeFromPercent = 0, double rangeToPercent = 100, double weight = 1.0) :
+			PropertyWithRange(rangeFromPercent, rangeToPercent, weight) {
 	}
 
+	AmplitudeProperty(double weight ) :
+			PropertyWithRange(0, 100, weight) {
+	}
 	virtual double getValue(const Samples& samples) {
 
 		double result = 0.0;
@@ -33,7 +36,6 @@ public:
 	virtual string getName() {
 		return getNameWithRanges("amplitude");
 	}
-
 }
 ;
 

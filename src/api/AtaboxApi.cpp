@@ -139,7 +139,8 @@ void AtaboxApi::commonHandler(http_request& request) {
 	}
 	catch(std::exception &e) {
 		LOG(fatal)<<"Exception! "<<e.what();
-		request.reply(status_codes::InternalError);
+		request.reply(status_codes::InternalError).wait();
+		return;
 	}
 }
 // Handler to process HTTP::GET requests.
@@ -164,7 +165,7 @@ void AtaboxApi::handle_post(http_request request)
 	}
 	catch(std::exception &e) {
 		LOG(fatal)<<"Exception! "<<e.what();
-		request.reply(status_codes::InternalError);
+		request.reply(status_codes::InternalError).wait();
 	}
 
 }
@@ -177,6 +178,7 @@ void AtaboxApi::handle_put(http_request request)
 void AtaboxApi::enableStaticFiles() {
 	 m_htmlcontentmap[U("/")] = std::make_tuple(U("index.html"), U("text/html"));
 	    m_htmlcontentmap[U("/js/main.js")] = std::make_tuple(U("js/main.js"), U("application/javascript"));
+	    m_htmlcontentmap[U("/js/jquery-2.1.1.min.js")] = std::make_tuple(U("js/jquery-2.1.1.min.js"), U("application/javascript"));
 	    m_htmlcontentmap[U("/js/audiodisplay.js")] = std::make_tuple(U("js/audiodisplay.js"), U("application/javascript"));
 	    m_htmlcontentmap[U("/js/recorderjs/recorder.js")] = std::make_tuple(U("js/recorderjs/recorder.js"), U("application/javascript"));
 	    m_htmlcontentmap[U("/js/recorderjs/recorderWorker.js")] = std::make_tuple(U("js/recorderjs/recorderWorker.js"), U("application/javascript"));
