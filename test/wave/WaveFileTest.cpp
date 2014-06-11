@@ -7,13 +7,14 @@
 
 #include "wave/WaveFile.h"
 #include "gtest/gtest.h"
+#include "utils/ataboxexception.h"
 
 class WaveFileTest: public ::testing::Test {
 
 };
 
 TEST_F(WaveFileTest, throwsExceptionWhenFileDoesNotExist) {
-	ASSERT_THROW(WaveFile("nonExistingFile.wav"), std::bad_alloc);
+	ASSERT_THROW(WaveFile("nonExistingFile.wav"), ataboxExeption);
 }
 
 TEST_F(WaveFileTest, doesntThrowExceptionWhenFileExists) {
@@ -150,7 +151,7 @@ TEST_F(WaveFileTest, canRead8BitsWaveDataFromMemory) {
 	uint16_t numOfChannels = 1;
 	std::memcpy(tmpData + 22, &numOfChannels, 2);
 
-	uint32_t subchunk2size = size - currentIndex;
+	uint32_t subchunk2size = size - currentIndex - 4;
 	std::memcpy(tmpData + currentIndex, &subchunk2size, 4);
 	currentIndex += 4;
 	for (uint8_t i = currentIndex; i < size; i++) {

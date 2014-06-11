@@ -27,7 +27,6 @@ RM := rm -rf
 -include src/recognition/subdir.mk
 -include src/dataproviders/subdir.mk
 -include src/api/subdir.mk
--include DebugTestOld/test/wave/processing/preprocessing/subdir.mk
 -include subdir.mk
 -include objects.mk
 
