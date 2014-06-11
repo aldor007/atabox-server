@@ -74,6 +74,10 @@ public:
 
         	return first;
         }
+        jsonextend& operator=(const web::json::value & second) {
+        	*this = second;
+        	return *this;
+        }
 };
 
 

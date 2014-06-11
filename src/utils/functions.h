@@ -7,6 +7,7 @@
 
 #ifndef FUNCTIONS_H_
 #define FUNCTIONS_H_
+#include <sys/stat.h>
 
 #include "wave/analysis/Property.h"
 
@@ -30,6 +31,7 @@
 
 #include "wave/processing/postprocessing/HannWindowFilter.h"
 #include "wave/processing/postprocessing/FastFourierTransformFilter.h"
+
 
 
 
@@ -61,5 +63,68 @@ void init_ProcessAndAnalize(ProcessAndAnalyze &monstru) {
 
 
 }
+class Config {
+private:
+	static web::json::value m_config;
+        typedef std::vector<std::pair<utility::string_t, web::json::value>> storage_type;
+        typedef storage_type::iterator iterator;
+        typedef storage_type::const_iterator const_iterator;
+	std::string get_file_contents(std::string filename)
+	{
+	  std::ifstream in(filename.c_str(), std::ios::in | std::ios::binary);
+	  if (in)
+	  {
+	    std::string contents;
+	    in.seekg(0, std::ios::end);
+	    contents.resize(in.tellg());
+	    in.seekg(0, std::ios::beg);
+	    in.read(&contents[0], contents.size());
+	    in.close();
+	    return(contents);
+	  }
+	  throw(errno);
+	}
+public:
+	Config() {
+	}
+	void loadFromFile(std::string filename) {
 
+	    struct stat buffer;
+
+	    if (stat (filename.c_str(), &buffer) != 0) {
+	    	LOG(error)<<"Config file not found! " <<filename;
+	    	setDefaultValues();
+	    	return;
+	    }
+	    	LOG(debug)<<"Confi2g";
+		std::string instring = get_file_contents(filename);
+
+		m_config = web::json::value::parse(instring.c_str());
+		LOG(debug)<<"Loaded config "<<m_config.to_string();
+
+
+	}
+	web::json::value operator[](std::string key) const {
+		return m_config[key];
+	}
+	const_iterator cbegin() {
+		return m_config.as_object().cbegin();
+	}
+	const_iterator cend() {
+		return m_config.as_object().cend();
+	}
+	web::json::value get(std::string key, web::json::value def) {
+		if (m_config[key].is_null())
+			return def;
+		return m_config[key];
+	}
+	void setDefaultValues() {
+        jsonextend tmpobject;
+        /*
+        tmpobject["weight"] = web::json::value::number(1.0);
+        tmpobject["additional"] = web::json::value
+		m_config["NormalizingFilter"] = web::json::value*/
+	}
+};
+web::json::value Config::m_config = web::json::value::parse("{}");
 #endif /* FUNCTIONS_H_ */

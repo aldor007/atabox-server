@@ -65,6 +65,7 @@ std::map<std::string, policy_fun> g_policies;
 extern atabox_log::logger g_log;
 
 ProcessAndAnalyze g_processAndAnlyze;
+Config g_config;
 
 void handle_add(web::http::http_request& request) {
 
@@ -283,13 +284,13 @@ int main(int argc, char** argv) {
 	try {
 		init_ProcessAndAnalize(g_processAndAnlyze);
 
-		std::string listen = "127.0.0.1:8111";
+		std::string listen = "0.0.0.0:8011";
 		namespace po = boost::program_options;
 		po::options_description desc("Options");
 		bool color = false;
 		bool atabox_daemon = false;
 		std::string databasename = "/tmp/atabox.db";
-		std::string configFile;
+		std::string configFile = "";
 		desc.add_options()("help,h", "Print help messages")("listen,l",
 				po::value<std::string>(&listen), " host:port listen ")("config",
 				po::value<std::string>(&configFile), "config file ")("color,c",
@@ -315,6 +316,13 @@ int main(int argc, char** argv) {
 			std::cerr << "ERROR: " << e.what() << std::endl << std::endl;
 			std::cerr << desc << std::endl;
 			return 2;
+		}
+		if (!configFile.empty()) {
+			g_config.loadFromFile(configFile);
+
+		}
+		else {
+			g_config.setDefaultValues();
 		}
 		BOOST_LOG_FUNCTION();
 		atabox_log::init_logging(color, atabox_daemon);
