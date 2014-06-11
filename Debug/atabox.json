@@ -1,19 +1,25 @@
 {
+    "numbers_of_processors": 2,
+    "numbers_of_samplesanalizators": 2,
     "filters": {
         "NormalizingFilter": {
             "weight": 1.0,
             "toLevel": 1.0,
-            "use": true
+            "use": true,
+            "order": 1
         },
         "SilenceCuttingFilter": {
             "toLevel": 1.0,
-            "use": true
+            "use": true,
+            "order": 1
         },
         "FastFourierTransformFilter": {
-            "use": true
+            "use": false,
+            "order": 2
         },
         "HannWindowFilter": {
-            "use": true
+            "use": false,
+            "order": 2
         }
 
     },
@@ -22,34 +28,40 @@
             "weight": 1.0,
             "rangeFromPercent": 0,
             "rangeToPercent": 0,
-            "use": true
+            "use": true,
+            "order": 1
             
         },
         "LengthProperty": {
             "weight": 1.0,
-            "use": true
+            "use": true,
+            "order": 1
         },
         "ZeroCrossingsProperty":{
             "weight": 1.0,
             "rangeFromPercent": 0,
             "rangeToPercent": 0,
-            "use": true
+            "use": true,
+            "order": 1
         },
         "PercentageAboveProperty": {
             "weight": 1.0,
             "treshold": 0,
-            "use": true
+            "use": true,
+            "order": 1
         },
         "AverageValueProperty": {
             "weight": 1.0,
             "rangeFromPercent": 0,
             "rangeToPercent": 0,
-            "use": true
+            "use": true,
+            "order": 1
         
         },
         "SpectrumProperty": {
             "weight": 1.0,
-            "use": true
+            "use": false,
+            "order": 2
         }
     
     },

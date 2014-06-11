@@ -32,37 +32,6 @@
 #include "wave/processing/postprocessing/HannWindowFilter.h"
 #include "wave/processing/postprocessing/FastFourierTransformFilter.h"
 
-
-
-
-
-
-void init_ProcessAndAnalize(ProcessAndAnalyze &monstru) {
-
-
-	Processor * firstProcessor = new Processor();
-	firstProcessor->addToFilterChain(new NormalizingFilter(1.0));
-	firstProcessor->addToFilterChain(new SilenceCuttingFilter(0.2));
-	SamplesAnalizator * firstAnalizator = new SamplesAnalizator();
-	firstAnalizator->addProperty(new AmplitudeProperty(0, 100, 2.2));
-	firstAnalizator->addProperty(new LengthProperty(1.7));
-	firstAnalizator->addProperty(new ZeroCrossingsProperty(0, 100, 1.5));
-	firstAnalizator->addProperty(new ZeroCrossingsProperty(50, 100, 0.5));
-	firstAnalizator->addProperty(new PercentageAboveProperty(0.5, 3.0));
-	firstAnalizator->addProperty(new WhereIsAmplitudeProperty(0.75));
-	firstAnalizator->addProperty(new AverageValueProperty(0, 80, 0.2));
-
-	monstru.add(std::make_pair(firstProcessor, firstAnalizator ));
-	Processor * secondProssor = new Processor();
-	secondProssor->addToFilterChain(new HannWindowFilter());
-	secondProssor->addToFilterChain(new FastFourierTransformFilter());
-	SamplesAnalizator * secondAnalizator = new SamplesAnalizator();
-	secondAnalizator->addProperty(new SpectrumProperty(0.85));
-	monstru.add(std::make_pair(secondProssor, secondAnalizator));
-
-
-
-}
 class Config {
 private:
 	static web::json::value m_config;
@@ -127,4 +96,72 @@ public:
 	}
 };
 web::json::value Config::m_config = web::json::value::parse("{}");
+
+
+
+extern Config g_config;
+
+void init_ProcessAndAnalize(ProcessAndAnalyze &monstru) {
+
+
+	Processor * firstProcessor = new Processor();
+	firstProcessor->addToFilterChain(new NormalizingFilter(1.0));
+	firstProcessor->addToFilterChain(new SilenceCuttingFilter(0.2));
+	SamplesAnalizator * firstAnalizator = new SamplesAnalizator();
+	firstAnalizator->addProperty(new AmplitudeProperty(0, 100, 2.2));
+	firstAnalizator->addProperty(new LengthProperty(1.7));
+	firstAnalizator->addProperty(new ZeroCrossingsProperty(0, 100, 1.5));
+	firstAnalizator->addProperty(new ZeroCrossingsProperty(50, 100, 0.5));
+	firstAnalizator->addProperty(new PercentageAboveProperty(0.5, 3.0));
+	firstAnalizator->addProperty(new WhereIsAmplitudeProperty(0.75));
+	firstAnalizator->addProperty(new AverageValueProperty(0, 80, 0.2));
+
+	monstru.add(std::make_pair(firstProcessor, firstAnalizator ));
+	Processor * secondProssor = new Processor();
+	secondProssor->addToFilterChain(new HannWindowFilter());
+	secondProssor->addToFilterChain(new FastFourierTransformFilter());
+	SamplesAnalizator * secondAnalizator = new SamplesAnalizator();
+	secondAnalizator->addProperty(new SpectrumProperty(0.85));
+	monstru.add(std::make_pair(secondProssor, secondAnalizator));
+
+
+
+}
+void init_ProcessAndAnalizeConfig(ProcessAndAnalyze &monstru) {
+
+	uint16_t processors_ct = g_config.get("number_of_processors",
+	                                       web::json::value::number(1)).as_integer();
+    uint16_t analizators_ct = g_config.get("number_of_analizators",
+	                                       web::json::value::number(2)).as_integer();
+
+
+	Processor **processors = new Processor*[ processors_ct ];
+
+	SamplesAnalizator ** analizators = new SamplesAnalizator*[analizators_ct];
+
+
+
+	Processor * firstProcessor = new Processor();
+	firstProcessor->addToFilterChain(new NormalizingFilter(1.0));
+	firstProcessor->addToFilterChain(new SilenceCuttingFilter(0.2));
+	SamplesAnalizator * firstAnalizator = new SamplesAnalizator();
+	firstAnalizator->addProperty(new AmplitudeProperty(0, 100, 2.2));
+	firstAnalizator->addProperty(new LengthProperty(1.7));
+	firstAnalizator->addProperty(new ZeroCrossingsProperty(0, 100, 1.5));
+	firstAnalizator->addProperty(new ZeroCrossingsProperty(50, 100, 0.5));
+	firstAnalizator->addProperty(new PercentageAboveProperty(0.5, 3.0));
+	firstAnalizator->addProperty(new WhereIsAmplitudeProperty(0.75));
+	firstAnalizator->addProperty(new AverageValueProperty(0, 80, 0.2));
+
+	monstru.add(std::make_pair(firstProcessor, firstAnalizator ));
+	Processor * secondProssor = new Processor();
+	secondProssor->addToFilterChain(new HannWindowFilter());
+	secondProssor->addToFilterChain(new FastFourierTransformFilter());
+	SamplesAnalizator * secondAnalizator = new SamplesAnalizator();
+	secondAnalizator->addProperty(new SpectrumProperty(0.85));
+	monstru.add(std::make_pair(secondProssor, secondAnalizator));
+
+
+
+}
 #endif /* FUNCTIONS_H_ */
