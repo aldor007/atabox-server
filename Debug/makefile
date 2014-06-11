@@ -17,7 +17,6 @@ RM := rm -rf
 -include src/dataproviders/subdir.mk
 -include src/api/subdir.mk
 -include src/subdir.mk
--include DebugTestOld/test/wave/processing/preprocessing/subdir.mk
 -include subdir.mk
 -include objects.mk
 

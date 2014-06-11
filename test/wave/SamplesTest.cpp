@@ -31,7 +31,7 @@ TEST_F(SamplesTest, canHandleWaveFile8bitsReadedFromMemory) {
 	currentIndex += 4;
 	uint16_t numOfChannels = 1;
 	std::memcpy(tmpData + 22, &numOfChannels, 2);
-	uint32_t subchunk2size = size - currentIndex;
+	uint32_t subchunk2size = size - currentIndex - 4;
 	std::memcpy(tmpData + currentIndex, &subchunk2size, 4);
 	currentIndex += 4;
 	for (uint8_t i = 44; i < size; i++) {
@@ -43,7 +43,7 @@ TEST_F(SamplesTest, canHandleWaveFile8bitsReadedFromMemory) {
 	double result = (double)(((int32_t)currentIndex - 128)/maxOfRange);
 
 	Samples test(waveFile);
-	ASSERT_EQ(test.getLenghtInSeconds(), 8./3.);
+	ASSERT_DOUBLE_EQ(test.getLenghtInSeconds(), 2.6);
 	ASSERT_EQ(test.getNumberOfSamples(), subchunk2size);
 	for (uint8_t i = 0; i< test.getNumberOfSamples(); i++) {
 		ASSERT_LE(test.getSample(i), 1.0);
@@ -66,7 +66,7 @@ TEST_F(SamplesTest, canHandleWaveFile32bitsReadedFromMemory) {
 	currentIndex += 4;
 	uint16_t numOfChannels = 1;
 	std::memcpy(tmpData + 22, &numOfChannels, 2);
-	uint32_t subchunk2size = (size - currentIndex)/4;
+	uint32_t subchunk2size = (size - currentIndex - 4 )/4;
 	std::memcpy(tmpData + currentIndex, &subchunk2size, 4);
 	currentIndex += 4;
 

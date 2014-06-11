@@ -6,6 +6,8 @@
  */
 
 #include "wave/Samples.h"
+#include "utils/ataboxexception.h"
+
 #include <fstream>
 void WaveFile::readRIFFChunkDescriptor(FILE* file) {
 	fread(chunkID, 1, 4, file);
@@ -39,8 +41,7 @@ WaveFile::WaveFile() {
 void WaveFile::loadFromFile(const char* filename) {
 	FILE* file = fopen(filename, "r");
 	if (file == NULL) {
-		std::bad_alloc exception;
-		throw exception;
+		throw ataboxExeption("File not found!");
 	}
 	readRIFFChunkDescriptor(file);
 	validateRIFFChunkDescriptor();
@@ -95,6 +96,8 @@ void WaveFile::loadFromMemory(uint8_t *tmpData, uint32_t content_len) {
 	currentIndex += 4;
 	data = new char[subchunk2Size];
 	numberOfSamples = subchunk2Size / (bytePerSample * numberOfChanels);
+	if (currentIndex + subchunk2Size > content_len )
+		throw ataboxExeption("Error. Wrong wave file?");
 	std::memcpy(data, tmpData + currentIndex, subchunk2Size);
 
 }

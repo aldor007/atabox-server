@@ -178,6 +178,7 @@ void AtaboxApi::handle_put(http_request request)
 void AtaboxApi::enableStaticFiles() {
 	 m_htmlcontentmap[U("/")] = std::make_tuple(U("index.html"), U("text/html"));
 	    m_htmlcontentmap[U("/js/main.js")] = std::make_tuple(U("js/main.js"), U("application/javascript"));
+	    m_htmlcontentmap[U("/js/jquery-2.1.1.min.js")] = std::make_tuple(U("js/jquery-2.1.1.min.js"), U("application/javascript"));
 	    m_htmlcontentmap[U("/js/audiodisplay.js")] = std::make_tuple(U("js/audiodisplay.js"), U("application/javascript"));
 	    m_htmlcontentmap[U("/js/recorderjs/recorder.js")] = std::make_tuple(U("js/recorderjs/recorder.js"), U("application/javascript"));
 	    m_htmlcontentmap[U("/js/recorderjs/recorderWorker.js")] = std::make_tuple(U("js/recorderjs/recorderWorker.js"), U("application/javascript"));
