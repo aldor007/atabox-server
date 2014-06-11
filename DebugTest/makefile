@@ -14,6 +14,7 @@ RM := rm -rf
 -include test/wave/analysis/subdir.mk
 -include test/wave/subdir.mk
 -include test/utils/subdir.mk
+-include test/tuningRunners/subdir.mk
 -include test/runner/subdir.mk
 -include test/recognition/subdir.mk
 -include test/dataproviders/subdir.mk
@@ -27,7 +28,6 @@ RM := rm -rf
 -include src/recognition/subdir.mk
 -include src/dataproviders/subdir.mk
 -include src/api/subdir.mk
--include DebugTestOld/test/wave/processing/preprocessing/subdir.mk
 -include subdir.mk
 -include objects.mk
 

@@ -23,10 +23,11 @@ double PropertiesComparator::getDistance(jsonextend newSample,
 		return 10000;
 	if (patternSample.is_null())
 		return 10000;
-	for (auto iter = newSample.as_object().cbegin(); iter != newSample.as_object().cend(); iter++) {
+	for (auto iter = newSample.as_object().cbegin();
+			iter != newSample.as_object().cend(); iter++) {
 		if (iter->first != "name")
-		result += relativeError(iter->second.as_double(), patternSample[iter->first].as_double());
-
+			result += relativeError(iter->second.as_double(),
+					patternSample[iter->first].as_double());
 
 	}
 
@@ -35,5 +36,9 @@ double PropertiesComparator::getDistance(jsonextend newSample,
 
 double PropertiesComparator::relativeError(double newSample,
 		double patternSample) {
-	return fabs(newSample - patternSample) / patternSample;
+	if ((patternSample + newSample) == 0) {
+		return 0;
+	} else {
+		return fabs((newSample - patternSample) / (patternSample + newSample));
+	}
 }
