@@ -142,25 +142,20 @@ void init_ProcessAndAnalizeConfig(ProcessAndAnalyze &monstru) {
 
 
 	Processor * firstProcessor = new Processor();
-	firstProcessor->addToFilterChain(new NormalizingFilter(1.0));
-	firstProcessor->addToFilterChain(new SilenceCuttingFilter(0.2));
-	SamplesAnalizator * firstAnalizator = new SamplesAnalizator();
-	firstAnalizator->addProperty(new AmplitudeProperty(0, 100, 2.2));
-	firstAnalizator->addProperty(new LengthProperty(1.7));
-	firstAnalizator->addProperty(new ZeroCrossingsProperty(0, 100, 1.5));
-	firstAnalizator->addProperty(new ZeroCrossingsProperty(50, 100, 0.5));
-	firstAnalizator->addProperty(new PercentageAboveProperty(0.5, 3.0));
-	firstAnalizator->addProperty(new WhereIsAmplitudeProperty(0.75));
-	firstAnalizator->addProperty(new AverageValueProperty(0, 80, 0.2));
+		firstProcessor->addToFilterChain(new NormalizingFilter(1.0));
+		firstProcessor->addToFilterChain(new SilenceCuttingFilter(0.2));
+		SamplesAnalizator * firstAnalizator = new SamplesAnalizator();
+		int step = 10;
+		for (int i = 0; i < 100; i += step) {
+			firstAnalizator->addProperty(new AmplitudeProperty(i, i + step));
+			firstAnalizator->addProperty(new PercentageAboveProperty(0.01 * i));
+			firstAnalizator->addProperty(new ZeroCrossingsProperty(i, i + step));
+			firstAnalizator->addProperty(new AverageValueProperty(i, i + step));
+		}
+		firstAnalizator->addProperty(new LengthProperty());
+		firstAnalizator->addProperty(new WhereIsAmplitudeProperty());
 
-	monstru.add(std::make_pair(firstProcessor, firstAnalizator ));
-	Processor * secondProssor = new Processor();
-	secondProssor->addToFilterChain(new HannWindowFilter());
-	secondProssor->addToFilterChain(new FastFourierTransformFilter());
-	SamplesAnalizator * secondAnalizator = new SamplesAnalizator();
-	secondAnalizator->addProperty(new SpectrumProperty(0.85));
-	monstru.add(std::make_pair(secondProssor, secondAnalizator));
-
+		monstru.add(std::make_pair(firstProcessor, firstAnalizator));
 
 
 }

@@ -29,6 +29,7 @@ test/wave/processing \
 test/wave/analysis \
 test/wave \
 test/utils \
+test/tuningRunners \
 test/runner \
 test/recognition \
 test/dataproviders \
@@ -42,5 +43,4 @@ src/runner \
 src/recognition \
 src/dataproviders \
 src/api \
-DebugTestOld/test/wave/processing/preprocessing \
 
