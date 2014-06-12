@@ -26,7 +26,6 @@
 external/rocksdb_source
 external/casablance
 /documentation
-/Release
 /DebugTestOld
 /ReleaseTest
 /.project
