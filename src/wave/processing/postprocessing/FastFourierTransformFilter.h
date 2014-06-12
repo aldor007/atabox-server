@@ -26,7 +26,7 @@ public:
 		uint32_t n = samples.numberOfSamples;
 		if (n%2 !=0) n--;
 
-		kissfft<double> FFT(n/4.0, false);
+		kissfft<double> FFT(n, false);
 		FFT.transform(samples.samples, samples.samples );
 
 	}
