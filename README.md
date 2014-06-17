@@ -1,4 +1,4 @@
-# atabox-servrt #
+# atabox-server #
 
 Basic voice command(saved in database) executor.
 
