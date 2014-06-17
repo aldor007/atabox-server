@@ -1,3 +1,4 @@
+[![Build Status](http://j.marcinkaciuba.pl/job/Atabox/badge/icon)](http://j.marcinkaciuba.pl/job/Atabox/)
 # atabox-server #
 
 Basic voice command(saved in database) executor.
