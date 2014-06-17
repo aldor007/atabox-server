@@ -11,7 +11,11 @@ work in progress
 
 #### Summary of set up###
 ```bash
-run atabox_deps.sh
+atabox_deps.sh
+git submodule init
+git submodule update
+make casablanca
+make rocksdb
 ```
 
 ####How to run tests####
