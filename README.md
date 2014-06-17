@@ -1,21 +1,26 @@
-# README #
+# atabox-servrt #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Basic voice command(saved in database) executor.
 
 ### What is this repository for? ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
+work in progress
 ### How do I get set up? ###
 
+
 * Summary of set up
+** run atabox_deps.sh
 * Configuration
+* 
 * Dependencies
 * Database configuration
 * How to run tests
-* Deployment instructions
+```bash
+cd DebugTest
+make clean && make -j 4 all
+cd ..
+./DebugTest/atabox-server
+```
 
 ### Contribution guidelines ###
 
