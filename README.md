@@ -8,13 +8,12 @@ work in progress
 ### How do I get set up? ###
 
 
-* Summary of set up
-** run atabox_deps.sh
-* Configuration
-* 
-* Dependencies
-* Database configuration
-* How to run tests
+#### Summary of set up###
+```bash
+run atabox_deps.sh
+```
+
+####How to run tests####
 ```bash
 cd DebugTest
 make clean && make -j 4 all
