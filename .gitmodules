@@ -1,0 +1,9 @@
+[submodule "external/aquila"]
+	path = external/aquila
+	url = https://github.com/Aldor007/aquila.git
+[submodule "external/rocksdb_source"]
+	path = external/rocksdb_source
+	url = https://github.com/facebook/rocksdb.git
+[submodule "external/casablanca"]
+	path = external/casablanca
+	url = https://git.codeplex.com/casablanca
