@@ -42,7 +42,6 @@
 
 #include "wave/WaveFile.h"
 #include "recognition/PropertiesComparator.h"
-#include "runner/Runner.h"
 #include "utils/execution_policy.h"
 #include "utils/functions.h"
 
@@ -59,7 +58,6 @@ typedef std::string (*policy_fun)(std::map<jsonextend, std::string>&,
 BaseDataProvider<jsonextend, std::string> * g_mainDB;
 auto &g_io_service = crossplat::threadpool::shared_instance().service();
 
-Runner g_runner();
 std::map<std::string, policy_fun> g_policies;
 
 extern atabox_log::logger g_log;
@@ -160,10 +158,8 @@ void handle_execute(web::http::http_request& request) {
 
 	if (!command.empty()) {
 
-		web::json::value cmdResult = Runner::run(command, " ");
 		response["status"] = json::value::string("OK");
 		response["command"] = json::value::string(command);
-		response["command_ret"] = cmdResult;
 		request.reply(status_codes::OK, response).wait();
 		return;
 	}
