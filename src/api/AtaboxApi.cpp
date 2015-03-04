@@ -143,7 +143,7 @@ void AtaboxApi::commonHandler(http_request& request) {
 // Replies to the request with data.
 void AtaboxApi::handle_get(http_request request) {
 
-    if(!staticFilesHandler(requst)) {
+    if(!staticFilesHandler(request)) {
         commonHandler(request);
     }
 }

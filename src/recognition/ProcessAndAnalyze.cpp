@@ -5,7 +5,7 @@
  *      Author: aldor
  */
 
-#include <recognition/ProcessAndAnalyze.h>
+#include "recognition/ProcessAndAnalyze.h"
 
 ProcessAndAnalyze::ProcessAndAnalyze() {
 

@@ -1,21 +1,13 @@
 cmake_minimum_required(VERSION 2.8.11)
-project(atabox-server CXX)
+project(atabox_server CXX)
 
-set(atabox-server_VERSION_MAJOR 1)
-set(atabox-server_VERSION_MINOR 0)
-set(atabox-server_VERSION_PATCH 0)
-set(atabox-server_VERSION_SUFFIX "-dev")
-set(atabox-server_VERSION "${atabox-server_VERSION_MAJOR}.${atabox-server_VERSION_MINOR}.${atabox-server_VERSION_PATCH}${atabox-server_VERSION_SUFFIX}")
+set(atabox_server_VERSION_MAJOR 1)
+set(atabox_server_VERSION_MINOR 0)
+set(atabox_server_VERSION_PATCH 0)
+set(atabox_server_VERSION_SUFFIX "-dev")
+set(atabox_server_VERSION "${atabox_server_VERSION_MAJOR}.${atabox_server_VERSION_MINOR}.${atabox_server_VERSION_PATCH}${atabox_server_VERSION_SUFFIX}")
 
 
-################################################################################
-#
-# Build options
-#
-################################################################################
-
-option(atabox-server_BUILD_EXAMPLES "Build example programs?" ON)
-option(atabox-server_BUILD_TESTS "Build test programs?" ON)
 
 ################################################################################
 #
@@ -23,126 +15,28 @@ option(atabox-server_BUILD_TESTS "Build test programs?" ON)
 #
 ################################################################################
 
-# libraries bundled with atabox-server
+# libraries bundled with atabox_server
 add_subdirectory(external)
-set(atabox-server_LIBRARIES_TO_LINK_WITH )
+set(atabox_server_LIBRARIES_TO_LINK_WITH )
 
 # additional CMake modules
-set(CMAKE_MODULE_PATH "${atabox-server_SOURCE_DIR}/cmake")
-
-# SFML - if available
-#set(SFML_STATIC true)
-find_package(SFML COMPONENTS System Audio)
-if(SFML_FOUND)
-    message("SFML was found, wrappers and examples using SFML will be built.")
-    include_directories(${SFML_INCLUDE_DIR})
-    list(APPEND atabox-server_LIBRARIES_TO_LINK_WITH ${SFML_LIBRARY})
-else()
-    message(WARNING "SFML was not found, wrappers and examples using SFML will not be built.")
-endif()
+set(CMAKE_MODULE_PATH "${atabox_server_SOURCE_DIR}/cmake")
 
 
 ################################################################################
 #
-# atabox-server sources
+# atabox_server sources
 #
 ################################################################################
 
 # library headers
-set(atabox-server_HEADERS
-    aquila/aquila.h
-    aquila/global.h
-    aquila/functions.h
-    aquila/Exceptions.h
-    aquila/source.h
-    aquila/tools.h
-    aquila/transform.h
-    aquila/filter.h
-    aquila/ml.h
-    aquila/filter/MelFilter.h
-    aquila/filter/MelFilterBank.h
-    aquila/ml/DtwPoint.h
-    aquila/ml/Dtw.h
-    aquila/source/SignalSource.h
-    aquila/source/Frame.h
-    aquila/source/FramesCollection.h
-    aquila/source/PlainTextFile.h
-    aquila/source/RawPcmFile.h
-    aquila/source/WaveFile.h
-    aquila/source/WaveFileHandler.h
-    aquila/source/generator/Generator.h
-    aquila/source/generator/SineGenerator.h
-    aquila/source/generator/SquareGenerator.h
-    aquila/source/generator/TriangleGenerator.h
-    aquila/source/generator/PinkNoiseGenerator.h
-    aquila/source/generator/WhiteNoiseGenerator.h
-    aquila/source/window/BarlettWindow.h
-    aquila/source/window/BlackmanWindow.h
-    aquila/source/window/FlattopWindow.h
-    aquila/source/window/GaussianWindow.h
-    aquila/source/window/HammingWindow.h
-    aquila/source/window/HannWindow.h
-    aquila/source/window/RectangularWindow.h
-    aquila/transform/Fft.h
-    aquila/transform/Dft.h
-    aquila/transform/atabox-serverFft.h
-    aquila/transform/OouraFft.h
-    aquila/transform/FftFactory.h
-    aquila/transform/Dct.h
-    aquila/transform/Mfcc.h
-    aquila/transform/Spectrogram.h
-    aquila/tools/TextPlot.h
+set(atabox_server_HEADERS
+
 )
 
 # library sources
-set(atabox-server_SOURCES
-    aquila/filter/MelFilter.cpp
-    aquila/filter/MelFilterBank.cpp
-    aquila/ml/Dtw.cpp
-    aquila/source/SignalSource.cpp
-    aquila/source/Frame.cpp
-    aquila/source/FramesCollection.cpp
-    aquila/source/PlainTextFile.cpp
-    aquila/source/WaveFile.cpp
-    aquila/source/WaveFileHandler.cpp
-    aquila/source/generator/Generator.cpp
-    aquila/source/generator/SineGenerator.cpp
-    aquila/source/generator/SquareGenerator.cpp
-    aquila/source/generator/TriangleGenerator.cpp
-    aquila/source/generator/PinkNoiseGenerator.cpp
-    aquila/source/generator/WhiteNoiseGenerator.cpp
-    aquila/source/window/BarlettWindow.cpp
-    aquila/source/window/BlackmanWindow.cpp
-    aquila/source/window/FlattopWindow.cpp
-    aquila/source/window/GaussianWindow.cpp
-    aquila/source/window/HammingWindow.cpp
-    aquila/source/window/HannWindow.cpp
-    aquila/transform/Dft.cpp
-    aquila/transform/atabox-serverFft.cpp
-    aquila/transform/OouraFft.cpp
-    aquila/transform/FftFactory.cpp
-    aquila/transform/Dct.cpp
-    aquila/transform/Mfcc.cpp
-    aquila/transform/Spectrogram.cpp
-    aquila/tools/TextPlot.cpp
+set(atabox_server_SOURCES
 )
-
-# SFML wrappers
-if(SFML_FOUND)
-    list(APPEND atabox-server_HEADERS
-        aquila/synth.h
-        aquila/wrappers/SoundBufferAdapter.h
-        aquila/synth/Synthesizer.h
-        aquila/synth/KarplusStrongSynthesizer.h
-        aquila/synth/SineSynthesizer.h
-    )
-    list(APPEND atabox-server_SOURCES
-        aquila/wrappers/SoundBufferAdapter.cpp
-        aquila/synth/Synthesizer.cpp
-        aquila/synth/KarplusStrongSynthesizer.cpp
-        aquila/synth/SineSynthesizer.cpp
-    )
-endif()
 
 
 ################################################################################
@@ -171,7 +65,7 @@ endif()
 if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0 -Wall -Wextra -Wcast-qual -Wcast-align -Wno-unused-parameter -Wmissing-include-dirs -Wpointer-arith -Wredundant-decls -Wshadow -fprofile-arcs -ftest-coverage")
     include(CodeCoverage)
-    setup_target_for_coverage(coverage aquila_test htmlcov)
+    setup_target_for_coverage(coverage atabox_server_test htmlcov)
 endif()
 
 
@@ -181,22 +75,23 @@ endif()
 #
 ################################################################################
 
-# main atabox-server library
-add_library(atabox-server ${atabox-server_HEADERS} ${atabox-server_SOURCES})
+# main atabox_server library
+add_library(atabox_server ${atabox_server_HEADERS} ${atabox_server_SOURCES})
+
+include_directories(
+    "${CMAKE_CURRENT_SOURCE_DIR}/external/aquila/aquila/"
+    "${CMAKE_CURRENT_SOURCE_DIR}/external/casablanca/Release/include/"
+    "${CMAKE_CURRENT_SOURCE_DIR}/external/rocksdb_source/include/"
+)
+
 
 # linking with extra libs
-target_link_libraries(atabox-server ${atabox-server_LIBRARIES_TO_LINK_WITH})
+target_link_libraries(atabox_server ${atabox_server_LIBRARIES_TO_LINK_WITH})
 
-# examples
-if(atabox-server_BUILD_EXAMPLES)
-    add_custom_target(examples)
-    add_subdirectory(examples)
-endif()
 
 #tests
-if(atabox-server_BUILD_TESTS)
+if(atabox_server_BUILD_TESTS)
     enable_testing()
-    set(UNITTESTPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/lib/unittestpp/")
     add_subdirectory(tests)
 endif()
 
@@ -229,7 +124,7 @@ endif()
 ################################################################################
 
 # install the binaries and include files
-install(TARGETS atabox-server
+install(TARGETS atabox_server
         ARCHIVE DESTINATION lib
         LIBRARY DESTINATION lib
         RUNTIME DESTINATION bin)
@@ -243,12 +138,3 @@ install(FILES CHANGELOG LICENSE README.md DESTINATION share/aquila)
 #
 ################################################################################
 
-configure_file(
-    "${CMAKE_CURRENT_SOURCE_DIR}/uninstall.cmake.in"
-    "${CMAKE_CURRENT_BINARY_DIR}/uninstall.cmake"
-    IMMEDIATE @ONLY
-)
-
-add_custom_target(uninstall
-    "${CMAKE_COMMAND}" -P "${CMAKE_CURRENT_BINARY_DIR}/uninstall.cmake"
-)
