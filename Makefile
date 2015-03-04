@@ -5,8 +5,7 @@ COMPINCLUDE = $(EXTERNAL)
 COMPINCLUDE += -I $(EXTERNAL)/rocksdb_source/include
 COMPLIBSDIR = libs
 COMPLIBS = -lpthread -lmemenv   -lssl -lcrypto -lsnappy -lbz2  -lrt -lrocksdb -lz
-all:
-# g++ -std=c++11 main.cpp -L. -lrocksdb -I. -lpthread -lmemenv   -lssl -lcrypto -lsnappy -lbz2  -lrt
+all: rocksdb_lib casablanca aquila
 tests:
 	$(COMP) $(COMPFLAGS)  -I $(COMPINCLUDE) -c $(EXTERNAL)/gmock-gtest-all.cc -o $(EXTERNAL)/gmock-gtest-all.o
 	ar -rv $(COMPLIBSDIR)/libgmock.a $(EXTERNAL)/gmock-gtest-all.o
@@ -18,21 +17,21 @@ rocksdb:
 	cd $(EXTERNAL)/rocksdb_source && make 
 
 	cp $(EXTERNAL)/rocksdb_source/librocksdb.* libs/
-	cp $(EXTERNAL)/rocksdb_source/libmemenv.a libs/
 
 rocksdb_lib:
 	mkdir -p libs
 	cd $(EXTERNAL)/rocksdb_source && make shared_lib
 	cp $(EXTERNAL)/rocksdb_source/librocksdb.* libs/
 	sudo cp libs/librocksdb.so /usr/lib/librocksdb.so
-	cp $(EXTERNAL)/rocksdb_source/libmemenv.a libs/
 casablanca:
 	mkdir -p libs
 	mkdir -p $(EXTERNAL)/casablanca/Release/build.release
-	cd $(EXTERNAL)/casablanca/Release/build.release &&	cmake .. -DCMAKE_BUILD_TYPE=Release && 	make
-	cp $(EXTERNAL)/casablanca/Release/build.release/Binaries/libcasablanca.so libs
-	sudo cp $(EXTERNAL)/casablanca/Release/build.release/Binaries/libcasablanca.so /usr/lib
-	
+	cd $(EXTERNAL)/casablanca/Release/build.release &&	cmake .. -DCMAKE_BUILD_TYPE=Release && 	make && sudo make install
+	cp $(EXTERNAL)/casablanca/Release/build.release/Binaries/libcpprest.so libs
+	sudo cp $(EXTERNAL)/casablanca/Release/build.release/Binaries/libcpprest.so /usr/lib
+aquila:
+	cd ${EXTERNAL}/aquila/ && cmake CMakeLists.txt && make && sudo make install
+
 	
 clean:
 	cd $(EXTERNAL)/rocksdb_source && make clean
