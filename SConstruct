@@ -58,7 +58,7 @@ cppflags = ['--std=c++11',  '-Wall', '-g']
 output = 'atabox-server'
 
 comp = ARGUMENTS.get('env', 'debug')
-if comp == 'tests':
+if comp.startswith('tests'):
     print('---------------------_TEST_---------------------------')
     common_libs.append('gcov')
     common_libs += ['gtest', 'gmock']
@@ -67,6 +67,10 @@ if comp == 'tests':
     output = 'tests'
     atabox_sources.pop(0)
     atabox_sources += getSources('tests')
+    if 'jenkins' in comp:
+        cppflags.remove('-Wall')
+        cppflags.append('-O0')
+        cppflags.append('-w')
 else:
     common_libs += ['boost_program_options']
 
