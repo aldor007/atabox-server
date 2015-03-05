@@ -76,7 +76,6 @@ if comp.startswith('tests'):
         cppflags.append('-O0')
         cppflags.append('-w')
     source_files +=  [os.path.join(build_dir, s) for s in getSources('tests')]
-    print(source_files)
 else:
     common_libs += ['boost_program_options']
 
