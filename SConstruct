@@ -12,7 +12,7 @@ def getSources(src_dir):
     sources = []
     for root, dirnames, filenames in os.walk(src_dir):
         for filename in fnmatch.filter(filenames, '*.cpp'):
-            sources +=Glob(os.path.join(root, filename))
+            sources.append(str(os.path.join(root, filename)))
         for filename in fnmatch.filter(filenames, '*.hpp'):
             sources += Glob(os.path.join(root, filename))
     return sources
@@ -56,7 +56,9 @@ cppflags = ['--std=c++11',  '-Wall', '-g']
 
 
 output = 'atabox-server'
+build_dir = 'build'
 
+source_files = [os.path.join(build_dir, s) for s in atabox_sources]
 comp = ARGUMENTS.get('env', 'debug')
 if comp.startswith('tests'):
     print('---------------------_TEST_---------------------------')
@@ -64,24 +66,31 @@ if comp.startswith('tests'):
     common_libs += ['gtest', 'gmock']
     cppflags.append('-g3')
     cppflags += ['-c', '-fmessage-length=0', '-fprofile-arcs', '-ftest-coverage']
-    output = 'tests'
+    output = 'atabox-tests'
     atabox_sources.pop(0)
+    source_files.pop(0)
+
     atabox_sources += getSources('tests')
     if 'jenkins' in comp:
         cppflags.remove('-Wall')
         cppflags.append('-O0')
         cppflags.append('-w')
+    source_files +=  [os.path.join(build_dir, s) for s in getSources('tests')]
+    print(source_files)
 else:
     common_libs += ['boost_program_options']
 
 
-
+VariantDir(build_dir, '.')
 env = Environment()
 env.Append(CPPPATH=include_dir)
 env.Append(CPPFLAGS=cppflags)
 env.Append(CPPDEFINES=cpp_defined)
 env.Append( LIBS = common_libs )
-env.Program('build/' + output, atabox_sources )
+
+
+
+env.Program('build/' + output, source_files)
 
 
 
