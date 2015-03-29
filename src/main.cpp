@@ -45,7 +45,6 @@
 #include "utils/execution_policy.h"
 #include "utils/functions.h"
 
-
 using namespace web;
 using namespace web::http;
 using namespace web::http::client;
@@ -70,17 +69,17 @@ void handle_add(web::http::http_request& request) {
 	std::map<std::string, std::string> querymap = uri::split_query(
 			request.relative_uri().query());
 	if (querymap.find("name") == querymap.end()
-			|| querymap.find("command") == querymap.end()) {
+			|| querymap.find("surname") == querymap.end()) {
 		LOG(error)<<"Bad request";
-		response["error_msg"] = json::value::string("Bad request. Read doc for info. Missing name or command field in request.");
+		response["error_msg"] = json::value::string("Bad request. Read doc for info. Missing name or surname field in request.");
 		response["status"] = json::value::string("ERROR");
 		request.reply(status_codes::BadRequest, response).wait();
 		return;
 
 	}
-	std::string commandName = uri::decode(querymap["name"]);
-	std::string commandString = uri::decode(querymap["command"]);
-	LOG(debug)<<"Add command name "<<commandName<<" command string: "<<commandString;
+	std::string surnameName = uri::decode(querymap["name"]);
+	std::string surnameString = uri::decode(querymap["surname"]);
+	LOG(debug)<<"Add surname name "<<surnameName<<" surname string: "<<surnameString;
 	concurrency::streams::istream body = request.body();
 	uint64_t content_lenght = request.headers().content_length();
 	LOG(debug)<<"Content lenght of request "<<content_lenght;
@@ -102,11 +101,11 @@ void handle_add(web::http::http_request& request) {
 		delete[] waveData;
 		Samples waveSamples(wave);
 		jsonextend wavepropertiesJSON = g_processAndAnlyze.getSummary(waveSamples);
-		wavepropertiesJSON["name"] =  web::json::value::string(commandName);
+		wavepropertiesJSON["name"] =  web::json::value::string(surnameName);
 
 		try {
 			LOG(debug)<<"Saving "<<wavepropertiesJSON.to_string();
-			g_mainDB->put(wavepropertiesJSON, commandString);
+			g_mainDB->put(wavepropertiesJSON, surnameString);
 		} catch (std::exception const & ex) {
 			LOG(error)<<"Error "<<ex.what();
 			response["status"] = json::value::string("ERROR");
@@ -115,13 +114,13 @@ void handle_add(web::http::http_request& request) {
 			return;
 		}
 		response["status"] = json::value::string("OK");
-		response["command"] = json::value::string(commandString);
+		response["surname"] = json::value::string(surnameString);
 		request.reply(status_codes::OK, response).wait();
 	} catch (std::exception &e) {
 
 		LOG(error)<<"Error "<<e.what();
 		response["status"] = json::value::string("ERROR");
-		response["command"] = json::value::string(e.what());
+		response["surname"] = json::value::string(e.what());
 		request.reply(status_codes::BadRequest, response).wait();
 	}
 
@@ -154,12 +153,11 @@ void handle_execute(web::http::http_request& request) {
 	list = g_mainDB->getAllKV();
 	auto tmpFun = g_policies[DEFAULT_POLICY];
 
-	std::string command = tmpFun(list, wavePropertiesJSON);
+	std::string surname = tmpFun(list, wavePropertiesJSON);
 
-	if (!command.empty()) {
-
+	if (!surname.empty()) {
 		response["status"] = json::value::string("OK");
-		response["command"] = json::value::string(command);
+		response["surname"] = json::value::string(surname);
 		request.reply(status_codes::OK, response).wait();
 		return;
 	}
@@ -188,7 +186,7 @@ void handle_list(web::http::http_request& request) {
 	result[0] = tmp;
 	for (auto iterator = list.begin(); iterator != list.end(); iterator++) {
 		tmp["waveProperties"] = iterator->first;
-		tmp["command"] = json::value::string(iterator->second);
+		tmp["surname"] = json::value::string(iterator->second);
 		result[counter++] = tmp;
 	}
 
@@ -294,7 +292,7 @@ int main(int argc, char** argv) {
 				"database name and location")("daemon,d", "Deamoznie");
 		po::variables_map vm;
 		try {
-			po::store(po::parse_command_line(argc, argv, desc), vm); // can throw
+			po::store(po::parse_surname_line(argc, argv, desc), vm); // can throw
 
 			// --help option
 			//

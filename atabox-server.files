@@ -1359,3 +1359,4 @@ tests/wave/WaveFileMock.h
 tests/wave/WaveFileTest.cpp
 tests/wave/WaveUtilsTest.cpp
 tests/RunAllTests.cpp
+SConstruct

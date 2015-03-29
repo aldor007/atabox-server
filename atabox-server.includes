@@ -96,3 +96,4 @@ tests/api
 tests/wave
 tests/wave/analysis
 tests/wave/processing/preprocessing
+.
