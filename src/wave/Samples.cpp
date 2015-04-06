@@ -8,43 +8,41 @@
 #include <wave/Samples.h>
 
 Samples::Samples(WaveFile & waveFile) {
-	try {
-		samples = new cx[waveFile.getNumberOfSamples()];
-	} catch (std::bad_alloc) {
-		throw "No memory";
-	}
 	int32_t maxOfRange = WaveUtils::getMaxOfRange(waveFile.getBitsPerSample());
 	numberOfSamples = waveFile.getNumberOfSamples();
 	this->sampleRate = waveFile.getSampleRate();
 	lenghtInSeconds = WaveUtils::calculateLenghtInSeconds(numberOfSamples, this->sampleRate);
-	for (uint32_t i = 0; i < numberOfSamples; i++) {
-		if (waveFile.getBitsPerSample() == 8) {
-			samples[i] = (double) ((waveFile.getRawSample(i)-128) / maxOfRange);
-		} else {
-			samples[i] = (double) waveFile.getRawSample(i) / maxOfRange;
-		}
-	}
+	decode();
 
 }
 
 Samples::Samples(WaveFile && waveFile) {
-	try {
-		samples = new cx[waveFile.getNumberOfSamples()];
-	} catch (std::bad_alloc) {
-		throw "No memory";
-	}
-	int32_t maxOfRange = WaveUtils::getMaxOfRange(waveFile.getBitsPerSample());
+
 	numberOfSamples = waveFile.getNumberOfSamples();
+	m_data.resize(numberOfSamples);
 	this->sampleRate = waveFile.getSampleRate();
 	lenghtInSeconds = WaveUtils::calculateLenghtInSeconds(numberOfSamples, this->sampleRate);
+	decode();
+}
+
+/**
+ * [Samples::decode raw chabnel data into audio channel]
+ * @param waveFile [description]
+ */
+void Samples::decode(WaveFile &waveFile) {
+	int32_t maxOfRange = WaveUtils::getMaxOfRange(waveFile.getBitsPerSample());
 	for (uint32_t i = 0; i < numberOfSamples; i++) {
 		if (waveFile.getBitsPerSample() == 8) {
-			samples[i] = (double) ((waveFile.getRawSample(i)-128) / maxOfRange);
+			m_data[i] = (double) ((waveFile.getRawSample(i)-128) / maxOfRange);
 		} else {
-			samples[i] = (double) waveFile.getRawSample(i) / maxOfRange;
+			m_data[i] = (double) waveFile.getRawSample(i) / maxOfRange;
 		}
 	}
+
+
 }
+
+
 Samples::~Samples() {
 	if (samples != nullptr) {
 		delete[] samples;

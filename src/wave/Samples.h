@@ -9,22 +9,21 @@
 #define SAMPLELIST_H_
 #include <stdint.h>
 #include <complex>
+#include "aquila/source/SignalSource.h"
 
 #include "WaveFile.h"
 #include "WaveUtils.h"
 
-typedef std::complex<double> cx;
 
 
 class FastFourierTransformFilter;
-class Samples {
+class Samples : public Aquila::SignalSource {
 public:
 	friend class FastFourierTransformFilter;
 public:
 	Samples(WaveFile & waveFile);
 	Samples(WaveFile && waveFile);
 	virtual ~Samples();
-	virtual cx& operator[](unsigned int i) const;
 	virtual double getSample(unsigned int i) const;
 	virtual cx& getSampleCx(unsigned int i) const;
 	virtual void setSample(uint32_t index, double value);
@@ -33,10 +32,11 @@ public:
 	void setSampleListData(uint32_t numberOfSamples, cx * data);
 	Samples();
 protected:
-	cx * samples = nullptr;
 	uint32_t numberOfSamples;
 	double lenghtInSeconds;
 	uint32_t sampleRate;
+	void decode();
+
 };
 
 #endif /* SAMPLELIST_H_ */

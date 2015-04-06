@@ -292,7 +292,7 @@ int main(int argc, char** argv) {
 				"database name and location")("daemon,d", "Deamoznie");
 		po::variables_map vm;
 		try {
-			po::store(po::parse_surname_line(argc, argv, desc), vm); // can throw
+			po::store(po::parse_command_line(argc, argv, desc), vm); // can throw
 
 			// --help option
 			//

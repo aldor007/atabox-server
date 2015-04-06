@@ -39,6 +39,7 @@ public:
 	void loadFromMemory(uint8_t  * data, uint32_t content_len);
 	virtual double	 operator[](unsigned int i);
 	virtual int32_t getRawSample(unsigned int i);
+	virtual char* getSample();
 	operator Samples () const;
 	WaveFile& operator=(WaveFile&& other)  = default;
 protected:

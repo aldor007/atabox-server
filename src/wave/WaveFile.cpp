@@ -60,7 +60,11 @@ WaveFile::WaveFile(const char * filename) {
 WaveFile::WaveFile(uint8_t * tmpdata, uint32_t content_len) {
 	loadFromMemory(tmpdata, content_len);
 
+
 }
+
+
+
 
 void WaveFile::loadFromMemory(uint8_t *tmpData, uint32_t content_len) {
 
@@ -199,6 +203,11 @@ void WaveFile::skipExtraParams(FILE* file) {
 double WaveFile::operator[](unsigned int i) {
 	return data[i];
 }
+
+/**
+ * [Samples convert WavFile into Samples]
+ * @return [description]
+ */
 WaveFile::operator Samples()  const {
 	return Samples(*this);
 
