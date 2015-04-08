@@ -26,21 +26,10 @@ public:
 		uint32_t n = samples.numberOfSamples;
 		if (n%2 !=0) n--;
 
-		kissfft<double> FFT(n/4.0, false);
-		FFT.transform(samples.samples, samples.samples );
 
 	}
-	void applyOn(cx * samples, uint32_t n) {
+	void applyOn(std::complex<double> * samples, uint32_t n) {
 
-
-	if (n==0)
-		throw "Error 0 samples!";
-	cx * output = new cx[n];
-
-	kissfft<double> FFT(n, false);
-	FFT.transform(samples, output);
-	std::memcpy(samples, output, sizeof(cx) * n);
-	delete[] output;
 
 	}
 

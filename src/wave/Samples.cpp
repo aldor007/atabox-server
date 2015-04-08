@@ -7,22 +7,24 @@
 
 #include <wave/Samples.h>
 
-Samples::Samples(WaveFile & waveFile) {
+Samples::Samples(WaveFile & waveFile):
+		Aquila::SignalSource(waveFile.getSamples(), waveFile.getNumberOfSamples(), waveFile.getSampleRate()) {
 	int32_t maxOfRange = WaveUtils::getMaxOfRange(waveFile.getBitsPerSample());
 	numberOfSamples = waveFile.getNumberOfSamples();
 	this->sampleRate = waveFile.getSampleRate();
 	lenghtInSeconds = WaveUtils::calculateLenghtInSeconds(numberOfSamples, this->sampleRate);
-	decode();
+	decode(waveFile);
 
 }
 
-Samples::Samples(WaveFile && waveFile) {
+Samples::Samples(WaveFile && waveFile):
+		Aquila::SignalSource(waveFile.getSamples(), waveFile.getNumberOfSamples(), waveFile.getSampleRate()) {
 
 	numberOfSamples = waveFile.getNumberOfSamples();
 	m_data.resize(numberOfSamples);
 	this->sampleRate = waveFile.getSampleRate();
 	lenghtInSeconds = WaveUtils::calculateLenghtInSeconds(numberOfSamples, this->sampleRate);
-	decode();
+	decode(waveFile);
 }
 
 /**
@@ -44,22 +46,21 @@ void Samples::decode(WaveFile &waveFile) {
 
 
 Samples::~Samples() {
-	if (samples != nullptr) {
-		delete[] samples;
-		samples = nullptr;
-	}
 }
 
-//TODO a jak ktos będzie chcial ustawiac tak wartosc? samples[5] = 3.3 - będzie się dziwić czemu nic się nie zmienia
-cx& Samples::operator [](unsigned int i) const{
-	return samples[i];
+double& Samples::operator[](unsigned i)  {
+	return m_data.at(i);
+}
+
+double Samples::operator[](unsigned i) const {
+	return m_data.at(i);
 }
 
 double Samples::getSample(unsigned int i) const {
-	return samples[i].real();
+	return m_data[i];
 }
-cx& Samples::getSampleCx(unsigned int i) const {
-	return samples[i];
+std::complex<double> Samples::getSampleCx(unsigned int i) const {
+	return m_data[i];
 }
 
 uint32_t Samples::getNumberOfSamples() const {
@@ -71,23 +72,14 @@ double Samples::getLenghtInSeconds() const {
 }
 
 void Samples::setSample(uint32_t index, double value) {
-	samples[index] = value;
+	m_data[index] = value;
 }
 
-Samples::Samples() {
+void Samples::setSamplesData(double * data, unsigned int len) {
+	m_data.clear();
+	m_data.resize(len);
+	m_data.assign(data, data + len);
 
 }
-void Samples::setSampleListData(uint32_t numberOfSamples, cx * data) {
-	if (this->samples != nullptr || this->numberOfSamples < numberOfSamples) {
-			delete[] this->samples;
-			this->samples = new cx[numberOfSamples];
-		}
-	else {
-			this->samples = new cx[numberOfSamples];
-	}
-	std::memcpy(samples, data, numberOfSamples * sizeof(cx));
 
-	this->numberOfSamples = numberOfSamples;
-	this->lenghtInSeconds =
-			WaveUtils::calculateLenghtInSeconds(this->numberOfSamples, this->sampleRate);
-}
+

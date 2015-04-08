@@ -212,6 +212,15 @@ WaveFile::operator Samples()  const {
 	return Samples(*this);
 
 }
+
+/**
+ * [WaveFile::getSamples return raw data of sampes]
+ * @return [description]
+ */
+char * WaveFile::getSamples() {
+	return data;
+}
+
 /*
 WaveFile& WaveFile::operator=(WaveFile&& other) {
 

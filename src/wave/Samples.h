@@ -25,17 +25,19 @@ public:
 	Samples(WaveFile && waveFile);
 	virtual ~Samples();
 	virtual double getSample(unsigned int i) const;
-	virtual cx& getSampleCx(unsigned int i) const;
+	virtual std::complex<double> getSampleCx(unsigned int i) const;
 	virtual void setSample(uint32_t index, double value);
 	virtual uint32_t getNumberOfSamples() const;
 	virtual double getLenghtInSeconds() const;
-	void setSampleListData(uint32_t numberOfSamples, cx * data);
+	double& operator[](unsigned int);
+	double operator[](unsigned int) const;
+	void setSamplesData(double *, unsigned int);
 	Samples();
 protected:
 	uint32_t numberOfSamples;
 	double lenghtInSeconds;
 	uint32_t sampleRate;
-	void decode();
+	void decode(WaveFile&);
 
 };
 

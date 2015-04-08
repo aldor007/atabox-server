@@ -1,6 +1,7 @@
 
 import os
 import fnmatch
+import subprocess
 
 
 def getSubdirs(abs_path_dir):
@@ -17,6 +18,9 @@ def getSources(src_dir):
             sources += Glob(os.path.join(root, filename))
     return sources
 
+
+def cmd_exists(cmd):
+    return subprocess.call("type " + cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE) == 0
 
 num_cpu = int(os.environ.get('NUM_CPU', 2))
 src_dir = 'src'
@@ -38,7 +42,9 @@ common_libs = [
     'cpprest'
 
 ]
-
+CXX = 'g++'
+if cmd_exists('clang++'):
+    CXX = 'clang++'
 
 SetOption('num_jobs', num_cpu)
 print "running with -j", GetOption('num_jobs')
@@ -52,7 +58,7 @@ include_dir = [
     "external/"
 ]
 
-cppflags = ['--std=c++11',  '-Wall', '-g']
+cppflags = ['--std=c++11',  '-Wall', '-g',  '-fdiagnostics-color=always']
 
 
 output = 'atabox-server'
@@ -81,11 +87,17 @@ else:
 
 
 VariantDir(build_dir, '.')
-env = Environment()
+env = Environment(ENV = {'PATH' : os.environ['PATH'],
+                         'TERM' : os.environ['TERM'],
+                         'HOME' : os.environ['HOME']},
+                 CXX = CXX
+                         )
 env.Append(CPPPATH=include_dir)
 env.Append(CPPFLAGS=cppflags)
 env.Append(CPPDEFINES=cpp_defined)
 env.Append( LIBS = common_libs )
+
+
 
 
 
