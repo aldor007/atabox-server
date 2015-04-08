@@ -66,7 +66,7 @@ std::complex<double> Samples::getSampleCx(unsigned int i) const {
 }
 
 uint32_t Samples::getNumberOfSamples() const {
-	return numberOfSamples;
+	return m_data.size();
 }
 
 double Samples::getLenghtInSeconds() const {
@@ -81,6 +81,8 @@ void Samples::setSamplesData(double * data, unsigned int len) {
 	m_data.clear();
 	m_data.resize(len);
 	m_data.assign(data, data + len);
+	this->lenghtInSeconds =
+			WaveUtils::calculateLenghtInSeconds(len, this->sampleRate);
 
 }
 
