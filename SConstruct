@@ -22,6 +22,13 @@ def getSources(src_dir):
 def cmd_exists(cmd):
     return subprocess.call("type " + cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE) == 0
 
+def prepare_env(env_vars):
+    env = {}
+    for var in env_vars:
+        if var in os.environ:
+            env[var] = os.environ[var]
+    return env
+
 num_cpu = int(os.environ.get('NUM_CPU', 2))
 src_dir = 'src'
 atabox_sources = getSources(src_dir)
@@ -86,12 +93,11 @@ else:
     common_libs += ['boost_program_options']
 
 
+env_env = prepare_env(['PATH','TERM', 'HOME'])
+
+
 VariantDir(build_dir, '.')
-env = Environment(ENV = {'PATH' : os.environ['PATH'],
-                         'TERM' : os.environ['TERM'],
-                         'HOME' : os.environ['HOME']},
-                 CXX = CXX
-                         )
+env = Environment(ENV = env_env, CXX = CXX )
 env.Append(CPPPATH=include_dir)
 env.Append(CPPFLAGS=cppflags)
 env.Append(CPPDEFINES=cpp_defined)
