@@ -18,12 +18,12 @@ TEST_F(SamplesAnalizatorTest, changesSamplesWhenFiltersAreAdded) {
 
 	//given
 	Samples samples;
-	cx * values = new cx[4];
+	double * values = new double[4];
 	values[0] = 0.128;
 	values[1] = -0.5;
 	values[2] = 0.16;
 	values[3] =  0.130;
-	samples.setSampleListData(4, values);
+	samples.setSamplesData(values, 4);
 
 	FirstSampleValueTestingProperty property;
 

@@ -46,12 +46,12 @@ TEST_F(ProcessorTest, changesSamplesWhenFiltersAreAdded) {
 
 	//given
 	Samples samples;
-	cx * values = new cx[4];
+	double * values = new double[4];
 	values[0] = 0.128;
 	values[1] = -0.5;
 	values[2] = 0.16;
 	values[3] =  0.130;
-	samples.setSampleListData(4, values);
+	samples.setSamplesData(values, 4);
 	Processor preprocessor;
 	preprocessor.addToFilterChain(new ConstantAddingTestFilter(0.5));
 
@@ -69,12 +69,12 @@ TEST_F(ProcessorTest, changesSamplesWhenMoreThanOneFiltersAreAdded) {
 
 	//given
 	Samples samples;
-	cx * values = new cx[4];
+	double * values = new double[4];
 	values[0] = 0.128;
 	values[1] = -0.5;
 	values[2] = 0.16;
 	values[3] =  0.130;
-	samples.setSampleListData(4, values);
+	samples.setSamplesData(values, 4);
 	ConstantAddingTestFilter filter(0.2);
 	ConstantAddingTestFilter filter2(0.3);
 	Processor preprocessor;

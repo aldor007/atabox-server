@@ -45,9 +45,11 @@ void Samples::decode(WaveFile &waveFile) {
 }
 
 
-Samples::~Samples() {
+Samples::Samples():Aquila::SignalSource() {
 }
 
+Samples::~Samples() {
+}
 double& Samples::operator[](unsigned i)  {
 	return m_data.at(i);
 }

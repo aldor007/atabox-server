@@ -16,7 +16,6 @@
 #include "wave/analysis/Property.h"
 
 class SpectrumProperty: public Property {
-private:
 
 public:
 	SpectrumProperty(double weight = 1.0) : Property(weight)  {
@@ -28,10 +27,9 @@ public:
       uint32_t len = samples.getNumberOfSamples()/2.0;
 	  std::valarray<double>    magnitude = std::valarray<double>(len);
 
-          for (uint32_t i = 0; i <len; i++)	{
-              magnitude[i] = std::abs(samples[i]);
-
-                }
+      for (uint32_t i = 0; i <len; i++)	{
+          magnitude[i] = std::abs(samples[i]);
+       }
 		std::log10(magnitude);
 		double value = (magnitude.max() - magnitude.min())/magnitude.sum();
 		if (value != value)

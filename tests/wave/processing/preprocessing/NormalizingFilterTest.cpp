@@ -28,11 +28,11 @@ TEST_F(NormalizingFilterTest, simpleExample) {
 
 	//given
 	Samples samples;
-	cx * values = new cx[2];
+	double * values = new double[2];
 	values[0] = 0.0128;
 	values[1] = -0.5;
 
-	samples.setSampleListData(2, values);
+	samples.setSamplesData(values, 2);
 	NormalizingFilter filter;
 
 	//when
@@ -48,11 +48,11 @@ TEST_F(NormalizingFilterTest, simpleExampleWithParameterLevel) {
 
 	//given
 	Samples samples;
-	cx * values = new cx[2];
+	double * values = new double[2];
 	values[0] = -0.1;
 	values[1] = 0.2;
 
-	samples.setSampleListData(2, values);
+	samples.setSamplesData(values, 2);
 	NormalizingFilter filter(0.8);
 
 	//when

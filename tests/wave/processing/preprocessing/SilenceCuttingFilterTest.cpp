@@ -29,11 +29,11 @@ TEST_F(SilenceCuttingFilterTest, trivialExampleForBeginning) {
 
 	//given
 	Samples samples;
-	cx * values = new cx[2];
+	double * values = new double[2];
 	values[0] = 0.0128;
 	values[1] = -0.5;
 
-	samples.setSampleListData(2, values);
+	samples.setSamplesData(values, 2);
 	//delete[] values;
 	SilenceCuttingFilter filter(0.1);
 	Processor preprocessor;
@@ -51,11 +51,11 @@ TEST_F(SilenceCuttingFilterTest, chanchesLenghtCorrectly) {
 
 	//given
 	Samples samples;
-	cx * values = new cx[2];
+	double * values = new double[2];
 	values[0] = 0.0128;
 	values[1] = -0.5;
 
-	samples.setSampleListData(2, values);
+	samples.setSamplesData(values, 2);
 	double oldLength = samples.getLenghtInSeconds();
 
 	SilenceCuttingFilter filter(0.1);
@@ -75,7 +75,7 @@ TEST_F(SilenceCuttingFilterTest, filterRemovesSilenceFromBeginningAndEnd) {
 
 	//given
 	Samples samples;
-	cx * values = new cx[8];
+	double * values = new double[8];
 	values[0] = 0.0128;
 	values[1] = -0.05;
 	values[2] = 0.16;
@@ -84,7 +84,7 @@ TEST_F(SilenceCuttingFilterTest, filterRemovesSilenceFromBeginningAndEnd) {
 	values[5] = -0.5;
 	values[6] = 0.016;
 	values[7] = 0.013;
-	samples.setSampleListData(8, values);
+	samples.setSamplesData(values, 8);
 	SilenceCuttingFilter filter(0.1);
 	Processor preprocessor;
 	preprocessor.addToFilterChain(filter);
@@ -104,12 +104,12 @@ TEST_F(SilenceCuttingFilterTest, filterRemovesSilenceFromEnd) {
 
 	//given
 	Samples samples;
-	cx * values = new cx[4];
+	double * values = new double[4];
 	values[0] = 0.128;
 	values[1] = -0.5;
 	values[2] = 0.016;
 	values[3] = 0.0130;
-	samples.setSampleListData(4, values);
+	samples.setSamplesData(values, 4);
 	SilenceCuttingFilter filter(0.1);
 	Processor preprocessor;
 	preprocessor.addToFilterChain(filter);
@@ -127,12 +127,12 @@ TEST_F(SilenceCuttingFilterTest, doesNotRemovesAnythingWhenThereIsNoSilence) {
 
 	//given
 	Samples samples;
-	cx * values = new cx[4];
+	double * values = new double[4];
 	values[0] = 0.128;
 	values[1] = -0.5;
 	values[2] = 0.16;
 	values[3] = 0.130;
-	samples.setSampleListData(4, values);
+	samples.setSamplesData(values, 4);
 	SilenceCuttingFilter filter(0.1);
 	Processor preprocessor;
 	preprocessor.addToFilterChain(filter);
@@ -152,12 +152,12 @@ TEST_F(SilenceCuttingFilterTest, doesNotRemovesSilenceFromMiddle) {
 
 	//given
 	Samples samples;
-	cx * values = new cx[4];
+	double * values = new double[4];
 	values[0] = 0.128;
 	values[1] =	0;
 	values[2] = 0.16;
 	values[3] = 0.130;
-	samples.setSampleListData(4, values);
+	samples.setSamplesData(values, 4);
 	SilenceCuttingFilter filter(0.1);
 	Processor preprocessor;
 	preprocessor.addToFilterChain(filter);

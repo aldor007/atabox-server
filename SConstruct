@@ -75,6 +75,7 @@ source_files = [os.path.join(build_dir, s) for s in atabox_sources]
 comp = ARGUMENTS.get('env', 'debug')
 if comp.startswith('tests'):
     print('---------------------_TEST_---------------------------')
+    CXX = 'g++'
     common_libs.append('gcov')
     common_libs += ['gtest', 'gmock']
     cppflags.append('-g3')
@@ -86,6 +87,7 @@ if comp.startswith('tests'):
     atabox_sources += getSources('tests')
     if 'jenkins' in comp:
         cppflags.remove('-Wall')
+        cppflags.remove('-fdiagnostics-color=always')
         cppflags.append('-O0')
         cppflags.append('-w')
     source_files +=  [os.path.join(build_dir, s) for s in getSources('tests')]

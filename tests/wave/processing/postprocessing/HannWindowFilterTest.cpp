@@ -16,9 +16,9 @@ public:
 TEST_F(HannWindowFilterTest, exampleData) {
 	//given
 	Samples samples;
-	cx test[]  = { cx(0, 0), cx(1, 0)};
+	double test[]  = { 0, 1};
 
-	samples.setSampleListData(2, test);
+	samples.setSamplesData(test, 2);
 	double result []= { 0,  0.5 * (1 - cos(M_PI)) };
 
 

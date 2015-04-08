@@ -10,37 +10,31 @@ using ::testing::ReturnRef;
 
 class SpectrumPropertyTest: public ::testing::Test {
 public:
-	/*std::unique_ptr<cx[]> samplesValue;
+	/*std::unique_ptr<double[]> samplesValue;
 
-	SpectrumPropertyTest(): samplesValue(new cx[6])  {
-	samplesValue[0]	=  cx(1, 0);
-	samplesValue[1] = cx(0, 0);
-	samplesValue[2] = cx(0, 0);
-	samplesValue[3] = cx(0, 0);
-	samplesValue[4] = cx(5, 0);
-	samplesValue[5] = cx(5, 0);
+	SpectrumPropertyTest(): samplesValue(new double[6])  {
+	samplesValue[0]	=  double(1, 0);
+	samplesValue[1] = double(0, 0);
+	samplesValue[2] = double(0, 0);
+	samplesValue[3] = double(0, 0);
+	samplesValue[4] = double(5, 0);
+	samplesValue[5] = double(5, 0);
 	}*/
 
 };
 
 TEST_F(SpectrumPropertyTest,  testCalulate) {
 	//given
-	SamplesMock samples;
+	Samples samples;
 
-	std::valarray<cx>  samplesValue(6);
-	samplesValue[0]	=  cx(10, 0);
-	samplesValue[1] = cx(0, 0);
-	samplesValue[2] = cx(0, 0);
-	samplesValue[3] = cx(0, 0);
-	samplesValue[4] = cx(0, 0);
-	samplesValue[5] = cx(100, 0);
-
-	ON_CALL(samples, getNumberOfSamples()).WillByDefault(Return(5));
-	ON_CALL(samples, getSampleCx(0)).WillByDefault(ReturnRef(samplesValue[0]));
-	ON_CALL(samples, getSampleCx(1)).WillByDefault(ReturnRef(samplesValue[1]));
-	ON_CALL(samples, getSampleCx(2)).WillByDefault(ReturnRef(samplesValue[2]));
-	ON_CALL(samples, getSampleCx(3)).WillByDefault(ReturnRef(samplesValue[3]));
-	ON_CALL(samples, getSampleCx(4)).WillByDefault(ReturnRef(samplesValue[4]));
+	double * samplesValue = new double[6];
+	samplesValue[0]	= 10;
+	samplesValue[1] = 0;
+	samplesValue[2] = 0;
+	samplesValue[3] = 0;
+	samplesValue[4] = 0;
+	samplesValue[5] = 100;
+	samples.setSamplesData(samplesValue, 6);
 
 	SpectrumProperty property;
 	//when

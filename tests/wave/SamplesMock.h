@@ -19,9 +19,8 @@ public:
 	MOCK_CONST_METHOD0(getNumberOfSamples, uint32_t());
 	MOCK_CONST_METHOD0(getLenghtInSeconds, double());
 	MOCK_CONST_METHOD1(getSample, double(unsigned int i));
-	MOCK_CONST_METHOD1(getSampleCx, cx&(unsigned int i)); //FIXME: ref in gmock
-	virtual cx& operator[](unsigned int i) const {
-		return getSampleCx(i);
+	virtual double operator[](unsigned int i) const {
+		return getSample(i);
 	}
 };
 
