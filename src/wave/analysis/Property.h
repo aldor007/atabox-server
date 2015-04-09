@@ -8,7 +8,9 @@
 #ifndef PROPERTY_H_
 #define PROPERTY_H_
 #include <string>
+
 #include "../Samples.h"
+#include "utils/jsonextend.h"
 
 using std::string;
 
@@ -21,7 +23,7 @@ public:
 	};
 	virtual ~Property(){
 	};
-	virtual double getValue(const Samples& samples) = 0;
+	virtual jsonextend getValue(const Samples& samples) = 0;
 	virtual string getName() = 0;
 	virtual double getWeight() {
 		return m_weight;

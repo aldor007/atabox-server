@@ -19,20 +19,14 @@ public:
 		bool operator<( const jsonextend& other) const {
 			jsonextend tmp = other;
 			jsonextend tmpthis = *this;
-        	uint32_t counter_this, counter_other  =  0;
+        	uint32_t counter_this = 0, counter_other  =  0;
         	counter_this = 0;
-			for (auto iter = this->as_object().cbegin(); iter != this->as_object().cend(); iter++)
-				if (other.has_field(iter->first))
-				{
-					try {
+			for (auto iter = this->as_object().cbegin(); iter != this->as_object().cend(); ++iter)
+				if (other.has_field(iter->first)) {
 					if (tmp[iter->first].as_double() > tmpthis[iter->first].as_double())
 					   counter_other++;
 					else
 						counter_this++;
-					}
-					catch(std::exception &e) {
-
-					}
 				}
 
 			return counter_this < counter_other;
