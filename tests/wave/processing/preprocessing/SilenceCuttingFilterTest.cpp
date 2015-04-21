@@ -42,6 +42,7 @@ TEST_F(SilenceCuttingFilterTest, trivialExampleForBeginning) {
 	//when
 	preprocessor.applyFilterChainOn(samples);
 
+	delete[] values;
 	//then
 	ASSERT_DOUBLE_EQ(samples.getSample(0), -0.5);
 
@@ -65,6 +66,7 @@ TEST_F(SilenceCuttingFilterTest, chanchesLenghtCorrectly) {
 	//when
 	preprocessor.applyFilterChainOn(samples);
 
+	delete[] values;
 	//then
 	ASSERT_GT(oldLength, 0);
 	ASSERT_DOUBLE_EQ(oldLength / 2, samples.getLenghtInSeconds());
@@ -92,6 +94,7 @@ TEST_F(SilenceCuttingFilterTest, filterRemovesSilenceFromBeginningAndEnd) {
 	//when
 	preprocessor.applyFilterChainOn(samples);
 
+	delete[] values;
 	//then
 	ASSERT_EQ(samples.getNumberOfSamples(), 4);
 	ASSERT_DOUBLE_EQ(samples.getSample(0), 0.16);
@@ -117,6 +120,7 @@ TEST_F(SilenceCuttingFilterTest, filterRemovesSilenceFromEnd) {
 	//when
 	preprocessor.applyFilterChainOn(samples);
 
+	delete[] values;
 	//then
 	ASSERT_EQ(samples.getNumberOfSamples(), 2);
 	ASSERT_DOUBLE_EQ(samples.getSample(0), 0.128);
@@ -140,6 +144,7 @@ TEST_F(SilenceCuttingFilterTest, doesNotRemovesAnythingWhenThereIsNoSilence) {
 	//when
 	preprocessor.applyFilterChainOn(samples);
 
+	delete[] values;
 	//then
 	ASSERT_EQ(samples.getNumberOfSamples(), 4);
 	ASSERT_DOUBLE_EQ(samples.getSample(0), 0.128);
@@ -165,6 +170,7 @@ TEST_F(SilenceCuttingFilterTest, doesNotRemovesSilenceFromMiddle) {
 	//when
 	preprocessor.applyFilterChainOn(samples);
 
+	delete[] values;
 	//then
 	ASSERT_EQ(samples.getNumberOfSamples(), 4);
 	ASSERT_DOUBLE_EQ(samples.getSample(0), 0.128);
