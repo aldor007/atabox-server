@@ -46,9 +46,12 @@ common_libs = [
     'rocksdb',
     'bz2',
     'z',
-    'cpprest'
+    'cpprest',
+    'Aquila',
+    'Ooura_fft'
 
 ]
+libs_path = ['external/aquila/lib']
 CXX = 'g++'
 if cmd_exists('clang++'):
     CXX = 'clang++'
@@ -104,6 +107,7 @@ env.Append(CPPPATH=include_dir)
 env.Append(CPPFLAGS=cppflags)
 env.Append(CPPDEFINES=cpp_defined)
 env.Append( LIBS = common_libs )
+env.Append(LIBPATH = libs_path)
 
 
 

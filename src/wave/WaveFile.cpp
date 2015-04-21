@@ -42,7 +42,7 @@ WaveFile::WaveFile() {
 void WaveFile::loadFromFile(const char* filename) {
 	FILE* file = fopen(filename, "r");
 	if (file == NULL) {
-		throw ataboxExeption("File not found!");
+		throw ataboxException("File not found!");
 	}
 	readRIFFChunkDescriptor(file);
 	validateRIFFChunkDescriptor();
@@ -105,11 +105,11 @@ void WaveFile::loadFromMemory(uint8_t *tmpData, uint32_t content_len) {
 	if (bytePerSample == 0) {
 		std::ostringstream ss;
 		ss<<currentIndex;
-		throw ataboxExeption(std::string("Wrong wave byte per sample 0. Current index ") + ss.str());
+		throw ataboxException(std::string("Wrong wave byte per sample 0. Current index ") + ss.str());
 	}
 	numberOfSamples = subchunk2Size / (bytePerSample * numberOfChanels);
 	if (currentIndex + subchunk2Size > content_len )
-		throw ataboxExeption("Error. Wrong wave file?");
+		throw ataboxException("Error. Wrong wave file?");
 	std::memcpy(data, tmpData + currentIndex, subchunk2Size);
 
 }

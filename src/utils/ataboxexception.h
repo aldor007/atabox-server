@@ -11,17 +11,17 @@
 #include <exception>
 #include <string>
 
-class ataboxExeption :public  std::exception {
+class ataboxException :public  std::exception {
 private:
 	std::string m_msg;
 public:
-	ataboxExeption(std::string msg): m_msg(msg) {
+	ataboxException(std::string msg): m_msg(msg) {
 
 	}
     virtual const char* what() const _GLIBCXX_USE_NOEXCEPT {
     	return m_msg.c_str();
     }
-    virtual ~ataboxExeption() {
+    virtual ~ataboxException() {
 
     }
 };

@@ -14,7 +14,7 @@ class WaveFileTest: public ::testing::Test {
 };
 
 TEST_F(WaveFileTest, throwsExceptionWhenFileDoesNotExist) {
-	ASSERT_THROW(WaveFile("nonExistingFile.wav"), ataboxExeption);
+	ASSERT_THROW(WaveFile("nonExistingFile.wav"), ataboxException);
 }
 
 TEST_F(WaveFileTest, doesntThrowExceptionWhenFileExists) {
