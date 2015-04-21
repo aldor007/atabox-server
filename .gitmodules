@@ -6,4 +6,4 @@
 	url = https://github.com/facebook/rocksdb.git
 [submodule "external/casablanca"]
 	path = external/casablanca
-	url = https://git.codeplex.com/casablanca
+	url = https://git01.codeplex.com/casablanca
