@@ -45,7 +45,7 @@
 #include "utils/execution_policy.h"
 #include "utils/functions.h"
 
-using namespace web;
+// using namespace web;
 using namespace web::http;
 using namespace web::http::client;
 

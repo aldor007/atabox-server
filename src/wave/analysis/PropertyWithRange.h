@@ -35,7 +35,7 @@ protected:
 	}
 
 public:
-	virtual ~PropertyWithRange();
+	virtual ~PropertyWithRange() {};
 };
 
 #endif /* PROPERTYWITHRANGE_H_ */

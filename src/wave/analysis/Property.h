@@ -12,23 +12,31 @@
 #include "../Samples.h"
 #include "utils/jsonextend.h"
 
+
 using std::string;
 
 class Property {
-protected:
-	double m_weight;
+
 public:
 	 Property(double weight = 1.0){
 		m_weight = weight;
 	};
 	virtual ~Property(){
 	};
-	virtual jsonextend getValue(const Samples& samples) = 0;
+	virtual double getValue(const Samples& samples) = 0;
 	virtual string getName() = 0;
 	virtual double getWeight() {
 		return m_weight;
 	}
+	virtual jsonextend getJSON(const Samples& samples) {
+		jsonextend value;
+		double val = getValue(samples);
+		value[getName()] = json::value::number(val);
+		return value;
+	}
 
+protected:
+	double m_weight;
 	//TODO getJSON()
 };
 

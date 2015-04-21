@@ -9,6 +9,7 @@
 #define JSONEXTEND_H_
 #include "cpprest/json.h"
 
+namespace json = web::json;
 
 class jsonextend : public web::json::value {
 public:
@@ -22,7 +23,7 @@ public:
         	uint32_t counter_this = 0, counter_other  =  0;
         	counter_this = 0;
 			for (auto iter = this->as_object().cbegin(); iter != this->as_object().cend(); ++iter)
-				if (other.has_field(iter->first)) {
+				if (other.has_field(iter->first) && tmp[iter->first].is_number()) {
 					if (tmp[iter->first].as_double() > tmpthis[iter->first].as_double())
 					   counter_other++;
 					else

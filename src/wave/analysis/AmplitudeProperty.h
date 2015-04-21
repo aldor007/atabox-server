@@ -19,7 +19,7 @@ public:
 	AmplitudeProperty(double weight ) :
 			PropertyWithRange(0, 100, weight) {
 	}
-	virtual jsonextend getValue(const Samples& samples) {
+	virtual double getValue(const Samples& samples) {
 
 		double result = 0.0;
 		for (unsigned int i = firstSample(samples); i <= lastSample(samples);
