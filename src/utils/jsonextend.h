@@ -14,7 +14,7 @@ namespace json = web::json;
 class jsonextend : public web::json::value {
 public:
 		operator std::string () const {
-			return this->to_string();
+			return this->serialize();
 
 		}
 		bool operator<( const jsonextend& other) const {

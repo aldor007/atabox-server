@@ -9,7 +9,6 @@
 
 Samples::Samples(WaveFile & waveFile):
 		Aquila::SignalSource(waveFile.getSamples(), waveFile.getNumberOfSamples(), waveFile.getSampleRate()) {
-	int32_t maxOfRange = WaveUtils::getMaxOfRange(waveFile.getBitsPerSample());
 	numberOfSamples = waveFile.getNumberOfSamples();
 	this->sampleRate = waveFile.getSampleRate();
 	lenghtInSeconds = WaveUtils::calculateLenghtInSeconds(numberOfSamples, this->sampleRate);
