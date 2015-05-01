@@ -37,6 +37,7 @@ TEST_F(NormalizingFilterTest, simpleExample) {
 
 	//when
 	filter.applyOn(samples);
+	delete[] values;
 
 	//then
 	ASSERT_DOUBLE_EQ(samples.getSample(0), 0.0256);
@@ -57,6 +58,8 @@ TEST_F(NormalizingFilterTest, simpleExampleWithParameterLevel) {
 
 	//when
 	filter.applyOn(samples);
+	delete[] values;
+	
 
 	//then
 	ASSERT_DOUBLE_EQ(samples.getSample(0), -0.4);

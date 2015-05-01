@@ -57,6 +57,7 @@ TEST_F(ProcessorTest, changesSamplesWhenFiltersAreAdded) {
 
 	//when
 	preprocessor.applyFilterChainOn(samples);
+	delete[] values;
 
 	//then
 	ASSERT_DOUBLE_EQ(samples.getSample(0), 0.628);
@@ -83,6 +84,7 @@ TEST_F(ProcessorTest, changesSamplesWhenMoreThanOneFiltersAreAdded) {
 
 	//when
 	preprocessor.applyFilterChainOn(samples);
+	delete[] values;
 
 	//then
 	ASSERT_DOUBLE_EQ(samples.getSample(0), 0.628);
