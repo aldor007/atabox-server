@@ -338,11 +338,9 @@ int main(int argc, char** argv) {
 					boost::bind(&boost::asio::io_service::stop, &g_io_service));
 			g_io_service.notify_fork(boost::asio::io_service::fork_prepare);
 		    g_io_service.stop();
-			LOG(debug)<<"Io "<<crossplat::threadpool::shared_instance().service().stopped();
 			daemon(1, 1);
 
 			//crossplat::threadpool::shared_instance().service().reset();
-			LOG(debug)<<"Io "<<crossplat::threadpool::shared_instance().service().stopped();
 			//daemonize();
 			g_io_service.notify_fork(boost::asio::io_service::fork_child);
 			g_io_service.run();
