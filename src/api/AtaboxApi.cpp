@@ -156,7 +156,7 @@ void AtaboxApi::handle_post(http_request request)
     try {
         commonHandler(request);
     } catch(std::exception &e) {
-        LOG(fatal)<<"Exception! "<<e.what();
+        LOG(fatal)<<"Exception! "<<e.what()  ;
         request.reply(status_codes::InternalError).wait();
     }
 

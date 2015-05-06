@@ -39,7 +39,7 @@ public:
 	void addMethod(std::string name, handle_request_fun fun);
 	std::map<utility::string_t, handle_request_fun> getMethods() const;
 	void enableStaticFiles();
-private:
+protected:
 	static void handle_error(pplx::task<void>&t);
 	void  inline listenerSetSupports();
 	void inline commonHandler(web::http::http_request&);
