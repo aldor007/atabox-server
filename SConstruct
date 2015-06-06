@@ -15,7 +15,7 @@ def getSources(src_dir):
         for filename in fnmatch.filter(filenames, '*.cpp'):
             sources.append(str(os.path.join(root, filename)))
         for filename in fnmatch.filter(filenames, '*.hpp'):
-            sources += Glob(os.path.join(root, filename))
+            sources.append(str(os.path.join(root, filename)))
     return sources
 
 
@@ -53,8 +53,8 @@ common_libs = [
 ]
 libs_path = ['external/aquila/lib']
 CXX = 'g++'
-if cmd_exists('clang++'):
-    CXX = 'clang++'
+# if cmd_exists('clang++'):
+#     CXX = 'clang++'
 
 SetOption('num_jobs', num_cpu)
 print "running with -j", GetOption('num_jobs')
@@ -74,6 +74,9 @@ cppflags = ['--std=c++11',  '-Wall', '-g',  '-fdiagnostics-color=always']
 
 output = 'atabox-server'
 build_dir = 'build'
+print(atabox_sources)
+
+
 
 source_files = [os.path.join(build_dir, s) for s in atabox_sources]
 comp = ARGUMENTS.get('env', 'debug')
@@ -104,6 +107,14 @@ env_env = prepare_env(['PATH','TERM', 'HOME'])
 
 VariantDir(build_dir, '.')
 env = Environment(ENV = env_env, CXX = CXX )
+# import SCons.Tool
+# static_obj, shared_obj = SCons.Tool.createObjBuilders(env)
+#
+# static_obj.add_action('.hpp', SCons.Defaults.CXXAction)
+# shared_obj.add_action('.hpp', SCons.Defaults.ShCXXAction)
+# static_obj.add_emitter('.hpp', SCons.Defaults.StaticObjectEmitter)
+# shared_obj.add_emitter('.hpp', SCons.Defaults.SharedObjectEmitter)
+
 env.Append(CPPPATH=include_dir)
 env.Append(CPPFLAGS=cppflags)
 env.Append(CPPDEFINES=cpp_defined)
