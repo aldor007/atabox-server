@@ -14,22 +14,22 @@ struct LRBM // layered RBM
 
     std::vector<RBMP> rbms_;
 
-    RBMP& output_layer() { 
-        return rbms_[rbms_.size() - 1]; 
+    RBMP& output_layer() {
+        return rbms_[rbms_.size() - 1];
     }
-    
-    size_t max_layer() const { 
-        return rbms_.size(); 
+
+    size_t max_layer() const {
+        return rbms_.size();
     }
 
     int build(const std::vector<int>& layers, const std::vector<int>& adjust = std::vector<int>()) {
-        if (layers.size() <= 1) 
+        if (layers.size() <= 1)
             return -1;
 
         for (size_t i=0; i<layers.size() - 1; ++i) {
             int n_visible = layers[i] + (adjust.empty()? 0: adjust[i]);
             int n_hidden = layers[i+1];
-    
+
         std::cout << "New RBM " << n_visible << " -> " << n_hidden << std::endl;
         rbms_.push_back(std::unique_ptr<RBM>(new RBM(n_visible, n_hidden)));
     }
@@ -57,7 +57,7 @@ struct LRBM // layered RBM
       for (auto& rbm: rbms) {
           if (width < rbm->num_hidden() + 1)
               width = rbm->num_hidden() + 1;
-          height += (rbm->num_visible() + 2);  
+          height += (rbm->num_visible() + 2);
       }
       image.resize(width * height);
 

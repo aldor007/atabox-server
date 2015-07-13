@@ -31,8 +31,7 @@ casablanca:
 	sudo cp $(EXTERNAL)/casablanca/Release/build.release/Binaries/libcpprest.so /usr/lib
 aquila:
 	cd ${EXTERNAL}/aquila/ && cmake CMakeLists.txt && make && sudo make install
-
-	
+	sudo cp external/aquila/lib/libOoura_fft.so /usr/lib
 clean:
 	cd $(EXTERNAL)/rocksdb_source && make clean
 	# rm *.o

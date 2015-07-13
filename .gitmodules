@@ -10,3 +10,6 @@
 [submodule "external/rbm"]
 	path = external/rbm
 	url = https://github.com/Aldor007/rbm-mnist
+[submodule "external/spdlog"]
+	path = external/spdlog
+	url = https://github.com/gabime/spdlog.git

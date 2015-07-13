@@ -15,7 +15,7 @@ struct DeepBeliefNet : public LRBM
             return -1;
         }
 
-        int max_epoch = conf.max_epoch_, batch_size = conf.batch_size_, max_batches = std::min(conf.max_batches_, n_samples / batch_size); 
+        int max_epoch = conf.max_epoch_, batch_size = conf.batch_size_, max_batches = std::min(conf.max_batches_, n_samples / batch_size);
         std::vector<Vector> probs(n_samples);
         for(int layer = 0; layer < max_layer; ++layer) {
             auto& rbm = this->rbms_[layer];
@@ -23,28 +23,28 @@ struct DeepBeliefNet : public LRBM
             // XXX: more epochs and lower learning rate for linear rbm
             if (rbm->type_ == RBM::Type::LINEAR) {
                 max_epoch = 100;
-                conf.learning_rate_ = 0.001; 
+                conf.learning_rate_ = 0.001;
             }
 
             for (int epoch = 0; epoch < max_epoch; ++epoch) {
-                
-                if (progress) { 
-                    progress(*this); 
+
+                if (progress) {
+                    progress(*this);
                 }
 
                 //XXX: update momentum
-                if (epoch > 5) 
+                if (epoch > 5)
                     conf.momentum_ = .9f;
 
                 for (size_t batch = 0; batch < max_batches; ++batch) {
                     int start = batch * batch_size, end = std::min(start + batch_size, n_samples);
 
                     Batch data;
-                    if (layer == 0) 
+                    if (layer == 0)
                         data = Batch{inputs.begin() + start, inputs.begin() + end};
-                    else 
+                    else
                         data = Batch{probs.begin() + start, probs.begin() + end};
-        
+
                     float error = rbm->train(data, conf);
 
                     if ((batch + 1) % 10 == 0) {
@@ -71,10 +71,10 @@ struct DeepBeliefNet : public LRBM
                             }
                         }
                     }
-                }  
+                }
             }
         }
-  
+
         if (progress) { progress(*this); }
         return 0;
     }
@@ -83,16 +83,16 @@ struct DeepBeliefNet : public LRBM
     {
         static std::default_random_engine eng(::time(NULL));
         std::uniform_real_distribution<float> rng(0.0, 1.0);
-  
+
         Vector input(sample);
         int n_layers = rbms_.size();
         for (int i =0; i<n_layers - 1; ++i) {
             const RBMP& rbm = rbms_[i];
             size_t n_visible = rbm->num_visible(), n_hidden = rbm->num_hidden();
-      
+
             Vector next(n_hidden);
-            rbm->activate_hidden(input, next); 
-            input.swap(next);  
+            rbm->activate_hidden(input, next);
+            input.swap(next);
         }
 
         RBMP& rbm = rbms_[n_layers - 1];
@@ -101,16 +101,16 @@ struct DeepBeliefNet : public LRBM
         size_t n_input = input.size();
         if (n_input  + output.size() != n_visible) {
             return -1;
-        }   
+        }
 
         // attach zero-ed labels
-        if (n_visible > n_input) 
+        if (n_visible > n_input)
             input.resize(n_visible);
 
         Vector h1(n_hidden);
             rbm->activate_hidden(input, h1);
 
-        if (!probs.empty()) 
+        if (!probs.empty())
             probs = h1;
 
         if (!output.empty()) {
@@ -119,7 +119,7 @@ struct DeepBeliefNet : public LRBM
             std::copy(v2.begin() + n_input, v2.end(), output.begin());
         }
 
-        return 0;    
+        return 0;
     }
 
     struct GradientContext
@@ -141,7 +141,7 @@ struct DeepBeliefNet : public LRBM
     int gradient(GradientContext& ctx, const Vector& weights, Vector& weight_incs, float& cost)
     {
         Batch& inputs = ctx.inputs_;
-        std::vector<std::vector<Vector>>& probs = ctx.probs_; 
+        std::vector<std::vector<Vector>>& probs = ctx.probs_;
         bool has_targets = !ctx.targets_.empty();
 
         int max_layer = this->rbms_.size();
@@ -156,17 +156,17 @@ struct DeepBeliefNet : public LRBM
         std::fill(weight_incs.begin(), weight_incs.end(), 0);
         cost = 0;
         float error = 0;
-        for (size_t sample = 0; sample < n_samples; ++sample) { 
+        for (size_t sample = 0; sample < n_samples; ++sample) {
             const Vector& input = inputs[sample];
             v::LightVector bias_hidden, weight;
             for (int layer=0; layer < max_layer; ++layer) {
                 const RBMP& rbm = this->rbms_[layer];
-                if (layer < ctx.start_layer_ || weights.empty()) { 
+                if (layer < ctx.start_layer_ || weights.empty()) {
                     float *start = const_cast<float *>(rbm->weight_.data()), *end = start + rbm->num_weight();
                     weight = v::LightVector(start, end);
                     start = const_cast<float *>(rbm->bias_hidden_.data()); end = start + rbm->num_hidden();
                     bias_hidden = v::LightVector(start, end);
-                } else { 
+                } else {
                     float *start = const_cast<float *>(weights.data()) + dims[layer - ctx.start_layer_], *end = start + rbm->num_weight();
                     weight = v::LightVector(start, end);
                     start = end;
@@ -180,7 +180,7 @@ struct DeepBeliefNet : public LRBM
             }
 
             // output
-            Vector& result = probs[max_layer - 1][sample]; 
+            Vector& result = probs[max_layer - 1][sample];
             Vector& diff = diffs[sample];
             diff.resize(n_hidden);
 
@@ -191,34 +191,34 @@ struct DeepBeliefNet : public LRBM
                 const Vector& target = ctx.targets_[sample];
                 for (size_t i=0; i<n_hidden; ++i) {
                     diff[i] = (result[i] - target[i]);
-                    cost += target[i] * log(result[i]); 
+                    cost += target[i] * log(result[i]);
                     error += diff[i] * diff[i];
                 }
             } else {
                 for (size_t i=0; i<n_hidden; ++i) {
                     diff[i] = (result[i] - input[i]) / n_samples;
-                    cost += input[i] * log(result[i]) + (1 - input[i]) * log(1 - result[i]);  
+                    cost += input[i] * log(result[i]) + (1 - input[i]) * log(1 - result[i]);
                     error += (result[i] - input[i]) * (result[i] - input[i]);
                 }
             }
         }
 
         cost = -cost;
-        if (!has_targets) 
+        if (!has_targets)
             cost *= 1/ n_samples;
 
         // calculate gradient
         for (int layer=max_layer - 1; layer >= 0; --layer) {
-            if (layer < ctx.start_layer_) 
+            if (layer < ctx.start_layer_)
                 break;
 
             if (layer != max_layer - 1) {
                 const RBMP& rbm = this->rbms_[layer + 1];
-                // const Vector& weight = rbm->weight_; 
+                // const Vector& weight = rbm->weight_;
                 size_t n_visible = rbm->num_visible(), n_hidden = rbm->num_hidden();
                 size_t offset = dims[layer + 1 - ctx.start_layer_];
                 v::LightVector weight(const_cast<float *>(weights.data()) + offset, const_cast<float *>(weights.data()) + offset + rbm->num_weight());
-                for (size_t sample = 0; sample < n_samples; ++sample) { 
+                for (size_t sample = 0; sample < n_samples; ++sample) {
                     Vector diff(n_visible);
                     for (size_t j=0; j<n_visible; ++j) {
                         float s = 0;
@@ -231,14 +231,14 @@ struct DeepBeliefNet : public LRBM
                             diff[j] = s;
                         }
                         diffs[sample].swap(diff);
-            } 
+            }
         }
 
         RBMP& rbm = this->rbms_[layer];
         size_t n_visible = rbm->num_visible(), n_hidden = rbm->num_hidden();
         size_t offset = dims[layer - ctx.start_layer_];
 
-          for (size_t sample = 0; sample < n_samples; ++sample) { 
+          for (size_t sample = 0; sample < n_samples; ++sample) {
             const auto& v = (layer > 0? probs[layer-1][sample] : inputs[sample]);
             const auto& d = diffs[sample];
             for (size_t j=0; j<n_visible; ++j) {
@@ -269,8 +269,8 @@ struct DeepBeliefNet : public LRBM
 
     // initialize
     float cost = 0;
-    auto dims = this->offsets(ctx.start_layer_); 
-    Vector weights(dims.back()), weight_incs(dims.back()); 
+    auto dims = this->offsets(ctx.start_layer_);
+    Vector weights(dims.back()), weight_incs(dims.back());
 
     {
       auto offset = weights.begin();
@@ -284,7 +284,7 @@ struct DeepBeliefNet : public LRBM
     }
 
     this->gradient(ctx, weights, weight_incs, cost);
-    
+
     Vector df0(weight_incs);
     Vector s(df0); v::scale(s, -1.0);
     float d0 = -v::dot(s, s), f0 = cost;
@@ -306,12 +306,12 @@ struct DeepBeliefNet : public LRBM
       float f1 = 0, x1 = 0, d1 = 0;
       float f2 = 0, x2 = 0, d2 = 0;
       while (true) {
-        x2 = 0; f2 = f0; d2 = d0; 
+        x2 = 0; f2 = f0; d2 = d0;
         f3 = f0; df3 = df0;
 
         while (true) {
           if (M -- < 0) break;
-          
+
           Vector tmp_weights(weights);
 //          tmp_weights += s * x3;
           v::saxpy(tmp_weights, x3, s);
@@ -336,14 +336,14 @@ struct DeepBeliefNet : public LRBM
         if (d3 > SIG*d0 || f3 > f0 + x3*RHO*d0 || M <= 0) break;
 
         x1 = x2; f1 = f2; d1 = d2;
-        x2 = x3; f2 = f3; d2 = d3;  
+        x2 = x3; f2 = f3; d2 = d3;
 
         // cubic extrapolation
         float dx = x2-x1;
         float A = 6.0*(f1-f2) + 3.0*(d2+d1)*dx;
         float B = 3.0*(f2-f1) - (2.0*d1+d2)*dx;
         x3 = x1-d1*dx*dx/(B+sqrt(B*B-A*d1*dx));
-  
+
         // keep it in range
         float upper = x2 * EXT, lower = x2 + INT * dx;
         if (!std::isfinite(x3) || x3 < 0 || x3 > upper) x3 = upper;
@@ -354,7 +354,7 @@ struct DeepBeliefNet : public LRBM
       float f4 = 0, x4 = 0, d4 = 0;
       while ((std::abs(d3) > -SIG*d0 || f3 > f0 + x3*RHO*d0) && M > 0) {
         if (d3 > 0 || f3 > f0+x3*RHO*d0) {
-          x4 = x3; f4 = f3; d4 = d3;        
+          x4 = x3; f4 = f3; d4 = d3;
         } else {
           x2 = x3; f2 = f3; d2 = d3;
         }
@@ -365,14 +365,14 @@ struct DeepBeliefNet : public LRBM
         } else {
           float A = 6*(f2-f4)/dx+3*(d4+d2);     // cubic interpolation
           float B = 3*(f4-f2)-(2*d2+d4)*dx;
-          x3 = x2+(sqrt(B*B-A*d2*dx*dx)-B)/A; 
+          x3 = x2+(sqrt(B*B-A*d2*dx*dx)-B)/A;
         }
 
         if (! std::isfinite(x3)) {
 //          std::cout << "x3 = " << x3 << " not usable" << std::endl;
           x3 = (x2 + x4) / 2;
         }
-        
+
         // keep it in range
         x3 = std::max(std::min(x3, x4-INT*(x4-x2)),x2+INT*(x4-x2));
 
@@ -393,14 +393,14 @@ struct DeepBeliefNet : public LRBM
       }
 
       if (std::abs(d3) < -SIG*d0 && f3 < f0 + x3*RHO*d0) { // succeeded
-//        weights += s * x3; 
+//        weights += s * x3;
         v::saxpy(weights, x3, s);
-        f0 = f3; 
+        f0 = f3;
 //        s *= (df3.dot(df3) - df3.dot(df0)) / df0.dot(df0); s -= df3; // Polack-Ribiere CG direction
         float g = (v::dot(df3,df3) - v::dot(df3, df0)) / v::dot(df0, df0);
         v::saxpy(g, s, -1.0, df3); // Polack-Ribiere CG direction
-//        d3 = d0; d0  = df3.dot(s); df0 = df3; 
-        d3 = d0; d0  = v::dot(df3, s); df0 = df3; 
+//        d3 = d0; d0  = df3.dot(s); df0 = df3;
+        d3 = d0; d0  = v::dot(df3, s); df0 = df3;
         if (d0 > 0) {
 //          s = -df0; d0 = -df0.dot(df0);
           s = df0; v::scale(s, -1.0); d0 = -v::dot(df0, df0);
@@ -411,8 +411,8 @@ struct DeepBeliefNet : public LRBM
         std::cout << "found: iteration i=" << i << ", cost=" << f3 << std::endl;
       } else { // failed
         std::cout << "x3 = " << x3 << " failed" << std::endl;
-        weights = best_weights; f0 = best_cost; df0 = best_weight_incs; 
-        if (failed) break;  
+        weights = best_weights; f0 = best_cost; df0 = best_weight_incs;
+        if (failed) break;
 
 //        s = -df0; d0 = - s.dot(s); x3 = 1.0/(1.0-d0);
         s = df0; v::scale(s, -1.0); d0 = -v::dot(s, s); x3 = 1.0/(1.0-d0);
@@ -442,11 +442,11 @@ struct DeepBeliefNet : public LRBM
     return train(inputs, nil, this->rbms_.size() - 1, conf, progress);
   }
 
-  int backprop(std::vector<Vector>& inputs, std::vector<Vector>& targets, LRBM::Conf& conf, std::function<void(DeepBeliefNet&)> progress = nullptr) 
+  int backprop(std::vector<Vector>& inputs, std::vector<Vector>& targets, LRBM::Conf& conf, std::function<void(DeepBeliefNet&)> progress = nullptr)
   {
-    int batch_size = conf.batch_size_, max_epoch = conf.max_epoch_, max_batches = conf.max_batches_; 
+    int batch_size = conf.batch_size_, max_epoch = conf.max_epoch_, max_batches = conf.max_batches_;
     int max_layer = this->rbms_.size();
-    
+
     std::vector<std::vector<Vector>> probs(max_layer);
     for (int i = 0; i < max_layer; ++i) {
       const RBMP& rbm = this->rbms_[i];

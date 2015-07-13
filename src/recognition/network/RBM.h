@@ -22,9 +22,9 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 // Algorithm is based on matlab code from http://www.cs.toronto.edu/~hinton/MatlabForSciencePaper.html
 /*
-Training a deep autoencoder or a classifier 
+Training a deep autoencoder or a classifier
 on MNIST digits
-Code provided by Ruslan Salakhutdinov and Geoff Hinton 
+Code provided by Ruslan Salakhutdinov and Geoff Hinton
 Permission is granted for anyone to copy, use, modify, or distribute this program and accompanying programs and documents for any purpose, provided this copyright notice is retained and prominently displayed, along with a note saying that the original programs are available from our web page. The programs and documents are distributed without any warranty, express or implied. As the programs were written for research purposes only, they have not been tested to the degree that would be advisable in any important application. All use of these programs is entirely at the user's own risk.
 */
 
@@ -44,7 +44,7 @@ Permission is granted for anyone to copy, use, modify, or distribute this progra
 
 struct RBM
 {
-    enum class Type 
+    enum class Type
     {
         SIGMOID,
         LINEAR,
@@ -60,25 +60,25 @@ struct RBM
     };
 
     static float sigmoid(float x) {
-        return (1.0 / (1.0 + exp(-x))); 
+        return (1.0 / (1.0 + exp(-x)));
     }
 
-    static const Vector& bernoulli(const Vector& input, Vector& output) { 
+    static const Vector& bernoulli(const Vector& input, Vector& output) {
         static std::default_random_engine eng(::time(NULL));
         static std::uniform_real_distribution<float> rng(0.0, 1.0);
 
         for (size_t i=0; i<input.size(); ++i) {
-            output[i] = (rng(eng) < input[i])? 1.0 : 0.0; 
-        } 
+            output[i] = (rng(eng) < input[i])? 1.0 : 0.0;
+        }
         return output;
     }
 
-    static const Vector& add_noise(const Vector& input, Vector& output) { 
+    static const Vector& add_noise(const Vector& input, Vector& output) {
         static std::default_random_engine eng(::time(NULL));
         static std::normal_distribution<float> rng(0.0, 1.0);
 
         for (size_t i=0; i<input.size(); ++i) {
-            output[i] = input[i] + rng(eng); 
+            output[i] = input[i] + rng(eng);
         }
         return output;
     }
@@ -93,23 +93,23 @@ struct RBM
     {
         static std::default_random_engine eng(::time(NULL));
         static std::normal_distribution<float> rng(0.0, 1.0);
-        for (auto& x: weight_) 
+        for (auto& x: weight_)
             x = rng(eng) * .1;
     }
 
-    size_t num_hidden() const { 
-        return bias_hidden_.size(); 
+    size_t num_hidden() const {
+        return bias_hidden_.size();
     }
 
     size_t num_visible() const {
-        return bias_visible_.size(); 
+        return bias_visible_.size();
     }
     size_t num_weight() const { return weight_.size(); }
 
     int mirror(const RBM& rbm)
     {
         size_t n_visible = bias_visible_.size(), n_hidden = bias_hidden_.size();
-        if (n_hidden != rbm.num_visible() || n_visible != rbm.num_hidden()) { 
+        if (n_hidden != rbm.num_visible() || n_visible != rbm.num_hidden()) {
             std::cout << "not mirrorable" << std::endl;
             return -1;
         }
@@ -121,7 +121,7 @@ struct RBM
             weight_[j * n_visible + i] = rbm.weight_[i * n_hidden + j];
           }
         }
-        return 0;  
+        return 0;
     }
 
     const Vector& activate_hidden(const Vector& visible, Vector& hidden) const {
@@ -159,7 +159,7 @@ struct RBM
             float s = 0;
             for (size_t j = 0; j < n_hidden; ++j)
                 s += hidden[j] * weight_[j * n_visible+ i];
-            
+
             s += bias_visible_[i];
 
             s = sigmoid(s);
@@ -203,13 +203,13 @@ struct RBM
         //    weight_ += weight_inc_;
         v::saxpy(weight_, 1.0, weight_inc_);
 
-        //    gh /= float(n_samples); 
+        //    gh /= float(n_samples);
         //    bias_hidden_inc_ = bias_hidden_inc_ * momentum + gh * learning_rate;
         v::saxpy(momentum, bias_hidden_inc_, learning_rate / n_samples, gh);
         //    bias_hidden_ += bias_hidden_inc_;
         v::saxpy(bias_hidden_, 1.0, bias_hidden_inc_);
 
-        //    gv /= float(n_samples); 
+        //    gv /= float(n_samples);
         //    bias_visible_inc_ = bias_visible_inc_ * momentum + gv * learning_rate;
         v::saxpy(momentum, bias_visible_inc_, learning_rate / n_samples, gv);
         //    bias_visible_ += bias_visible_inc_;
@@ -227,14 +227,14 @@ struct RBM
         size_t n_visible = bias_visible_.size(), n_hidden = bias_hidden_.size();
         float s = 0;
         for (size_t i = 0; i < n_visible; ++i) {
-            for (size_t j = 0; j < n_hidden; ++j) 
+            for (size_t j = 0; j < n_hidden; ++j)
                 s += weight_[j * n_visible+ i] * bias_hidden_[j] * bias_visible_[i];
         }
         return -s;
     }
 
-    template <typename T> static void _write(std::ostream& os, const T& v) { 
-        os.write(reinterpret_cast<const char *>(&v), sizeof(v)); 
+    template <typename T> static void _write(std::ostream& os, const T& v) {
+        os.write(reinterpret_cast<const char *>(&v), sizeof(v));
     }
 
     void store(std::ostream& os) const
@@ -249,9 +249,9 @@ struct RBM
 
         for (float v: bias_visible_)
             _write(os, v);
-        for (float v: bias_hidden_) 
+        for (float v: bias_hidden_)
             _write(os, v);
-        for (float v: weight_) 
+        for (float v: weight_)
             _write(os, v);
     }
 
@@ -268,11 +268,11 @@ struct RBM
         bias_hidden_.resize(n_hidden);
         weight_.resize(n_visible * n_hidden);
 
-        for (float& v: bias_visible_) 
+        for (float& v: bias_visible_)
             _read(is, v);
-        for (float& v: bias_hidden_) 
+        for (float& v: bias_hidden_)
             _read(is, v);
-        for (float& v: weight_) 
+        for (float& v: weight_)
             _read(is, v);
     }
 };

@@ -11,7 +11,6 @@
 
 #include <complex>
 
-#include "kissfft.hh"
 
 #include "wave/Samples.h"
 #include "wave/processing/Filter.h"
