@@ -5,6 +5,7 @@
  *      Author: aldor
  */
 #include <fstream>
+#include <iostream>
 
 #include <boost/shared_ptr.hpp>
 #include <boost/make_shared.hpp>
@@ -58,7 +59,7 @@ namespace atabox_log {
         boost::shared_ptr< text_sink > backend = boost::make_shared< text_sink >();
 
         backend->locked_backend()->add_stream(boost::shared_ptr< std::ostream >(&std::clog, logging::empty_deleter()));
-
+        std::cout<<"Debug color = "<<color<<" deamonize = "<<deamonize << std::endl;
         if (color && !deamonize) {
 
             logging::formatter frm
@@ -116,23 +117,24 @@ namespace atabox_log {
                     << expr::attr<severity_level>("Severity")
                     << "] " << expr::smessage;
                backend->set_formatter(frm);
-        /**syslog*-*/
-               boost::shared_ptr< sinks::synchronous_sink<sinks::syslog_backend> >
-              syslog_backend(new sinks::synchronous_sink<sinks::syslog_backend>(
-               keywords::facility = sinks::syslog::user,
-               keywords::use_impl = sinks::syslog::udp_socket_based
-            ));
+            if (deamonize) {
+                /* *syslog*- */
+                   boost::shared_ptr< sinks::synchronous_sink<sinks::syslog_backend> >
+                  syslog_backend(new sinks::synchronous_sink<sinks::syslog_backend>(
+                   keywords::facility = sinks::syslog::user,
+                   keywords::use_impl = sinks::syslog::udp_socket_based
+                ));
 
-            //syslog_backend->locked_backend()->set_target_address("localhost");
-        sinks::syslog::custom_severity_mapping< severity_level > mapping("Severity");
-        mapping[debug] = sinks::syslog::debug;
-        mapping[info] = sinks::syslog::info;
-        mapping[warning] = sinks::syslog::warning;
-        mapping[fatal] = sinks::syslog::critical;
-        syslog_backend->locked_backend()->set_severity_mapper(mapping);
-            syslog_backend->set_formatter(frm);
-        	core->add_sink(syslog_backend);
-
+                //syslog_backend->locked_backend()->set_target_address("localhost");
+                sinks::syslog::custom_severity_mapping< severity_level > mapping("Severity");
+                mapping[debug] = sinks::syslog::debug;
+                mapping[info] = sinks::syslog::info;
+                mapping[warning] = sinks::syslog::warning;
+                mapping[fatal] = sinks::syslog::critical;
+                syslog_backend->locked_backend()->set_severity_mapper(mapping);
+                    syslog_backend->set_formatter(frm);
+                    core->add_sink(syslog_backend);
+            }
         }
 
         logging::add_common_attributes();

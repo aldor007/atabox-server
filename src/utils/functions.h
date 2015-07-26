@@ -20,8 +20,7 @@
 #include "wave/analysis/PercentageAboveProperty.h"
 #include "wave/analysis/WhereIsAmplitudeProperty.h"
 #include "wave/analysis/AverageValueProperty.h"
-
-#include "wave/analysis/SpectrumProperty.h"
+#include "wave/analysis/MfccProperty.h"
 
 /*FILTER*/
 
@@ -38,21 +37,21 @@
 void init_ProcessAndAnalize(ProcessAndAnalyze &monstru) {
 
 
-	Processor * firstProcessor = new Processor();
-		firstProcessor->addToFilterChain(new NormalizingFilter(1.0));
-		firstProcessor->addToFilterChain(new SilenceCuttingFilter(0.2));
-		SamplesAnalizator * firstAnalizator = new SamplesAnalizator();
-		int step = 10;
-		for (int i = 0; i < 100; i += step) {
-			firstAnalizator->addProperty(new AmplitudeProperty(i, i + step));
-			firstAnalizator->addProperty(new PercentageAboveProperty(0.01 * i));
-			firstAnalizator->addProperty(new ZeroCrossingsProperty(i, i + step));
-			firstAnalizator->addProperty(new AverageValueProperty(i, i + step));
-		}
-		firstAnalizator->addProperty(new LengthProperty());
-		firstAnalizator->addProperty(new WhereIsAmplitudeProperty());
-
-		monstru.add(std::make_pair(firstProcessor, firstAnalizator));
+    Processor * firstProcessor = new Processor();
+        firstProcessor->addToFilterChain(new NormalizingFilter(1.0));
+        firstProcessor->addToFilterChain(new SilenceCuttingFilter(0.2));
+        SamplesAnalizator * firstAnalizator = new SamplesAnalizator();
+        int step = 10;
+        for (int i = 0; i < 100; i += step) {
+            firstAnalizator->addProperty(new AmplitudeProperty(i, i + step));
+            firstAnalizator->addProperty(new PercentageAboveProperty(0.01 * i));
+            firstAnalizator->addProperty(new ZeroCrossingsProperty(i, i + step));
+            firstAnalizator->addProperty(new AverageValueProperty(i, i + step));
+        }
+        firstAnalizator->addProperty(new LengthProperty());
+        firstAnalizator->addProperty(new WhereIsAmplitudeProperty());
+        firstAnalizator->addProperty(new MfccProperty());
+        monstru.add(std::make_pair(firstProcessor, firstAnalizator));
 
 
 }
