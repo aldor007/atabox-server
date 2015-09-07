@@ -6,12 +6,20 @@ set(atabox_server_VERSION_MINOR 5)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/build")
 
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall")
 
 # external libs
 add_subdirectory(external)
 
 find_package(Boost REQUIRED COMPONENTS random chrono system thread locale regex filesystem program_options)
+
+include_directories(
+    src/
+    external/aquila/aquila
+    external/casablanca/Release/src
+    external/rocksdb_source/include
+
+)
 
 set(SOURCE_FILES
     src/api/AtaboxApi.cpp
@@ -66,5 +74,4 @@ set(SOURCE_FILES
     src/wave/WaveUtils.h
     src/main.cpp
 )
-include_directories(${PROJECT_SRC_DIR}/src)
 add_executable(atabox_server ${SOURCE_FILES})
