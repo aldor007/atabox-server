@@ -1,6 +1,6 @@
 #include "utils/ataboxexception.h"
 
-ataboxException::ataboxException(std::string msg) {
+ataboxException::ataboxException(std::string msg) throw() {
     m_msg = msg;
 }
 /**
@@ -12,6 +12,6 @@ const char * ataboxException::what() const throw() {
 /**
  *
  */
-ataboxException::~ataboxException() {
+ataboxException::~ataboxException() throw(){
 
 }
