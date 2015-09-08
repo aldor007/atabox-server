@@ -4,6 +4,7 @@ project(atabox_server)
 set(atabox_server_VERSION_MAJOR 0)
 set(atabox_server_VERSION_MINOR 5)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "build")
+option(ATABOX_TEST "Build all tests." ON) # Makes boolean 'test' available.
 
 
 set(ROCKSDB_ROOT external/rocksdb_source)
@@ -46,7 +47,7 @@ endif()
 #if(CMAKE_THREAD_LIBS_INIT)
 #    set(ATABOX_LIBS "${CMAKE_THREAD_LIBS_INIT}")
 #endif()
-include(cmake/Findrocksdb.cmake)
+include(CMake/Findrocksdb.cmake)
 if(ROCKSDB_FOUND)
     message("Found rocksdb")
 endif()
@@ -55,15 +56,16 @@ IF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     set(ATABOX_LIBS ${ATABOX_LIBS} boost_log-mt boost_thread-mt)
 endif()
 
-include_directories(
+set(ATABOX_INC
     src/
     external/aquila/aquila
     external/casablanca/Release/src
     external/rocksdb_source/include
-
 )
 
-set(SOURCE_FILES
+include_directories(${ATABOX_INC})
+
+set(ATABOX_SOURCES
     src/api/AtaboxApi.cpp
     src/api/AtaboxApi.h
     src/api/BaseApi.h
@@ -115,6 +117,12 @@ set(SOURCE_FILES
     src/wave/WaveFile.h
     src/wave/WaveUtils.cpp
     src/wave/WaveUtils.h
+)
+# main atabox library
+add_library(atabox ${ATABOX_SOURCES})
+
+set(ATABOX_SERVER_FILES
+    ${ATABOX_SOURCES}
     src/main.cpp
 )
 if((CMAKE_CXX_COMPILER_ID MATCHES "Clang") OR IOS)
@@ -152,6 +160,11 @@ endif()
 #else()
 #    set(ATABOX_LIBS ${ATABOX_LIBS} boost_thread)
 #endif()
-
-add_executable(atabox_server ${SOURCE_FILES})
+add_executable(atabox_server ${ATABOX_SERVER_FILES})
 target_link_libraries(atabox_server ${ATABOX_LIBS})
+#if(ATABOX_TEST)
+    message("Bulding tests")
+    include(CMake/FindGMock.cmake)
+    add_subdirectory(tests)
+#endif()
+

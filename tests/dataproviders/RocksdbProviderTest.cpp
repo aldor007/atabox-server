@@ -18,7 +18,7 @@ class RocksdbProviderTest: public ::testing::Test {
 
 };
 
-
+/*
 TEST_F(RocksdbProviderTest, writeDataCanItRead) {
     std::string test = "tests/file.db";
 
@@ -53,4 +53,4 @@ TEST_F(RocksdbProviderTest, putAndGetWaveProperies) {
     db.put(test, expected);
     ASSERT_EQ(db.get(test), expected);
 }
-
+*/
