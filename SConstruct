@@ -39,10 +39,11 @@ cpp_defined = {'DEBUG': 1, 'BOOST_LOG_DYN_LINK': 'yes'}
 common_libs = [
     'pthread',
     'boost_system',
-    'boost_thread',
+    'boost_thread-mt',
     'boost_iostreams',
     'boost_filesystem',
-    'boost_log',
+    'boost_log-mt',
+    'boost_chrono',
     'rocksdb',
     'bz2',
     'z',
@@ -51,7 +52,7 @@ common_libs = [
     'Ooura_fft'
 
 ]
-libs_path = ['external/aquila/lib']
+libs_path = ['external/aquila/lib', 'libs/']
 CXX = 'g++'
 # if cmd_exists('clang++'):
 #     CXX = 'clang++'

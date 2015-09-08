@@ -3,15 +3,57 @@ cmake_minimum_required (VERSION 3.0)
 project(atabox_server)
 set(atabox_server_VERSION_MAJOR 0)
 set(atabox_server_VERSION_MINOR 5)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/build")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "build")
 
+
+set(ROCKSDB_ROOT external/rocksdb_source)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall")
+
+
+# If no explicit compiler override and clang++ exists, prefer clang.
+#find_file(CLANGXX_EXISTS "clang++")
+#if(DEFINED ENV{CC})
+#    set(CMAKE_C_COMPILER "$ENV{CC}")
+#    message("Overriding C compiler from clang to $ENV{CC}")
+#elseif(CLANGXX_EXISTS)
+#    set(CMAKE_C_COMPILER "clang")
+#endif()
+#if(DEFINED ENV{CXX})
+#    set(CMAKE_CXX_COMPILER "$ENV{CXX}")
+#    message("Overriding CXX compiler from clang++ to $ENV{CXX}")
+#elseif(CLANGXX_EXISTS)
+#    set(CMAKE_CXX_COMPILER "clang++")
+#endif()
 
 # external libs
 add_subdirectory(external)
 
-find_package(Boost REQUIRED COMPONENTS random chrono system thread locale regex filesystem program_options)
+add_definitions(-DBOOST_LOG_DYN_LINK=yes)
+
+find_package(Boost REQUIRED COMPONENTS random chrono system thread locale regex filesystem program_options log )
+#IF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+#    set(ATABOX_LIBS ${ATABOX_LIBS} boost_log-mt boost_thread-mt)
+#endif()
+if(Boost_FOUND)
+    include_directories(${Boost_INCLUDE_DIRS})
+    set(ATABOX_LIBS "${Boost_LIBRARIES}")
+endif()
+find_package(Threads REQUIRED)
+if(THREADS_HAVE_PTHREAD_ARG)
+    target_compile_options(PUBLIC my_app "-pthread")
+endif()
+#if(CMAKE_THREAD_LIBS_INIT)
+#    set(ATABOX_LIBS "${CMAKE_THREAD_LIBS_INIT}")
+#endif()
+include(cmake/Findrocksdb.cmake)
+if(ROCKSDB_FOUND)
+    message("Found rocksdb")
+endif()
+set(ATABOX_LIBS "${ATABOX_LIBS}" ${ROCKSDB_LIBRARIES} Aquila cpprest)
+IF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+    set(ATABOX_LIBS ${ATABOX_LIBS} boost_log-mt boost_thread-mt)
+endif()
 
 include_directories(
     src/
@@ -43,6 +85,7 @@ set(SOURCE_FILES
     src/utils/atabox_log.cpp
     src/utils/atabox_log.h
     src/utils/ataboxexception.h
+    src/utils/ataboxexception.cpp
     src/utils/execution_policy.h
     src/utils/functions.h
     src/utils/jsonextend.h
@@ -74,4 +117,41 @@ set(SOURCE_FILES
     src/wave/WaveUtils.h
     src/main.cpp
 )
+if((CMAKE_CXX_COMPILER_ID MATCHES "Clang") OR IOS)
+    message("-- Setting clang options")
+
+    set(WARNINGS "-Wall -Wextra -Wcast-qual -Wconversion -Wformat=2 -Winit-self -Winvalid-pch -Wmissing-format-attribute -Wmissing-include-dirs -Wpacked -Wredundant-decls")
+    set(OSX_SUPPRESSIONS "-Wno-overloaded-virtual -Wno-sign-conversion -Wno-deprecated -Wno-unknown-pragmas -Wno-reorder -Wno-char-subscripts -Wno-switch -Wno-unused-parameter -Wno-unused-variable -Wno-deprecated -Wno-unused-value -Wno-unknown-warning-option -Wno-return-type-c-linkage -Wno-unused-function -Wno-sign-compare -Wno-shorten-64-to-32 -Wno-reorder")
+    set(WARNINGS "${WARNINGS} ${OSX_SUPPRESSIONS}")
+
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++ -Wno-return-type-c-linkage -Wno-unneeded-internal-declaration")
+    set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LIBRARY "libc++")
+    set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LANGUAGE_STANDARD "c++11")
+
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -fno-strict-aliasing")
+elseif(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
+    message("-- Setting gcc options")
+
+    set(WARNINGS "-Wall -Wextra -Wunused-parameter -Wcast-align -Wcast-qual -Wconversion -Wformat=2 -Winit-self -Winvalid-pch -Wmissing-format-attribute -Wmissing-include-dirs -Wpacked -Wredundant-decls -Wunreachable-code")
+    set(LINUX_SUPPRESSIONS "-Wno-deprecated -Wno-unknown-pragmas -Wno-reorder -Wno-unused-function -Wno-char-subscripts -Wno-switch -Wno-unused-but-set-parameter -Wno-unused-value -Wno-unused-local-typedefs")
+
+    set(WARNINGS "${WARNINGS} ${LINUX_SUPPRESSIONS}")
+    set(LD_FLAGS "${LD_FLAGS} -Wl,-z,defs")
+
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -fno-strict-aliasing")
+elseif(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
+    message("-- Setting msvc options")
+    set(WARNINGS)
+else()
+    message("-- Unknown compiler, success is doubtful.")
+    message("CMAKE_CXX_COMPILER_ID=${CMAKE_CXX_COMPILER_ID}")
+endif()
+
+#IF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+#    set(ATABOX_LIBS ${ATABOX_LIBS} boost_thread)
+#else()
+#    set(ATABOX_LIBS ${ATABOX_LIBS} boost_thread)
+#endif()
+
 add_executable(atabox_server ${SOURCE_FILES})
+target_link_libraries(atabox_server ${ATABOX_LIBS})

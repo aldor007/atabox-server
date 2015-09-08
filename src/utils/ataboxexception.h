@@ -11,19 +11,19 @@
 #include <exception>
 #include <string>
 
+#ifndef _GLIBCXX_USE_NOEXCEPT
+#define _NO_EXC_AL _NO_EXCEPT
+#else
+#define _NO_EXC_AL _GLIBCXX_USE_NOEXCEPT
+#endif
+
 class ataboxException :public  std::exception {
 private:
 	std::string m_msg;
 public:
-	ataboxException(std::string msg): m_msg(msg) {
-
-	}
-    virtual const char* what() const _GLIBCXX_USE_NOEXCEPT {
-    	return m_msg.c_str();
-    }
-    virtual ~ataboxException() {
-
-    }
+	ataboxException(std::string msg) throw();
+    virtual const char* what() const throw();
+    virtual ~ataboxException() throw();
 };
 
 
