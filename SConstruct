@@ -39,10 +39,10 @@ cpp_defined = {'DEBUG': 1, 'BOOST_LOG_DYN_LINK': 'yes'}
 common_libs = [
     'pthread',
     'boost_system',
-    'boost_thread-mt',
+    'boost_thread',
     'boost_iostreams',
     'boost_filesystem',
-    'boost_log-mt',
+    'boost_log',
     'boost_chrono',
     'rocksdb',
     'bz2',
