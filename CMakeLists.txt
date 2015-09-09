@@ -119,7 +119,7 @@ set(ATABOX_SOURCES
     src/wave/WaveUtils.h
 )
 # main atabox library
-add_library(atabox ${ATABOX_SOURCES})
+add_library(atabox STATIC ${ATABOX_SOURCES})
 
 set(ATABOX_SERVER_FILES
     ${ATABOX_SOURCES}

@@ -1,5 +1,4 @@
 cmake_minimum_required (VERSION 3.0)
-project(atabox_tests)
 set(ATABOX_TEST_SOURCE
     api/AtaboxApiTest.cpp
     api/casablancaMocks.cpp
@@ -32,7 +31,7 @@ set(ATABOX_TEST_SOURCE
     wave/SamplesTest.cpp
     wave/WaveFileMock.cpp
     wave/WaveFileMock.h
-        wave/WaveFileTest.cpp
+    wave/WaveFileTest.cpp
     wave/WaveUtilsTest.cpp
     RunAllTests.cpp
 )
@@ -41,4 +40,4 @@ find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS} ${GMOCK_INCLUDE_DIRS} ${ATABOX_INC})
 
 add_executable(atabox_tests ${ATABOX_TEST_SOURCE})
-target_link_libraries(atabox_tests ${ATABOX_LIBS} atabox gtest gmock)
+target_link_libraries(atabox_tests  atabox ${ATABOX_LIBS} gtest gmock)
