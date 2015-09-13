@@ -64,7 +64,7 @@ set(ATABOX_LIBS ${ATABOX_LIBS} shark)
 set(ATABOX_INC
     src/
     external/aquila/aquila
-    external/casablanca/Release/src
+    external/casablanca/Release/include
     external/rocksdb_source/include
         external/shark/include
 )
