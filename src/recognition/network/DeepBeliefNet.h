@@ -19,9 +19,9 @@ struct DeepBeliefNet : public LRBM
         std::vector<Vector> probs(n_samples);
         for(int layer = 0; layer < max_layer; ++layer) {
             auto& rbm = this->rbms_[layer];
-            RBM::Conf conf;
+            RBM2::Conf conf;
             // XXX: more epochs and lower learning rate for linear rbm
-            if (rbm->type_ == RBM::Type::LINEAR) {
+            if (rbm->type_ == RBM2::Type::LINEAR) {
                 max_epoch = 100;
                 conf.learning_rate_ = 0.001;
             }
@@ -115,7 +115,7 @@ struct DeepBeliefNet : public LRBM
 
         if (!output.empty()) {
             Vector hs(n_hidden), v2(n_visible);
-            rbm->activate_visible(RBM::bernoulli(h1, hs), v2);
+            rbm->activate_visible(RBM2::bernoulli(h1, hs), v2);
             std::copy(v2.begin() + n_input, v2.end(), output.begin());
         }
 
@@ -176,7 +176,7 @@ struct DeepBeliefNet : public LRBM
 
                 Vector& output = probs[layer][sample];
                 const Vector& _input = (layer == 0? input: probs[layer - 1][sample]);
-                RBM::activate_hidden(_input, output, bias_hidden, weight, rbm->type_);
+                RBM2::activate_hidden(_input, output, bias_hidden, weight, rbm->type_);
             }
 
             // output
@@ -226,7 +226,7 @@ struct DeepBeliefNet : public LRBM
                             // s += diffs[sample][k] * weight[j * n_hidden + k];
                             s += diffs[sample][k] * weight[k * n_visible + j];
                         }
-                        if (rbms_[layer]->type_ != RBM::Type::LINEAR)
+                        if (rbms_[layer]->type_ != RBM2::Type::LINEAR)
                             s *= probs[layer][sample][j] * (1.0 - probs[layer][sample][j]);
                             diff[j] = s;
                         }

@@ -5,8 +5,6 @@ set(ATABOX_TEST_SOURCE
     api/casablancaMocks.h
     dataproviders/RocksdbProviderTest.cpp
     recognition/PropertiesComparatorTest.cpp
-    runner/RunnerTest.cpp
-    tuningRunners/VimWaveRunner.cpp
     utils/execution_policyTest.cpp
     utils/jsonextendTest.cpp
     wave/analysis/AmplitudePropertyTest.cpp
@@ -38,6 +36,8 @@ set(ATABOX_TEST_SOURCE
 enable_testing()
 find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS} ${GMOCK_INCLUDE_DIRS} ${ATABOX_INC})
-
+set(CMA)
 add_executable(atabox_tests ${ATABOX_TEST_SOURCE})
-target_link_libraries(atabox_tests  atabox ${ATABOX_LIBS} gtest gmock)
+set_target_properties(atabox_tests PROPERTIES COMPILE_FLAGS
+    "-c -fmessage-length=0 -fprofile-arcs -ftest-coverage")
+target_link_libraries(atabox_tests  atabox ${ATABOX_LIBS} gtest gmock gcov)

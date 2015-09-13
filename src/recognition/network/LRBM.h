@@ -1,11 +1,11 @@
 #ifndef LRBM_H
 #define LRBM_H value
-#include "RBM.h"
+#include "RBM2.h"
 #include <cstddef>
 #include <memory>
 
-using RBMP = std::unique_ptr<RBM>;
-struct LRBM // layered RBM
+using RBMP = std::unique_ptr<RBM2>;
+struct LRBM // layered RBM2
 {
     struct Conf
     {
@@ -30,8 +30,8 @@ struct LRBM // layered RBM
             int n_visible = layers[i] + (adjust.empty()? 0: adjust[i]);
             int n_hidden = layers[i+1];
 
-        std::cout << "New RBM " << n_visible << " -> " << n_hidden << std::endl;
-        rbms_.push_back(std::unique_ptr<RBM>(new RBM(n_visible, n_hidden)));
+        std::cout << "New RBM2 " << n_visible << " -> " << n_hidden << std::endl;
+        rbms_.push_back(std::unique_ptr<RBM2>(new RBM2(n_visible, n_hidden)));
     }
 
     return 0;
@@ -93,7 +93,7 @@ struct LRBM // layered RBM
 
         rbms_.clear();
         for (size_t i = 0; i < count; ++i) {
-          RBMP rbm(new RBM());
+          RBMP rbm(new RBM2());
           rbm->load(is);
           rbms_.push_back(std::move(rbm));
         }

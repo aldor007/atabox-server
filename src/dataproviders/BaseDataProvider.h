@@ -3,6 +3,9 @@
 
 #include <vector>
 #include <map>
+
+#include <utils/jsonextend.h>
+
 enum class DBStatus {Open, Closed, Error};
 
 template <typename KeyClass, typename ValueClass>
@@ -22,4 +25,7 @@ class BaseDataProvider {
 
         }
 };
+
+typedef BaseDataProvider<jsonextend, jsonextend> AtaboxBaseDataProvider;
+
 #endif

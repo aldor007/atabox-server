@@ -5,7 +5,7 @@ set(atabox_server_VERSION_MAJOR 0)
 set(atabox_server_VERSION_MINOR 5)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "build")
 option(ATABOX_TEST "Build all tests." ON) # Makes boolean 'test' available.
-
+option(ATABOX_EXTERNAL "Build external libs" ON)
 
 set(ROCKSDB_ROOT external/rocksdb_source)
 
@@ -28,7 +28,11 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall")
 #endif()
 
 # external libs
-add_subdirectory(external)
+if(ATABOX_EXTERNAl)
+    add_subdirectory(external)
+endif()
+set(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} lib/ external/aquila/lib)
+
 
 add_definitions(-DBOOST_LOG_DYN_LINK=yes)
 
@@ -56,11 +60,13 @@ IF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     set(ATABOX_LIBS ${ATABOX_LIBS} boost_log-mt boost_thread-mt)
 endif()
 
+set(ATABOX_LIBS ${ATABOX_LIBS} shark)
 set(ATABOX_INC
     src/
     external/aquila/aquila
     external/casablanca/Release/src
     external/rocksdb_source/include
+        external/shark/include
 )
 
 include_directories(${ATABOX_INC})
@@ -77,13 +83,10 @@ set(ATABOX_SOURCES
     src/recognition/network/Batch.h
     src/recognition/network/DeepBeliefNet.h
     src/recognition/network/LRBM.h
-    src/recognition/network/RBM.h
     src/recognition/ProcessAndAnalyze.cpp
     src/recognition/ProcessAndAnalyze.h
     src/recognition/PropertiesComparator.cpp
     src/recognition/PropertiesComparator.h
-    src/runner/Runner.cpp
-    src/runner/Runner.h
     src/utils/atabox_log.cpp
     src/utils/atabox_log.h
     src/utils/ataboxexception.h
@@ -117,7 +120,7 @@ set(ATABOX_SOURCES
     src/wave/WaveFile.h
     src/wave/WaveUtils.cpp
     src/wave/WaveUtils.h
-)
+        src/recognition/network/RBM.cpp src/recognition/network/RBM.h)
 # main atabox library
 add_library(atabox STATIC ${ATABOX_SOURCES})
 

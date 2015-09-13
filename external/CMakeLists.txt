@@ -10,5 +10,6 @@ set(BUILD_SHARED_LIBS ON)
 set(BUILD_SAMPLES OFF)
 add_subdirectory(casablanca/Release)
 
-#rocksdb
-
+#shark
+set(OPT_COMPILE_EXAMPLES OFF)
+add_subdirectory(shark)
