@@ -28,7 +28,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall")
 #endif()
 
 # external libs
-if(ATABOX_EXTERNAl)
+if(ATABOX_EXTERNAL)
     add_subdirectory(external)
 endif()
 set(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} lib/ external/aquila/lib)
