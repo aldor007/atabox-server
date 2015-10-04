@@ -31,8 +31,10 @@ set(ATABOX_TEST_SOURCE
     wave/WaveFileMock.h
     wave/WaveFileTest.cpp
     wave/WaveUtilsTest.cpp
-    RunAllTests.cpp
-)
+        recognition/network/RBMTest.cpp)
+
+set(ATABOX_TEST_SOURCE ${ATABOX_TEST_SOURCE}
+    RunAllTests.cpp)
 enable_testing()
 find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS} ${GMOCK_INCLUDE_DIRS} ${ATABOX_INC})
