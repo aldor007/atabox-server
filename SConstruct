@@ -66,7 +66,8 @@ include_dir = [
     "external/casablanca/Release/include/",
     "external/rocksdb_source/include/",
     "external/kiss_fft",
-    "external/rbm/src"
+    "external/rbm/src",
+    "external/shark/include",
     "external/"
 ]
 
