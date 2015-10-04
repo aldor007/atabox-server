@@ -11,5 +11,8 @@ set(BUILD_SAMPLES OFF)
 add_subdirectory(casablanca/Release)
 
 #shark
-set(OPT_COMPILE_EXAMPLES OFF)
-add_subdirectory(shark)
+set(BUILD_EXAMPLES OFF)
+set(ENABLE_ACCELERATE OFF)
+set(ENABLE_ATLAS OFF)
+include(shark/UseShark.cmake)
+#add_subdirectory(shark)
