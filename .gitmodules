@@ -15,4 +15,4 @@
 	url = https://github.com/gabime/spdlog.git
 [submodule "external/shark"]
 	path = external/shark
-	url = https://github.com/chrisvana/shark_copy
+	url = https://github.com/aldor007/shark.git
