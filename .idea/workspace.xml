@@ -1,0 +1,2262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" assignedExecutableTargets="true" buildAllGenerated="true">
+    <generated>
+      <config projectName="atabox_server" targetName="Models_KernelHelpers" />
+      <config projectName="atabox_server" targetName="Fuzzy_FuzzySets" />
+      <config projectName="atabox_server" targetName="Trainers_KernelMeanClassifier" />
+      <config projectName="atabox_server" targetName="RBM_TemperedMarkovChain" />
+      <config projectName="atabox_server" targetName="Fuzzy_LinguisticTerms" />
+      <config projectName="atabox_server" targetName="shark" />
+      <config projectName="atabox_server" targetName="CSvmWithThresholdConverter" />
+      <config projectName="atabox_server" targetName="CMAMain" />
+      <config projectName="atabox_server" targetName="Models_PolynomialKernel" />
+      <config projectName="atabox_server" targetName="LinAlg_Proxy" />
+      <config projectName="atabox_server" targetName="quickstartTutorial" />
+      <config projectName="atabox_server" targetName="Algorithms_Hypervolume" />
+      <config projectName="atabox_server" targetName="Data_Dataset" />
+      <config projectName="atabox_server" targetName="aquila_test" />
+      <config projectName="atabox_server" targetName="ObjFunct_CrossValidation" />
+      <config projectName="atabox_server" targetName="linearRegressionTutorial" />
+      <config projectName="atabox_server" targetName="Models_FFNet" />
+      <config projectName="atabox_server" targetName="Models_CARTClassifier" />
+      <config projectName="atabox_server" targetName="RBM_AverageEnergyGradient" />
+      <config projectName="atabox_server" targetName="Models_CMAC" />
+      <config projectName="atabox_server" targetName="Trainers_McSvmTrainer" />
+      <config projectName="atabox_server" targetName="LP_LinearProgram" />
+      <config projectName="atabox_server" targetName="coverage" />
+      <config projectName="atabox_server" targetName="DirectSearch_SteadyStateMOCMA" />
+      <config projectName="atabox_server" targetName="Fuzzy_Mamdani" />
+      <config projectName="atabox_server" targetName="ObjFunct_ErrorFunction" />
+      <config projectName="atabox_server" targetName="Models_KernelNearestNeighborRegression" />
+      <config projectName="atabox_server" targetName="LinAlg_linmin" />
+      <config projectName="atabox_server" targetName="spectrogram" />
+      <config projectName="atabox_server" targetName="DirectSearch_MOCMA" />
+      <config projectName="atabox_server" targetName="RBM_ExactGradient" />
+      <config projectName="atabox_server" targetName="samples" />
+      <config projectName="atabox_server" targetName="wave_iteration" />
+      <config projectName="atabox_server" targetName="CARTTutorial" />
+      <config projectName="atabox_server" targetName="UnitTest++" />
+      <config projectName="atabox_server" targetName="LDATutorial" />
+      <config projectName="atabox_server" targetName="MooExperiment" />
+      <config projectName="atabox_server" targetName="Models_ConcatenatedModel" />
+      <config projectName="atabox_server" targetName="EpsilonMOCMAMain" />
+      <config projectName="atabox_server" targetName="Algorithms_DirectSearch" />
+      <config projectName="atabox_server" targetName="LinAlg_Permutations" />
+      <config projectName="atabox_server" targetName="RBM_Energy" />
+      <config projectName="atabox_server" targetName="fft_comparison" />
+      <config projectName="atabox_server" targetName="RFTutorial" />
+      <config projectName="atabox_server" targetName="Models_EvalSkipMissingFeatures" />
+      <config projectName="atabox_server" targetName="Models_CSvmDerivative" />
+      <config projectName="atabox_server" targetName="LinAlg_rotations" />
+      <config projectName="atabox_server" targetName="Models_LinearKernel" />
+      <config projectName="atabox_server" targetName="HierarchicalClustering" />
+      <config projectName="atabox_server" targetName="DirectSearch_Recombination" />
+      <config projectName="atabox_server" targetName="PCATutorial" />
+      <config projectName="atabox_server" targetName="ExactHypervolumeMain" />
+      <config projectName="atabox_server" targetName="ObjFunct_LooErrorCSvm" />
+      <config projectName="atabox_server" targetName="sine_generator" />
+      <config projectName="atabox_server" targetName="CSvmMaxLikelihoodMS" />
+      <config projectName="atabox_server" targetName="blackjackserver" />
+      <config projectName="atabox_server" targetName="triangle_generator" />
+      <config projectName="atabox_server" targetName="Models_MonomialKernel" />
+      <config projectName="atabox_server" targetName="fft_filter" />
+      <config projectName="atabox_server" targetName="ObjFunct_SquaredLoss" />
+      <config projectName="atabox_server" targetName="OnePlusOneES" />
+      <config projectName="atabox_server" targetName="dtw_path_recovery" />
+      <config projectName="atabox_server" targetName="Models_NearestNeighborRegression" />
+      <config projectName="atabox_server" targetName="rocksdb" />
+      <config projectName="atabox_server" targetName="Ooura_fft" />
+      <config projectName="atabox_server" targetName="RBM_TruncatedExponentialLayer" />
+      <config projectName="atabox_server" targetName="Trainers_LinearSvmTrainer" />
+      <config projectName="atabox_server" targetName="streams_test" />
+      <config projectName="atabox_server" targetName="text_plot" />
+      <config projectName="atabox_server" targetName="AGE1Main" />
+      <config projectName="atabox_server" targetName="Algorithms_GridSearch" />
+      <config projectName="atabox_server" targetName="Data_DataView" />
+      <config projectName="atabox_server" targetName="GradDesc_Rprop" />
+      <config projectName="atabox_server" targetName="TestUnitTest++" />
+      <config projectName="atabox_server" targetName="FFNNMultiClassNormalizedTraining" />
+      <config projectName="atabox_server" targetName="aquila" />
+      <config projectName="atabox_server" targetName="GradDesc_SteepestDescent" />
+      <config projectName="atabox_server" targetName="window_usage" />
+      <config projectName="atabox_server" targetName="ObjFunct_CrossEntropy" />
+      <config projectName="atabox_server" targetName="QP_KernelMatrix" />
+      <config projectName="atabox_server" targetName="Trainers_MissingFeatureSvmTrainer" />
+      <config projectName="atabox_server" targetName="oauth2client" />
+      <config projectName="atabox_server" targetName="oauth1client" />
+      <config projectName="atabox_server" targetName="am_modulation" />
+      <config projectName="atabox_server" targetName="Models_SubrangeKernel" />
+      <config projectName="atabox_server" targetName="regressionTutorial" />
+      <config projectName="atabox_server" targetName="Models_MissingFeaturesKernelExpansion" />
+      <config projectName="atabox_server" targetName="LinAlg_Initialize" />
+      <config projectName="atabox_server" targetName="ObjFunct_NegativeGaussianProcessEvidence" />
+      <config projectName="atabox_server" targetName="code_analysis" />
+      <config projectName="atabox_server" targetName="ObjFunct_NoisyErrorFunction" />
+      <config projectName="atabox_server" targetName="ScopedHandleTests" />
+      <config projectName="atabox_server" targetName="GradDesc_Quickprop" />
+      <config projectName="atabox_server" targetName="generators" />
+      <config projectName="atabox_server" targetName="websocketclient_test" />
+      <config projectName="atabox_server" targetName="utility_functions" />
+      <config projectName="atabox_server" targetName="uninstall" />
+      <config projectName="atabox_server" targetName="LinAlg_RQ" />
+      <config projectName="atabox_server" targetName="LinAlg_dlmin" />
+      <config projectName="atabox_server" targetName="KNNTutorial" />
+      <config projectName="atabox_server" targetName="square_generator" />
+      <config projectName="atabox_server" targetName="Rng_Distributions" />
+      <config projectName="atabox_server" targetName="Trainers_LinearRegression" />
+      <config projectName="atabox_server" targetName="Models_NBClassifier" />
+      <config projectName="atabox_server" targetName="json_test" />
+      <config projectName="atabox_server" targetName="ApproximatedHypervolumeMain" />
+      <config projectName="atabox_server" targetName="wave_info" />
+      <config projectName="atabox_server" targetName="ObjFunct_Benchmarks" />
+      <config projectName="atabox_server" targetName="Models_SoftNearestNeighborClassifier" />
+      <config projectName="atabox_server" targetName="Kiss_fft" />
+      <config projectName="atabox_server" targetName="Trainers_Perceptron" />
+      <config projectName="atabox_server" targetName="KMeansTutorial" />
+      <config projectName="atabox_server" targetName="Trainers_OneClassSvmTrainer" />
+      <config projectName="atabox_server" targetName="ObjFunct_SparseFFNetError" />
+      <config projectName="atabox_server" targetName="examples" />
+      <config projectName="atabox_server" targetName="LinAlg_eigensymm" />
+      <config projectName="atabox_server" targetName="httplistener_test" />
+      <config projectName="atabox_server" targetName="ObjFunct_AUC" />
+      <config projectName="atabox_server" targetName="McSvm" />
+      <config projectName="atabox_server" targetName="ObjFunct_SvmLogisticInterpretation" />
+      <config projectName="atabox_server" targetName="sfml_imperial_march" />
+      <config projectName="atabox_server" targetName="LinAlg_Metrics" />
+      <config projectName="atabox_server" targetName="CMSAMain" />
+      <config projectName="atabox_server" targetName="LinAlg_SumRows" />
+      <config projectName="atabox_server" targetName="Models_KernelExpansion" />
+      <config projectName="atabox_server" targetName="Logger" />
+      <config projectName="atabox_server" targetName="OneClassSvm" />
+      <config projectName="atabox_server" targetName="AckleyES" />
+      <config projectName="atabox_server" targetName="Models_OneVersusOneClassifier" />
+      <config projectName="atabox_server" targetName="elmTutorial" />
+      <config projectName="atabox_server" targetName="Trainers_SigmoidFit" />
+      <config projectName="atabox_server" targetName="Trainers_CSvmTrainer" />
+      <config projectName="atabox_server" targetName="RBM_ExactGradientTraining" />
+      <config projectName="atabox_server" targetName="GradDesc_CG" />
+      <config projectName="atabox_server" targetName="blackjackclient" />
+      <config projectName="atabox_server" targetName="SparseAETutorial" />
+      <config projectName="atabox_server" targetName="ObjFunct_LooError" />
+      <config projectName="atabox_server" targetName="LinAlg_invertSymmPositiveDefinite" />
+      <config projectName="atabox_server" targetName="BinaryRBM" />
+      <config projectName="atabox_server" targetName="Models_DiscreteKernel" />
+      <config projectName="atabox_server" targetName="LinAlg_eigensort" />
+      <config projectName="atabox_server" targetName="Models_ArdKernel" />
+      <config projectName="atabox_server" targetName="Trainers_Normalization" />
+      <config projectName="atabox_server" targetName="Models_Softmax" />
+      <config projectName="atabox_server" targetName="utils_test" />
+      <config projectName="atabox_server" targetName="FFNNMultiClassCrossEntropy" />
+      <config projectName="atabox_server" targetName="SMSEMOAMain" />
+      <config projectName="atabox_server" targetName="uri_test" />
+      <config projectName="atabox_server" targetName="Trainers_PCA" />
+      <config projectName="atabox_server" targetName="ElitistCMASimpleMain" />
+      <config projectName="atabox_server" targetName="Trainers_LDA" />
+      <config projectName="atabox_server" targetName="Data_Statistics" />
+      <config projectName="atabox_server" targetName="SteadyStateMOCMAMain" />
+      <config projectName="atabox_server" targetName="Models_ScaledKernel" />
+      <config projectName="atabox_server" targetName="DirectSearch_Selection" />
+      <config projectName="atabox_server" targetName="Data_CVDatasetTools" />
+      <config projectName="atabox_server" targetName="atabox_tests" />
+      <config projectName="atabox_server" targetName="LinAlg_lnrsrch" />
+      <config projectName="atabox_server" targetName="sfml_karplus_strong" />
+      <config projectName="atabox_server" targetName="atabox" />
+      <config projectName="atabox_server" targetName="fft_simple_spectrum" />
+      <config projectName="atabox_server" targetName="BoundingBoxCalculatorMain" />
+      <config projectName="atabox_server" targetName="common_utilities" />
+      <config projectName="atabox_server" targetName="Data_PrecomputedMatrix" />
+      <config projectName="atabox_server" targetName="mfcc_calculation" />
+      <config projectName="atabox_server" targetName="httptest_utilities" />
+      <config projectName="atabox_server" targetName="check" />
+      <config projectName="atabox_server" targetName="frame_iteration" />
+      <config projectName="atabox_server" targetName="Models_RFClassifier" />
+      <config projectName="atabox_server" targetName="Algorithms_NearestNeighbor" />
+      <config projectName="atabox_server" targetName="Models_LinearModel" />
+      <config projectName="atabox_server" targetName="Trainers_KernelNormalization" />
+      <config projectName="atabox_server" targetName="DirectSearch_CMA" />
+      <config projectName="atabox_server" targetName="ObjFunct_RadiusMarginQuotient" />
+      <config projectName="atabox_server" targetName="Models_KernelNearestNeighborClassifier" />
+      <config projectName="atabox_server" targetName="LinAlg_solve" />
+      <config projectName="atabox_server" targetName="Trainers_EpsilonSvmTrainer" />
+      <config projectName="atabox_server" targetName="MklKernelTutorial" />
+      <config projectName="atabox_server" targetName="LinAlg_FastProd" />
+      <config projectName="atabox_server" targetName="window_plot" />
+      <config projectName="atabox_server" targetName="LinAlg_Repeat" />
+      <config projectName="atabox_server" targetName="DirectSearch_OnePlusOneES" />
+      <config projectName="atabox_server" targetName="OneVersusOne" />
+      <config projectName="atabox_server" targetName="RBM_Analytics" />
+      <config projectName="atabox_server" targetName="SubrangeKernelTutorial" />
+      <config projectName="atabox_server" targetName="KernelRegression" />
+      <config projectName="atabox_server" targetName="SearchFile" />
+      <config projectName="atabox_server" targetName="GradDesc_BFGS" />
+      <config projectName="atabox_server" targetName="CSvmTutorial" />
+      <config projectName="atabox_server" targetName="ElitistCMAMain" />
+      <config projectName="atabox_server" targetName="Models_ProductKernel" />
+      <config projectName="atabox_server" targetName="QP_LRUCache" />
+      <config projectName="atabox_server" targetName="GradDesc_NoisyRprop" />
+      <config projectName="atabox_server" targetName="StoppingCriteriaTutorial" />
+      <config projectName="atabox_server" targetName="PCA" />
+      <config projectName="atabox_server" targetName="ObjFunct_AbsoluteLoss" />
+      <config projectName="atabox_server" targetName="AdditiveEpsilonIndicatorMain" />
+      <config projectName="atabox_server" targetName="Models_RBFNet" />
+      <config projectName="atabox_server" targetName="Trainers_RegularizationNetworkTrainer" />
+      <config projectName="atabox_server" targetName="LassoRegression" />
+      <config projectName="atabox_server" targetName="websockettest_utilities" />
+      <config projectName="atabox_server" targetName="Aquila" />
+      <config projectName="atabox_server" targetName="CVFolds" />
+      <config projectName="atabox_server" targetName="Trainers_NBClassifier" />
+      <config projectName="atabox_server" targetName="GradDesc_IRLS" />
+      <config projectName="atabox_server" targetName="MOCMASimple" />
+      <config projectName="atabox_server" targetName="TSP" />
+      <config projectName="atabox_server" targetName="Trainers_FisherLDA" />
+      <config projectName="atabox_server" targetName="Data_Csv" />
+      <config projectName="atabox_server" targetName="RBM_ContrastiveDivergenceTraining" />
+      <config projectName="atabox_server" targetName="atabox_server" />
+      <config projectName="atabox_server" targetName="Version" />
+      <config projectName="atabox_server" targetName="RBM_PCDTraining" />
+      <config projectName="atabox_server" targetName="LinAlg_choleskyDecomposition" />
+      <config projectName="atabox_server" targetName="ObjFunct_KernelTargetAlignment" />
+      <config projectName="atabox_server" targetName="MultiTaskSvm" />
+      <config projectName="atabox_server" targetName="Data_Libsvm" />
+      <config projectName="atabox_server" targetName="Models_WeightedSumKernel" />
+      <config projectName="atabox_server" targetName="Algorithms_KMeans" />
+      <config projectName="atabox_server" targetName="pplx_test" />
+      <config projectName="atabox_server" targetName="DirectSearch_ElitistCMA" />
+      <config projectName="atabox_server" targetName="Models_LinearNorm" />
+      <config projectName="atabox_server" targetName="RBM_BinaryLayer" />
+      <config projectName="atabox_server" targetName="LinAlg_svd" />
+      <config projectName="atabox_server" targetName="FFNNBasicTutorial" />
+      <config projectName="atabox_server" targetName="LinAlg_VectorTransformations" />
+      <config projectName="atabox_server" targetName="cpprest" />
+      <config projectName="atabox_server" targetName="unittestpp" />
+      <config projectName="atabox_server" targetName="RBM_GaussianLayer" />
+      <config projectName="atabox_server" targetName="Models_SigmoidModel" />
+      <config projectName="atabox_server" targetName="BingRequest" />
+      <config projectName="atabox_server" targetName="RBM_PTTraining" />
+      <config projectName="atabox_server" targetName="ObjFunct_DenoisingAutoencoderError" />
+      <config projectName="atabox_server" targetName="Models_RNNet" />
+      <config projectName="atabox_server" targetName="sfml_generator" />
+      <config projectName="atabox_server" targetName="CMAPlot" />
+      <config projectName="atabox_server" targetName="Fuzzy_Control_Language_Parser" />
+      <config projectName="atabox_server" targetName="FFNNSetStructureTutorial" />
+      <config projectName="atabox_server" targetName="KernelSelection" />
+      <config projectName="atabox_server" targetName="test_runner" />
+      <config projectName="atabox_server" targetName="LinAlg_g_inverse" />
+      <config projectName="atabox_server" targetName="DirectSearch_BitflipMutation" />
+      <config projectName="atabox_server" targetName="kNN" />
+      <config projectName="atabox_server" targetName="Oracle" />
+      <config projectName="atabox_server" targetName="ObjFunct_NegativeClassificationLogLikelihood" />
+      <config projectName="atabox_server" targetName="McSvmLinear" />
+      <config projectName="atabox_server" targetName="GradDesc_LBFGS" />
+      <config projectName="atabox_server" targetName="MOCMAMain" />
+      <config projectName="atabox_server" targetName="CMASimple" />
+      <config projectName="atabox_server" targetName="EpsilonSteadyStateMOCMAMain" />
+      <config projectName="atabox_server" targetName="Models_GaussianKernel" />
+      <config projectName="atabox_server" targetName="httpclient_test" />
+      <config projectName="atabox_server" targetName="LinAlg_DiagonalMatrix" />
+      <config projectName="atabox_server" targetName="DirectSearch_CMSA" />
+      <config projectName="atabox_server" targetName="wave_mfcc" />
+      <config projectName="atabox_server" targetName="CSvmGridSearchTutorial" />
+      <config projectName="atabox_server" targetName="Algorithms_JaakkolaHeuristic" />
+    </generated>
+  </component>
+  <component name="CMakeSettings" AUTO_RELOAD="true" GENERATION_PASS_SYSTEM_ENVIRONMENT="true" BUILD_OUTPUT_DIR="bin">
+    <ADDITIONAL_GENERATION_ENVIRONMENT>
+      <envs />
+    </ADDITIONAL_GENERATION_ENVIRONMENT>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2af49423-3e30-4b05-8e9d-7039ffcbc05e" name="Default" comment="" />
+    <ignored path="atabox-server.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="atabox-server" />
+  </component>
+  <component name="FileEditorManager">
+    <splitter split-orientation="horizontal" split-proportion="0.5596817">
+      <split-first>
+        <leaf>
+          <file leaf-file-name="RBM.h" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/recognition/network/RBM.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.07834603">
+                  <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+                  <folding>
+                    <element signature="e#144#197#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="MultiChainApproximator.h" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/GradientApproximations/MultiChainApproximator.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="146" column="0" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="RBM.cpp" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/recognition/network/RBM.cpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Energy.h" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/Energy.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="232" column="0" selection-start-line="232" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="GaussianLayer.h" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/Neuronlayers/GaussianLayer.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="263" column="4" selection-start-line="263" selection-start-column="4" selection-end-line="263" selection-end-column="4" />
+                  <folding>
+                    <element signature="e#3880#3911#0" expanded="true" />
+                    <element signature="e#6580#6594#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="GaussianBinaryRBM.h" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/GaussianBinaryRBM.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="47" column="52" selection-start-line="47" selection-start-column="52" selection-end-line="47" selection-end-column="52" />
+                  <folding>
+                    <element signature="e#968#1007#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name=".gitmodules" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/.gitmodules">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="17" column="46" selection-start-line="17" selection-start-column="46" selection-end-line="17" selection-end-column="46" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="BinaryLayer.h" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/Neuronlayers/BinaryLayer.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="305" column="25" selection-start-line="305" selection-start-column="25" selection-end-line="305" selection-end-column="25" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="66" column="39" selection-start-line="66" selection-start-column="39" selection-end-line="66" selection-end-column="39" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/external/shark/include/CMakeLists.txt">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="SteepestDescent.h" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Algorithms/GradientDescent/SteepestDescent.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="41" column="6" selection-start-line="41" selection-start-column="6" selection-end-line="41" selection-end-column="6" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="blas.h" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/external/shark/include/shark/LinAlg/BLAS/blas.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Base.h" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/external/shark/include/shark/LinAlg/Base.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="47" column="30" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="30" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/external/shark/CMakeLists.txt">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="260" column="24" selection-start-line="260" selection-start-column="24" selection-end-line="260" selection-end-column="24" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="UseShark.cmake" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/external/shark/UseShark.cmake">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="RBMTest.cpp" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/tests/recognition/network/RBMTest.cpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.43090317">
+                  <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/tests/CMakeLists.txt">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="42" column="48" selection-start-line="42" selection-start-column="48" selection-end-line="42" selection-end-column="48" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="CodeCoverage.cmake" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/CMake/CodeCoverage.cmake">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="138" column="0" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="RocksdbProviderTest.cpp" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/tests/dataproviders/RocksdbProviderTest.cpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/external/CMakeLists.txt">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/utils/ataboxexception.cpp" />
+        <option value="$PROJECT_DIR$/tests/dataproviders/RocksdbProviderTest.cpp" />
+        <option value="$PROJECT_DIR$/src/utils/LightVector.h" />
+        <option value="$PROJECT_DIR$/src/recognition/network/LRBM.h" />
+        <option value="$PROJECT_DIR$/src/dataproviders/BaseDataProvider.h" />
+        <option value="$PROJECT_DIR$/src/dataproviders/RocksdbProvider.h" />
+        <option value="$PROJECT_DIR$/external/shark/examples/Unsupervised/BinaryRBM.cpp" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/src/recognition/network/RBM.h" />
+        <option value="$PROJECT_DIR$/src/recognition/network/RBM.cpp" />
+        <option value="$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/Neuronlayers/GaussianLayer.h" />
+        <option value="$PROJECT_DIR$/.gitmodules" />
+        <option value="$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/GaussianBinaryRBM.h" />
+        <option value="$PROJECT_DIR$/external/shark/include/shark/Algorithms/GradientDescent/SteepestDescent.h" />
+        <option value="$PROJECT_DIR$/external/shark/include/shark/LinAlg/BLAS/blas.h" />
+        <option value="$PROJECT_DIR$/external/shark/include/shark/LinAlg/Base.h" />
+        <option value="$PROJECT_DIR$/external/shark/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/tests/recognition/network/RBMTest.cpp" />
+        <option value="$PROJECT_DIR$/external/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/CMake/CodeCoverage.cmake" />
+        <option value="$PROJECT_DIR$/tests/CMakeLists.txt" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+  </component>
+  <component name="NamedScopeManager">
+    <order />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1920" />
+    <option name="width" value="1920" />
+    <option name="height" value="1059" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="atabox-server" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="atabox-server" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="atabox-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="atabox-server" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="atabox-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="atabox-server" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="atabox-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recognition" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="atabox-server" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="atabox-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recognition" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="network" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="atabox-server" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="atabox-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="atabox-server" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="atabox-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recognition" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="atabox-server" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="atabox-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recognition" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="network" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="atabox-server" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="atabox-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="recentsLimit" value="5" />
+    <property name="js.buildTools.gulp.node_interpreter" value="/usr/bin/node" />
+    <property name="js.buildTools.gulp.gulp_package_dir" value="" />
+    <property name="js.buildTools.grunt.node_interpreter" value="/usr/bin/node" />
+    <property name="js.buildTools.grunt.grunt-cli.package" value="" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="FullScreen" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/bin" />
+    <property name="restartRequiresConfirmation" value="true" />
+    <property name="ToolWindowCMake.ShowToolbar" value="false" />
+  </component>
+  <component name="RunManager" selected="Application.atabox_tests">
+    <configuration default="true" type="#com.sylvanaar.idea.Lua.run.LuaConfigurationType" factoryName="Lua Script">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="INTERPRETER_PATH" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="ALTERNATE_INTERPRETER" value="false" />
+      <envs />
+      <module name="" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.grunt" factoryName="Grunt.js">
+      <pass-parent-env-vars value="true" />
+      <force value="false" />
+      <verbose value="false" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <pass-parent-envs>true</pass-parent-envs>
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Build All" type="CMakeRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS="FALSE" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="atabox_server" type="CMakeRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="atabox_server" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="atabox_server">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="atabox_tests" type="CMakeRunConfiguration" factoryName="Application" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="atabox_tests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="atabox_tests">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="atabox" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="atabox" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="code_analysis" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="code_analysis" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="AckleyES" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="AckleyES" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="AckleyES">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="AdditiveEpsilonIndicatorMain" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="AdditiveEpsilonIndicatorMain" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="AdditiveEpsilonIndicatorMain">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="AGE1Main" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="AGE1Main" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="AGE1Main">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ApproximatedHypervolumeMain" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="ApproximatedHypervolumeMain" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="ApproximatedHypervolumeMain">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="BinaryRBM" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="BinaryRBM" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="BinaryRBM">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="BoundingBoxCalculatorMain" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="BoundingBoxCalculatorMain" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="BoundingBoxCalculatorMain">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="CARTTutorial" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="CARTTutorial" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="CARTTutorial">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="CMAMain" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="CMAMain" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="CMAMain">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="CMAPlot" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="CMAPlot" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="CMAPlot">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="CMASimple" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="CMASimple" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="CMASimple">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="CMSAMain" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="CMSAMain" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="CMSAMain">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="CSvmGridSearchTutorial" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="CSvmGridSearchTutorial" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="CSvmGridSearchTutorial">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="CSvmMaxLikelihoodMS" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="CSvmMaxLikelihoodMS" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="CSvmMaxLikelihoodMS">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="CSvmTutorial" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="CSvmTutorial" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="CSvmTutorial">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="CSvmWithThresholdConverter" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="CSvmWithThresholdConverter" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="CSvmWithThresholdConverter">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="CVFolds" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="CVFolds" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="CVFolds">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ElitistCMAMain" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="ElitistCMAMain" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="ElitistCMAMain">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ElitistCMASimpleMain" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="ElitistCMASimpleMain" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="ElitistCMASimpleMain">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="elmTutorial" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="elmTutorial" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="elmTutorial">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="EpsilonMOCMAMain" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="EpsilonMOCMAMain" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="EpsilonMOCMAMain">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="EpsilonSteadyStateMOCMAMain" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="EpsilonSteadyStateMOCMAMain" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="EpsilonSteadyStateMOCMAMain">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ExactHypervolumeMain" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="ExactHypervolumeMain" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="ExactHypervolumeMain">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="FFNNBasicTutorial" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="FFNNBasicTutorial" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="FFNNBasicTutorial">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="FFNNMultiClassCrossEntropy" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="FFNNMultiClassCrossEntropy" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="FFNNMultiClassCrossEntropy">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="FFNNMultiClassNormalizedTraining" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="FFNNMultiClassNormalizedTraining" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="FFNNMultiClassNormalizedTraining">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="FFNNSetStructureTutorial" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="FFNNSetStructureTutorial" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="FFNNSetStructureTutorial">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="HierarchicalClustering" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="HierarchicalClustering" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="HierarchicalClustering">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="KernelRegression" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="KernelRegression" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="KernelRegression">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="KernelSelection" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="KernelSelection" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="KernelSelection">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="KMeansTutorial" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="KMeansTutorial" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="KMeansTutorial">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="kNN" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="kNN" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="kNN">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="KNNTutorial" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="KNNTutorial" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="KNNTutorial">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LassoRegression" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="LassoRegression" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="LassoRegression">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LDATutorial" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="LDATutorial" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="LDATutorial">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="linearRegressionTutorial" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="linearRegressionTutorial" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="linearRegressionTutorial">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Logger" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Logger" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Logger">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="McSvm" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="McSvm" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="McSvm">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="McSvmLinear" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="McSvmLinear" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="McSvmLinear">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="MklKernelTutorial" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="MklKernelTutorial" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="MklKernelTutorial">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="MOCMAMain" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="MOCMAMain" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="MOCMAMain">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="MOCMASimple" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="MOCMASimple" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="MOCMASimple">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="MooExperiment" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="MooExperiment" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="MooExperiment">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="MultiTaskSvm" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="MultiTaskSvm" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="MultiTaskSvm">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="OneClassSvm" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="OneClassSvm" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="OneClassSvm">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="OnePlusOneES" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="OnePlusOneES" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="OnePlusOneES">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="OneVersusOne" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="OneVersusOne" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="OneVersusOne">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Oracle" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Oracle" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Oracle">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="PCA" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="PCA" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="PCA">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="PCATutorial" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="PCATutorial" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="PCATutorial">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="quickstartTutorial" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="quickstartTutorial" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="quickstartTutorial">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="regressionTutorial" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="regressionTutorial" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="regressionTutorial">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="RFTutorial" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="RFTutorial" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="RFTutorial">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="SMSEMOAMain" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="SMSEMOAMain" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="SMSEMOAMain">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="SparseAETutorial" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="SparseAETutorial" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="SparseAETutorial">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="SteadyStateMOCMAMain" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="SteadyStateMOCMAMain" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="SteadyStateMOCMAMain">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="StoppingCriteriaTutorial" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="StoppingCriteriaTutorial" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="StoppingCriteriaTutorial">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="SubrangeKernelTutorial" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="SubrangeKernelTutorial" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="SubrangeKernelTutorial">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="TSP" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="TSP" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="TSP">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="shark" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="shark" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Version" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Version" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Version">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Algorithms_DirectSearch" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Algorithms_DirectSearch" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Algorithms_DirectSearch">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Algorithms_GridSearch" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Algorithms_GridSearch" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Algorithms_GridSearch">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Algorithms_Hypervolume" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Algorithms_Hypervolume" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Algorithms_Hypervolume">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Algorithms_JaakkolaHeuristic" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Algorithms_JaakkolaHeuristic" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Algorithms_JaakkolaHeuristic">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Algorithms_KMeans" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Algorithms_KMeans" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Algorithms_KMeans">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Algorithms_NearestNeighbor" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Algorithms_NearestNeighbor" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Algorithms_NearestNeighbor">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Data_Csv" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Data_Csv" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Data_Csv">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Data_CVDatasetTools" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Data_CVDatasetTools" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Data_CVDatasetTools">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Data_Dataset" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Data_Dataset" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Data_Dataset">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Data_DataView" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Data_DataView" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Data_DataView">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Data_Libsvm" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Data_Libsvm" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Data_Libsvm">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Data_PrecomputedMatrix" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Data_PrecomputedMatrix" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Data_PrecomputedMatrix">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Data_Statistics" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Data_Statistics" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Data_Statistics">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="DirectSearch_BitflipMutation" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="DirectSearch_BitflipMutation" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="DirectSearch_BitflipMutation">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="DirectSearch_CMA" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="DirectSearch_CMA" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="DirectSearch_CMA">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="DirectSearch_CMSA" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="DirectSearch_CMSA" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="DirectSearch_CMSA">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="DirectSearch_ElitistCMA" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="DirectSearch_ElitistCMA" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="DirectSearch_ElitistCMA">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="DirectSearch_MOCMA" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="DirectSearch_MOCMA" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="DirectSearch_MOCMA">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="DirectSearch_OnePlusOneES" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="DirectSearch_OnePlusOneES" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="DirectSearch_OnePlusOneES">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="DirectSearch_Recombination" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="DirectSearch_Recombination" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="DirectSearch_Recombination">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="DirectSearch_Selection" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="DirectSearch_Selection" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="DirectSearch_Selection">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="DirectSearch_SteadyStateMOCMA" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="DirectSearch_SteadyStateMOCMA" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="DirectSearch_SteadyStateMOCMA">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Fuzzy_Control_Language_Parser" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Fuzzy_Control_Language_Parser" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Fuzzy_Control_Language_Parser">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Fuzzy_FuzzySets" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Fuzzy_FuzzySets" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Fuzzy_FuzzySets">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Fuzzy_LinguisticTerms" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Fuzzy_LinguisticTerms" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Fuzzy_LinguisticTerms">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Fuzzy_Mamdani" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Fuzzy_Mamdani" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Fuzzy_Mamdani">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="GradDesc_BFGS" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="GradDesc_BFGS" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="GradDesc_BFGS">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="GradDesc_CG" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="GradDesc_CG" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="GradDesc_CG">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="GradDesc_IRLS" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="GradDesc_IRLS" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="GradDesc_IRLS">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="GradDesc_LBFGS" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="GradDesc_LBFGS" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="GradDesc_LBFGS">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="GradDesc_NoisyRprop" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="GradDesc_NoisyRprop" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="GradDesc_NoisyRprop">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="GradDesc_Quickprop" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="GradDesc_Quickprop" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="GradDesc_Quickprop">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="GradDesc_Rprop" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="GradDesc_Rprop" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="GradDesc_Rprop">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="GradDesc_SteepestDescent" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="GradDesc_SteepestDescent" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="GradDesc_SteepestDescent">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LinAlg_choleskyDecomposition" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="LinAlg_choleskyDecomposition" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="LinAlg_choleskyDecomposition">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LinAlg_DiagonalMatrix" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="LinAlg_DiagonalMatrix" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="LinAlg_DiagonalMatrix">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LinAlg_dlmin" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="LinAlg_dlmin" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="LinAlg_dlmin">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LinAlg_eigensort" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="LinAlg_eigensort" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="LinAlg_eigensort">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LinAlg_eigensymm" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="LinAlg_eigensymm" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="LinAlg_eigensymm">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LinAlg_FastProd" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="LinAlg_FastProd" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="LinAlg_FastProd">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LinAlg_g_inverse" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="LinAlg_g_inverse" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="LinAlg_g_inverse">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LinAlg_Initialize" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="LinAlg_Initialize" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="LinAlg_Initialize">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LinAlg_invertSymmPositiveDefinite" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="LinAlg_invertSymmPositiveDefinite" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="LinAlg_invertSymmPositiveDefinite">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LinAlg_linmin" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="LinAlg_linmin" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="LinAlg_linmin">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LinAlg_lnrsrch" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="LinAlg_lnrsrch" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="LinAlg_lnrsrch">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LinAlg_Metrics" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="LinAlg_Metrics" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="LinAlg_Metrics">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LinAlg_Permutations" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="LinAlg_Permutations" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="LinAlg_Permutations">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LinAlg_Proxy" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="LinAlg_Proxy" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="LinAlg_Proxy">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LinAlg_Repeat" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="LinAlg_Repeat" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="LinAlg_Repeat">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LinAlg_rotations" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="LinAlg_rotations" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="LinAlg_rotations">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LinAlg_RQ" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="LinAlg_RQ" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="LinAlg_RQ">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LinAlg_solve" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="LinAlg_solve" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="LinAlg_solve">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LinAlg_SumRows" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="LinAlg_SumRows" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="LinAlg_SumRows">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LinAlg_svd" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="LinAlg_svd" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="LinAlg_svd">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LinAlg_VectorTransformations" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="LinAlg_VectorTransformations" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="LinAlg_VectorTransformations">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LP_LinearProgram" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="LP_LinearProgram" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="LP_LinearProgram">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Models_ArdKernel" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Models_ArdKernel" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Models_ArdKernel">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Models_CARTClassifier" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Models_CARTClassifier" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Models_CARTClassifier">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Models_CMAC" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Models_CMAC" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Models_CMAC">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Models_ConcatenatedModel" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Models_ConcatenatedModel" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Models_ConcatenatedModel">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Models_CSvmDerivative" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Models_CSvmDerivative" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Models_CSvmDerivative">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Models_DiscreteKernel" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Models_DiscreteKernel" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Models_DiscreteKernel">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Models_EvalSkipMissingFeatures" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Models_EvalSkipMissingFeatures" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Models_EvalSkipMissingFeatures">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Models_FFNet" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Models_FFNet" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Models_FFNet">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Models_GaussianKernel" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Models_GaussianKernel" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Models_GaussianKernel">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Models_KernelExpansion" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Models_KernelExpansion" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Models_KernelExpansion">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Models_KernelHelpers" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Models_KernelHelpers" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Models_KernelHelpers">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Models_KernelNearestNeighborClassifier" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Models_KernelNearestNeighborClassifier" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Models_KernelNearestNeighborClassifier">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Models_KernelNearestNeighborRegression" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Models_KernelNearestNeighborRegression" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Models_KernelNearestNeighborRegression">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Models_LinearKernel" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Models_LinearKernel" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Models_LinearKernel">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Models_LinearModel" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Models_LinearModel" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Models_LinearModel">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Models_LinearNorm" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Models_LinearNorm" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Models_LinearNorm">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Models_MissingFeaturesKernelExpansion" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Models_MissingFeaturesKernelExpansion" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Models_MissingFeaturesKernelExpansion">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Models_MonomialKernel" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Models_MonomialKernel" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Models_MonomialKernel">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Models_NBClassifier" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Models_NBClassifier" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Models_NBClassifier">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Models_NearestNeighborRegression" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Models_NearestNeighborRegression" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Models_NearestNeighborRegression">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Models_OneVersusOneClassifier" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Models_OneVersusOneClassifier" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Models_OneVersusOneClassifier">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Models_PolynomialKernel" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Models_PolynomialKernel" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Models_PolynomialKernel">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Models_ProductKernel" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Models_ProductKernel" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Models_ProductKernel">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Models_RBFNet" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Models_RBFNet" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Models_RBFNet">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Models_RFClassifier" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Models_RFClassifier" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Models_RFClassifier">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Models_RNNet" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Models_RNNet" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Models_RNNet">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Models_ScaledKernel" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Models_ScaledKernel" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Models_ScaledKernel">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Models_SigmoidModel" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Models_SigmoidModel" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Models_SigmoidModel">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Models_Softmax" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Models_Softmax" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Models_Softmax">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Models_SoftNearestNeighborClassifier" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Models_SoftNearestNeighborClassifier" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Models_SoftNearestNeighborClassifier">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Models_SubrangeKernel" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Models_SubrangeKernel" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Models_SubrangeKernel">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Models_WeightedSumKernel" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Models_WeightedSumKernel" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Models_WeightedSumKernel">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ObjFunct_AbsoluteLoss" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="ObjFunct_AbsoluteLoss" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="ObjFunct_AbsoluteLoss">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ObjFunct_AUC" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="ObjFunct_AUC" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="ObjFunct_AUC">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ObjFunct_Benchmarks" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="ObjFunct_Benchmarks" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="ObjFunct_Benchmarks">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ObjFunct_CrossEntropy" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="ObjFunct_CrossEntropy" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="ObjFunct_CrossEntropy">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ObjFunct_CrossValidation" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="ObjFunct_CrossValidation" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="ObjFunct_CrossValidation">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ObjFunct_DenoisingAutoencoderError" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="ObjFunct_DenoisingAutoencoderError" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="ObjFunct_DenoisingAutoencoderError">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ObjFunct_ErrorFunction" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="ObjFunct_ErrorFunction" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="ObjFunct_ErrorFunction">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ObjFunct_KernelTargetAlignment" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="ObjFunct_KernelTargetAlignment" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="ObjFunct_KernelTargetAlignment">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ObjFunct_LooError" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="ObjFunct_LooError" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="ObjFunct_LooError">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ObjFunct_LooErrorCSvm" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="ObjFunct_LooErrorCSvm" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="ObjFunct_LooErrorCSvm">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ObjFunct_NegativeClassificationLogLikelihood" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="ObjFunct_NegativeClassificationLogLikelihood" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="ObjFunct_NegativeClassificationLogLikelihood">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ObjFunct_NegativeGaussianProcessEvidence" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="ObjFunct_NegativeGaussianProcessEvidence" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="ObjFunct_NegativeGaussianProcessEvidence">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ObjFunct_NoisyErrorFunction" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="ObjFunct_NoisyErrorFunction" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="ObjFunct_NoisyErrorFunction">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ObjFunct_RadiusMarginQuotient" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="ObjFunct_RadiusMarginQuotient" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="ObjFunct_RadiusMarginQuotient">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ObjFunct_SparseFFNetError" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="ObjFunct_SparseFFNetError" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="ObjFunct_SparseFFNetError">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ObjFunct_SquaredLoss" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="ObjFunct_SquaredLoss" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="ObjFunct_SquaredLoss">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ObjFunct_SvmLogisticInterpretation" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="ObjFunct_SvmLogisticInterpretation" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="ObjFunct_SvmLogisticInterpretation">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="QP_KernelMatrix" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="QP_KernelMatrix" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="QP_KernelMatrix">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="QP_LRUCache" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="QP_LRUCache" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="QP_LRUCache">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="RBM_Analytics" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="RBM_Analytics" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="RBM_Analytics">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="RBM_AverageEnergyGradient" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="RBM_AverageEnergyGradient" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="RBM_AverageEnergyGradient">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="RBM_BinaryLayer" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="RBM_BinaryLayer" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="RBM_BinaryLayer">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="RBM_ContrastiveDivergenceTraining" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="RBM_ContrastiveDivergenceTraining" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="RBM_ContrastiveDivergenceTraining">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="RBM_Energy" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="RBM_Energy" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="RBM_Energy">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="RBM_ExactGradient" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="RBM_ExactGradient" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="RBM_ExactGradient">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="RBM_ExactGradientTraining" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="RBM_ExactGradientTraining" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="RBM_ExactGradientTraining">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="RBM_GaussianLayer" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="RBM_GaussianLayer" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="RBM_GaussianLayer">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="RBM_PCDTraining" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="RBM_PCDTraining" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="RBM_PCDTraining">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="RBM_PTTraining" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="RBM_PTTraining" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="RBM_PTTraining">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="RBM_TemperedMarkovChain" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="RBM_TemperedMarkovChain" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="RBM_TemperedMarkovChain">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="RBM_TruncatedExponentialLayer" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="RBM_TruncatedExponentialLayer" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="RBM_TruncatedExponentialLayer">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Rng_Distributions" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Rng_Distributions" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Rng_Distributions">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ScopedHandleTests" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="ScopedHandleTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="ScopedHandleTests">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Trainers_CSvmTrainer" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Trainers_CSvmTrainer" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Trainers_CSvmTrainer">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Trainers_EpsilonSvmTrainer" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Trainers_EpsilonSvmTrainer" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Trainers_EpsilonSvmTrainer">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Trainers_FisherLDA" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Trainers_FisherLDA" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Trainers_FisherLDA">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Trainers_KernelMeanClassifier" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Trainers_KernelMeanClassifier" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Trainers_KernelMeanClassifier">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Trainers_KernelNormalization" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Trainers_KernelNormalization" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Trainers_KernelNormalization">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Trainers_LDA" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Trainers_LDA" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Trainers_LDA">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Trainers_LinearRegression" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Trainers_LinearRegression" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Trainers_LinearRegression">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Trainers_LinearSvmTrainer" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Trainers_LinearSvmTrainer" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Trainers_LinearSvmTrainer">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Trainers_McSvmTrainer" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Trainers_McSvmTrainer" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Trainers_McSvmTrainer">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Trainers_MissingFeatureSvmTrainer" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Trainers_MissingFeatureSvmTrainer" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Trainers_MissingFeatureSvmTrainer">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Trainers_NBClassifier" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Trainers_NBClassifier" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Trainers_NBClassifier">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Trainers_Normalization" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Trainers_Normalization" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Trainers_Normalization">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Trainers_OneClassSvmTrainer" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Trainers_OneClassSvmTrainer" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Trainers_OneClassSvmTrainer">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Trainers_PCA" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Trainers_PCA" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Trainers_PCA">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Trainers_Perceptron" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Trainers_Perceptron" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Trainers_Perceptron">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Trainers_RegularizationNetworkTrainer" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Trainers_RegularizationNetworkTrainer" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Trainers_RegularizationNetworkTrainer">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Trainers_SigmoidFit" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="Trainers_SigmoidFit" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="Trainers_SigmoidFit">
+      <envs />
+      <method />
+    </configuration>
+    <list size="203">
+      <item index="0" class="java.lang.String" itemvalue="Application.Build All" />
+      <item index="1" class="java.lang.String" itemvalue="Application.atabox_server" />
+      <item index="2" class="java.lang.String" itemvalue="Application.atabox_tests" />
+      <item index="3" class="java.lang.String" itemvalue="Application.atabox" />
+      <item index="4" class="java.lang.String" itemvalue="Application.code_analysis" />
+      <item index="5" class="java.lang.String" itemvalue="Application.AckleyES" />
+      <item index="6" class="java.lang.String" itemvalue="Application.AdditiveEpsilonIndicatorMain" />
+      <item index="7" class="java.lang.String" itemvalue="Application.AGE1Main" />
+      <item index="8" class="java.lang.String" itemvalue="Application.ApproximatedHypervolumeMain" />
+      <item index="9" class="java.lang.String" itemvalue="Application.BinaryRBM" />
+      <item index="10" class="java.lang.String" itemvalue="Application.BoundingBoxCalculatorMain" />
+      <item index="11" class="java.lang.String" itemvalue="Application.CARTTutorial" />
+      <item index="12" class="java.lang.String" itemvalue="Application.CMAMain" />
+      <item index="13" class="java.lang.String" itemvalue="Application.CMAPlot" />
+      <item index="14" class="java.lang.String" itemvalue="Application.CMASimple" />
+      <item index="15" class="java.lang.String" itemvalue="Application.CMSAMain" />
+      <item index="16" class="java.lang.String" itemvalue="Application.CSvmGridSearchTutorial" />
+      <item index="17" class="java.lang.String" itemvalue="Application.CSvmMaxLikelihoodMS" />
+      <item index="18" class="java.lang.String" itemvalue="Application.CSvmTutorial" />
+      <item index="19" class="java.lang.String" itemvalue="Application.CSvmWithThresholdConverter" />
+      <item index="20" class="java.lang.String" itemvalue="Application.CVFolds" />
+      <item index="21" class="java.lang.String" itemvalue="Application.ElitistCMAMain" />
+      <item index="22" class="java.lang.String" itemvalue="Application.ElitistCMASimpleMain" />
+      <item index="23" class="java.lang.String" itemvalue="Application.elmTutorial" />
+      <item index="24" class="java.lang.String" itemvalue="Application.EpsilonMOCMAMain" />
+      <item index="25" class="java.lang.String" itemvalue="Application.EpsilonSteadyStateMOCMAMain" />
+      <item index="26" class="java.lang.String" itemvalue="Application.ExactHypervolumeMain" />
+      <item index="27" class="java.lang.String" itemvalue="Application.FFNNBasicTutorial" />
+      <item index="28" class="java.lang.String" itemvalue="Application.FFNNMultiClassCrossEntropy" />
+      <item index="29" class="java.lang.String" itemvalue="Application.FFNNMultiClassNormalizedTraining" />
+      <item index="30" class="java.lang.String" itemvalue="Application.FFNNSetStructureTutorial" />
+      <item index="31" class="java.lang.String" itemvalue="Application.HierarchicalClustering" />
+      <item index="32" class="java.lang.String" itemvalue="Application.KernelRegression" />
+      <item index="33" class="java.lang.String" itemvalue="Application.KernelSelection" />
+      <item index="34" class="java.lang.String" itemvalue="Application.KMeansTutorial" />
+      <item index="35" class="java.lang.String" itemvalue="Application.kNN" />
+      <item index="36" class="java.lang.String" itemvalue="Application.KNNTutorial" />
+      <item index="37" class="java.lang.String" itemvalue="Application.LassoRegression" />
+      <item index="38" class="java.lang.String" itemvalue="Application.LDATutorial" />
+      <item index="39" class="java.lang.String" itemvalue="Application.linearRegressionTutorial" />
+      <item index="40" class="java.lang.String" itemvalue="Application.Logger" />
+      <item index="41" class="java.lang.String" itemvalue="Application.McSvm" />
+      <item index="42" class="java.lang.String" itemvalue="Application.McSvmLinear" />
+      <item index="43" class="java.lang.String" itemvalue="Application.MklKernelTutorial" />
+      <item index="44" class="java.lang.String" itemvalue="Application.MOCMAMain" />
+      <item index="45" class="java.lang.String" itemvalue="Application.MOCMASimple" />
+      <item index="46" class="java.lang.String" itemvalue="Application.MooExperiment" />
+      <item index="47" class="java.lang.String" itemvalue="Application.MultiTaskSvm" />
+      <item index="48" class="java.lang.String" itemvalue="Application.OneClassSvm" />
+      <item index="49" class="java.lang.String" itemvalue="Application.OnePlusOneES" />
+      <item index="50" class="java.lang.String" itemvalue="Application.OneVersusOne" />
+      <item index="51" class="java.lang.String" itemvalue="Application.Oracle" />
+      <item index="52" class="java.lang.String" itemvalue="Application.PCA" />
+      <item index="53" class="java.lang.String" itemvalue="Application.PCATutorial" />
+      <item index="54" class="java.lang.String" itemvalue="Application.quickstartTutorial" />
+      <item index="55" class="java.lang.String" itemvalue="Application.regressionTutorial" />
+      <item index="56" class="java.lang.String" itemvalue="Application.RFTutorial" />
+      <item index="57" class="java.lang.String" itemvalue="Application.SMSEMOAMain" />
+      <item index="58" class="java.lang.String" itemvalue="Application.SparseAETutorial" />
+      <item index="59" class="java.lang.String" itemvalue="Application.SteadyStateMOCMAMain" />
+      <item index="60" class="java.lang.String" itemvalue="Application.StoppingCriteriaTutorial" />
+      <item index="61" class="java.lang.String" itemvalue="Application.SubrangeKernelTutorial" />
+      <item index="62" class="java.lang.String" itemvalue="Application.TSP" />
+      <item index="63" class="java.lang.String" itemvalue="Application.shark" />
+      <item index="64" class="java.lang.String" itemvalue="Application.Version" />
+      <item index="65" class="java.lang.String" itemvalue="Application.Algorithms_DirectSearch" />
+      <item index="66" class="java.lang.String" itemvalue="Application.Algorithms_GridSearch" />
+      <item index="67" class="java.lang.String" itemvalue="Application.Algorithms_Hypervolume" />
+      <item index="68" class="java.lang.String" itemvalue="Application.Algorithms_JaakkolaHeuristic" />
+      <item index="69" class="java.lang.String" itemvalue="Application.Algorithms_KMeans" />
+      <item index="70" class="java.lang.String" itemvalue="Application.Algorithms_NearestNeighbor" />
+      <item index="71" class="java.lang.String" itemvalue="Application.Data_Csv" />
+      <item index="72" class="java.lang.String" itemvalue="Application.Data_CVDatasetTools" />
+      <item index="73" class="java.lang.String" itemvalue="Application.Data_Dataset" />
+      <item index="74" class="java.lang.String" itemvalue="Application.Data_DataView" />
+      <item index="75" class="java.lang.String" itemvalue="Application.Data_Libsvm" />
+      <item index="76" class="java.lang.String" itemvalue="Application.Data_PrecomputedMatrix" />
+      <item index="77" class="java.lang.String" itemvalue="Application.Data_Statistics" />
+      <item index="78" class="java.lang.String" itemvalue="Application.DirectSearch_BitflipMutation" />
+      <item index="79" class="java.lang.String" itemvalue="Application.DirectSearch_CMA" />
+      <item index="80" class="java.lang.String" itemvalue="Application.DirectSearch_CMSA" />
+      <item index="81" class="java.lang.String" itemvalue="Application.DirectSearch_ElitistCMA" />
+      <item index="82" class="java.lang.String" itemvalue="Application.DirectSearch_MOCMA" />
+      <item index="83" class="java.lang.String" itemvalue="Application.DirectSearch_OnePlusOneES" />
+      <item index="84" class="java.lang.String" itemvalue="Application.DirectSearch_Recombination" />
+      <item index="85" class="java.lang.String" itemvalue="Application.DirectSearch_Selection" />
+      <item index="86" class="java.lang.String" itemvalue="Application.DirectSearch_SteadyStateMOCMA" />
+      <item index="87" class="java.lang.String" itemvalue="Application.Fuzzy_Control_Language_Parser" />
+      <item index="88" class="java.lang.String" itemvalue="Application.Fuzzy_FuzzySets" />
+      <item index="89" class="java.lang.String" itemvalue="Application.Fuzzy_LinguisticTerms" />
+      <item index="90" class="java.lang.String" itemvalue="Application.Fuzzy_Mamdani" />
+      <item index="91" class="java.lang.String" itemvalue="Application.GradDesc_BFGS" />
+      <item index="92" class="java.lang.String" itemvalue="Application.GradDesc_CG" />
+      <item index="93" class="java.lang.String" itemvalue="Application.GradDesc_IRLS" />
+      <item index="94" class="java.lang.String" itemvalue="Application.GradDesc_LBFGS" />
+      <item index="95" class="java.lang.String" itemvalue="Application.GradDesc_NoisyRprop" />
+      <item index="96" class="java.lang.String" itemvalue="Application.GradDesc_Quickprop" />
+      <item index="97" class="java.lang.String" itemvalue="Application.GradDesc_Rprop" />
+      <item index="98" class="java.lang.String" itemvalue="Application.GradDesc_SteepestDescent" />
+      <item index="99" class="java.lang.String" itemvalue="Application.LinAlg_choleskyDecomposition" />
+      <item index="100" class="java.lang.String" itemvalue="Application.LinAlg_DiagonalMatrix" />
+      <item index="101" class="java.lang.String" itemvalue="Application.LinAlg_dlmin" />
+      <item index="102" class="java.lang.String" itemvalue="Application.LinAlg_eigensort" />
+      <item index="103" class="java.lang.String" itemvalue="Application.LinAlg_eigensymm" />
+      <item index="104" class="java.lang.String" itemvalue="Application.LinAlg_FastProd" />
+      <item index="105" class="java.lang.String" itemvalue="Application.LinAlg_g_inverse" />
+      <item index="106" class="java.lang.String" itemvalue="Application.LinAlg_Initialize" />
+      <item index="107" class="java.lang.String" itemvalue="Application.LinAlg_invertSymmPositiveDefinite" />
+      <item index="108" class="java.lang.String" itemvalue="Application.LinAlg_linmin" />
+      <item index="109" class="java.lang.String" itemvalue="Application.LinAlg_lnrsrch" />
+      <item index="110" class="java.lang.String" itemvalue="Application.LinAlg_Metrics" />
+      <item index="111" class="java.lang.String" itemvalue="Application.LinAlg_Permutations" />
+      <item index="112" class="java.lang.String" itemvalue="Application.LinAlg_Proxy" />
+      <item index="113" class="java.lang.String" itemvalue="Application.LinAlg_Repeat" />
+      <item index="114" class="java.lang.String" itemvalue="Application.LinAlg_rotations" />
+      <item index="115" class="java.lang.String" itemvalue="Application.LinAlg_RQ" />
+      <item index="116" class="java.lang.String" itemvalue="Application.LinAlg_solve" />
+      <item index="117" class="java.lang.String" itemvalue="Application.LinAlg_SumRows" />
+      <item index="118" class="java.lang.String" itemvalue="Application.LinAlg_svd" />
+      <item index="119" class="java.lang.String" itemvalue="Application.LinAlg_VectorTransformations" />
+      <item index="120" class="java.lang.String" itemvalue="Application.LP_LinearProgram" />
+      <item index="121" class="java.lang.String" itemvalue="Application.Models_ArdKernel" />
+      <item index="122" class="java.lang.String" itemvalue="Application.Models_CARTClassifier" />
+      <item index="123" class="java.lang.String" itemvalue="Application.Models_CMAC" />
+      <item index="124" class="java.lang.String" itemvalue="Application.Models_ConcatenatedModel" />
+      <item index="125" class="java.lang.String" itemvalue="Application.Models_CSvmDerivative" />
+      <item index="126" class="java.lang.String" itemvalue="Application.Models_DiscreteKernel" />
+      <item index="127" class="java.lang.String" itemvalue="Application.Models_EvalSkipMissingFeatures" />
+      <item index="128" class="java.lang.String" itemvalue="Application.Models_FFNet" />
+      <item index="129" class="java.lang.String" itemvalue="Application.Models_GaussianKernel" />
+      <item index="130" class="java.lang.String" itemvalue="Application.Models_KernelExpansion" />
+      <item index="131" class="java.lang.String" itemvalue="Application.Models_KernelHelpers" />
+      <item index="132" class="java.lang.String" itemvalue="Application.Models_KernelNearestNeighborClassifier" />
+      <item index="133" class="java.lang.String" itemvalue="Application.Models_KernelNearestNeighborRegression" />
+      <item index="134" class="java.lang.String" itemvalue="Application.Models_LinearKernel" />
+      <item index="135" class="java.lang.String" itemvalue="Application.Models_LinearModel" />
+      <item index="136" class="java.lang.String" itemvalue="Application.Models_LinearNorm" />
+      <item index="137" class="java.lang.String" itemvalue="Application.Models_MissingFeaturesKernelExpansion" />
+      <item index="138" class="java.lang.String" itemvalue="Application.Models_MonomialKernel" />
+      <item index="139" class="java.lang.String" itemvalue="Application.Models_NBClassifier" />
+      <item index="140" class="java.lang.String" itemvalue="Application.Models_NearestNeighborRegression" />
+      <item index="141" class="java.lang.String" itemvalue="Application.Models_OneVersusOneClassifier" />
+      <item index="142" class="java.lang.String" itemvalue="Application.Models_PolynomialKernel" />
+      <item index="143" class="java.lang.String" itemvalue="Application.Models_ProductKernel" />
+      <item index="144" class="java.lang.String" itemvalue="Application.Models_RBFNet" />
+      <item index="145" class="java.lang.String" itemvalue="Application.Models_RFClassifier" />
+      <item index="146" class="java.lang.String" itemvalue="Application.Models_RNNet" />
+      <item index="147" class="java.lang.String" itemvalue="Application.Models_ScaledKernel" />
+      <item index="148" class="java.lang.String" itemvalue="Application.Models_SigmoidModel" />
+      <item index="149" class="java.lang.String" itemvalue="Application.Models_Softmax" />
+      <item index="150" class="java.lang.String" itemvalue="Application.Models_SoftNearestNeighborClassifier" />
+      <item index="151" class="java.lang.String" itemvalue="Application.Models_SubrangeKernel" />
+      <item index="152" class="java.lang.String" itemvalue="Application.Models_WeightedSumKernel" />
+      <item index="153" class="java.lang.String" itemvalue="Application.ObjFunct_AbsoluteLoss" />
+      <item index="154" class="java.lang.String" itemvalue="Application.ObjFunct_AUC" />
+      <item index="155" class="java.lang.String" itemvalue="Application.ObjFunct_Benchmarks" />
+      <item index="156" class="java.lang.String" itemvalue="Application.ObjFunct_CrossEntropy" />
+      <item index="157" class="java.lang.String" itemvalue="Application.ObjFunct_CrossValidation" />
+      <item index="158" class="java.lang.String" itemvalue="Application.ObjFunct_DenoisingAutoencoderError" />
+      <item index="159" class="java.lang.String" itemvalue="Application.ObjFunct_ErrorFunction" />
+      <item index="160" class="java.lang.String" itemvalue="Application.ObjFunct_KernelTargetAlignment" />
+      <item index="161" class="java.lang.String" itemvalue="Application.ObjFunct_LooError" />
+      <item index="162" class="java.lang.String" itemvalue="Application.ObjFunct_LooErrorCSvm" />
+      <item index="163" class="java.lang.String" itemvalue="Application.ObjFunct_NegativeClassificationLogLikelihood" />
+      <item index="164" class="java.lang.String" itemvalue="Application.ObjFunct_NegativeGaussianProcessEvidence" />
+      <item index="165" class="java.lang.String" itemvalue="Application.ObjFunct_NoisyErrorFunction" />
+      <item index="166" class="java.lang.String" itemvalue="Application.ObjFunct_RadiusMarginQuotient" />
+      <item index="167" class="java.lang.String" itemvalue="Application.ObjFunct_SparseFFNetError" />
+      <item index="168" class="java.lang.String" itemvalue="Application.ObjFunct_SquaredLoss" />
+      <item index="169" class="java.lang.String" itemvalue="Application.ObjFunct_SvmLogisticInterpretation" />
+      <item index="170" class="java.lang.String" itemvalue="Application.QP_KernelMatrix" />
+      <item index="171" class="java.lang.String" itemvalue="Application.QP_LRUCache" />
+      <item index="172" class="java.lang.String" itemvalue="Application.RBM_Analytics" />
+      <item index="173" class="java.lang.String" itemvalue="Application.RBM_AverageEnergyGradient" />
+      <item index="174" class="java.lang.String" itemvalue="Application.RBM_BinaryLayer" />
+      <item index="175" class="java.lang.String" itemvalue="Application.RBM_ContrastiveDivergenceTraining" />
+      <item index="176" class="java.lang.String" itemvalue="Application.RBM_Energy" />
+      <item index="177" class="java.lang.String" itemvalue="Application.RBM_ExactGradient" />
+      <item index="178" class="java.lang.String" itemvalue="Application.RBM_ExactGradientTraining" />
+      <item index="179" class="java.lang.String" itemvalue="Application.RBM_GaussianLayer" />
+      <item index="180" class="java.lang.String" itemvalue="Application.RBM_PCDTraining" />
+      <item index="181" class="java.lang.String" itemvalue="Application.RBM_PTTraining" />
+      <item index="182" class="java.lang.String" itemvalue="Application.RBM_TemperedMarkovChain" />
+      <item index="183" class="java.lang.String" itemvalue="Application.RBM_TruncatedExponentialLayer" />
+      <item index="184" class="java.lang.String" itemvalue="Application.Rng_Distributions" />
+      <item index="185" class="java.lang.String" itemvalue="Application.ScopedHandleTests" />
+      <item index="186" class="java.lang.String" itemvalue="Application.Trainers_CSvmTrainer" />
+      <item index="187" class="java.lang.String" itemvalue="Application.Trainers_EpsilonSvmTrainer" />
+      <item index="188" class="java.lang.String" itemvalue="Application.Trainers_FisherLDA" />
+      <item index="189" class="java.lang.String" itemvalue="Application.Trainers_KernelMeanClassifier" />
+      <item index="190" class="java.lang.String" itemvalue="Application.Trainers_KernelNormalization" />
+      <item index="191" class="java.lang.String" itemvalue="Application.Trainers_LDA" />
+      <item index="192" class="java.lang.String" itemvalue="Application.Trainers_LinearRegression" />
+      <item index="193" class="java.lang.String" itemvalue="Application.Trainers_LinearSvmTrainer" />
+      <item index="194" class="java.lang.String" itemvalue="Application.Trainers_McSvmTrainer" />
+      <item index="195" class="java.lang.String" itemvalue="Application.Trainers_MissingFeatureSvmTrainer" />
+      <item index="196" class="java.lang.String" itemvalue="Application.Trainers_NBClassifier" />
+      <item index="197" class="java.lang.String" itemvalue="Application.Trainers_Normalization" />
+      <item index="198" class="java.lang.String" itemvalue="Application.Trainers_OneClassSvmTrainer" />
+      <item index="199" class="java.lang.String" itemvalue="Application.Trainers_PCA" />
+      <item index="200" class="java.lang.String" itemvalue="Application.Trainers_Perceptron" />
+      <item index="201" class="java.lang.String" itemvalue="Application.Trainers_RegularizationNetworkTrainer" />
+      <item index="202" class="java.lang.String" itemvalue="Application.Trainers_SigmoidFit" />
+    </list>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2af49423-3e30-4b05-8e9d-7039ffcbc05e" name="Default" comment="" />
+      <created>1441564754046</created>
+      <option name="number" value="Default" />
+      <updated>1441564754046</updated>
+    </task>
+    <task id="LOCAL-00001" summary="cmake in progress">
+      <created>1441640018618</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1441640018618</updated>
+    </task>
+    <task id="LOCAL-00002" summary="uncomment tests">
+      <created>1441736926437</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1441736926437</updated>
+    </task>
+    <task id="LOCAL-00003" summary="update shark">
+      <created>1443981260161</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1443981260161</updated>
+    </task>
+    <task id="LOCAL-00004" summary="pdate cmake">
+      <created>1443986640902</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1443986640902</updated>
+    </task>
+    <task id="LOCAL-00005" summary="update cmake">
+      <created>1443987416225</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1443987416225</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1920" y="0" width="1920" height="1059" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20127796" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35095137" sideWeight="0.48125" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3255814" sideWeight="0.48333332" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="LuaJ" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32875264" sideWeight="0.51875" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980973" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32875264" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24973376" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980973" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3993808" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="cmake in progress" />
+    <MESSAGE value="uncomment tests" />
+    <MESSAGE value="update shark" />
+    <MESSAGE value="pdate cmake" />
+    <MESSAGE value="update cmake" />
+    <option name="LAST_COMMIT_MESSAGE" value="update cmake" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/tests/dataproviders/RocksdbProviderTest.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/casablanca/Release/samples/SearchFile/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.055900622">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/api/casablancaMocks.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/api/AtaboxApiTest.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/aquila/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="225" column="0" selection-start-line="225" selection-start-column="0" selection-end-line="225" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/api/casablancaMocks.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/recognition/network/Batch.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/recognition/network/LRBM.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="26" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/LightVector.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/recognition/network/activation_functions.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="56" column="26" selection-start-line="56" selection-start-column="26" selection-end-line="56" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dataproviders/RocksdbProvider.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="103" column="18" selection-start-line="103" selection-start-column="18" selection-end-line="103" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dataproviders/BaseDataProvider.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/recognition/network/DeepBeliefNet.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/Impl/analytics.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Core/ISerializable.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6866159">
+          <caret line="109" column="0" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Data/Dataset.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37214363">
+          <caret line="134" column="30" selection-start-line="134" selection-start-column="30" selection-end-line="134" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/Problems/BarsAndStripes.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6071817">
+          <caret line="32" column="11" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/Problems/DistantModes.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Algorithms/GradientDescent/CG.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.70511425">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/Sampling/GibbsOperator.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="110" column="78" selection-start-line="110" selection-start-column="78" selection-end-line="110" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/BinaryRBM.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/RBM.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14778325">
+          <caret line="91" column="12" selection-start-line="91" selection-start-column="12" selection-end-line="91" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/examples/Unsupervised/BinaryRBM.tpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14778325">
+          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/recognition/network/RBM2.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="18" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/GradientApproximations/ContrastiveDivergence.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Makefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/CTestTestfile.cmake">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SConstruct">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3546798">
+          <caret line="54" column="28" selection-start-line="54" selection-start-column="28" selection-end-line="54" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compile.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/GradientApproximations/MultiChainApproximator.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="146" column="0" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/Energy.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="232" column="0" selection-start-line="232" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/Neuronlayers/BinaryLayer.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="305" column="25" selection-start-line="305" selection-start-column="25" selection-end-line="305" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitmodules">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="46" selection-start-line="17" selection-start-column="46" selection-end-line="17" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/Neuronlayers/GaussianLayer.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="263" column="4" selection-start-line="263" selection-start-column="4" selection-end-line="263" selection-end-column="4" />
+          <folding>
+            <element signature="e#3880#3911#0" expanded="true" />
+            <element signature="e#6580#6594#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Algorithms/GradientDescent/SteepestDescent.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="41" column="6" selection-start-line="41" selection-start-column="6" selection-end-line="41" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/GaussianBinaryRBM.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="47" column="52" selection-start-line="47" selection-start-column="52" selection-end-line="47" selection-end-column="52" />
+          <folding>
+            <element signature="e#968#1007#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="66" column="39" selection-start-line="66" selection-start-column="39" selection-end-line="66" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/shark/LinAlg/Base.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="47" column="30" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/shark/LinAlg/BLAS/blas.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/dataproviders/RocksdbProviderTest.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/UseShark.cmake">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="260" column="24" selection-start-line="260" selection-start-column="24" selection-end-line="260" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMake/CodeCoverage.cmake">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="138" column="0" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="48" selection-start-line="42" selection-start-column="48" selection-end-line="42" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/recognition/network/RBM.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/recognition/network/RBMTest.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43090317">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/recognition/network/RBM.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07834603">
+          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+          <folding>
+            <element signature="e#144#197#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
