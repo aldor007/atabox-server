@@ -42,7 +42,7 @@ option(ATABOX_TESTS_COVERAGE "Build tests with coverage" OFF)
 if(ATABOX_TESTS_COVERAGE)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0  -fprofile-arcs -ftest-coverage")
     include(../CMake/CodeCoverage.cmake)
-    setup_target_for_coverage_cobertura(coverage atabox_test coverage_report)
+    setup_target_for_coverage_cobertura(coverage tests/build/atabox_tests coverage_report)
 endif()
 
     add_executable(atabox_tests ${ATABOX_TEST_SOURCE})
