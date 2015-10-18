@@ -1,0 +1,1216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" assignedExecutableTargets="true" buildAllGenerated="true">
+    <generated>
+      <config projectName="atabox_server" targetName="Models_KernelHelpers" />
+      <config projectName="atabox_server" targetName="Fuzzy_FuzzySets" />
+      <config projectName="atabox_server" targetName="Trainers_KernelMeanClassifier" />
+      <config projectName="atabox_server" targetName="RBM_TemperedMarkovChain" />
+      <config projectName="atabox_server" targetName="Fuzzy_LinguisticTerms" />
+      <config projectName="atabox_server" targetName="shark" />
+      <config projectName="atabox_server" targetName="CMAMain" />
+      <config projectName="atabox_server" targetName="Models_PolynomialKernel" />
+      <config projectName="atabox_server" targetName="LP_LinearProgram" />
+      <config projectName="atabox_server" targetName="LinAlg_Proxy" />
+      <config projectName="atabox_server" targetName="quickstartTutorial" />
+      <config projectName="atabox_server" targetName="Algorithms_Hypervolume" />
+      <config projectName="atabox_server" targetName="Data_Dataset" />
+      <config projectName="atabox_server" targetName="aquila_test" />
+      <config projectName="atabox_server" targetName="ObjFunct_CrossValidation" />
+      <config projectName="atabox_server" targetName="linearRegressionTutorial" />
+      <config projectName="atabox_server" targetName="Models_FFNet" />
+      <config projectName="atabox_server" targetName="Models_CARTClassifier" />
+      <config projectName="atabox_server" targetName="atabox_server" />
+      <config projectName="atabox_server" targetName="Models_CMAC" />
+      <config projectName="atabox_server" targetName="ObjFunct_SvmLogisticInterpretation" />
+      <config projectName="atabox_server" targetName="Trainers_McSvmTrainer" />
+      <config projectName="atabox_server" targetName="fft_simple_spectrum" />
+      <config projectName="atabox_server" targetName="coverage" />
+      <config projectName="atabox_server" targetName="DirectSearch_SteadyStateMOCMA" />
+      <config projectName="atabox_server" targetName="Fuzzy_Mamdani" />
+      <config projectName="atabox_server" targetName="ObjFunct_ErrorFunction" />
+      <config projectName="atabox_server" targetName="Models_KernelNearestNeighborRegression" />
+      <config projectName="atabox_server" targetName="LinAlg_linmin" />
+      <config projectName="atabox_server" targetName="ApproximatedHypervolumeMain" />
+      <config projectName="atabox_server" targetName="spectrogram" />
+      <config projectName="atabox_server" targetName="DirectSearch_MOCMA" />
+      <config projectName="atabox_server" targetName="RBM_ExactGradient" />
+      <config projectName="atabox_server" targetName="samples" />
+      <config projectName="atabox_server" targetName="QP_LRUCache" />
+      <config projectName="atabox_server" targetName="CARTTutorial" />
+      <config projectName="atabox_server" targetName="UnitTest++" />
+      <config projectName="atabox_server" targetName="LDATutorial" />
+      <config projectName="atabox_server" targetName="LinAlg_svd" />
+      <config projectName="atabox_server" targetName="Models_ConcatenatedModel" />
+      <config projectName="atabox_server" targetName="EpsilonMOCMAMain" />
+      <config projectName="atabox_server" targetName="ExactHypervolumeMain" />
+      <config projectName="atabox_server" targetName="blackjackserver" />
+      <config projectName="atabox_server" targetName="LinAlg_Permutations" />
+      <config projectName="atabox_server" targetName="RBM_Energy" />
+      <config projectName="atabox_server" targetName="fft_comparison" />
+      <config projectName="atabox_server" targetName="RFTutorial" />
+      <config projectName="atabox_server" targetName="Models_EvalSkipMissingFeatures" />
+      <config projectName="atabox_server" targetName="Models_CSvmDerivative" />
+      <config projectName="atabox_server" targetName="LinAlg_rotations" />
+      <config projectName="atabox_server" targetName="Models_LinearKernel" />
+      <config projectName="atabox_server" targetName="HierarchicalClustering" />
+      <config projectName="atabox_server" targetName="DirectSearch_Recombination" />
+      <config projectName="atabox_server" targetName="PCATutorial" />
+      <config projectName="atabox_server" targetName="wave_mfcc" />
+      <config projectName="atabox_server" targetName="Models_RFClassifier" />
+      <config projectName="atabox_server" targetName="CSvmMaxLikelihoodMS" />
+      <config projectName="atabox_server" targetName="sine_generator" />
+      <config projectName="atabox_server" targetName="triangle_generator" />
+      <config projectName="atabox_server" targetName="Models_MonomialKernel" />
+      <config projectName="atabox_server" targetName="fft_filter" />
+      <config projectName="atabox_server" targetName="ObjFunct_SquaredLoss" />
+      <config projectName="atabox_server" targetName="OnePlusOneES" />
+      <config projectName="atabox_server" targetName="dtw_path_recovery" />
+      <config projectName="atabox_server" targetName="Models_NearestNeighborRegression" />
+      <config projectName="atabox_server" targetName="rocksdb" />
+      <config projectName="atabox_server" targetName="streams_test" />
+      <config projectName="atabox_server" targetName="RBM_TruncatedExponentialLayer" />
+      <config projectName="atabox_server" targetName="Trainers_LinearSvmTrainer" />
+      <config projectName="atabox_server" targetName="wave_iteration" />
+      <config projectName="atabox_server" targetName="text_plot" />
+      <config projectName="atabox_server" targetName="Algorithms_GridSearch" />
+      <config projectName="atabox_server" targetName="LassoRegression" />
+      <config projectName="atabox_server" targetName="Data_DataView" />
+      <config projectName="atabox_server" targetName="GradDesc_Rprop" />
+      <config projectName="atabox_server" targetName="TestUnitTest++" />
+      <config projectName="atabox_server" targetName="FFNNMultiClassNormalizedTraining" />
+      <config projectName="atabox_server" targetName="GradDesc_SteepestDescent" />
+      <config projectName="atabox_server" targetName="EpsilonSteadyStateMOCMAMain" />
+      <config projectName="atabox_server" targetName="ObjFunct_CrossEntropy" />
+      <config projectName="atabox_server" targetName="QP_KernelMatrix" />
+      <config projectName="atabox_server" targetName="utility_functions" />
+      <config projectName="atabox_server" targetName="Trainers_MissingFeatureSvmTrainer" />
+      <config projectName="atabox_server" targetName="LinAlg_DiagonalMatrix" />
+      <config projectName="atabox_server" targetName="oauth2client" />
+      <config projectName="atabox_server" targetName="oauth1client" />
+      <config projectName="atabox_server" targetName="Models_SubrangeKernel" />
+      <config projectName="atabox_server" targetName="regressionTutorial" />
+      <config projectName="atabox_server" targetName="Models_RNNet" />
+      <config projectName="atabox_server" targetName="Models_MissingFeaturesKernelExpansion" />
+      <config projectName="atabox_server" targetName="utils_test" />
+      <config projectName="atabox_server" targetName="LinAlg_Initialize" />
+      <config projectName="atabox_server" targetName="code_analysis" />
+      <config projectName="atabox_server" targetName="FFNNBasicTutorial" />
+      <config projectName="atabox_server" targetName="GradDesc_BFGS" />
+      <config projectName="atabox_server" targetName="ObjFunct_NoisyErrorFunction" />
+      <config projectName="atabox_server" targetName="ScopedHandleTests" />
+      <config projectName="atabox_server" targetName="GradDesc_Quickprop" />
+      <config projectName="atabox_server" targetName="generators" />
+      <config projectName="atabox_server" targetName="websocketclient_test" />
+      <config projectName="atabox_server" targetName="ObjFunct_AUC" />
+      <config projectName="atabox_server" targetName="uninstall" />
+      <config projectName="atabox_server" targetName="LinAlg_dlmin" />
+      <config projectName="atabox_server" targetName="KNNTutorial" />
+      <config projectName="atabox_server" targetName="square_generator" />
+      <config projectName="atabox_server" targetName="Rng_Distributions" />
+      <config projectName="atabox_server" targetName="Trainers_LinearRegression" />
+      <config projectName="atabox_server" targetName="Models_NBClassifier" />
+      <config projectName="atabox_server" targetName="json_test" />
+      <config projectName="atabox_server" targetName="ObjFunct_LooErrorCSvm" />
+      <config projectName="atabox_server" targetName="wave_info" />
+      <config projectName="atabox_server" targetName="Models_SoftNearestNeighborClassifier" />
+      <config projectName="atabox_server" targetName="Kiss_fft" />
+      <config projectName="atabox_server" targetName="sfml_generator" />
+      <config projectName="atabox_server" targetName="KMeansTutorial" />
+      <config projectName="atabox_server" targetName="ObjFunct_SparseFFNetError" />
+      <config projectName="atabox_server" targetName="examples" />
+      <config projectName="atabox_server" targetName="KernelRegression" />
+      <config projectName="atabox_server" targetName="httplistener_test" />
+      <config projectName="atabox_server" targetName="CMAPlot" />
+      <config projectName="atabox_server" targetName="ObjFunct_NegativeGaussianProcessEvidence" />
+      <config projectName="atabox_server" targetName="sfml_imperial_march" />
+      <config projectName="atabox_server" targetName="LinAlg_Metrics" />
+      <config projectName="atabox_server" targetName="CMSAMain" />
+      <config projectName="atabox_server" targetName="LinAlg_SumRows" />
+      <config projectName="atabox_server" targetName="Models_KernelExpansion" />
+      <config projectName="atabox_server" targetName="Logger" />
+      <config projectName="atabox_server" targetName="OneClassSvm" />
+      <config projectName="atabox_server" targetName="Data_Csv" />
+      <config projectName="atabox_server" targetName="Models_OneVersusOneClassifier" />
+      <config projectName="atabox_server" targetName="Oracle" />
+      <config projectName="atabox_server" targetName="RBM_ExactGradientTraining" />
+      <config projectName="atabox_server" targetName="GradDesc_CG" />
+      <config projectName="atabox_server" targetName="blackjackclient" />
+      <config projectName="atabox_server" targetName="RBM_PTTraining" />
+      <config projectName="atabox_server" targetName="SparseAETutorial" />
+      <config projectName="atabox_server" targetName="ObjFunct_LooError" />
+      <config projectName="atabox_server" targetName="LinAlg_invertSymmPositiveDefinite" />
+      <config projectName="atabox_server" targetName="BinaryRBM" />
+      <config projectName="atabox_server" targetName="Models_DiscreteKernel" />
+      <config projectName="atabox_server" targetName="GradDesc_LBFGS" />
+      <config projectName="atabox_server" targetName="Models_ArdKernel" />
+      <config projectName="atabox_server" targetName="Trainers_Normalization" />
+      <config projectName="atabox_server" targetName="Models_Softmax" />
+      <config projectName="atabox_server" targetName="ObjFunct_NegativeClassificationLogLikelihood" />
+      <config projectName="atabox_server" targetName="Trainers_Perceptron" />
+      <config projectName="atabox_server" targetName="FFNNMultiClassCrossEntropy" />
+      <config projectName="atabox_server" targetName="SMSEMOAMain" />
+      <config projectName="atabox_server" targetName="uri_test" />
+      <config projectName="atabox_server" targetName="MultiTaskSvm" />
+      <config projectName="atabox_server" targetName="Version" />
+      <config projectName="atabox_server" targetName="Trainers_PCA" />
+      <config projectName="atabox_server" targetName="ElitistCMASimpleMain" />
+      <config projectName="atabox_server" targetName="Trainers_LDA" />
+      <config projectName="atabox_server" targetName="Data_Statistics" />
+      <config projectName="atabox_server" targetName="SteadyStateMOCMAMain" />
+      <config projectName="atabox_server" targetName="Models_ScaledKernel" />
+      <config projectName="atabox_server" targetName="Data_CVDatasetTools" />
+      <config projectName="atabox_server" targetName="atabox_tests" />
+      <config projectName="atabox_server" targetName="LinAlg_lnrsrch" />
+      <config projectName="atabox_server" targetName="sfml_karplus_strong" />
+      <config projectName="atabox_server" targetName="atabox" />
+      <config projectName="atabox_server" targetName="BoundingBoxCalculatorMain" />
+      <config projectName="atabox_server" targetName="common_utilities" />
+      <config projectName="atabox_server" targetName="Data_PrecomputedMatrix" />
+      <config projectName="atabox_server" targetName="mfcc_calculation" />
+      <config projectName="atabox_server" targetName="httptest_utilities" />
+      <config projectName="atabox_server" targetName="check" />
+      <config projectName="atabox_server" targetName="frame_iteration" />
+      <config projectName="atabox_server" targetName="AGE1Main" />
+      <config projectName="atabox_server" targetName="Algorithms_NearestNeighbor" />
+      <config projectName="atabox_server" targetName="Models_LinearModel" />
+      <config projectName="atabox_server" targetName="Trainers_KernelNormalization" />
+      <config projectName="atabox_server" targetName="DirectSearch_CMA" />
+      <config projectName="atabox_server" targetName="ObjFunct_RadiusMarginQuotient" />
+      <config projectName="atabox_server" targetName="Models_KernelNearestNeighborClassifier" />
+      <config projectName="atabox_server" targetName="LinAlg_solve" />
+      <config projectName="atabox_server" targetName="Trainers_EpsilonSvmTrainer" />
+      <config projectName="atabox_server" targetName="MklKernelTutorial" />
+      <config projectName="atabox_server" targetName="LinAlg_FastProd" />
+      <config projectName="atabox_server" targetName="Algorithms_JaakkolaHeuristic" />
+      <config projectName="atabox_server" targetName="window_plot" />
+      <config projectName="atabox_server" targetName="OneVersusOne" />
+      <config projectName="atabox_server" targetName="SubrangeKernelTutorial" />
+      <config projectName="atabox_server" targetName="AckleyES" />
+      <config projectName="atabox_server" targetName="LinAlg_g_inverse" />
+      <config projectName="atabox_server" targetName="MooExperiment" />
+      <config projectName="atabox_server" targetName="CSvmTutorial" />
+      <config projectName="atabox_server" targetName="ElitistCMAMain" />
+      <config projectName="atabox_server" targetName="Models_ProductKernel" />
+      <config projectName="atabox_server" targetName="LinAlg_eigensort" />
+      <config projectName="atabox_server" targetName="GradDesc_NoisyRprop" />
+      <config projectName="atabox_server" targetName="StoppingCriteriaTutorial" />
+      <config projectName="atabox_server" targetName="LinAlg_VectorTransformations" />
+      <config projectName="atabox_server" targetName="ObjFunct_AbsoluteLoss" />
+      <config projectName="atabox_server" targetName="AdditiveEpsilonIndicatorMain" />
+      <config projectName="atabox_server" targetName="Models_RBFNet" />
+      <config projectName="atabox_server" targetName="Trainers_RegularizationNetworkTrainer" />
+      <config projectName="atabox_server" targetName="LinAlg_RQ" />
+      <config projectName="atabox_server" targetName="websockettest_utilities" />
+      <config projectName="atabox_server" targetName="Aquila" />
+      <config projectName="atabox_server" targetName="CVFolds" />
+      <config projectName="atabox_server" targetName="Trainers_NBClassifier" />
+      <config projectName="atabox_server" targetName="GradDesc_IRLS" />
+      <config projectName="atabox_server" targetName="MOCMASimple" />
+      <config projectName="atabox_server" targetName="TSP" />
+      <config projectName="atabox_server" targetName="Trainers_FisherLDA" />
+      <config projectName="atabox_server" targetName="am_modulation" />
+      <config projectName="atabox_server" targetName="RBM_ContrastiveDivergenceTraining" />
+      <config projectName="atabox_server" targetName="LinAlg_eigensymm" />
+      <config projectName="atabox_server" targetName="Trainers_CSvmTrainer" />
+      <config projectName="atabox_server" targetName="RBM_PCDTraining" />
+      <config projectName="atabox_server" targetName="LinAlg_choleskyDecomposition" />
+      <config projectName="atabox_server" targetName="ObjFunct_KernelTargetAlignment" />
+      <config projectName="atabox_server" targetName="McSvm" />
+      <config projectName="atabox_server" targetName="Data_Libsvm" />
+      <config projectName="atabox_server" targetName="Models_WeightedSumKernel" />
+      <config projectName="atabox_server" targetName="pplx_test" />
+      <config projectName="atabox_server" targetName="DirectSearch_ElitistCMA" />
+      <config projectName="atabox_server" targetName="Models_LinearNorm" />
+      <config projectName="atabox_server" targetName="RBM_BinaryLayer" />
+      <config projectName="atabox_server" targetName="SearchFile" />
+      <config projectName="atabox_server" targetName="DirectSearch_OnePlusOneES" />
+      <config projectName="atabox_server" targetName="Trainers_SigmoidFit" />
+      <config projectName="atabox_server" targetName="cpprest" />
+      <config projectName="atabox_server" targetName="unittestpp" />
+      <config projectName="atabox_server" targetName="RBM_GaussianLayer" />
+      <config projectName="atabox_server" targetName="Models_SigmoidModel" />
+      <config projectName="atabox_server" targetName="BingRequest" />
+      <config projectName="atabox_server" targetName="aquila" />
+      <config projectName="atabox_server" targetName="ObjFunct_DenoisingAutoencoderError" />
+      <config projectName="atabox_server" targetName="ObjFunct_Benchmarks" />
+      <config projectName="atabox_server" targetName="LinAlg_Repeat" />
+      <config projectName="atabox_server" targetName="Algorithms_KMeans" />
+      <config projectName="atabox_server" targetName="Fuzzy_Control_Language_Parser" />
+      <config projectName="atabox_server" targetName="FFNNSetStructureTutorial" />
+      <config projectName="atabox_server" targetName="KernelSelection" />
+      <config projectName="atabox_server" targetName="RBM_Analytics" />
+      <config projectName="atabox_server" targetName="RBM_AverageEnergyGradient" />
+      <config projectName="atabox_server" targetName="DirectSearch_BitflipMutation" />
+      <config projectName="atabox_server" targetName="kNN" />
+      <config projectName="atabox_server" targetName="test_runner" />
+      <config projectName="atabox_server" targetName="elmTutorial" />
+      <config projectName="atabox_server" targetName="Algorithms_DirectSearch" />
+      <config projectName="atabox_server" targetName="McSvmLinear" />
+      <config projectName="atabox_server" targetName="MOCMAMain" />
+      <config projectName="atabox_server" targetName="window_usage" />
+      <config projectName="atabox_server" targetName="DirectSearch_Selection" />
+      <config projectName="atabox_server" targetName="CMASimple" />
+      <config projectName="atabox_server" targetName="Ooura_fft" />
+      <config projectName="atabox_server" targetName="Models_GaussianKernel" />
+      <config projectName="atabox_server" targetName="httpclient_test" />
+      <config projectName="atabox_server" targetName="PCA" />
+      <config projectName="atabox_server" targetName="DirectSearch_CMSA" />
+      <config projectName="atabox_server" targetName="CSvmWithThresholdConverter" />
+      <config projectName="atabox_server" targetName="CSvmGridSearchTutorial" />
+      <config projectName="atabox_server" targetName="Trainers_OneClassSvmTrainer" />
+    </generated>
+  </component>
+  <component name="CMakeSettings" AUTO_RELOAD="true" GENERATION_PASS_SYSTEM_ENVIRONMENT="true" BUILD_OUTPUT_DIR="bin">
+    <ADDITIONAL_GENERATION_ENVIRONMENT>
+      <envs />
+    </ADDITIONAL_GENERATION_ENVIRONMENT>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2af49423-3e30-4b05-8e9d-7039ffcbc05e" name="Default" comment="" />
+    <ignored path="atabox-server.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="atabox-server" />
+  </component>
+  <component name="FileEditorManager">
+    <splitter split-orientation="horizontal" split-proportion="0.5596817">
+      <split-first>
+        <leaf>
+          <file leaf-file-name="RBM.h" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/recognition/network/RBM.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.52682924">
+                  <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+                  <folding>
+                    <element signature="e#144#197#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="MultiChainApproximator.h" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/GradientApproximations/MultiChainApproximator.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="146" column="0" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="RBM.cpp" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/recognition/network/RBM.cpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Energy.h" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/Energy.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="232" column="0" selection-start-line="232" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="GaussianLayer.h" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/Neuronlayers/GaussianLayer.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="263" column="4" selection-start-line="263" selection-start-column="4" selection-end-line="263" selection-end-column="4" />
+                  <folding>
+                    <element signature="e#3880#3911#0" expanded="true" />
+                    <element signature="e#6580#6594#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="GaussianBinaryRBM.h" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/GaussianBinaryRBM.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="47" column="52" selection-start-line="47" selection-start-column="52" selection-end-line="47" selection-end-column="52" />
+                  <folding>
+                    <element signature="e#968#1007#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name=".gitmodules" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/.gitmodules">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="17" column="46" selection-start-line="17" selection-start-column="46" selection-end-line="17" selection-end-column="46" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="BinaryLayer.h" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/Neuronlayers/BinaryLayer.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="305" column="25" selection-start-line="305" selection-start-column="25" selection-end-line="305" selection-end-column="25" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="66" column="39" selection-start-line="66" selection-start-column="39" selection-end-line="66" selection-end-column="39" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/external/shark/include/CMakeLists.txt">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="SteepestDescent.h" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Algorithms/GradientDescent/SteepestDescent.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="41" column="6" selection-start-line="41" selection-start-column="6" selection-end-line="41" selection-end-column="6" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="blas.h" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/external/shark/include/shark/LinAlg/BLAS/blas.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Base.h" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/external/shark/include/shark/LinAlg/Base.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="47" column="30" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="30" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/external/shark/CMakeLists.txt">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="260" column="24" selection-start-line="260" selection-start-column="24" selection-end-line="260" selection-end-column="24" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="UseShark.cmake" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/external/shark/UseShark.cmake">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="RBMTest.cpp" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/tests/recognition/network/RBMTest.cpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.6439024">
+                  <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/tests/CMakeLists.txt">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="42" column="48" selection-start-line="42" selection-start-column="48" selection-end-line="42" selection-end-column="48" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="CodeCoverage.cmake" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/CMake/CodeCoverage.cmake">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="138" column="0" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="RocksdbProviderTest.cpp" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/tests/dataproviders/RocksdbProviderTest.cpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/external/CMakeLists.txt">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/utils/ataboxexception.cpp" />
+        <option value="$PROJECT_DIR$/tests/dataproviders/RocksdbProviderTest.cpp" />
+        <option value="$PROJECT_DIR$/src/utils/LightVector.h" />
+        <option value="$PROJECT_DIR$/src/recognition/network/LRBM.h" />
+        <option value="$PROJECT_DIR$/src/dataproviders/BaseDataProvider.h" />
+        <option value="$PROJECT_DIR$/src/dataproviders/RocksdbProvider.h" />
+        <option value="$PROJECT_DIR$/external/shark/examples/Unsupervised/BinaryRBM.cpp" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/src/recognition/network/RBM.h" />
+        <option value="$PROJECT_DIR$/src/recognition/network/RBM.cpp" />
+        <option value="$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/Neuronlayers/GaussianLayer.h" />
+        <option value="$PROJECT_DIR$/.gitmodules" />
+        <option value="$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/GaussianBinaryRBM.h" />
+        <option value="$PROJECT_DIR$/external/shark/include/shark/Algorithms/GradientDescent/SteepestDescent.h" />
+        <option value="$PROJECT_DIR$/external/shark/include/shark/LinAlg/BLAS/blas.h" />
+        <option value="$PROJECT_DIR$/external/shark/include/shark/LinAlg/Base.h" />
+        <option value="$PROJECT_DIR$/external/shark/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/tests/recognition/network/RBMTest.cpp" />
+        <option value="$PROJECT_DIR$/external/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/CMake/CodeCoverage.cmake" />
+        <option value="$PROJECT_DIR$/tests/CMakeLists.txt" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+  </component>
+  <component name="NamedScopeManager">
+    <order />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1919" />
+    <option name="width" value="1922" />
+    <option name="height" value="1063" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="atabox-server" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="atabox-server" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="atabox-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="atabox-server" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="atabox-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="atabox-server" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="atabox-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recognition" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="atabox-server" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="atabox-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recognition" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="network" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="atabox-server" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="atabox-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="recentsLimit" value="5" />
+    <property name="js.buildTools.gulp.node_interpreter" value="/usr/bin/node" />
+    <property name="js.buildTools.gulp.gulp_package_dir" value="" />
+    <property name="js.buildTools.grunt.node_interpreter" value="/usr/bin/node" />
+    <property name="js.buildTools.grunt.grunt-cli.package" value="" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="FullScreen" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/bin" />
+    <property name="restartRequiresConfirmation" value="true" />
+    <property name="ToolWindowCMake.ShowToolbar" value="false" />
+  </component>
+  <component name="RunManager" selected="Application.atabox_server">
+    <configuration default="true" type="#com.sylvanaar.idea.Lua.run.LuaConfigurationType" factoryName="Lua Script">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="INTERPRETER_PATH" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="ALTERNATE_INTERPRETER" value="false" />
+      <envs />
+      <module name="" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.grunt" factoryName="Grunt.js">
+      <pass-parent-env-vars value="true" />
+      <force value="false" />
+      <verbose value="false" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <pass-parent-envs>true</pass-parent-envs>
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Build All" type="CMakeRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS="FALSE" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="atabox_server" type="CMakeRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="atabox_server" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="atabox_server">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="atabox_tests" type="CMakeRunConfiguration" factoryName="Application" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="atabox_tests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="atabox_server" RUN_TARGET_NAME="atabox_tests">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="atabox" type="CMakeRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="atabox_server" TARGET_NAME="atabox" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <list size="4">
+      <item index="0" class="java.lang.String" itemvalue="Application.Build All" />
+      <item index="1" class="java.lang.String" itemvalue="Application.atabox_server" />
+      <item index="2" class="java.lang.String" itemvalue="Application.atabox_tests" />
+      <item index="3" class="java.lang.String" itemvalue="Application.atabox" />
+    </list>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2af49423-3e30-4b05-8e9d-7039ffcbc05e" name="Default" comment="" />
+      <created>1441564754046</created>
+      <option name="number" value="Default" />
+      <updated>1441564754046</updated>
+    </task>
+    <task id="LOCAL-00001" summary="cmake in progress">
+      <created>1441640018618</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1441640018618</updated>
+    </task>
+    <task id="LOCAL-00002" summary="uncomment tests">
+      <created>1441736926437</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1441736926437</updated>
+    </task>
+    <task id="LOCAL-00003" summary="update shark">
+      <created>1443981260161</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1443981260161</updated>
+    </task>
+    <task id="LOCAL-00004" summary="pdate cmake">
+      <created>1443986640902</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1443986640902</updated>
+    </task>
+    <task id="LOCAL-00005" summary="update cmake">
+      <created>1443987416225</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1443987416225</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1919" y="0" width="1922" height="1063" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2028754" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32135308" sideWeight="0.47816828" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="LuaJ" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32135308" sideWeight="0.52183175" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980973" sideWeight="0.4978701" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32875264" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24973376" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980973" sideWeight="0.4978701" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35095137" sideWeight="0.48125" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3993808" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/external/shark" />
+    </ignored-roots>
+    <MESSAGE value="cmake in progress" />
+    <MESSAGE value="uncomment tests" />
+    <MESSAGE value="update shark" />
+    <MESSAGE value="pdate cmake" />
+    <MESSAGE value="update cmake" />
+    <option name="LAST_COMMIT_MESSAGE" value="update cmake" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/tests/dataproviders/RocksdbProviderTest.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/casablanca/Release/samples/SearchFile/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.055900622">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/api/casablancaMocks.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/api/AtaboxApiTest.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/aquila/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="225" column="0" selection-start-line="225" selection-start-column="0" selection-end-line="225" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/api/casablancaMocks.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/recognition/network/Batch.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/recognition/network/LRBM.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="26" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/LightVector.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/recognition/network/activation_functions.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="56" column="26" selection-start-line="56" selection-start-column="26" selection-end-line="56" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dataproviders/RocksdbProvider.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="103" column="18" selection-start-line="103" selection-start-column="18" selection-end-line="103" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dataproviders/BaseDataProvider.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/recognition/network/DeepBeliefNet.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/Impl/analytics.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Core/ISerializable.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6866159">
+          <caret line="109" column="0" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Data/Dataset.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37214363">
+          <caret line="134" column="30" selection-start-line="134" selection-start-column="30" selection-end-line="134" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/Problems/BarsAndStripes.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6071817">
+          <caret line="32" column="11" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/Problems/DistantModes.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Algorithms/GradientDescent/CG.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.70511425">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/Sampling/GibbsOperator.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="110" column="78" selection-start-line="110" selection-start-column="78" selection-end-line="110" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/BinaryRBM.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/RBM.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14778325">
+          <caret line="91" column="12" selection-start-line="91" selection-start-column="12" selection-end-line="91" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/examples/Unsupervised/BinaryRBM.tpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14778325">
+          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/recognition/network/RBM2.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="18" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/GradientApproximations/ContrastiveDivergence.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Makefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/CTestTestfile.cmake">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SConstruct">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3546798">
+          <caret line="54" column="28" selection-start-line="54" selection-start-column="28" selection-end-line="54" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compile.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/GradientApproximations/MultiChainApproximator.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="146" column="0" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/Energy.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="232" column="0" selection-start-line="232" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/Neuronlayers/BinaryLayer.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="305" column="25" selection-start-line="305" selection-start-column="25" selection-end-line="305" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitmodules">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="46" selection-start-line="17" selection-start-column="46" selection-end-line="17" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/Neuronlayers/GaussianLayer.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="263" column="4" selection-start-line="263" selection-start-column="4" selection-end-line="263" selection-end-column="4" />
+          <folding>
+            <element signature="e#3880#3911#0" expanded="true" />
+            <element signature="e#6580#6594#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Algorithms/GradientDescent/SteepestDescent.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="41" column="6" selection-start-line="41" selection-start-column="6" selection-end-line="41" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/shark/Unsupervised/RBM/GaussianBinaryRBM.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="47" column="52" selection-start-line="47" selection-start-column="52" selection-end-line="47" selection-end-column="52" />
+          <folding>
+            <element signature="e#968#1007#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="66" column="39" selection-start-line="66" selection-start-column="39" selection-end-line="66" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/shark/LinAlg/Base.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="47" column="30" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/shark/LinAlg/BLAS/blas.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/dataproviders/RocksdbProviderTest.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/UseShark.cmake">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="260" column="24" selection-start-line="260" selection-start-column="24" selection-end-line="260" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/shark/include/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMake/CodeCoverage.cmake">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="138" column="0" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="48" selection-start-line="42" selection-start-column="48" selection-end-line="42" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/recognition/network/RBM.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/recognition/network/RBMTest.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6439024">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/recognition/network/RBM.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.52682924">
+          <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+          <folding>
+            <element signature="e#144#197#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
