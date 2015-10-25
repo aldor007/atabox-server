@@ -19,9 +19,9 @@ public:
     struct Config {
 
         // number of hidden unit in RBM
-        size_t numberOfHidden;
+        size_t numberOfHidden = 1;
         // number of visible unit in RBM
-        size_t numberOfVisible;
+        size_t numberOfVisible = 1;
         // number of k-steps in Contrastive Divergence
         unsigned int numberOfKSteps = 1;
         // optimizer properties

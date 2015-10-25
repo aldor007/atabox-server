@@ -7,12 +7,15 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "build")
 option(ATABOX_TEST "Build all tests." ON) # Makes boolean 'test' available.
 option(ATABOX_EXTERNAL "Build external libs" ON)
 
+
+
 set(ROCKSDB_ROOT external/rocksdb_source)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -fopenmp")
 
 
 # If no explicit compiler override and clang++ exists, prefer clang.
+#[[
 find_file(CLANGXX_EXISTS "clang++")
 if(DEFINED ENV{CC})
     set(CMAKE_C_COMPILER "$ENV{CC}")
@@ -26,6 +29,7 @@ if(DEFINED ENV{CXX})
 elseif(CLANGXX_EXISTS)
     set(CMAKE_CXX_COMPILER "clang++")
 endif()
+]]
 
 # external libs
 if(ATABOX_EXTERNAL)

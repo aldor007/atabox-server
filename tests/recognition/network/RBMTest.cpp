@@ -9,7 +9,6 @@
 #include "recognition/network/RBM.h"
 
 #undef U
-#include <string>
 #ifndef GTEST_H_
 #define GTEST_H_
 #include "gtest/gtest.h"
@@ -18,8 +17,10 @@ class RBMTest: public ::testing::Test {
 
 };
 
-
-TEST_F(RBMTest, writeDataCanItRead) {
-
+// check whether it throws some exception
+TEST_F(RBMTest, testDefualData) {
+    // use rbm with default config
+    RBM::Config config;
+    RBM rbm{config};
 }
 
