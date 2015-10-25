@@ -9,7 +9,7 @@ option(ATABOX_EXTERNAL "Build external libs" ON)
 
 set(ROCKSDB_ROOT external/rocksdb_source)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -fopenmp")
 
 
 # If no explicit compiler override and clang++ exists, prefer clang.
