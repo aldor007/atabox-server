@@ -42,7 +42,7 @@ public:
 			framesWithoutSilence[i] = samples.getSample(lastBadFromBeginning+1+i);
 		}
 
-		samples.setSamplesData(framesWithoutSilence, sizeOfNewArray);
+		samples.setSamplesData(framesWithoutSilence, sizeOfNewArray, samples.getSampleFrequency());
 		delete[] framesWithoutSilence;
 
 	}

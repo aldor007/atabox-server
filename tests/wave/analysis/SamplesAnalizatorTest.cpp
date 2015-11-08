@@ -23,7 +23,7 @@ TEST_F(SamplesAnalizatorTest, changesSamplesWhenFiltersAreAdded) {
 	values[1] = -0.5;
 	values[2] = 0.16;
 	values[3] =  0.130;
-	samples.setSamplesData(values, 4);
+	samples.setSamplesData(values, 4, 4);
 
 	FirstSampleValueTestingProperty property;
 

@@ -34,7 +34,7 @@ TEST_F(SpectrumPropertyTest,  testCalulate) {
 	samplesValue[3] = 0;
 	samplesValue[4] = 0;
 	samplesValue[5] = 100;
-	samples.setSamplesData(samplesValue, 6);
+	samples.setSamplesData(samplesValue, 6, 6);
 
 	SpectrumProperty property;
 	//when
