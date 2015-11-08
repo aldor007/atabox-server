@@ -51,7 +51,7 @@ TEST_F(ProcessorTest, changesSamplesWhenFiltersAreAdded) {
 	values[1] = -0.5;
 	values[2] = 0.16;
 	values[3] =  0.130;
-	samples.setSamplesData(values, 4);
+	samples.setSamplesData(values, 4, 4);
 	Processor preprocessor;
 	preprocessor.addToFilterChain(new ConstantAddingTestFilter(0.5));
 
@@ -75,7 +75,7 @@ TEST_F(ProcessorTest, changesSamplesWhenMoreThanOneFiltersAreAdded) {
 	values[1] = -0.5;
 	values[2] = 0.16;
 	values[3] =  0.130;
-	samples.setSamplesData(values, 4);
+	samples.setSamplesData(values, 4, 4);
 	ConstantAddingTestFilter filter(0.2);
 	ConstantAddingTestFilter filter2(0.3);
 	Processor preprocessor;

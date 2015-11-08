@@ -33,9 +33,10 @@ public:
     RBM(size_t numberOfHidden, size_t numberOfVisible);
     RBM(Config &config);
 private:
-   shark::GaussianBinaryRBM m_rbm;
-   shark::GaussianBinaryPCD m_cd;
-   shark::SteepestDescent m_optimizer;
+    shark::GaussianBinaryRBM m_rbm;
+    shark::GaussianBinaryPCD m_cd;
+    shark::SteepestDescent m_optimizer;
+    shark::UnlabeledData<shark::RealVector> m_data;
 
 
 

@@ -18,7 +18,7 @@ TEST_F(HannWindowFilterTest, exampleData) {
 	Samples samples;
 	double test[]  = { 0, 1};
 
-	samples.setSamplesData(test, 2);
+	samples.setSamplesData(test, 2, 2);
 	double result []= { 0,  0.5 * (1 - cos(M_PI)) };
 
 

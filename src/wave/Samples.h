@@ -9,6 +9,7 @@
 #define SAMPLELIST_H_
 #include <stdint.h>
 #include <complex>
+#include <global.h>
 #include "aquila/source/SignalSource.h"
 
 #include "WaveFile.h"
@@ -24,19 +25,19 @@ public:
 	Samples(WaveFile & waveFile);
 	Samples(WaveFile && waveFile);
 	virtual ~Samples();
-	virtual double getSample(unsigned int i) const;
-	virtual std::complex<double> getSampleCx(unsigned int i) const;
-	virtual void setSample(uint32_t index, double value);
+	virtual atabox::SampleType getSample(unsigned int i) const;
+	virtual atabox::ComplexType getSampleCx(unsigned int i) const;
+	virtual void setSample(uint32_t index, atabox::SampleType value);
 	virtual uint32_t getNumberOfSamples() const;
 	virtual double getLenghtInSeconds() const;
-	double& operator[](unsigned int);
-	double operator[](unsigned int) const;
-	void setSamplesData(double *, unsigned int);
+	atabox::SampleType& operator[](unsigned int);
+	atabox::SampleType operator[](unsigned int) const;
+	void setSamplesData(const atabox::SampleType *, unsigned int, atabox::FrequencyType);
+	void setSampleFrequency(atabox::FrequencyType);
 	Samples();
 protected:
 	uint32_t numberOfSamples;
 	double lenghtInSeconds;
-	uint32_t sampleRate;
 	void decode(WaveFile&);
 
 };

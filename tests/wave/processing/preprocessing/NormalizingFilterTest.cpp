@@ -32,7 +32,7 @@ TEST_F(NormalizingFilterTest, simpleExample) {
 	values[0] = 0.0128;
 	values[1] = -0.5;
 
-	samples.setSamplesData(values, 2);
+	samples.setSamplesData(values, 2, 2);
 	NormalizingFilter filter;
 
 	//when
@@ -53,7 +53,7 @@ TEST_F(NormalizingFilterTest, simpleExampleWithParameterLevel) {
 	values[0] = -0.1;
 	values[1] = 0.2;
 
-	samples.setSamplesData(values, 2);
+	samples.setSamplesData(values, 2, 2);
 	NormalizingFilter filter(0.8);
 
 	//when
