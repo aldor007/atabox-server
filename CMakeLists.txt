@@ -5,7 +5,7 @@ set(atabox_server_VERSION_MAJOR 0)
 set(atabox_server_VERSION_MINOR 5)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "build")
 option(ATABOX_TEST "Build all tests." ON) # Makes boolean 'test' available.
-option(ATABOX_EXTERNAL "Build external libs" ON)
+option(ATABOX_EXTERNAL "Build external libs" OFF)
 
 
 

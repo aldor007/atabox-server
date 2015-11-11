@@ -2,11 +2,615 @@
 <module type="CPP_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/CMake/FindGMock.cmake" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CMake/Findrocksdb.cmake" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/external/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/external/aquila/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/Exceptions.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/aquila.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/filter.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/filter/MelFilter.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/filter/MelFilter.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/filter/MelFilterBank.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/filter/MelFilterBank.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/functions.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/global.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/ml.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/ml/Dtw.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/ml/Dtw.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/ml/DtwPoint.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/Frame.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/Frame.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/FramesCollection.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/FramesCollection.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/PlainTextFile.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/PlainTextFile.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/RawPcmFile.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/SignalSource.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/SignalSource.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/WaveFile.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/WaveFile.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/WaveFileHandler.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/WaveFileHandler.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/generator/Generator.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/generator/Generator.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/generator/PinkNoiseGenerator.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/generator/PinkNoiseGenerator.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/generator/SineGenerator.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/generator/SineGenerator.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/generator/SquareGenerator.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/generator/SquareGenerator.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/generator/TriangleGenerator.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/generator/TriangleGenerator.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/generator/WhiteNoiseGenerator.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/generator/WhiteNoiseGenerator.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/window/BarlettWindow.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/window/BarlettWindow.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/window/BlackmanWindow.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/window/BlackmanWindow.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/window/FlattopWindow.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/window/FlattopWindow.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/window/GaussianWindow.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/window/GaussianWindow.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/window/HammingWindow.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/window/HammingWindow.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/window/HannWindow.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/window/HannWindow.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/source/window/RectangularWindow.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/synth.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/synth/KarplusStrongSynthesizer.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/synth/KarplusStrongSynthesizer.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/synth/SineSynthesizer.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/synth/SineSynthesizer.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/synth/Synthesizer.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/synth/Synthesizer.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/tools.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/tools/TextPlot.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/tools/TextPlot.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/transform.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/transform/AquilaFft.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/transform/AquilaFft.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/transform/Dct.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/transform/Dct.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/transform/Dft.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/transform/Dft.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/transform/Fft.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/transform/FftFactory.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/transform/FftFactory.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/transform/KissFft.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/transform/KissFft.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/transform/Mfcc.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/transform/Mfcc.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/transform/OouraFft.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/transform/OouraFft.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/transform/Spectrogram.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/transform/Spectrogram.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/wrappers/SoundBufferAdapter.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/aquila/wrappers/SoundBufferAdapter.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/cmake/CodeCoverage.cmake" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/cmake/FindSFML.cmake" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/lib/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/lib/kiss_fft/kiss_fft.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/lib/kiss_fft/kiss_fft.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/lib/kiss_fft/kissfft.hh" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/lib/ooura/fft4g.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/aquila/uninstall.cmake.in" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/casablanca/Release/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/casablanca/Release/src/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/casablanca/Release/src/http/client/http_client_asio.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/casablanca/Release/src/http/client/http_client_msg.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/casablanca/Release/src/http/client/x509_cert_utilities.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/casablanca/Release/src/http/common/http_helpers.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/casablanca/Release/src/http/common/http_msg.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/casablanca/Release/src/http/listener/http_listener.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/casablanca/Release/src/http/listener/http_listener_msg.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/casablanca/Release/src/http/listener/http_server_api.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/casablanca/Release/src/http/listener/http_server_asio.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/casablanca/Release/src/http/oauth/oauth1.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/casablanca/Release/src/http/oauth/oauth2.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/casablanca/Release/src/json/json.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/casablanca/Release/src/json/json_parsing.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/casablanca/Release/src/json/json_serialization.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/casablanca/Release/src/pplx/pplx.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/casablanca/Release/src/pplx/pplxlinux.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/casablanca/Release/src/pplx/threadpool.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/casablanca/Release/src/streams/fileio_posix.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/casablanca/Release/src/uri/uri.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/casablanca/Release/src/uri/uri_builder.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/casablanca/Release/src/uri/uri_parser.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/casablanca/Release/src/utilities/asyncrt_utils.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/casablanca/Release/src/utilities/base64.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/casablanca/Release/src/utilities/web_utilities.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/casablanca/Release/src/websockets/client/ws_client.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/casablanca/Release/src/websockets/client/ws_client_wspp.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/casablanca/Release/src/websockets/client/ws_msg.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/CTestConfig.cmake" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/SharkConfig.cmake.in" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/SharkConfigVersion.cmake.in" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/DirectSearch/CMA.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/DirectSearch/CMSA.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/DirectSearch/ElitistCMA.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/DirectSearch/FastNonDominatedSort.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/DirectSearch/Indicators/HypervolumeIndicator.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/DirectSearch/MOCMA.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/DirectSearch/Operators/Mutation/BitflipMutation.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/DirectSearch/Operators/PenalizingEvaluator.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/DirectSearch/Operators/Selection/IndicatorBasedSelection.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/DirectSearch/Operators/Selection/Selection.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/DirectSearch/ParetoDominanceComparator.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/DirectSearch/RealCodedNSGAII.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/DirectSearch/SteadyStateMOCMA.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/DirectSearch/VDCMA.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/GradientDescent/BFGS.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/GradientDescent/CG.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/GradientDescent/LBFGS.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/GradientDescent/LineSearch.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/GradientDescent/Rprop.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/GradientDescent/SteepestDescent.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/GridSearch.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/Hypervolume.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/JaakkolaHeuristic.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/KMeans.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/Trainers/Budgeted/AbstractBudgetMaintenanceStrategy_Test.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/Trainers/Budgeted/KernelBudgetedSGDTrainer_Test.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/Trainers/Budgeted/MergeBudgetMaintenanceStrategy_Test.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/Trainers/Budgeted/RemoveBudgetMaintenanceStrategy_Test.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/Trainers/CSvmTrainer.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/Trainers/EpsilonSvmTrainer.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/Trainers/FisherLDA.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/Trainers/KernelMeanClassifier.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/Trainers/KernelNormalization.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/Trainers/LDA.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/Trainers/LinearRegression.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/Trainers/LinearSvmTrainer.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/Trainers/McSvmTrainer.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/Trainers/MissingFeatureSvmTrainerTests.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/Trainers/NBClassifierTrainerTests.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/Trainers/Normalization.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/Trainers/OneClassSvmTrainer.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/Trainers/PCA.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/Trainers/Perceptron.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/Trainers/RegularizationNetworkTrainer.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/Trainers/SigmoidFit.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Algorithms/nearestneighbors.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Core/Iterators.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Core/Math.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Data/Bootstrap.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Data/CVDatasetTools.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Data/Csv.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Data/DataView.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Data/Dataset.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Data/ExportKernelMatrix.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Data/LabelOrder_Test.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Data/SparseData.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Data/Statistics.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/LinAlg/BLAS/axpy_prod.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/LinAlg/BLAS/compressed_matrix.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/LinAlg/BLAS/compressed_vector.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/LinAlg/BLAS/iterators.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/LinAlg/BLAS/matrix_assign.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/LinAlg/BLAS/matrix_proxy.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/LinAlg/BLAS/transformations.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/LinAlg/BLAS/triangular_matrix.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/LinAlg/BLAS/triangular_prod.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/LinAlg/BLAS/vector_assign.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/LinAlg/BLAS/vector_expression.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/LinAlg/BLAS/vector_proxy.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/LinAlg/DiagonalMatrix.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/LinAlg/Initialize.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/LinAlg/KernelMatrix.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/LinAlg/LRUCache.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/LinAlg/Metrics.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/LinAlg/PartlyPrecomputedMatrix.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/LinAlg/Proxy.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/LinAlg/RQ.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/LinAlg/choleskyDecomposition.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/LinAlg/eigensymm.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/LinAlg/permute.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/LinAlg/repeat.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/LinAlg/rotations.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/LinAlg/solve.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/LinAlg/sumRows.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/LinAlg/svd.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/Autoencoder.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/CARTClassifier.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/CMAC.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/ConcatenatedModel.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/ConvexCombination.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/FFNet.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/Kernels/ArdKernel.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/Kernels/CSvmDerivative.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/Kernels/DiscreteKernel.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/Kernels/EvalSkipMissingFeaturesTests.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/Kernels/GaussianRbfKernel.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/Kernels/KernelExpansion.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/Kernels/KernelHelpers.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/Kernels/KernelNearestNeighborClassifier.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/Kernels/KernelNearestNeighborRegression.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/Kernels/LinearKernel.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/Kernels/MissingFeaturesKernelExpansionTests.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/Kernels/MklKernel.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/Kernels/ModelKernel.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/Kernels/MonomialKernel.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/Kernels/MultiTaskKernel.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/Kernels/NormalizedKernel.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/Kernels/PolynomialKernel.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/Kernels/ProductKernel.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/Kernels/ScaledKernel.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/Kernels/SubrangeKernel.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/Kernels/WeightedSumKernel.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/LinearModel.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/LinearNorm.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/MeanModel.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/NBClassifierTests.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/NearestNeighborRegression.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/OneVersusOneClassifier.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/RBFLayer.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/RFClassifier.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/RNNet.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/SigmoidModel.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/SoftNearestNeighborClassifier.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/Softmax.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/TiedAutoencoder.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Models/derivativeTestHelper.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/ObjectiveFunctions/AUC.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/ObjectiveFunctions/AbsoluteLoss.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/ObjectiveFunctions/Benchmarks.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/ObjectiveFunctions/BoxConstraintHandler.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/ObjectiveFunctions/CrossEntropy.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/ObjectiveFunctions/CrossValidation.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/ObjectiveFunctions/EpsilonHingeLoss.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/ObjectiveFunctions/ErrorFunction.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/ObjectiveFunctions/HingeLoss.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/ObjectiveFunctions/HuberLoss.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/ObjectiveFunctions/KernelBasisDistance.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/ObjectiveFunctions/KernelTargetAlignment.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/ObjectiveFunctions/LooError.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/ObjectiveFunctions/LooErrorCSvm.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/ObjectiveFunctions/NegativeGaussianProcessEvidence.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/ObjectiveFunctions/NegativeLogLikelihood.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/ObjectiveFunctions/NoisyErrorFunction.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/ObjectiveFunctions/RadiusMarginQuotient.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/ObjectiveFunctions/SparseAutoencoderError.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/ObjectiveFunctions/SquaredEpsilonHingeLoss.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/ObjectiveFunctions/SquaredHingeLoss.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/ObjectiveFunctions/SquaredLoss.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/ObjectiveFunctions/SvmLogisticInterpretation.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/ObjectiveFunctions/TukeyBiweightLoss.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/RBM/Analytics.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/RBM/AverageEnergyGradient.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/RBM/BinaryLayer.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/RBM/BipolarLayer.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/RBM/ContrastiveDivergenceTraining.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/RBM/Energy.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/RBM/ExactGradient.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/RBM/ExactGradientTraining.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/RBM/GaussianLayer.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/RBM/MarkovChain.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/RBM/PCDTraining.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/RBM/ParallelTemperingTraining.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/RBM/TemperedMarkovChain.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/RBM/TruncatedExponentialLayer.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Rng/MultiNomial.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Rng/MultiVariateNormal.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/Test/Rng/Rng.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/cmake_uninstall.cmake.in" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/include/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/include/shark/Core/Shark.h.in" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/src/Algorithms/CARTTrainer.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/src/Algorithms/DirectSearch/CMA.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/src/Algorithms/DirectSearch/CMSA.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/src/Algorithms/DirectSearch/ElitistCMA.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/src/Algorithms/FisherLDA.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/src/Algorithms/GradientDescent/AbstractLineSearchOptimizer.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/src/Algorithms/GradientDescent/BFGS.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/src/Algorithms/GradientDescent/CG.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/src/Algorithms/GradientDescent/LBFGS.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/src/Algorithms/GradientDescent/Rprop.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/src/Algorithms/GradientDescent/TrustRegionNewton.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/src/Algorithms/KMeans.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/src/Algorithms/LDA.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/src/Algorithms/LinearRegression.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/src/Algorithms/PCA.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/src/Algorithms/RFTrainer.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/src/Algorithms/SigmoidFit.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/src/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/src/Core/Version.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/src/Data/Csv.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/src/Data/SparseData.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/src/Models/CMAC.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/src/Models/Centroids.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/src/Models/Converter.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/src/Models/LinearNorm.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/src/Models/OnlineRNNet.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/src/Models/RBFLayer.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/src/Models/RNNet.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/src/Models/RecurrentStructure.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/src/Models/SigmoidModel.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/src/Models/Softmax.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/src/ObjectiveFunctions/DiscreteLoss.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/src/ObjectiveFunctions/KernelBasisDistance.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/external/shark/src/ObjectiveFunctions/ROC.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/api/AtaboxApi.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/api/AtaboxApi.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/api/BaseApi.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/dataproviders/BaseDataProvider.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/dataproviders/FileDataProvider.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/dataproviders/FileDataProvider.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/dataproviders/RocksdbProvider.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/global.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/recognition/ProcessAndAnalyze.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/recognition/ProcessAndAnalyze.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/recognition/PropertiesComparator.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/recognition/PropertiesComparator.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/recognition/network/Batch.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/recognition/network/DeepBeliefNet.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/recognition/network/LRBM.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/recognition/network/RBM.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/recognition/network/RBM.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/recognition/network/activation_functions.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/utils/LightVector.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/utils/atabox_log.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/utils/atabox_log.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/utils/ataboxexception.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/utils/ataboxexception.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/utils/execution_policy.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/utils/functions.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/utils/jsonextend.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/wave/Samples.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/wave/Samples.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/wave/WaveFile.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/wave/WaveFile.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/wave/WaveUtils.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/wave/WaveUtils.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/wave/analysis/AmplitudeProperty.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/wave/analysis/AverageValueProperty.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/wave/analysis/LengthProperty.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/wave/analysis/MfccProperty.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/wave/analysis/PercentageAboveProperty.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/wave/analysis/Property.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/wave/analysis/PropertyWithRange.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/wave/analysis/SamplesAnalizator.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/wave/analysis/SamplesAnalizator.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/wave/analysis/SpectrumProperty.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/wave/analysis/WhereIsAmplitudeProperty.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/wave/analysis/ZeroCrossingsProperty.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/wave/processing/Filter.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/wave/processing/Processor.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/wave/processing/Processor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/wave/processing/postprocessing/FastFourierTransformFilter.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/wave/processing/postprocessing/HannWindowFilter.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/wave/processing/preprocessing/NormalizingFilter.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/wave/processing/preprocessing/SilenceCuttingFilter.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/RunAllTests.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/api/AtaboxApiTest.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/api/casablancaMocks.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/api/casablancaMocks.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/dataproviders/RocksdbProviderTest.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/recognition/PropertiesComparatorTest.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/recognition/network/RBMTest.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/utils/execution_policyTest.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/utils/jsonextendTest.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/wave/PreprocessorTest.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/wave/ProcessAndAnalyzeTest.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/wave/SamplesMock.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/wave/SamplesTest.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/wave/WaveFileMock.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/wave/WaveFileMock.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/wave/WaveFileTest.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/wave/WaveUtilsTest.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/wave/analysis/AmplitudePropertyTest.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/wave/analysis/AverageValuePropertyTest.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/wave/analysis/FirstSampleValueTestingProperty.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/wave/analysis/LengthPropertyTest.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/wave/analysis/MfccPropertyTest.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/wave/analysis/PercentageAbovePropertyTest.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/wave/analysis/SamplesAnalizatorTest.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/wave/analysis/SpectrumPropertyTest.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/wave/analysis/WhereIsAmplitudePropertyTest.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/wave/analysis/ZeroCrossingsPropertyTest.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/wave/processing/ProcessorTest.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/wave/processing/postprocessing/FastFourierTransformFilterTest.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/wave/processing/postprocessing/HannWindowFilterTest.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/wave/processing/preprocessing/ConstantAddingTestFilter.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/wave/processing/preprocessing/NormalizingFilterTest.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/wave/processing/preprocessing/SilenceCuttingFilterTest.cpp" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/bin" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="Header Search Paths">
+        <CLASSES>
+          <root url="file://$USER_HOME$/.CLion12/system/cmake/generated/6a4de205/6a4de205/Debug/external/shark/include" />
+          <root url="file://$USER_HOME$/.CLion12/system/cmake/generated/6a4de205/6a4de205/MinSizeRel/external/shark/include" />
+          <root url="file://$USER_HOME$/.CLion12/system/cmake/generated/6a4de205/6a4de205/RelWithDebInfo/external/shark/include" />
+          <root url="file://$USER_HOME$/.CLion12/system/cmake/generated/6a4de205/6a4de205/Release/external/shark/include" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila" />
+          <root url="file://$MODULE_DIR$/external/aquila/lib" />
+          <root url="file://$MODULE_DIR$/external/casablanca/Release/include" />
+          <root url="file://$MODULE_DIR$/external/casablanca/Release/libs/websocketpp" />
+          <root url="file://$MODULE_DIR$/external/casablanca/Release/src/pch" />
+          <root url="file://$MODULE_DIR$/external/rocksdb_source/include" />
+          <root url="file://$MODULE_DIR$/external/shark/include" />
+          <root url="file://$MODULE_DIR$/src" />
+          <root url="file:///usr/include" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/4.9/include" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/4.9/include/cilk" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/4.9/include/objc" />
+          <root url="file:///usr/local/include" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$USER_HOME$/.CLion12/system/cmake/generated/6a4de205/6a4de205/Debug/external/shark/include" />
+          <root url="file://$USER_HOME$/.CLion12/system/cmake/generated/6a4de205/6a4de205/MinSizeRel/external/shark/include" />
+          <root url="file://$USER_HOME$/.CLion12/system/cmake/generated/6a4de205/6a4de205/RelWithDebInfo/external/shark/include" />
+          <root url="file://$USER_HOME$/.CLion12/system/cmake/generated/6a4de205/6a4de205/Release/external/shark/include" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila" />
+          <root url="file://$MODULE_DIR$/external/aquila/lib" />
+          <root url="file://$MODULE_DIR$/external/casablanca/Release/include" />
+          <root url="file://$MODULE_DIR$/external/casablanca/Release/libs/websocketpp" />
+          <root url="file://$MODULE_DIR$/external/casablanca/Release/src/pch" />
+          <root url="file://$MODULE_DIR$/external/rocksdb_source/include" />
+          <root url="file://$MODULE_DIR$/external/shark/include" />
+          <root url="file://$MODULE_DIR$/src" />
+          <root url="file:///usr/include" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/4.9/include" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/4.9/include/cilk" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/4.9/include/objc" />
+          <root url="file:///usr/local/include" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/window/FlattopWindow.cpp" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/ml/Dtw.cpp" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/Exceptions.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/filter/MelFilterBank.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/generator/WhiteNoiseGenerator.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/SignalSource.cpp" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/generator/SineGenerator.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/transform.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/window/GaussianWindow.cpp" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/window/BlackmanWindow.cpp" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/transform/Dct.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/transform/Spectrogram.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/PlainTextFile.cpp" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/filter/MelFilter.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/transform/OouraFft.cpp" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/transform/Spectrogram.cpp" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/tools.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/synth/SineSynthesizer.cpp" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/ml.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/RawPcmFile.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/global.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/window/RectangularWindow.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/synth/Synthesizer.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/window/HannWindow.cpp" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/transform/Dft.cpp" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/synth/KarplusStrongSynthesizer.cpp" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/WaveFile.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/FramesCollection.cpp" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/generator/WhiteNoiseGenerator.cpp" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/generator/Generator.cpp" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/window/FlattopWindow.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/window/HammingWindow.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/transform/Dft.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/WaveFileHandler.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/window/HammingWindow.cpp" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/window/BarlettWindow.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/generator/TriangleGenerator.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/generator/SineGenerator.cpp" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/window/HannWindow.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/WaveFile.cpp" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/transform/Dct.cpp" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/ml/Dtw.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/WaveFileHandler.cpp" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/aquila.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/FramesCollection.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/synth/KarplusStrongSynthesizer.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/generator/TriangleGenerator.cpp" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/transform/KissFft.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/filter.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/synth.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/filter/MelFilterBank.cpp" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/transform/KissFft.cpp" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/transform/Mfcc.cpp" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/transform/FftFactory.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/generator/PinkNoiseGenerator.cpp" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/generator/SquareGenerator.cpp" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/generator/Generator.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/wrappers/SoundBufferAdapter.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/PlainTextFile.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/window/GaussianWindow.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/SignalSource.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/transform/OouraFft.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/filter/MelFilter.cpp" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/window/BlackmanWindow.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/wrappers/SoundBufferAdapter.cpp" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/transform/AquilaFft.cpp" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/transform/Mfcc.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/functions.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/window/BarlettWindow.cpp" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/generator/PinkNoiseGenerator.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/ml/DtwPoint.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/Frame.cpp" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/transform/AquilaFft.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/tools/TextPlot.cpp" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/transform/Fft.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/generator/SquareGenerator.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/tools/TextPlot.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/synth/SineSynthesizer.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/synth/Synthesizer.cpp" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/transform/FftFactory.cpp" />
+          <root url="file://$MODULE_DIR$/external/aquila/aquila/source/Frame.h" />
+          <root url="file://$MODULE_DIR$/external/aquila/lib/ooura/fft4g.c" />
+          <root url="file://$MODULE_DIR$/external/aquila/lib/kiss_fft/kiss_fft.c" />
+          <root url="file://$MODULE_DIR$/external/aquila/lib/kiss_fft/kissfft.hh" />
+          <root url="file://$MODULE_DIR$/external/aquila/lib/CMakeLists.txt" />
+          <root url="file://$MODULE_DIR$/external/aquila/lib/kiss_fft/kiss_fft.h" />
+          <root url="file://$MODULE_DIR$/external/shark/include/CMakeLists.txt" />
+          <root url="file://$MODULE_DIR$/external/shark/include/shark/Core/Shark.h.in" />
+          <root url="file://$MODULE_DIR$/src/utils/atabox_log.h" />
+          <root url="file://$MODULE_DIR$/src/recognition/network/activation_functions.h" />
+          <root url="file://$MODULE_DIR$/src/wave/analysis/WhereIsAmplitudeProperty.h" />
+          <root url="file://$MODULE_DIR$/src/recognition/PropertiesComparator.cpp" />
+          <root url="file://$MODULE_DIR$/src/recognition/PropertiesComparator.h" />
+          <root url="file://$MODULE_DIR$/src/recognition/network/DeepBeliefNet.h" />
+          <root url="file://$MODULE_DIR$/src/wave/analysis/AmplitudeProperty.h" />
+          <root url="file://$MODULE_DIR$/src/wave/processing/postprocessing/FastFourierTransformFilter.h" />
+          <root url="file://$MODULE_DIR$/src/wave/processing/Filter.h" />
+          <root url="file://$MODULE_DIR$/src/recognition/network/Batch.h" />
+          <root url="file://$MODULE_DIR$/src/dataproviders/RocksdbProvider.h" />
+          <root url="file://$MODULE_DIR$/src/wave/WaveUtils.h" />
+          <root url="file://$MODULE_DIR$/src/utils/execution_policy.h" />
+          <root url="file://$MODULE_DIR$/src/wave/analysis/SamplesAnalizator.cpp" />
+          <root url="file://$MODULE_DIR$/src/wave/processing/preprocessing/NormalizingFilter.h" />
+          <root url="file://$MODULE_DIR$/src/utils/LightVector.h" />
+          <root url="file://$MODULE_DIR$/src/wave/WaveFile.cpp" />
+          <root url="file://$MODULE_DIR$/src/dataproviders/FileDataProvider.cpp" />
+          <root url="file://$MODULE_DIR$/src/utils/atabox_log.cpp" />
+          <root url="file://$MODULE_DIR$/src/wave/analysis/ZeroCrossingsProperty.h" />
+          <root url="file://$MODULE_DIR$/src/recognition/ProcessAndAnalyze.h" />
+          <root url="file://$MODULE_DIR$/src/wave/analysis/LengthProperty.h" />
+          <root url="file://$MODULE_DIR$/src/wave/WaveUtils.cpp" />
+          <root url="file://$MODULE_DIR$/src/recognition/network/RBM.cpp" />
+          <root url="file://$MODULE_DIR$/src/dataproviders/BaseDataProvider.h" />
+          <root url="file://$MODULE_DIR$/src/wave/analysis/MfccProperty.h" />
+          <root url="file://$MODULE_DIR$/src/wave/analysis/Property.h" />
+          <root url="file://$MODULE_DIR$/src/utils/ataboxexception.h" />
+          <root url="file://$MODULE_DIR$/src/utils/functions.h" />
+          <root url="file://$MODULE_DIR$/src/recognition/network/RBM.h" />
+          <root url="file://$MODULE_DIR$/src/api/AtaboxApi.h" />
+          <root url="file://$MODULE_DIR$/src/wave/processing/postprocessing/HannWindowFilter.h" />
+          <root url="file://$MODULE_DIR$/src/dataproviders/FileDataProvider.h" />
+          <root url="file://$MODULE_DIR$/src/recognition/network/LRBM.h" />
+          <root url="file://$MODULE_DIR$/src/wave/processing/Processor.h" />
+          <root url="file://$MODULE_DIR$/src/wave/analysis/SamplesAnalizator.h" />
+          <root url="file://$MODULE_DIR$/src/wave/analysis/PercentageAboveProperty.h" />
+          <root url="file://$MODULE_DIR$/src/wave/analysis/SpectrumProperty.h" />
+          <root url="file://$MODULE_DIR$/src/utils/ataboxexception.cpp" />
+          <root url="file://$MODULE_DIR$/src/wave/analysis/AverageValueProperty.h" />
+          <root url="file://$MODULE_DIR$/src/wave/processing/Processor.cpp" />
+          <root url="file://$MODULE_DIR$/src/wave/Samples.h" />
+          <root url="file://$MODULE_DIR$/src/api/BaseApi.h" />
+          <root url="file://$MODULE_DIR$/src/wave/Samples.cpp" />
+          <root url="file://$MODULE_DIR$/src/utils/jsonextend.h" />
+          <root url="file://$MODULE_DIR$/src/main.cpp" />
+          <root url="file://$MODULE_DIR$/src/wave/WaveFile.h" />
+          <root url="file://$MODULE_DIR$/src/wave/processing/preprocessing/SilenceCuttingFilter.h" />
+          <root url="file://$MODULE_DIR$/src/recognition/ProcessAndAnalyze.cpp" />
+          <root url="file://$MODULE_DIR$/src/api/AtaboxApi.cpp" />
+          <root url="file://$MODULE_DIR$/src/global.h" />
+          <root url="file://$MODULE_DIR$/src/wave/analysis/PropertyWithRange.h" />
+        </excluded>
+      </library>
+    </orderEntry>
   </component>
 </module>
