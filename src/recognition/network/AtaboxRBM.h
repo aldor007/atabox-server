@@ -12,8 +12,9 @@
 
 //for evaluation
 #include <shark/Unsupervised/RBM/analytics.h>
+#include <utils/jsonextend.h>
 
-class RBM {
+class AtaboxRBM {
    // RBM
 public:
     struct Config {
@@ -28,10 +29,12 @@ public:
         double momentum = 0.5;
         double learningRate = 0.1;
     };
-    ~RBM() { }
+    ~AtaboxRBM() { }
 
-    RBM(size_t numberOfHidden, size_t numberOfVisible);
-    RBM(Config &config);
+    AtaboxRBM(size_t numberOfHidden, size_t numberOfVisible);
+    AtaboxRBM(Config &config);
+
+    //void setData(std::valarray<jsonextend> data);
 private:
     shark::GaussianBinaryRBM m_rbm;
     shark::GaussianBinaryPCD m_cd;

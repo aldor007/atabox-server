@@ -6,7 +6,7 @@
  */
 
 
-#include "recognition/network/RBM.h"
+#include "AtaboxRBM.h"
 
 #undef U
 #ifndef GTEST_H_
@@ -20,7 +20,7 @@ class RBMTest: public ::testing::Test {
 // check whether it throws some exception
 TEST_F(RBMTest, testDefualData) {
     // use rbm with default config
-    RBM::Config config;
-    RBM rbm{config};
+    AtaboxRBM::Config config;
+    AtaboxRBM rbm{config};
 }
 
