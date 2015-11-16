@@ -72,6 +72,7 @@ set(ATABOX_INC
     external/aquila/aquila
     external/casablanca/Release/include
     external/rocksdb_source/include
+    external/shark/include
 )
 
 include_directories(${ATABOX_INC})
@@ -172,9 +173,9 @@ endif()
 #endif()
 add_executable(atabox_server ${ATABOX_SERVER_FILES} src/global.h)
 target_link_libraries(atabox_server ${ATABOX_LIBS})
-#if(ATABOX_TEST)
+if(ATABOX_TEST)
     message("Bulding tests")
     include(CMake/FindGMock.cmake)
     add_subdirectory(tests)
-#endif()
+endif()
 
