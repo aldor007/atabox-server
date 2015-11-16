@@ -70,61 +70,60 @@ set(ATABOX_INC
     external/aquila/aquila
     external/casablanca/Release/include
     external/rocksdb_source/include
-        external/shark/include
 )
 
 include_directories(${ATABOX_INC})
 
 set(ATABOX_SOURCES
-    src/api/AtaboxApi.cpp
-    src/api/AtaboxApi.h
-    src/api/BaseApi.h
-    src/dataproviders/BaseDataProvider.h
-    src/dataproviders/FileDataProvider.cpp
-    src/dataproviders/FileDataProvider.h
-    src/dataproviders/RocksdbProvider.h
-    src/recognition/network/activation_functions.h
-    src/recognition/network/Batch.h
-    src/recognition/network/DeepBeliefNet.h
-    src/recognition/network/LRBM.h
-    src/recognition/ProcessAndAnalyze.cpp
-    src/recognition/ProcessAndAnalyze.h
-    src/recognition/PropertiesComparator.cpp
-    src/recognition/PropertiesComparator.h
-    src/utils/atabox_log.cpp
-    src/utils/atabox_log.h
-    src/utils/ataboxexception.h
-    src/utils/ataboxexception.cpp
-    src/utils/execution_policy.h
-    src/utils/functions.h
-    src/utils/jsonextend.h
-    src/utils/LightVector.h
-    src/wave/analysis/AmplitudeProperty.h
-    src/wave/analysis/AverageValueProperty.h
-    src/wave/analysis/LengthProperty.h
-    src/wave/analysis/MfccProperty.h
-    src/wave/analysis/PercentageAboveProperty.h
-    src/wave/analysis/Property.h
-    src/wave/analysis/PropertyWithRange.h
-    src/wave/analysis/SamplesAnalizator.cpp
-    src/wave/analysis/SamplesAnalizator.h
-    src/wave/analysis/SpectrumProperty.h
-    src/wave/analysis/WhereIsAmplitudeProperty.h
-    src/wave/analysis/ZeroCrossingsProperty.h
-    src/wave/processing/postprocessing/FastFourierTransformFilter.h
-    src/wave/processing/postprocessing/HannWindowFilter.h
-    src/wave/processing/preprocessing/NormalizingFilter.h
-    src/wave/processing/preprocessing/SilenceCuttingFilter.h
-    src/wave/processing/Filter.h
-    src/wave/processing/Processor.cpp
-    src/wave/processing/Processor.h
-    src/wave/Samples.cpp
-    src/wave/Samples.h
-    src/wave/WaveFile.cpp
-    src/wave/WaveFile.h
-    src/wave/WaveUtils.cpp
-    src/wave/WaveUtils.h
-        src/recognition/network/RBM.cpp src/recognition/network/RBM.h)
+        src/api/AtaboxApi.cpp
+        src/api/AtaboxApi.h
+        src/api/BaseApi.h
+        src/dataproviders/BaseDataProvider.h
+        src/dataproviders/FileDataProvider.cpp
+        src/dataproviders/FileDataProvider.h
+        src/dataproviders/RocksdbProvider.h
+        src/recognition/network/activation_functions.h
+        src/recognition/network/Batch.h
+        src/recognition/network/DeepBeliefNet.h
+        src/recognition/network/LRBM.h
+        src/recognition/ProcessAndAnalyze.cpp
+        src/recognition/ProcessAndAnalyze.h
+        src/recognition/PropertiesComparator.cpp
+        src/recognition/PropertiesComparator.h
+        src/utils/atabox_log.cpp
+        src/utils/atabox_log.h
+        src/utils/ataboxexception.h
+        src/utils/ataboxexception.cpp
+        src/utils/execution_policy.h
+        src/utils/functions.h
+        src/utils/jsonextend.h
+        src/utils/LightVector.h
+        src/wave/analysis/AmplitudeProperty.h
+        src/wave/analysis/AverageValueProperty.h
+        src/wave/analysis/LengthProperty.h
+        src/wave/analysis/MfccProperty.h
+        src/wave/analysis/PercentageAboveProperty.h
+        src/wave/analysis/Property.h
+        src/wave/analysis/PropertyWithRange.h
+        src/wave/analysis/SamplesAnalizator.cpp
+        src/wave/analysis/SamplesAnalizator.h
+        src/wave/analysis/SpectrumProperty.h
+        src/wave/analysis/WhereIsAmplitudeProperty.h
+        src/wave/analysis/ZeroCrossingsProperty.h
+        src/wave/processing/postprocessing/FastFourierTransformFilter.h
+        src/wave/processing/postprocessing/HannWindowFilter.h
+        src/wave/processing/preprocessing/NormalizingFilter.h
+        src/wave/processing/preprocessing/SilenceCuttingFilter.h
+        src/wave/processing/Filter.h
+        src/wave/processing/Processor.cpp
+        src/wave/processing/Processor.h
+        src/wave/Samples.cpp
+        src/wave/Samples.h
+        src/wave/WaveFile.cpp
+        src/wave/WaveFile.h
+        src/wave/WaveUtils.cpp
+        src/wave/WaveUtils.h
+        src/recognition/network/AtaboxRBM.cpp src/recognition/network/AtaboxRBM.h)
 # main atabox library
 add_library(atabox STATIC ${ATABOX_SOURCES})
 
