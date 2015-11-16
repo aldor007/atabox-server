@@ -59,6 +59,8 @@ include(CMake/Findrocksdb.cmake)
 if(ROCKSDB_FOUND)
     message("Found rocksdb")
 endif()
+
+
 set(ATABOX_LIBS "${ATABOX_LIBS}" ${ROCKSDB_LIBRARIES} Aquila cpprest)
 IF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     set(ATABOX_LIBS ${ATABOX_LIBS} boost_log-mt boost_thread-mt)
@@ -123,7 +125,9 @@ set(ATABOX_SOURCES
         src/wave/WaveFile.h
         src/wave/WaveUtils.cpp
         src/wave/WaveUtils.h
-        src/recognition/network/AtaboxRBM.cpp src/recognition/network/AtaboxRBM.h)
+        src/recognition/network/RBM.h
+        src/recognition/network/RBM.cpp
+        )
 # main atabox library
 add_library(atabox STATIC ${ATABOX_SOURCES})
 

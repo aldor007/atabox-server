@@ -35,10 +35,8 @@ public:
 		return value;
 	}
 
-    static const char* NAME;
 protected:
 	double m_weight;
 };
-const  char* Property::NAME = "name";
 
 #endif /* PROPERTY_H_ */
