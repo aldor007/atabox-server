@@ -28,7 +28,7 @@ public:
 		return result/numberOfSamplesInRange;
 	}
 
-	virtual string getName() {
+	virtual std::string getName() {
 		return getNameWithRanges("averageValue");
 	}
 

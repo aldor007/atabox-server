@@ -18,15 +18,11 @@
 #include "utils/jsonextend.h"
 
 
-using namespace std;
-
-
-
 class SamplesAnalizator {
 public:
 	SamplesAnalizator();
 	virtual ~SamplesAnalizator();
-	vector<Property*> properties;
+	std::vector<Property*> properties;
 	//virtual
 	void addProperty(Property & property);
 	//virtual

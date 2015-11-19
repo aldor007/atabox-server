@@ -9,11 +9,8 @@
 #define PROPERTY_H_
 #include <string>
 
-#include "../Samples.h"
+#include "wave/Samples.h"
 #include "utils/jsonextend.h"
-
-
-using std::string;
 
 class Property {
 
@@ -24,14 +21,14 @@ public:
 	virtual ~Property(){
 	};
 	virtual double getValue(const Samples& samples) = 0;
-	virtual string getName() = 0;
+	virtual std::string getName() = 0;
 	virtual double getWeight() {
 		return m_weight;
 	}
 	virtual jsonextend getJSON(const Samples& samples) {
 		jsonextend value;
 		double val = getValue(samples);
-		value[getName()] = json::value::number(val);
+		value[getName()] = web::json::value::number(val);
 		return value;
 	}
 

@@ -41,7 +41,7 @@ TEST_F(PercentageAbovePropertyTest, returnsCorrectName) {
 	PercentageAboveProperty property(0.3);
 
 	//when
-	string name = property.getName();
+	std::string name = property.getName();
 
 	//then
 	ASSERT_STRCASEEQ("percentageAbove_0.3", name.c_str());

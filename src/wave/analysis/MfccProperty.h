@@ -23,7 +23,7 @@ public:
 
         Aquila::Mfcc mfcc(samplesInFrame, Aquila::FftFactory::Method::KISS);
 
-        json::value val;
+        web::json::value val;
         uint16_t counter = 0;
         for (auto it = frames.begin(); it != frames.end(); ++it) {
             std::vector<Aquila::SampleType> mfccValues = mfcc.calculate(*it, MfccProperty::SIZE);

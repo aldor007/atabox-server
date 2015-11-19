@@ -15,14 +15,11 @@
 #include <vector>
 #include <string>
 
-using namespace std;
-
-
 class Processor {
 public:
 	Processor();
 	virtual ~Processor();
-	vector<Filter*> filters;
+	std::vector<Filter*> filters;
 	/*virtual*/
 	void addToFilterChain(Filter & filter);
 	//virtual

@@ -5,12 +5,12 @@
 #include "wave/analysis/MfccProperty.h"
 
 #include "RBM.h"
-/*
+
 RBM::RBM(size_t numberOfHidden, size_t numberOfVisible): m_rbm(shark::Rng::globalRng), m_cd(&m_rbm){
     m_rbm.setStructure(numberOfVisible, numberOfHidden);
 
-    // m_optimizer.setMomentum(config.momentum);
-   //  m_optimizer.setLearningRate(config.learningRate);
+    //m_optimizer.setMomentum(config.momentum);
+    //m_optimizer.setLearningRate(config.learningRate);
 }
 
 RBM::RBM(RBM::Config &config): m_rbm(shark::Rng::globalRng), m_cd(&m_rbm) {
@@ -19,11 +19,10 @@ RBM::RBM(RBM::Config &config): m_rbm(shark::Rng::globalRng), m_cd(&m_rbm) {
 
     m_optimizer.setMomentum(config.momentum);
     m_optimizer.setLearningRate(config.learningRate);
-}*/
+}
 
 // tutaj pwonno przekazywac sie duzo danych dla jednej osoby
 // bo to jest raneg z batchami
-/*
 void RBM::setData(std::valarray<jsonextend> propertiesArr) {
     // FIXME: get count of other features
    std::vector<shark::RealVector> data(propertiesArr.size(), shark::RealVector(MfccProperty::SIZE +  12));
@@ -39,7 +38,7 @@ void RBM::setData(std::valarray<jsonextend> propertiesArr) {
                     data[i](j++) = mfcc[k].as_double();
                 }
 
-            } else  if (iter->first != Property::NAME) {
+            } else  {
                 data[i][j++] = iter->second.as_double();
             }
             i++;
@@ -47,8 +46,7 @@ void RBM::setData(std::valarray<jsonextend> propertiesArr) {
 
     }
 
-    data = createDataFromRange(data,m_batchSize);
-    m_cd.setData(&data);
+    //data = createDataFromRange(data,m_batchSize);
+    //m_cd.setData(&data);
 
 }
-*/

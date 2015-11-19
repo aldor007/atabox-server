@@ -18,7 +18,7 @@ using ::testing::Return;
 class MfccPropertyTest: public ::testing::Test {
 
 };
-/*
+
 TEST_F(MfccPropertyTest, calculateCorrect) {
     //given
     Samples samples;
@@ -31,7 +31,7 @@ TEST_F(MfccPropertyTest, calculateCorrect) {
     jsonextend mfcc = property.getJSON(samples);
     //then
     ASSERT_DOUBLE_EQ(mfcc[property.getName()][0].as_double(), 0);
-}*/
+}
 
 TEST_F(MfccPropertyTest, calculateCorrectWhenTwoFrames) {
     //given
@@ -52,7 +52,7 @@ TEST_F(MfccPropertyTest, returnsCorrectName) {
     MfccProperty property;
 
     //when
-    string name = property.getName();
+    std::string name = property.getName();
 
     //then
     ASSERT_STRCASEEQ("mfcc", name.c_str());

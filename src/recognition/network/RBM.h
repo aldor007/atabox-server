@@ -7,8 +7,8 @@
 #include <cstddef>
 
 //used for training the RBM
-#include <shark/Unsupervised/RBM/BinaryRBM.h>
-// #include <shark/Algorithms/GradientDescent/SteepestDescent.h>
+#include <shark/Unsupervised/RBM/GaussianBinaryRBM.h>
+#include <shark/Algorithms/GradientDescent/SteepestDescent.h>
 
 //for evaluation
 #include <utils/jsonextend.h>
@@ -30,15 +30,15 @@ public:
     };
     ~RBM() { }
 
-    //RBM(size_t numberOfHidden, size_t numberOfVisible);
-    //RBM(Config &config);
+    RBM(size_t numberOfHidden, size_t numberOfVisible);
+    RBM(Config &config);
 
-    //void setData(std::valarray<jsonextend> data);
+    void setData(std::valarray<jsonextend> data);
 private:
-   /* shark::GaussianBinaryRBM m_rbm;
+    shark::GaussianBinaryRBM m_rbm;
     shark::GaussianBinaryPCD m_cd;
     shark::SteepestDescent m_optimizer;
-    shark::UnlabeledData<shark::RealVector> m_data;*/
+    shark::UnlabeledData<shark::RealVector> m_data;
 
 
 

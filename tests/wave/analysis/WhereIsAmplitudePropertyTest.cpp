@@ -40,7 +40,7 @@ TEST_F(WhereIsAmplitudePropertyTest, returnsCorrectName) {
 	WhereIsAmplitudeProperty property;
 
 	//when
-	string name = property.getName();
+	std::string name = property.getName();
 
 	//then
 	ASSERT_STRCASEEQ("whereIsAmplitude", name.c_str());

@@ -36,7 +36,7 @@ TEST_F(LengthPropertyTest, returnsCorrectName) {
 	LengthProperty property;
 
 	//when
-	string name = property.getName();
+	std::string name = property.getName();
 
 	//then
 	ASSERT_STRCASEEQ("length", name.c_str());

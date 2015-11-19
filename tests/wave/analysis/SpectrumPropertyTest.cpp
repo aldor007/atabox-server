@@ -51,7 +51,7 @@ TEST_F(SpectrumPropertyTest, returnsCorrectName) {
 	SpectrumProperty property;
 
 	//when
-	string name = property.getName();
+	std::string name = property.getName();
 
 	//then
 	ASSERT_STRCASEEQ("spectrum", name.c_str());

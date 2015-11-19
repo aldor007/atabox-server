@@ -13,3 +13,6 @@
 [submodule "external/spdlog"]
 	path = external/spdlog
 	url = https://github.com/gabime/spdlog.git
+[submodule "external/shark"]
+	path = external/shark
+	url = https://github.com/Aldor007/Shark.git

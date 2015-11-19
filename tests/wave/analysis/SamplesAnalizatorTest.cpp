@@ -34,7 +34,7 @@ TEST_F(SamplesAnalizatorTest, changesSamplesWhenFiltersAreAdded) {
 	webjs::value result = analizator.getPropertiesSummary(samples);
 
 	//then
-	string name("firstSampleValue");
+	std::string name("firstSampleValue");
 	double value = result[name].as_double();
 	ASSERT_DOUBLE_EQ(value, 0.128);
 }

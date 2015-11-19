@@ -9,7 +9,6 @@
 #define JSONEXTEND_H_
 #include "cpprest/json.h"
 
-namespace json = web::json;
 
 class jsonextend : public web::json::value {
 public:

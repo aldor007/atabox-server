@@ -31,7 +31,7 @@ public:
 		return aboveCounter * 1.0 / allCounter;
 	}
 
-	virtual string getName() {
+	virtual std::string getName() {
 		std::stringstream resutl;
 		resutl << "percentageAbove_" << this->treshold;
 		return resutl.str();

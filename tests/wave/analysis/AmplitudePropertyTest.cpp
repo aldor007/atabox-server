@@ -39,7 +39,7 @@ TEST_F(AmplitudePropertyTest, returnsCorrectName) {
 	AmplitudeProperty property;
 
 	//when
-	string name = property.getName();
+	std::string name = property.getName();
 
 	//then
 	ASSERT_STRCASEEQ("amplitude_from_0_to_100_percent", name.c_str());

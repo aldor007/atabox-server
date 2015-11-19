@@ -32,7 +32,7 @@ public:
 	}
 
 
-	virtual string getName() {
+	virtual std::string getName() {
 		return "whereIsAmplitude";
 	}
 

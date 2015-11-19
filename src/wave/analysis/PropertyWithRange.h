@@ -27,7 +27,7 @@ protected:
 		this->rangeToPercent = rangeToPercent;
 	}
 
-	string getNameWithRanges(string className) {
+	std::string getNameWithRanges(std::string className) {
 		std::stringstream resutl;
 		resutl << className << "_from_" << rangeFromPercent << "_to_"
 				<< rangeToPercent << "_percent";

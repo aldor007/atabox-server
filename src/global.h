@@ -6,6 +6,9 @@
 #ifndef ATABOX_SERVER_GLOBAL_H
 #define ATABOX_SERVER_GLOBAL_H
 
+// turn of U in cpprest
+#define _TURN_OFF_PLATFORM_STRING 1
+
 namespace atabox {
     /**
     * Library version in an easily comparable format.
