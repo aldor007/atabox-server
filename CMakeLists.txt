@@ -1,4 +1,4 @@
-# cmake_minimum_required(VERSION <specify CMake version here>)
+#cmake_minimum_required(VERSION <specify CMake version here>)
 cmake_minimum_required (VERSION 3.0)
 project(atabox_server)
 set(atabox_server_VERSION_MAJOR 0)
@@ -41,9 +41,6 @@ set(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} lib/ external/aquila/lib)
 add_definitions(-DBOOST_LOG_DYN_LINK=yes)
 
 find_package(Boost REQUIRED COMPONENTS random chrono system thread locale regex filesystem program_options log )
-#IF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
-#    set(ATABOX_LIBS ${ATABOX_LIBS} boost_log-mt boost_thread-mt)
-#endif()
 if(Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIRS})
     set(ATABOX_LIBS "${Boost_LIBRARIES}")
@@ -67,14 +64,13 @@ IF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 endif()
 
 set(ATABOX_LIBS ${ATABOX_LIBS} shark)
-set(ATABOX_INC
+set(ATABOX_INC ${ATABOX_INC}
     src/
     external/aquila/aquila
     external/casablanca/Release/include
     external/rocksdb_source/include
     external/shark/include
 )
-
 include_directories(${ATABOX_INC})
 
 set(ATABOX_SOURCES

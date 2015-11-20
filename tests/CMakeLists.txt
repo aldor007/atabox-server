@@ -35,6 +35,13 @@ set(ATABOX_TEST_SOURCE
 
 set(ATABOX_TEST_SOURCE ${ATABOX_TEST_SOURCE}
     RunAllTests.cpp)
+
+if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+    set(ATABOX_INC ${ATABOX_INC} ../libs/gmock-1.7.0/include ../libs/gtest-1.7.0/include)
+    set(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} ../libs/gtest-1.7.0/lib/.libs ../libs/gmock-1.7.0/lib)
+
+endif()
+
 enable_testing()
 find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS} ${GMOCK_INCLUDE_DIRS} ${ATABOX_INC})
