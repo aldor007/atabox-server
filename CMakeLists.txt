@@ -3,12 +3,11 @@ cmake_minimum_required (VERSION 3.0)
 project(atabox_server)
 set(atabox_server_VERSION_MAJOR 0)
 set(atabox_server_VERSION_MINOR 5)
+
+set(ATABOX_TEST ON)
+
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "build")
 option(ATABOX_TEST "Build all tests." ON) # Makes boolean 'test' available.
-option(ATABOX_EXTERNAL "Build external libs" ON)
-
-
-
 
 set(ROCKSDB_ROOT external/rocksdb_source)
 
@@ -33,10 +32,10 @@ endif()
 ]]
 
 # external libs
-#if(ATABOX_EXTRNAL)
+if(ATABOX_EXTRNAL)
     message(STATUS "Compiling external libs " ATABOX_EXTERNAL)
     add_subdirectory(external)
-#endif()
+endif()
 set(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} lib/ external/aquila/lib)
 
 
@@ -73,6 +72,8 @@ set(ATABOX_INC ${ATABOX_INC}
     external/rocksdb_source/include
     external/shark/include
 )
+
+link_directories(libs/)
 include_directories(${ATABOX_INC})
 
 set(ATABOX_SOURCES

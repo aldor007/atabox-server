@@ -1,6 +1,7 @@
 cd external
 cmake CMakeLists.txt -DENABLE_OPENMP=OFF -DBUILD_EXAMPLES=OFF
-cp aquila/libAquila.so ../libs/
+make -j 2
+cp aquila/libAquila.* ../libs/
 cp aquila/lib/* ../libs/
 
 cp casablanca/Release/Binaries/* ../libs

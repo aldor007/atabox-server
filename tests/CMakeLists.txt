@@ -38,7 +38,7 @@ set(ATABOX_TEST_SOURCE ${ATABOX_TEST_SOURCE}
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     set(ATABOX_INC ${ATABOX_INC} ../libs/gmock-1.7.0/include ../libs/gtest-1.7.0/include)
-    set(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} ../libs/gtest-1.7.0/lib/.libs ../libs/gmock-1.7.0/lib)
+    set(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} ../libs/gtest-1.7.0/lib/ ../libs/gmock-1.7.0/lib)
 
 endif()
 
@@ -54,7 +54,7 @@ if(ATABOX_TESTS_COVERAGE)
     setup_target_for_coverage_cobertura(coverage tests/build/atabox_tests coverage_report)
 endif()
 
-    add_executable(atabox_tests ${ATABOX_TEST_SOURCE})
+add_executable(atabox_tests ${ATABOX_TEST_SOURCE})
 set_target_properties(atabox_tests PROPERTIES COMPILE_FLAGS
     "-c -fmessage-length=0 -fprofile-arcs -ftest-coverage")
 target_link_libraries(atabox_tests  atabox ${ATABOX_LIBS} gtest gmock )
