@@ -18,15 +18,17 @@ class RBM {
 public:
     struct Config {
 
-        // number of hidden unit in RBM
+        // number of hidden units in RBM
         size_t numberOfHidden = 1;
-        // number of visible unit in RBM
+        // number of visible units in RBM
         size_t numberOfVisible = 1;
         // number of k-steps in Contrastive Divergence
         unsigned int numberOfKSteps = 1;
         // optimizer properties
         double momentum = 0.5;
         double learningRate = 0.1;
+        // size of batch to lern
+        size_t batchSize = 32;
     };
     ~RBM() { }
 
@@ -39,9 +41,7 @@ private:
     shark::GaussianBinaryPCD m_cd;
     shark::SteepestDescent m_optimizer;
     shark::UnlabeledData<shark::RealVector> m_data;
-
-
-
+    Config m_config;
 };
 
 
