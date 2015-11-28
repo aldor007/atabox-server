@@ -52,3 +52,16 @@ void RBM::setData(std::valarray<jsonextend> propertiesArr) {
 }
 
 
+shark::RealVector RBM::getVisibleLayerParameters() {
+    return m_rbm.visibleNeurons().parameterVector();
+}
+
+shark::RealVector RBM::getHiddenLaverParameters() {
+    return m_rbm.hiddenNeurons().parameterVector();
+}
+
+void RBM::learn() {
+
+
+
+}

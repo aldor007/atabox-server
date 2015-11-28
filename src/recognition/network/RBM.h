@@ -36,6 +36,11 @@ public:
     RBM(Config &config);
 
     void setData(std::valarray<jsonextend> data);
+
+    void learn();
+
+    shark::RealVector getVisibleLayerParameters();
+    shark::RealVector getHiddenLaverParameters();
 private:
     shark::GaussianBinaryRBM m_rbm;
     shark::GaussianBinaryPCD m_cd;
