@@ -48,13 +48,14 @@ include_directories(${GTEST_INCLUDE_DIRS} ${GMOCK_INCLUDE_DIRS} ${ATABOX_INC})
 set(ATABOX_TESTS_COVERAGE OFF)
 option(ATABOX_TESTS_COVERAGE "Build tests with coverage" OFF)
 
+add_executable(atabox_tests ${ATABOX_TEST_SOURCE})
+
 if(ATABOX_TESTS_COVERAGE)
+    set_target_properties(atabox_tests PROPERTIES COMPILE_FLAGS
+            "-c -fmessage-length=0 -fprofile-arcs -ftest-coverage")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0  -fprofile-arcs -ftest-coverage")
     include(../CMake/CodeCoverage.cmake)
     setup_target_for_coverage_cobertura(coverage tests/build/atabox_tests coverage_report)
 endif()
 
-add_executable(atabox_tests ${ATABOX_TEST_SOURCE})
-set_target_properties(atabox_tests PROPERTIES COMPILE_FLAGS
-    "-c -fmessage-length=0 -fprofile-arcs -ftest-coverage")
 target_link_libraries(atabox_tests  atabox ${ATABOX_LIBS} gtest gmock )

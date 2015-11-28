@@ -31,13 +31,7 @@ elseif(CLANGXX_EXISTS)
 endif()
 ]]
 
-# external libs
-if(ATABOX_EXTRNAL)
-    message(STATUS "Compiling external libs " ATABOX_EXTERNAL)
-    add_subdirectory(external)
-endif()
 set(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} lib/ external/aquila/lib)
-
 
 add_definitions(-DBOOST_LOG_DYN_LINK=yes)
 
