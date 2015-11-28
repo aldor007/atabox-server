@@ -5,13 +5,14 @@ set(atabox_server_VERSION_MAJOR 0)
 set(atabox_server_VERSION_MINOR 5)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "build")
 option(ATABOX_TEST "Build all tests." ON) # Makes boolean 'test' available.
-option(ATABOX_EXTERNAL "Build external libs" OFF)
+option(ATABOX_EXTERNAL "Build external libs" ON)
+
 
 
 
 set(ROCKSDB_ROOT external/rocksdb_source)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -fopenmp")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall")
 
 
 # If no explicit compiler override and clang++ exists, prefer clang.
@@ -32,9 +33,10 @@ endif()
 ]]
 
 # external libs
-if(ATABOX_EXTERNAL)
+#if(ATABOX_EXTRNAL)
+    message(STATUS "Compiling external libs " ATABOX_EXTERNAL)
     add_subdirectory(external)
-endif()
+#endif()
 set(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} lib/ external/aquila/lib)
 
 
@@ -60,7 +62,7 @@ endif()
 
 set(ATABOX_LIBS "${ATABOX_LIBS}" ${ROCKSDB_LIBRARIES} Aquila cpprest)
 IF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
-    set(ATABOX_LIBS ${ATABOX_LIBS} boost_log-mt boost_thread-mt)
+    # set(ATABOX_LIBS ${ATABOX_LIBS} boost_log-mt boost_thread-mt)
 endif()
 
 set(ATABOX_LIBS ${ATABOX_LIBS} shark)
@@ -101,6 +103,7 @@ set(ATABOX_SOURCES
         src/wave/analysis/AverageValueProperty.h
         src/wave/analysis/LengthProperty.h
         src/wave/analysis/MfccProperty.h
+        src/wave/analysis/MfccProperty.cpp
         src/wave/analysis/PercentageAboveProperty.h
         src/wave/analysis/Property.h
         src/wave/analysis/PropertyWithRange.h
@@ -129,9 +132,9 @@ set(ATABOX_SOURCES
 add_library(atabox STATIC ${ATABOX_SOURCES})
 
 set(ATABOX_SERVER_FILES
-    ${ATABOX_SOURCES}
-    src/main.cpp
-)
+        ${ATABOX_SOURCES}
+        src/main.cpp)
+
 if((CMAKE_CXX_COMPILER_ID MATCHES "Clang") OR IOS)
     message("-- Setting clang options")
 

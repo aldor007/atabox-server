@@ -65,14 +65,14 @@ ProcessAndAnalyze g_processAndAnlyze;
 
 void handle_add(web::http::http_request& request) {
 
-    json::value response;
+    web::json::value response;
     std::map<std::string, std::string> querymap = uri::split_query(
             request.relative_uri().query());
     if (querymap.find("name") == querymap.end()
             || querymap.find("surname") == querymap.end()) {
         LOG(error)<<"Bad request";
-        response["error_msg"] = json::value::string("Bad request. Read doc for info. Missing name or surname field in request.");
-        response["status"] = json::value::string("ERROR");
+        response["error_msg"] = web::json::value::string("Bad request. Read doc for info. Missing name or surname field in request.");
+        response["status"] = web::json::value::string("ERROR");
         request.reply(status_codes::BadRequest, response).wait();
         return;
 
@@ -85,8 +85,8 @@ void handle_add(web::http::http_request& request) {
     LOG(debug)<<"Content lenght of request "<<content_lenght;
     if (content_lenght == 0) {
         LOG(error)<<"Bad request! Empty body";
-        response["error_msg"] = json::value::string("Bad request.Empty body!");
-        response["status"] = json::value::string("ERROR");
+        response["error_msg"] = web::json::value::string("Bad request.Empty body!");
+        response["status"] = web::json::value::string("ERROR");
         request.reply(status_codes::BadRequest, response).wait();
         return;
 
@@ -108,19 +108,19 @@ void handle_add(web::http::http_request& request) {
             g_mainDB->put(wavepropertiesJSON, surnameString);
         } catch (std::exception const & ex) {
             LOG(error)<<"Error "<<ex.what();
-            response["status"] = json::value::string("ERROR");
-            response["error_msg"] = json::value::string(ex.what());
+            response["status"] = web::json::value::string("ERROR");
+            response["error_msg"] = web::json::value::string(ex.what());
             request.reply(status_codes::InternalError, response).wait();
             return;
         }
-        response["status"] = json::value::string("OK");
-        response["surname"] = json::value::string(surnameString);
+        response["status"] = web::json::value::string("OK");
+        response["surname"] = web::json::value::string(surnameString);
         request.reply(status_codes::OK, response).wait();
     } catch (std::exception &e) {
 
         LOG(error)<<"Error "<<e.what();
-        response["status"] = json::value::string("ERROR");
-        response["surname"] = json::value::string(e.what());
+        response["status"] = web::json::value::string("ERROR");
+        response["surname"] = web::json::value::string(e.what());
         request.reply(status_codes::BadRequest, response).wait();
     }
 
@@ -128,14 +128,14 @@ void handle_add(web::http::http_request& request) {
 
 void handle_execute(web::http::http_request& request) {
 
-    json::value response;
+    web::json::value response;
     concurrency::streams::istream body = request.body();
     uint64_t content_lenght = request.headers().content_length();
     LOG(debug)<<"Content lenght of request "<<content_lenght;
     if (content_lenght == 0) {
         LOG(error)<<"Bad request! Empty body";
-        response["error_msg"] = json::value::string("Bad request.Empty body!");
-        response["status"] = json::value::string("ERROR");
+        response["error_msg"] = web::json::value::string("Bad request.Empty body!");
+        response["status"] = web::json::value::string("ERROR");
         request.reply(status_codes::BadRequest, response).wait();
         return;
 
@@ -156,13 +156,13 @@ void handle_execute(web::http::http_request& request) {
     std::string surname = tmpFun(list, wavePropertiesJSON);
 
     if (!surname.empty()) {
-        response["status"] = json::value::string("OK");
-        response["surname"] = json::value::string(surname);
+        response["status"] = web::json::value::string("OK");
+        response["surname"] = web::json::value::string(surname);
         request.reply(status_codes::OK, response).wait();
         return;
     }
 
-    response["status"] = json::value::string("NOT_FOUND");
+    response["status"] = web::json::value::string("NOT_FOUND");
 
     request.reply(status_codes::OK, response).wait();
 
@@ -170,23 +170,23 @@ void handle_execute(web::http::http_request& request) {
 
 void handle_list(web::http::http_request& request) {
     std::map<jsonextend, std::string> list;
-    json::value result;
+    web::json::value result;
     try {
 
         list = g_mainDB->getAllKV();
     } catch (std::exception const & ex) {
         LOG(error)<<"DB Error "<<ex.what();
-        result["status"] = json::value::string("ERROR");
-        result["error_msg"] = json::value::string(ex.what());
+        result["status"] = web::json::value::string("ERROR");
+        result["error_msg"] = web::json::value::string(ex.what());
         request.reply(status_codes::InternalError, result).wait();
         return;
     }
     uint32_t counter = 0;
-    json::value tmp;
+    web::json::value tmp;
     result[0] = tmp;
     for (auto iterator = list.begin(); iterator != list.end(); iterator++) {
         tmp["waveProperties"] = iterator->first;
-        tmp["surname"] = json::value::string(iterator->second);
+        tmp["surname"] = web::json::value::string(iterator->second);
         result[counter++] = tmp;
     }
 
@@ -195,8 +195,8 @@ void handle_list(web::http::http_request& request) {
 }
 
 void handle_test(web::http::http_request& request) {
-    json::value result;
-    result["status"] = json::value::string("OK");
+    web::json::value result;
+    result["status"] = web::json::value::string("OK");
     request.reply(status_codes::OK, result).wait();
 }
 

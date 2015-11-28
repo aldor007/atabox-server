@@ -55,8 +55,6 @@ public:
 
 };
 
-const double MfccProperty::FRAME_DURATION = 0.002;
-const char* MfccProperty::NAME = "mfcc";
 
 #endif // MFCC_PROPERTY_H
 
