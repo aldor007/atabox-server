@@ -10,7 +10,7 @@
 
 #include "wave/analysis/Property.h"
 
-#include "recognition/ProcessAndAnalyze.h"
+#include "Analyzator.h"
 
 
 /*PROPERTY*/
@@ -34,7 +34,7 @@
 
 
 
-void init_ProcessAndAnalize(ProcessAndAnalyze &monstru) {
+void init_ProcessAndAnalize(Analyzator &monstru) {
 
 
     Processor * firstProcessor = new Processor();

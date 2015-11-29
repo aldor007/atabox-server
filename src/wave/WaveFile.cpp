@@ -221,24 +221,42 @@ char * WaveFile::getSamples() {
 	return data;
 }
 
-/*
+
 WaveFile& WaveFile::operator=(WaveFile&& other) {
-
-
-	other.chunkID =  chunkID;
-	other.chunkSize = chunkSize;
-	other.format = format;
-	other.subchunk1Id = subchunk1Id;
-	other.subchunk1Size = subchunk1Size;
-	other.audioFormat = audioFormat;
-	other.numberOfChanels = numberOfChanels;
-	other.sampleRate = sampleRate;
-	other.byteRate = byteRate;
-	other.blockAlign = blockAlign;
-	other.bitsPerSample = bitsPerSample;
-	other.subchunk2Id = subchunk2Id;
-	other.subchunk2Size = subchunk2Size;
-	other.numberOfSamples = numberOfSamples;
-	other.data = data;
+    std::memcpy(chunkID, other.chunkID, 4);
+    chunkSize = other.chunkSize;
+    std::memcpy(format, other.format, 4);
+    std::memcpy(subchunk1Id, other.subchunk1Id, 4);
+    subchunk1Size = other.subchunk1Size;
+    audioFormat = other.audioFormat;
+    numberOfChanels = other.numberOfChanels;
+    sampleRate = other.sampleRate;
+    byteRate = other.byteRate;
+    blockAlign = other.blockAlign;
+    bitsPerSample = other.bitsPerSample;
+    std::memcpy(subchunk2Id, other.subchunk2Id, 4);
+    subchunk2Size = other.subchunk2Size;
+    numberOfSamples = other.numberOfSamples;
+    data = new char[subchunk2Size];
+    std::memcpy(data, other.data, subchunk2Size);
 }
-*/
+
+WaveFile::WaveFile(const WaveFile &other) {
+
+    std::memcpy(chunkID, other.chunkID, 4);
+	chunkSize = other.chunkSize;
+    std::memcpy(format, other.format, 4);
+    std::memcpy(subchunk1Id, other.subchunk1Id, 4);
+	subchunk1Size = other.subchunk1Size;
+	audioFormat = other.audioFormat;
+	numberOfChanels = other.numberOfChanels;
+	sampleRate = other.sampleRate;
+	byteRate = other.byteRate;
+	blockAlign = other.blockAlign;
+	bitsPerSample = other.bitsPerSample;
+    std::memcpy(subchunk2Id, other.subchunk2Id, 4);
+	subchunk2Size = other.subchunk2Size;
+	numberOfSamples = other.numberOfSamples;
+	data = new char[subchunk2Size];
+    std::memcpy(data, other.data, subchunk2Size);
+}

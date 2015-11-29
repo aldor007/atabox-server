@@ -4,7 +4,7 @@ build/src/dataproviders/BaseDataProvider.h
 build/src/dataproviders/FileDataProvider.cpp
 build/src/dataproviders/FileDataProvider.h
 build/src/dataproviders/RocksdbProvider.h
-build/src/recognition/ProcessAndAnalyze.cpp
+build/src/recognition/Analyzator.cpp
 build/src/recognition/PropertiesComparator.cpp
 build/src/recognition/PropertiesComparator.h
 build/src/runner/Runner.cpp
@@ -1288,8 +1288,8 @@ src/dataproviders/BaseDataProvider.h
 src/dataproviders/FileDataProvider.cpp
 src/dataproviders/FileDataProvider.h
 src/dataproviders/RocksdbProvider.h
-src/recognition/ProcessAndAnalyze.cpp
-src/recognition/ProcessAndAnalyze.h
+src/recognition/Analyzator.cpp
+src/recognition/Analyzator.h
 src/recognition/PropertiesComparator.cpp
 src/recognition/PropertiesComparator.h
 src/runner/Runner.cpp

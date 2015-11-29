@@ -29,6 +29,8 @@ public:
         double learningRate = 0.1;
         // size of batch to lern
         size_t batchSize = 32;
+        uint16_t numberOfIteration = 1000;
+        uint16_t numberOfTrails = 30;
     };
     ~RBM() { }
 
@@ -42,6 +44,8 @@ public:
     shark::RealVector getVisibleLayerParameters();
     shark::RealVector getHiddenLaverParameters();
 private:
+    void initializeWeights();
+
     shark::GaussianBinaryRBM m_rbm;
     shark::GaussianBinaryPCD m_cd;
     shark::SteepestDescent m_optimizer;

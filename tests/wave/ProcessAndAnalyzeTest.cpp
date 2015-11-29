@@ -4,7 +4,8 @@
 #include "wave/processing/Filter.h"
 #include "wave/analysis/SamplesAnalizator.h"
 #include "wave/processing/Processor.h"
-#include "recognition/ProcessAndAnalyze.h"
+#include "recognition/FeatureExtractor.h"
+
 
 #include "cpprest/json.h"
 #undef U
@@ -53,14 +54,12 @@ TEST_F(ProcessAndAnalyzeTest, testcall) {
 	EXPECT_CALL(*pre, applyFilterChainOn(_)).Times(1);
 	EXPECT_CALL(*analizator, getPropertiesSummary(_)).Times(1);
 
-	ProcessAndAnalyze monstru;
+	FeatureExtractor monstru;
 	monstru.add(std::make_pair(pre, analizator));
 	jsonextend result = monstru.getSummary(samples);
 
 	ASSERT_TRUE(result == empty);
 	delete pre;
 	delete analizator;
-
-
 
 }

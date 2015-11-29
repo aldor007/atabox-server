@@ -82,8 +82,8 @@ set(ATABOX_SOURCES
         src/recognition/network/Batch.h
         src/recognition/network/DeepBeliefNet.h
         src/recognition/network/LRBM.h
-        src/recognition/ProcessAndAnalyze.cpp
-        src/recognition/ProcessAndAnalyze.h
+        src/recognition/FeatureExtractor.cpp
+        src/recognition/FeatureExtractor.h
         src/recognition/PropertiesComparator.cpp
         src/recognition/PropertiesComparator.h
         src/utils/atabox_log.cpp
@@ -122,7 +122,7 @@ set(ATABOX_SOURCES
         src/wave/WaveUtils.h
         src/recognition/network/RBM.h
         src/recognition/network/RBM.cpp
-        )
+        src/recognition/RecognitionProcessor.cpp src/recognition/RecognitionProcessor.h)
 # main atabox library
 add_library(atabox STATIC ${ATABOX_SOURCES})
 

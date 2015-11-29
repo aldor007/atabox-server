@@ -61,7 +61,7 @@ std::map<std::string, policy_fun> g_policies;
 
 extern atabox_log::logger g_log;
 
-ProcessAndAnalyze g_processAndAnlyze;
+Analyzator g_processAndAnlyze;
 
 void handle_add(web::http::http_request& request) {
 
