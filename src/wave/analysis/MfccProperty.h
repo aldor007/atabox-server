@@ -53,6 +53,8 @@ public:
     // mfcc features size
     static const size_t SIZE = 12;
 
+
+
 };
 
 

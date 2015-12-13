@@ -27,12 +27,13 @@ class RBMTest: public ::testing::Test {
 
 // check whether it throws some exception
 TEST_F(RBMTest, testFeauteExraction) {
-    RBM::Config config;
-    RBM rbm(config);
 
-    WaveFile waves[] = { WaveFile("./tests/wave/waveFiles/dziekuje32bit.wav"),
-                         WaveFile("./tests/wave/waveFiles/ping32bit_1.wav"),
-                         WaveFile("./tests/wave/waveFiles/vim32bit_1.wav")};
+    WaveFile waves[] = {
+            WaveFile("./tests/wave/waveFiles/dziekuje32bit.wav"),
+            WaveFile("./tests/wave/waveFiles/dziekuje32bit.wav"),
+            WaveFile("./tests/wave/waveFiles/dziekuje32bit.wav")};
+//                         WaveFile("./tests/wave/waveFiles/ping32bit_1.wav"),
+//                         WaveFile("./tests/wave/waveFiles/vim32bit_1.wav")};
     Samples samples[3];
     std::valarray<jsonextend> propArr(3);
     FeatureExtractor extractor;
@@ -42,6 +43,7 @@ TEST_F(RBMTest, testFeauteExraction) {
         propArr[i] = extractor.getSummary(samples[i]);
     }
 
+    RBM rbm{propArr, 3};
     rbm.setData(propArr);
     // rbm.learn();
 

@@ -31,11 +31,12 @@ public:
         size_t batchSize = 32;
         uint16_t numberOfIteration = 1000;
         uint16_t numberOfTrails = 30;
+        friend std::ostream& operator<<(std::ostream& os, const Config& c);
     };
     ~RBM() { }
 
-    RBM(size_t numberOfHidden, size_t numberOfVisible);
     RBM(Config &config);
+    RBM(std::valarray<jsonextend> data, size_t numHidden);
 
     void setData(std::valarray<jsonextend> data);
 

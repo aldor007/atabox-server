@@ -9,14 +9,14 @@
 #include "wave/analysis/MfccProperty.h"
 
 
-RBM::RBM(size_t numberOfHidden, size_t numberOfVisible): m_rbm(shark::Rng::globalRng), m_cd(&m_rbm){
-    m_rbm.setStructure(numberOfVisible, numberOfHidden);
+ std::ostream& operator<<(std::ostream& os, const RBM::Config& c) {
+     os << "h = " << c.numberOfHidden << " v = " << c.numberOfVisible << " batchSize " << c.batchSize;
+     return os;
+ }
 
-    m_optimizer.setMomentum(m_config.momentum);
-    m_optimizer.setLearningRate(m_config.learningRate);
-}
 
 RBM::RBM(RBM::Config &config): m_rbm(shark::Rng::globalRng), m_cd(&m_rbm) {
+    m_config = config;
     m_rbm.setStructure(config.numberOfVisible, config.numberOfHidden);
     m_cd.setK(config.numberOfKSteps);
 
@@ -24,12 +24,29 @@ RBM::RBM(RBM::Config &config): m_rbm(shark::Rng::globalRng), m_cd(&m_rbm) {
     m_optimizer.setLearningRate(config.learningRate);
 }
 
+RBM::RBM(std::valarray<jsonextend> data, size_t hidden):m_rbm(shark::Rng::globalRng), m_cd(&m_rbm) {
+    m_config.numberOfHidden = hidden;
+    m_cd.setK(m_config.numberOfKSteps);
+
+    m_optimizer.setMomentum(m_config.momentum);
+    m_optimizer.setLearningRate(m_config.learningRate);
+
+    m_config.numberOfVisible = data[0].as_object().at(MfccProperty::NAME).as_array().size() + data[0].as_object().size();
+    m_rbm.setStructure(m_config.numberOfVisible, m_config.numberOfHidden);
+    m_config.batchSize = 1;
+    setData(data);
+
+}
+
 // tutaj pwonno przekazywac sie duzo danych dla jednej osoby
 // bo to jest raneg z batchami
 void RBM::setData(std::valarray<jsonextend> propertiesArr) {
     // FIXME: get count of other features
-    size_t featuresSize = propertiesArr[0].as_object().at(MfccProperty::NAME).size() + propertiesArr[0].as_object().size();
-    std::vector<shark::RealVector> data(propertiesArr.size(), shark::RealVector(featuresSize*2));
+    std::cout<<"Config "<<m_config<<std::endl;
+    size_t properitesSize = propertiesArr[0].as_object().cend() - propertiesArr[0].as_object().cbegin();
+    std::cout<<" propertiest size "<<properitesSize<<std::endl;
+    size_t featuresSize = propertiesArr[0].as_object().at(MfccProperty::NAME).as_array().size() + propertiesArr[0].as_object().size();
+    std::vector<shark::RealVector> data(propertiesArr.size(), shark::RealVector(m_config.numberOfVisible));
     std::cout<< " featuresSize = " << featuresSize << " arrsize ="<< propertiesArr.size()<<std::endl;
     size_t i = 0, j = 0;
     for (auto properties: propertiesArr) {
@@ -42,28 +59,26 @@ void RBM::setData(std::valarray<jsonextend> propertiesArr) {
             }
 
             if (iter->first == MfccProperty::NAME) {
-                auto mfcc = iter->second.as_array();
-                for (std::size_t k = 0; k != MfccProperty::SIZE; ++k) {
-                    if (j == featuresSize - 1) {
-                        break;
-                    }
-                    std::cout<<iter->first<<" "<<j<<std::endl;
-                    data[i](j++) = mfcc[k].as_double();
+                data[i].resize(iter->second.as_array().size() + properitesSize);
+                for (auto mfcc: iter->second.as_array()) {
+                    data[i](j++) = mfcc.as_double();
                 }
 
             } else  {
-                std::cout<<iter->first<<" "<<j<<std::endl;
                 if (iter->second.is_double())
-                    data[i][j++] = iter->second.as_double();
+                    data[i](j++) = iter->second.as_double();
                 else if (iter->second.is_integer())
-                    data[i][j++] = iter->second.as_integer();
+                    data[i](j++) = iter->second.as_integer();
+
             }
-            i++;
         }
 
+        i++;
     }
-
-    m_data = shark::createDataFromRange(data, m_config.batchSize);
+    // FIXME: to 1
+    m_data = shark::createDataFromRange(data, 1);
+    std::cout<<"------------------"<<std::endl;
+    m_cd.setBatchSize(1);
     m_cd.setData(m_data);
 }
 
@@ -94,3 +109,4 @@ void RBM::learn() {
         }
     }
 }
+
