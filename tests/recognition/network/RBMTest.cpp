@@ -29,10 +29,12 @@ class RBMTest: public ::testing::Test {
 TEST_F(RBMTest, testFeauteExraction) {
 
     WaveFile waves[] = {
-            WaveFile("./tests/wave/waveFiles/dziekuje32bit.wav"),
-            WaveFile("./tests/wave/waveFiles/dziekuje32bit.wav"),
-            WaveFile("./tests/wave/waveFiles/dziekuje32bit.wav")};
-//                         WaveFile("./tests/wave/waveFiles/ping32bit_1.wav"),
+//            WaveFile("./tests/wave/waveFiles/dziekuje32bit.wav"),
+//            WaveFile("./tests/wave/waveFiles/dziekuje32bit.wav"),
+//            WaveFile("./tests/wave/waveFiles/dziekuje32bit.wav")};
+                         WaveFile("./tests/wave/waveFiles/ping32bit_1.wav"),
+                         WaveFile("./tests/wave/waveFiles/ping32bit_1.wav"),
+                         WaveFile("./tests/wave/waveFiles/ping32bit_1.wav")};
 //                         WaveFile("./tests/wave/waveFiles/vim32bit_1.wav")};
     Samples samples[3];
     std::valarray<jsonextend> propArr(3);
@@ -45,7 +47,11 @@ TEST_F(RBMTest, testFeauteExraction) {
 
     RBM rbm{propArr, 3};
     rbm.setData(propArr);
-    // rbm.learn();
+    rbm.learn();
+    for (auto value:   rbm.getHiddenLaverParameters()) {
+        std::cout<<value<<std::endl;
+
+    }
 
 }
 

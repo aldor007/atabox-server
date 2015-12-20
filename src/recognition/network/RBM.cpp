@@ -24,7 +24,7 @@ RBM::RBM(RBM::Config &config): m_rbm(shark::Rng::globalRng), m_cd(&m_rbm) {
     m_optimizer.setLearningRate(config.learningRate);
 }
 
-RBM::RBM(std::valarray<jsonextend> data, size_t hidden):m_rbm(shark::Rng::globalRng), m_cd(&m_rbm) {
+RBM::RBM(const std::valarray<jsonextend> &data, size_t hidden):m_rbm(shark::Rng::globalRng), m_cd(&m_rbm) {
     m_config.numberOfHidden = hidden;
     m_cd.setK(m_config.numberOfKSteps);
 
@@ -40,7 +40,7 @@ RBM::RBM(std::valarray<jsonextend> data, size_t hidden):m_rbm(shark::Rng::global
 
 // tutaj pwonno przekazywac sie duzo danych dla jednej osoby
 // bo to jest raneg z batchami
-void RBM::setData(std::valarray<jsonextend> propertiesArr) {
+void RBM::setData(const std::valarray<jsonextend> &propertiesArr) {
     // FIXME: get count of other features
     std::cout<<"Config "<<m_config<<std::endl;
     size_t properitesSize = propertiesArr[0].as_object().cend() - propertiesArr[0].as_object().cbegin();
@@ -76,9 +76,8 @@ void RBM::setData(std::valarray<jsonextend> propertiesArr) {
         i++;
     }
     // FIXME: to 1
-    m_data = shark::createDataFromRange(data, 1);
-    std::cout<<"------------------"<<std::endl;
-    m_cd.setBatchSize(1);
+    m_data = shark::createDataFromRange(data, m_config.batchSize);
+    m_cd.setBatchSize(m_config.batchSize);
     m_cd.setData(m_data);
 }
 
@@ -92,6 +91,7 @@ shark::RealVector RBM::getHiddenLaverParameters() {
 }
 
 void RBM::initializeWeights() {
+    std::cout<<" number of params "<<m_rbm.numberOfParameters()<<std::endl;
     shark::RealVector weights(m_rbm.numberOfParameters());
     for(size_t i = 0; i != weights.size(); ++i) {
         weights(i) = shark::Rng::uni(-0.1,0.1);
@@ -110,3 +110,6 @@ void RBM::learn() {
     }
 }
 
+void RBM::setConfig(RBM::Config &config) {
+    m_config = config;
+}

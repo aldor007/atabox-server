@@ -122,7 +122,7 @@ set(ATABOX_SOURCES
         src/wave/WaveUtils.h
         src/recognition/network/RBM.h
         src/recognition/network/RBM.cpp
-        src/recognition/RecognitionProcessor.cpp src/recognition/RecognitionProcessor.h)
+        src/recognition/RecognitionProcessor.cpp src/recognition/RecognitionProcessor.h src/recognition/network/DBN.cpp src/recognition/network/DBN.h)
 # main atabox library
 add_library(atabox STATIC ${ATABOX_SOURCES})
 

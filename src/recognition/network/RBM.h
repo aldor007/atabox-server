@@ -30,16 +30,17 @@ public:
         // size of batch to lern
         size_t batchSize = 32;
         uint16_t numberOfIteration = 1000;
-        uint16_t numberOfTrails = 30;
+        uint16_t numberOfTrails = 3;
         friend std::ostream& operator<<(std::ostream& os, const Config& c);
     };
     ~RBM() { }
 
     RBM(Config &config);
-    RBM(std::valarray<jsonextend> data, size_t numHidden);
+    RBM(const std::valarray<jsonextend> &data, size_t numHidden);
 
-    void setData(std::valarray<jsonextend> data);
+    void setData(const std::valarray<jsonextend> &data);
 
+    void setConfig(Config &config);
     void learn();
 
     shark::RealVector getVisibleLayerParameters();
