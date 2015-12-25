@@ -32,7 +32,7 @@ void FeatureExtractor::init() {
     Processor * firstProcessor = new Processor();
     firstProcessor->addToFilterChain(new NormalizingFilter(1.0));
     firstProcessor->addToFilterChain(new SilenceCuttingFilter(0.2));
-    SamplesAnalizator * firstAnalizator = new SamplesAnalizator();
+    SamplesAnalyzer * firstAnalizator = new SamplesAnalyzer();
     int step = 10;
     for (int i = 0; i < 100; i += step) {
         firstAnalizator->addProperty(new AmplitudeProperty(i, i + step));
@@ -46,7 +46,7 @@ void FeatureExtractor::init() {
     this->add(std::make_pair(firstProcessor, firstAnalizator));
 
 }
-void FeatureExtractor::add(std::pair<Processor*, SamplesAnalizator*> item) {
+void FeatureExtractor::add(std::pair<Processor*, SamplesAnalyzer *> item) {
     m_list.push_back(item);
 
 }

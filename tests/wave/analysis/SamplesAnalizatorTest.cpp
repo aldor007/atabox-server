@@ -1,8 +1,8 @@
+#include <wave/analysis/SamplesAnalyzer.h>
 #include "wave/Samples.h"
 #undef U
 #include "gtest/gtest.h"
 #include "gmock/gmock.h"
-#include "wave/analysis/SamplesAnalizator.h"
 #include "cpprest/json.h"
 #include "FirstSampleValueTestingProperty.h"
 namespace webjs = web::json;
@@ -27,7 +27,7 @@ TEST_F(SamplesAnalizatorTest, changesSamplesWhenFiltersAreAdded) {
 
 	FirstSampleValueTestingProperty property;
 
-	SamplesAnalizator analizator;
+	SamplesAnalyzer analizator;
 	analizator.addProperty(property);
 
 	//when

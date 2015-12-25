@@ -11,7 +11,7 @@ option(ATABOX_TEST "Build all tests." ON) # Makes boolean 'test' available.
 
 set(ROCKSDB_ROOT external/rocksdb_source)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -fopenmp")
 
 
 # If no explicit compiler override and clang++ exists, prefer clang.
@@ -102,8 +102,8 @@ set(ATABOX_SOURCES
         src/wave/analysis/PercentageAboveProperty.h
         src/wave/analysis/Property.h
         src/wave/analysis/PropertyWithRange.h
-        src/wave/analysis/SamplesAnalizator.cpp
-        src/wave/analysis/SamplesAnalizator.h
+        src/wave/analysis/SamplesAnalyzer.cpp
+        src/wave/analysis/SamplesAnalyzer.h
         src/wave/analysis/SpectrumProperty.h
         src/wave/analysis/WhereIsAmplitudeProperty.h
         src/wave/analysis/ZeroCrossingsProperty.h

@@ -2,7 +2,6 @@
 #include "wave/Samples.h"
 #include "wave/analysis/Property.h"
 #include "wave/processing/Filter.h"
-#include "wave/analysis/SamplesAnalizator.h"
 #include "wave/processing/Processor.h"
 #include "recognition/FeatureExtractor.h"
 
@@ -25,7 +24,7 @@ public:
 	MOCK_METHOD1(applyFilterChainOn, void (Samples&));
 };
 
-class SamplesAnalizatorMock: public SamplesAnalizator {
+class SamplesAnalizatorMock: public SamplesAnalyzer {
 public:
 	SamplesAnalizatorMock() {}
 	virtual ~SamplesAnalizatorMock() {}

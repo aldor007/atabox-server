@@ -14,8 +14,8 @@ build/src/utils/execution_policy.h
 build/src/utils/functions.h
 build/src/wave/analysis/Property.h
 build/src/wave/analysis/PropertyWithRange.cpp
-build/src/wave/analysis/SamplesAnalizator.cpp
-build/src/wave/analysis/SamplesAnalizator.h
+build/src/wave/analysis/SamplesAnalyzer.cpp
+build/src/wave/analysis/SamplesAnalyzer.h
 build/src/wave/processing/Processor.cpp
 build/src/wave/Samples.cpp
 build/src/wave/Samples.h
@@ -1307,8 +1307,8 @@ src/wave/analysis/PercentageAboveProperty.h
 src/wave/analysis/Property.h
 src/wave/analysis/PropertyWithRange.cpp
 src/wave/analysis/PropertyWithRange.h
-src/wave/analysis/SamplesAnalizator.cpp
-src/wave/analysis/SamplesAnalizator.h
+src/wave/analysis/SamplesAnalyzer.cpp
+src/wave/analysis/SamplesAnalyzer.h
 src/wave/analysis/SpectrumProperty.h
 src/wave/analysis/WhereIsAmplitudeProperty.h
 src/wave/analysis/ZeroCrossingsProperty.h
