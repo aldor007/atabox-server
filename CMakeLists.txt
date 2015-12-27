@@ -53,12 +53,11 @@ if(ROCKSDB_FOUND)
 endif()
 
 
-set(ATABOX_LIBS "${ATABOX_LIBS}" ${ROCKSDB_LIBRARIES} Aquila cpprest)
+set(ATABOX_LIBS "${ATABOX_LIBS}" ${ROCKSDB_LIBRARIES} Aquila cpprest shark)
 IF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     # set(ATABOX_LIBS ${ATABOX_LIBS} boost_log-mt boost_thread-mt)
 endif()
 
-set(ATABOX_LIBS ${ATABOX_LIBS} shark)
 set(ATABOX_INC ${ATABOX_INC}
     src/
     external/aquila/aquila
