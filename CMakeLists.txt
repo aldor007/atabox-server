@@ -35,7 +35,7 @@ set(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} lib/ external/aquila/lib)
 
 add_definitions(-DBOOST_LOG_DYN_LINK=yes)
 
-find_package(Boost REQUIRED COMPONENTS random chrono system thread locale regex filesystem program_options log )
+find_package(Boost REQUIRED COMPONENTS random chrono system thread locale regex filesystem program_options log serialization )
 if(Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIRS})
     set(ATABOX_LIBS "${Boost_LIBRARIES}")
