@@ -41,7 +41,8 @@ public:
 	virtual int32_t getRawSample(unsigned int i);
 	virtual char* getSamples();
 	operator Samples () const;
-	WaveFile& operator=(WaveFile&& other)  = default;
+	WaveFile& operator=(WaveFile&& other);
+	WaveFile(const WaveFile& other);
 protected:
 	WaveFile();
 	//chunk descriptor

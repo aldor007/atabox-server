@@ -8,7 +8,7 @@
 #include "recognition/PropertiesComparator.h"
 
 #include "wave/WaveFile.h"
-#include "wave/analysis/SamplesAnalizator.h"
+// #include "SamplesAnalyzer.h"
 #include "wave/Samples.h"
 #undef U //XXX: potrzebne zeby sie kompilowala z casablanca
 //#include "gtest/gtest.h" XXX: WTF!!!! nie kompiluje sie u mnie jak to jest. (Po reinstalacji systemuu)
@@ -26,7 +26,7 @@ TEST_F(PropertiesComparatorTest, theSameFileReturnsZeroDistance) {
 	//given
 	WaveFile waveFile("test/wave/waveFiles/dziekuje32bit.wav");
 	Samples samples(waveFile);
-	SamplesAnalizator analizator;
+	SamplesAnalyzer analizator;
 	WaveProperties properties;
 	properties = analizator.getAllProperties(samples);
 	//when
@@ -44,7 +44,7 @@ TEST_F(PropertiesComparatorTest, theDiffrenWordReturnsNotZeroDistance) {
 	Samples samples1(waveFile1);
 	WaveFile waveFile2("test/wave/waveFiles/prosze32bit.wav");
 	Samples samples2(waveFile2);
-	SamplesAnalizator analizator;
+	SamplesAnalyzer analizator;
 	WaveProperties properties, properties2;
 	properties = analizator.getAllProperties(samples1);
 	properties2 = analizator.getAllProperties(samples2);
@@ -63,7 +63,7 @@ TEST_F(PropertiesComparatorTest, theSameWordDiffrentBitsReturnsZeroDistance) {
 	WaveFile waveFile2("test/wave/waveFiles/dziekuje8bit.wav");
 	Samples samples2(waveFile2);
 
-	SamplesAnalizator analizator;
+	SamplesAnalyzer analizator;
 	WaveProperties properties, properties2;
 	properties = analizator.getAllProperties(samples1);
 	properties2 = analizator.getAllProperties(samples2);
@@ -83,7 +83,7 @@ TEST_F(PropertiesComparatorTest, theSameFileReturnZeroDistanceHidghNoise) {
 	//given
 	WaveFile waveFile("test/wave/waveFiles/dziekuje32bit.wav");
 	WaveFile waveFile2("test/wave/waveFiles/dziekuje32bitHighNoise.wav");
-	SamplesAnalizator analizator;
+	SamplesAnalyzer analizator;
 	WaveProperties properties, properties2;
 	properties = analizator.getAllProperties(waveFile);
 	properties2 = analizator.getAllProperties(waveFile2);

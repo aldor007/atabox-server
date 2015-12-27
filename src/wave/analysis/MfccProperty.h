@@ -19,6 +19,10 @@ public:
     virtual jsonextend getJSON(const Samples& samples) {
 
         uint16_t samplesInFrame = std::ceil(FRAME_DURATION * samples.getSampleFrequency());
+        if (samplesInFrame < 1000) {
+            samplesInFrame = 1000;
+        }
+
         Aquila::FramesCollection frames = Aquila::FramesCollection(samples, samplesInFrame);
 
         Aquila::Mfcc mfcc(samplesInFrame, Aquila::FftFactory::Method::KISS);
@@ -32,7 +36,7 @@ public:
                 val[counter++] = mfccValues[i];
             }
         }
-
+        std::cout <<"Mfcc property "<<counter<<"samples "<<samplesInFrame<<"frames "<<frames.end() - frames.begin()<<std::endl;
         jsonextend value;
         value[getName()] = val;
         return value;
@@ -50,8 +54,11 @@ public:
     static const double FRAME_DURATION;
     // property name
     static const char * NAME;
-    // mfcc features size
+    // mfcc features size for one frame
     static const size_t SIZE = 12;
+    // MAX frames
+    static const size_t MAX_FRAME = 2000;
+
 
 };
 

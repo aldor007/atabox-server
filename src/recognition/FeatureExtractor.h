@@ -14,17 +14,18 @@
 
 #include "wave/processing/Processor.h"
 
-#include "wave/analysis/SamplesAnalizator.h"
+#include "wave/analysis/SamplesAnalyzer.h"
 
 
-class ProcessAndAnalyze {
+class FeatureExtractor {
 private:
-	std::vector<std::pair<Processor*, SamplesAnalizator*>> m_list;
+	std::vector<std::pair<Processor*, SamplesAnalyzer *>> m_list;
 public:
-	ProcessAndAnalyze();
-	void add(std::pair<Processor*, SamplesAnalizator*> item);
+	FeatureExtractor();
+	void init();
+	void add(std::pair<Processor*, SamplesAnalyzer *> item);
 	jsonextend getSummary(Samples & samples);
-	virtual ~ProcessAndAnalyze();
+	virtual ~FeatureExtractor();
 };
 
 #endif /* PROCESSANDANALYZE_H_ */
