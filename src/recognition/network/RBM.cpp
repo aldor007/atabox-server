@@ -31,10 +31,11 @@ RBM::RBM(const std::valarray<jsonextend> &data, size_t hidden):m_rbm(shark::Rng:
     m_optimizer.setMomentum(m_config.momentum);
     m_optimizer.setLearningRate(m_config.learningRate);
 
-    m_config.numberOfVisible = data[0].as_object().at(MfccProperty::NAME).as_array().size() + data[0].as_object().size();
-    m_rbm.setStructure(m_config.numberOfVisible, m_config.numberOfHidden);
-    m_config.batchSize = 1;
     setData(data);
+
+}
+
+RBM::RBM():m_rbm(shark::Rng::globalRng), m_cd(&m_rbm) {
 
 }
 
@@ -42,12 +43,13 @@ RBM::RBM(const std::valarray<jsonextend> &data, size_t hidden):m_rbm(shark::Rng:
 // bo to jest raneg z batchami
 void RBM::setData(const std::valarray<jsonextend> &propertiesArr) {
     // FIXME: get count of other features
-    std::cout<<"Config "<<m_config<<std::endl;
+    m_config.numberOfVisible = propertiesArr[0].as_object().at(MfccProperty::NAME).as_array().size() + propertiesArr[0].as_object().size();
+    m_rbm.setStructure(m_config.numberOfVisible, m_config.numberOfHidden);
+    m_config.batchSize = 1;
+
     size_t properitesSize = propertiesArr[0].as_object().cend() - propertiesArr[0].as_object().cbegin();
-    std::cout<<" propertiest size "<<properitesSize<<std::endl;
     size_t featuresSize = propertiesArr[0].as_object().at(MfccProperty::NAME).as_array().size() + propertiesArr[0].as_object().size();
     std::vector<shark::RealVector> data(propertiesArr.size(), shark::RealVector(m_config.numberOfVisible));
-    std::cout<< " featuresSize = " << featuresSize << " arrsize ="<< propertiesArr.size()<<std::endl;
     size_t i = 0, j = 0;
     for (auto properties: propertiesArr) {
         j = 0;
@@ -75,7 +77,6 @@ void RBM::setData(const std::valarray<jsonextend> &propertiesArr) {
 
         i++;
     }
-    // FIXME: to 1
     m_data = shark::createDataFromRange(data, m_config.batchSize);
     m_cd.setBatchSize(m_config.batchSize);
     m_cd.setData(m_data);
@@ -91,7 +92,6 @@ shark::RealVector RBM::getHiddenLaverParameters() {
 }
 
 void RBM::initializeWeights() {
-    std::cout<<" number of params "<<m_rbm.numberOfParameters()<<std::endl;
     shark::RealVector weights(m_rbm.numberOfParameters());
     for(size_t i = 0; i != weights.size(); ++i) {
         weights(i) = shark::Rng::uni(-0.1,0.1);
@@ -113,3 +113,4 @@ void RBM::learn() {
 void RBM::setConfig(RBM::Config &config) {
     m_config = config;
 }
+

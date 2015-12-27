@@ -36,7 +36,6 @@ public:
                 val[counter++] = mfccValues[i];
             }
         }
-        std::cout <<"Mfcc property "<<counter<<"samples "<<samplesInFrame<<"frames "<<frames.end() - frames.begin()<<std::endl;
         jsonextend value;
         value[getName()] = val;
         return value;
@@ -58,8 +57,6 @@ public:
     static const size_t SIZE = 12;
     // MAX frames
     static const size_t MAX_FRAME = 2000;
-
-
 };
 
 

@@ -34,7 +34,7 @@ public:
         friend std::ostream& operator<<(std::ostream& os, const Config& c);
     };
     ~RBM() { }
-
+    RBM();
     RBM(Config &config);
     RBM(const std::valarray<jsonextend> &data, size_t numHidden);
 
