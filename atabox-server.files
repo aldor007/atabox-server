@@ -4,7 +4,7 @@ build/src/dataproviders/BaseDataProvider.h
 build/src/dataproviders/FileDataProvider.cpp
 build/src/dataproviders/FileDataProvider.h
 build/src/dataproviders/RocksdbProvider.h
-build/src/recognition/ProcessAndAnalyze.cpp
+build/src/recognition/Analyzator.cpp
 build/src/recognition/PropertiesComparator.cpp
 build/src/recognition/PropertiesComparator.h
 build/src/runner/Runner.cpp
@@ -14,8 +14,8 @@ build/src/utils/execution_policy.h
 build/src/utils/functions.h
 build/src/wave/analysis/Property.h
 build/src/wave/analysis/PropertyWithRange.cpp
-build/src/wave/analysis/SamplesAnalizator.cpp
-build/src/wave/analysis/SamplesAnalizator.h
+build/src/wave/analysis/SamplesAnalyzer.cpp
+build/src/wave/analysis/SamplesAnalyzer.h
 build/src/wave/processing/Processor.cpp
 build/src/wave/Samples.cpp
 build/src/wave/Samples.h
@@ -1288,8 +1288,8 @@ src/dataproviders/BaseDataProvider.h
 src/dataproviders/FileDataProvider.cpp
 src/dataproviders/FileDataProvider.h
 src/dataproviders/RocksdbProvider.h
-src/recognition/ProcessAndAnalyze.cpp
-src/recognition/ProcessAndAnalyze.h
+src/recognition/Analyzator.cpp
+src/recognition/Analyzator.h
 src/recognition/PropertiesComparator.cpp
 src/recognition/PropertiesComparator.h
 src/runner/Runner.cpp
@@ -1307,8 +1307,8 @@ src/wave/analysis/PercentageAboveProperty.h
 src/wave/analysis/Property.h
 src/wave/analysis/PropertyWithRange.cpp
 src/wave/analysis/PropertyWithRange.h
-src/wave/analysis/SamplesAnalizator.cpp
-src/wave/analysis/SamplesAnalizator.h
+src/wave/analysis/SamplesAnalyzer.cpp
+src/wave/analysis/SamplesAnalyzer.h
 src/wave/analysis/SpectrumProperty.h
 src/wave/analysis/WhereIsAmplitudeProperty.h
 src/wave/analysis/ZeroCrossingsProperty.h

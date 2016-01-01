@@ -8,7 +8,6 @@
 #ifndef WAVEPREPROCESSOR_H_
 #define WAVEPREPROCESSOR_H_
 #include "../WaveFile.h"
-#include "../analysis/SamplesAnalizator.h"
 #include "Filter.h"
 
 #include <iostream>

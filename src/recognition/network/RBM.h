@@ -29,19 +29,25 @@ public:
         double learningRate = 0.1;
         // size of batch to lern
         size_t batchSize = 32;
+        uint16_t numberOfIteration = 1000;
+        uint16_t numberOfTrails = 3;
+        friend std::ostream& operator<<(std::ostream& os, const Config& c);
     };
     ~RBM() { }
-
-    RBM(size_t numberOfHidden, size_t numberOfVisible);
+    RBM();
     RBM(Config &config);
+    RBM(const std::valarray<jsonextend> &data, size_t numHidden);
 
-    void setData(std::valarray<jsonextend> data);
+    void setData(const std::valarray<jsonextend> &data);
 
+    void setConfig(Config &config);
     void learn();
 
     shark::RealVector getVisibleLayerParameters();
     shark::RealVector getHiddenLaverParameters();
 private:
+    void initializeWeights();
+
     shark::GaussianBinaryRBM m_rbm;
     shark::GaussianBinaryPCD m_cd;
     shark::SteepestDescent m_optimizer;

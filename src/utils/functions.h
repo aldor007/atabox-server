@@ -8,10 +8,9 @@
 #ifndef FUNCTIONS_H_
 #define FUNCTIONS_H_
 
+#include <wave/processing/Processor.h>
+#include <wave/analysis/SamplesAnalyzer.h>
 #include "wave/analysis/Property.h"
-
-#include "recognition/ProcessAndAnalyze.h"
-
 
 /*PROPERTY*/
 #include "wave/analysis/AmplitudeProperty.h"
@@ -34,13 +33,14 @@
 
 
 
-void init_ProcessAndAnalize(ProcessAndAnalyze &monstru) {
+void init_ProcessAndAnalize(SamplesAnalyzer
+                            &monstru) {
 
 
     Processor * firstProcessor = new Processor();
         firstProcessor->addToFilterChain(new NormalizingFilter(1.0));
         firstProcessor->addToFilterChain(new SilenceCuttingFilter(0.2));
-        SamplesAnalizator * firstAnalizator = new SamplesAnalizator();
+        SamplesAnalyzer * firstAnalizator = new SamplesAnalyzer();
         int step = 10;
         for (int i = 0; i < 100; i += step) {
             firstAnalizator->addProperty(new AmplitudeProperty(i, i + step));
@@ -51,7 +51,7 @@ void init_ProcessAndAnalize(ProcessAndAnalyze &monstru) {
         firstAnalizator->addProperty(new LengthProperty());
         firstAnalizator->addProperty(new WhereIsAmplitudeProperty());
         firstAnalizator->addProperty(new MfccProperty());
-        monstru.add(std::make_pair(firstProcessor, firstAnalizator));
+//        monstru.add(std::make_pair(firstProcessor, firstAnalizator));
 
 
 }

@@ -5,25 +5,25 @@
  *      Author: mj
  */
 
-#include "SamplesAnalizator.h"
+#include "SamplesAnalyzer.h"
 
 
-SamplesAnalizator::SamplesAnalizator() {
+SamplesAnalyzer::SamplesAnalyzer() {
 
 }
 
-SamplesAnalizator::~SamplesAnalizator() {
+SamplesAnalyzer::~SamplesAnalyzer() {
 }
 
 
-void SamplesAnalizator::addProperty(Property& property) {
+void SamplesAnalyzer::addProperty(Property& property) {
 	properties.push_back(&property);
 }
-void SamplesAnalizator::addProperty(Property* property) {
+void SamplesAnalyzer::addProperty(Property* property) {
 	properties.push_back(property);
 }
 
-jsonextend SamplesAnalizator::getPropertiesSummary(Samples& samples) {
+jsonextend SamplesAnalyzer::getPropertiesSummary(Samples& samples) {
     jsonextend result;
 
 	for (int i = 0; i < properties.size(); ++i) {

@@ -11,7 +11,7 @@ option(ATABOX_TEST "Build all tests." ON) # Makes boolean 'test' available.
 
 set(ROCKSDB_ROOT external/rocksdb_source)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -fopenmp")
 
 
 # If no explicit compiler override and clang++ exists, prefer clang.
@@ -35,7 +35,7 @@ set(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} lib/ external/aquila/lib)
 
 add_definitions(-DBOOST_LOG_DYN_LINK=yes)
 
-find_package(Boost REQUIRED COMPONENTS random chrono system thread locale regex filesystem program_options log )
+find_package(Boost REQUIRED COMPONENTS random chrono system thread locale regex filesystem program_options log serialization )
 if(Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIRS})
     set(ATABOX_LIBS "${Boost_LIBRARIES}")
@@ -53,12 +53,11 @@ if(ROCKSDB_FOUND)
 endif()
 
 
-set(ATABOX_LIBS "${ATABOX_LIBS}" ${ROCKSDB_LIBRARIES} Aquila cpprest)
+set(ATABOX_LIBS "${ATABOX_LIBS}" ${ROCKSDB_LIBRARIES} Aquila cpprest shark)
 IF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     # set(ATABOX_LIBS ${ATABOX_LIBS} boost_log-mt boost_thread-mt)
 endif()
 
-set(ATABOX_LIBS ${ATABOX_LIBS} shark)
 set(ATABOX_INC ${ATABOX_INC}
     src/
     external/aquila/aquila
@@ -82,8 +81,8 @@ set(ATABOX_SOURCES
         src/recognition/network/Batch.h
         src/recognition/network/DeepBeliefNet.h
         src/recognition/network/LRBM.h
-        src/recognition/ProcessAndAnalyze.cpp
-        src/recognition/ProcessAndAnalyze.h
+        src/recognition/FeatureExtractor.cpp
+        src/recognition/FeatureExtractor.h
         src/recognition/PropertiesComparator.cpp
         src/recognition/PropertiesComparator.h
         src/utils/atabox_log.cpp
@@ -102,8 +101,8 @@ set(ATABOX_SOURCES
         src/wave/analysis/PercentageAboveProperty.h
         src/wave/analysis/Property.h
         src/wave/analysis/PropertyWithRange.h
-        src/wave/analysis/SamplesAnalizator.cpp
-        src/wave/analysis/SamplesAnalizator.h
+        src/wave/analysis/SamplesAnalyzer.cpp
+        src/wave/analysis/SamplesAnalyzer.h
         src/wave/analysis/SpectrumProperty.h
         src/wave/analysis/WhereIsAmplitudeProperty.h
         src/wave/analysis/ZeroCrossingsProperty.h
@@ -122,7 +121,7 @@ set(ATABOX_SOURCES
         src/wave/WaveUtils.h
         src/recognition/network/RBM.h
         src/recognition/network/RBM.cpp
-        )
+        src/recognition/RecognitionProcessor.cpp src/recognition/RecognitionProcessor.h src/recognition/network/DBN.cpp src/recognition/network/DBN.h)
 # main atabox library
 add_library(atabox STATIC ${ATABOX_SOURCES})
 

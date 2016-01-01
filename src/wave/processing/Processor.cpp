@@ -6,7 +6,6 @@
  */
 
 #include "wave/processing/Processor.h"
-#include "wave/analysis/SamplesAnalizator.h"
 
 Processor::Processor() {
 

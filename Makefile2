@@ -864,29 +864,29 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/atabox_server.dir/build.make CMakeFiles/atabox_server.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
-src/recognition/ProcessAndAnalyze.o: src/recognition/ProcessAndAnalyze.cpp.o
-.PHONY : src/recognition/ProcessAndAnalyze.o
+src/recognition/Analyzator.o: src/recognition/Analyzator.cpp.o
+.PHONY : src/recognition/Analyzator.o
 
 # target to build an object file
-src/recognition/ProcessAndAnalyze.cpp.o:
-	$(MAKE) -f CMakeFiles/atabox_server.dir/build.make CMakeFiles/atabox_server.dir/src/recognition/ProcessAndAnalyze.cpp.o
-.PHONY : src/recognition/ProcessAndAnalyze.cpp.o
+src/recognition/Analyzator.cpp.o:
+	$(MAKE) -f CMakeFiles/atabox_server.dir/build.make CMakeFiles/atabox_server.dir/src/recognition/Analyzator.cpp.o
+.PHONY : src/recognition/Analyzator.cpp.o
 
-src/recognition/ProcessAndAnalyze.i: src/recognition/ProcessAndAnalyze.cpp.i
-.PHONY : src/recognition/ProcessAndAnalyze.i
+src/recognition/Analyzator.i: src/recognition/Analyzator.cpp.i
+.PHONY : src/recognition/Analyzator.i
 
 # target to preprocess a source file
-src/recognition/ProcessAndAnalyze.cpp.i:
-	$(MAKE) -f CMakeFiles/atabox_server.dir/build.make CMakeFiles/atabox_server.dir/src/recognition/ProcessAndAnalyze.cpp.i
-.PHONY : src/recognition/ProcessAndAnalyze.cpp.i
+src/recognition/Analyzator.cpp.i:
+	$(MAKE) -f CMakeFiles/atabox_server.dir/build.make CMakeFiles/atabox_server.dir/src/recognition/Analyzator.cpp.i
+.PHONY : src/recognition/Analyzator.cpp.i
 
-src/recognition/ProcessAndAnalyze.s: src/recognition/ProcessAndAnalyze.cpp.s
-.PHONY : src/recognition/ProcessAndAnalyze.s
+src/recognition/Analyzator.s: src/recognition/Analyzator.cpp.s
+.PHONY : src/recognition/Analyzator.s
 
 # target to generate assembly for a file
-src/recognition/ProcessAndAnalyze.cpp.s:
-	$(MAKE) -f CMakeFiles/atabox_server.dir/build.make CMakeFiles/atabox_server.dir/src/recognition/ProcessAndAnalyze.cpp.s
-.PHONY : src/recognition/ProcessAndAnalyze.cpp.s
+src/recognition/Analyzator.cpp.s:
+	$(MAKE) -f CMakeFiles/atabox_server.dir/build.make CMakeFiles/atabox_server.dir/src/recognition/Analyzator.cpp.s
+.PHONY : src/recognition/Analyzator.cpp.s
 
 src/recognition/PropertiesComparator.o: src/recognition/PropertiesComparator.cpp.o
 .PHONY : src/recognition/PropertiesComparator.o
@@ -1151,9 +1151,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/recognition/ProcessAndAnalyze.o"
-	@echo "... src/recognition/ProcessAndAnalyze.i"
-	@echo "... src/recognition/ProcessAndAnalyze.s"
+	@echo "... src/recognition/Analyzator.o"
+	@echo "... src/recognition/Analyzator.i"
+	@echo "... src/recognition/Analyzator.s"
 	@echo "... src/recognition/PropertiesComparator.o"
 	@echo "... src/recognition/PropertiesComparator.i"
 	@echo "... src/recognition/PropertiesComparator.s"

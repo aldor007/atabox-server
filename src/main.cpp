@@ -61,7 +61,7 @@ std::map<std::string, policy_fun> g_policies;
 
 extern atabox_log::logger g_log;
 
-ProcessAndAnalyze g_processAndAnlyze;
+SamplesAnalyzer g_processAndAnlyze;
 
 void handle_add(web::http::http_request& request) {
 
@@ -100,7 +100,7 @@ void handle_add(web::http::http_request& request) {
         WaveFile wave(waveData, content_lenght);
         delete[] waveData;
         Samples waveSamples(wave);
-        jsonextend wavepropertiesJSON = g_processAndAnlyze.getSummary(waveSamples);
+        jsonextend wavepropertiesJSON;// = g_processAndAnlyze.getSummary(waveSamples);
         wavepropertiesJSON["name"] =  web::json::value::string(surnameName);
 
         try {
@@ -147,7 +147,7 @@ void handle_execute(web::http::http_request& request) {
     WaveFile wave(waveData, content_lenght);
     delete[] waveData;
     Samples waveSamples(wave);
-    jsonextend wavePropertiesJSON = g_processAndAnlyze.getSummary(waveSamples);
+    jsonextend wavePropertiesJSON;// = g_processAndAnlyze.getSummary(waveSamples);
 
     std::map<jsonextend, std::string> list;
     list = g_mainDB->getAllKV();
