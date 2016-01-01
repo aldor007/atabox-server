@@ -15,8 +15,7 @@
  }
 
 
-RBM::RBM(RBM::Config &config): m_rbm(shark::Rng::globalRng), m_cd(&m_rbm) {
-    m_config = config;
+RBM::RBM(RBM::Config &config): m_rbm(shark::Rng::globalRng), m_cd(&m_rbm), m_config(config) {
     m_rbm.setStructure(config.numberOfVisible, config.numberOfHidden);
     m_cd.setK(config.numberOfKSteps);
 

@@ -10,7 +10,7 @@
 
 class DBN {
 public:
-    DBN(size_t numberOfLayer);
+    DBN();
     void setRBMConfig(RBM::Config config);
     void pretrain();
 
@@ -18,6 +18,8 @@ public:
 private:
     std::vector<RBM> m_rbms;
     RBM::Config m_rbmConfig;
+
+    void createDBN();
 };
 
 #endif //ATABOX_SERVER_DBN_H
