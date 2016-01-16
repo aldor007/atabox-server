@@ -27,7 +27,7 @@ public:
         // optimizer properties
         double momentum = 0.5;
         double learningRate = 0.1;
-        // size of batch to lern
+        // size of batch to learn
         size_t batchSize = 32;
         uint16_t numberOfIteration = 1000;
         uint16_t numberOfTrails = 3;

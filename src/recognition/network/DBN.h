@@ -10,14 +10,13 @@
 
 class DBN {
 public:
-    DBN();
+    DBN(std::vector<RBM::Config> &config);
     void setRBMConfig(RBM::Config config);
-    void pretrain();
 
 
 private:
     std::vector<RBM> m_rbms;
-    RBM::Config m_rbmConfig;
+    std::vector<RBM::Config> m_rbmsConfig;
 
     void createDBN();
 };
