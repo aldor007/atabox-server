@@ -4,7 +4,7 @@
 
 #include "DBN.h"
 
-const RBM::Config DBN::DEFAULT_CONFIG;
+const RBM::Config DBN::DEFAULT_CONFIG = {};
 
 DBN::DBN(uint32_t numberOfInputs, std::valarray<size_t> hiddenSizes, uint32_t numberOfOutputs, const RBM::Config &config) : m_rbms(hiddenSizes.size() + 1) {
     RBM::Config firstConfig = config;
