@@ -9,7 +9,7 @@
 //used for training the RBM
 #include <shark/Unsupervised/RBM/GaussianBinaryRBM.h>
 #include <shark/Algorithms/GradientDescent/SteepestDescent.h>
-
+#undef U
 //for evaluation
 #include <utils/jsonextend.h>
 
@@ -39,6 +39,7 @@ public:
     RBM(const std::valarray<jsonextend> &data, size_t numHidden);
 
     void setData(const std::valarray<jsonextend> &data);
+    void setData(shark::Data<shark::RealVector> &data_);
 
     void setConfig(Config &config);
     void learn();
