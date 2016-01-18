@@ -7,7 +7,7 @@
 
 #include "PropertiesComparator.h"
 
-PropertiesComparator::PropertiesComparator() {
+PropertiesComparator::PropertiesComparator():m_dbn(500, {1000, 1000, 100}, 10) {
 
 }
 

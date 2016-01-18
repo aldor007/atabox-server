@@ -10,8 +10,8 @@
 
 #include "utils/jsonextend.h"
 
-
 #include <cmath>
+#include <recognition/network/DBN.h>
 
 class PropertiesComparator {
 public:
@@ -21,6 +21,7 @@ public:
 			jsonextend patternSample);
 private:
 	double relativeError(double newSample, double patternSample);
+	DBN m_dbn;
 };
 
 #endif /* PROPERTIESCOMPARATOR_H_ */

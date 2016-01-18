@@ -81,6 +81,11 @@ void RBM::setData(const std::valarray<jsonextend> &propertiesArr) {
     m_cd.setData(m_data);
 }
 
+void RBM::setData(shark::Data<shark::RealVector> &data_) {
+    m_data.append(data_);
+    m_cd.setBatchSize(m_config.batchSize);
+    m_cd.setData(m_data);
+}
 
 shark::RealVector RBM::getVisibleLayerParameters() {
     return m_rbm.visibleNeurons().parameterVector();
