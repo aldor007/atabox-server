@@ -11,8 +11,11 @@ option(ATABOX_TEST "Build all tests." ON) # Makes boolean 'test' available.
 
 set(ROCKSDB_ROOT external/rocksdb_source)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -fopenmp")
-
+IF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall")
+else()
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -fopenmp")
+endif()
 
 # If no explicit compiler override and clang++ exists, prefer clang.
 #[[
