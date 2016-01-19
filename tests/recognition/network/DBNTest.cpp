@@ -47,7 +47,7 @@ TEST_F(DBNTest, testFeauteExraction) {
 
     std::cout << "DBN result" << std::endl;
     for (auto it : result) {
-        std::cout << *it << std::endl;
+        std::cout << it << std::endl;
     }
 
 }
