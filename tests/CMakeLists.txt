@@ -31,10 +31,12 @@ set(ATABOX_TEST_SOURCE
     wave/WaveFileMock.h
     wave/WaveFileTest.cpp
     wave/WaveUtilsTest.cpp
-        recognition/network/RBMTest.cpp)
+        recognition/network/RBMTest.cpp
+        recognition/network/DBNTest.cpp
+        )
 
 set(ATABOX_TEST_SOURCE ${ATABOX_TEST_SOURCE}
-        RunAllTests.cpp recognition/network/DBNTest.cpp recognition/network/DBNTest.h)
+        RunAllTests.cpp)
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     set(ATABOX_INC ${ATABOX_INC} ../libs/gmock-1.7.0/include ../libs/gtest-1.7.0/include)
