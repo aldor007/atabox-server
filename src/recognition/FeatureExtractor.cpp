@@ -63,5 +63,14 @@ jsonextend FeatureExtractor::getSummary(Samples & samples) {
 }
 
 FeatureExtractor::~FeatureExtractor() {
+    for (int i = 0; i < m_list.size(); i++) {
+        if (m_list[i].first != nullptr)
+            delete m_list[i].first;
+            m_list[i].first = nullptr;
+        if (m_list[i].second != nullptr)
+            delete m_list[i].second;
+            m_list[i].second = nullptr;
+
+    }
 }
 

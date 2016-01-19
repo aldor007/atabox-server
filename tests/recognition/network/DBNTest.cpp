@@ -1,31 +1,25 @@
-/*
- * RVMTest.cpp
- *
- *  Created on: 04.10.2015
- *      Author: aldor
- */
-
-
-
+//
+// Created by aldor on 19.01.16.
+//
 #undef U
 #ifndef GTEST_H_
 #define GTEST_H_
 
-#include <recognition/network/RBM.h>
 #include <wave/WaveFile.h>
 #include <recognition/FeatureExtractor.h>
 
 #include <iostream>
+#include <recognition/network/DBN.h>
 
 #undef U
 #include "gtest/gtest.h"
 #endif
-class RBMTest: public ::testing::Test {
+
+class DBNTest: public ::testing::Test {
 
 };
-
-// check whether it throws some exception
-TEST_F(RBMTest, testFeauteExraction) {
+/*
+TEST_F(DBNTest, testFeauteExraction) {
 
     WaveFile waves[] = {
             WaveFile("./tests/wave/waveFiles/dziekuje32bit.wav"),
@@ -44,18 +38,14 @@ TEST_F(RBMTest, testFeauteExraction) {
         propArr[i] = extractor.getSummary(samples[i]);
     }
 
-    RBM rbm{propArr, 3};
-    rbm.setData(propArr);
-    rbm.learn();
-//    for (auto value:   rbm.getHiddenLaverParameters()) {
-//        std::cout<<value<<std::endl;
-//
-//    }
-    shark::RealVector result = rbm.getHiddenLaverParameters();
+    DBN dbn(500, {1000, 1000, 100}, 10);
 
-    /*ASSERT_NEAR(0.0707306, result[0], 0.001);
+    // read data from file pretrain network
+    dbn.init();
+    shark::RealVector result = dbn.getOutput();
+
+    ASSERT_NEAR(0.0707306, result[0], 0.001);
     ASSERT_NEAR(-0.0662722, result[1], 0.001);
     ASSERT_NEAR(-0.0891499, result[2], 0.001);
-*/
 }
-
+*/

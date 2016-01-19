@@ -38,7 +38,6 @@ class ProcessAndAnalyzeTest: public ::testing::Test {
 
 };
 
-
 TEST_F(ProcessAndAnalyzeTest, testcall) {
 
 	//given
@@ -58,7 +57,4 @@ TEST_F(ProcessAndAnalyzeTest, testcall) {
 	jsonextend result = monstru.getSummary(samples);
 
 	ASSERT_TRUE(result == empty);
-	delete pre;
-	delete analizator;
-
 }

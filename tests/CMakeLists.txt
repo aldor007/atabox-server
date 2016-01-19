@@ -34,7 +34,7 @@ set(ATABOX_TEST_SOURCE
         recognition/network/RBMTest.cpp)
 
 set(ATABOX_TEST_SOURCE ${ATABOX_TEST_SOURCE}
-    RunAllTests.cpp)
+        RunAllTests.cpp recognition/network/DBNTest.cpp recognition/network/DBNTest.h)
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     set(ATABOX_INC ${ATABOX_INC} ../libs/gmock-1.7.0/include ../libs/gtest-1.7.0/include)

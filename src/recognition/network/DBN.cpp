@@ -28,3 +28,11 @@ DBN::DBN(uint32_t numberOfInputs, std::valarray<size_t> hiddenSizes, uint32_t nu
 void DBN::setData(std::valarray<jsonextend>) {
 
 }
+
+shark::RealVector DBN::getOutput() {
+    return (*m_rbms.end())->getHiddenLaverParameters();
+}
+
+void DBN::init(std::string path) {
+    // TODO: read weight for rbms
+}
