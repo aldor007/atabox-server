@@ -40,6 +40,7 @@ public:
 
     void setData(const std::valarray<jsonextend> &data);
     void setData(shark::Data<shark::RealVector> &data_);
+    void setData(shark::Data<shark::RealVector> data_);
 
     void setConfig(Config &config);
     void learn();
