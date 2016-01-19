@@ -47,6 +47,7 @@ public:
 
     shark::RealVector getVisibleLayerParameters();
     shark::RealVector getHiddenLaverParameters();
+    shark::RealVector getParametersVector();
 private:
     void initializeWeights();
 

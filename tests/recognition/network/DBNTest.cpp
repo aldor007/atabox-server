@@ -38,7 +38,7 @@ TEST_F(DBNTest, testFeauteExraction) {
         propArr[i] = extractor.getSummary(samples[i]);
     }
 
-    DBN dbn(500, {1000, 1000, 100}, 10);
+    DBN dbn(50, {100, 100, 100}, 10);
 
     // read data from file pretrain network
     dbn.init();
@@ -47,7 +47,7 @@ TEST_F(DBNTest, testFeauteExraction) {
 
     std::cout << "DBN result" << std::endl;
     for (auto it : result) {
-        std::cout << it << std::endl;
+        std::cout << it  << std::endl;
     }
 
 }
