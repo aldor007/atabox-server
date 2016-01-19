@@ -13,6 +13,8 @@ class DBN {
 public:
     DBN(uint32_t numberOfInputs, std::valarray<size_t> hiddenSizes, uint32_t numberOfOutputs, const RBM::Config &config = DBN::DEFAULT_CONFIG);
     void setData(std::valarray<jsonextend>);
+    shark::RealVector getOutput();
+    void init(std::string path = "/tmp");
 
 private:
     std::vector<RBM*> m_rbms;

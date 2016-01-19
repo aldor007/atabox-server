@@ -10,6 +10,7 @@
 #include <string>
 #include <map>
 #include <iostream>
+#include <utils/ataboxexception.h>
 
 #include "BaseDataProvider.h"
 #include "rocksdb/db.h"
@@ -27,14 +28,15 @@ class RocksdbProvider: public BaseDataProvider<KeyClass, ValueClass> {
 
     protected:
         std::string databasename;
-        rocksdb::DB* db;
+        rocksdb::DB* db = nullptr;
         rocksdb::Options options;
 };
 #endif /* ROCKSDBPROVIDER_H_ */
 //TODO: http://stackoverflow.com/a/8752879
 template<class Key, class Value>
 RocksdbProvider<Key, Value>::~RocksdbProvider() {
-     delete db;
+    if (db != nullptr)
+         delete db;
 }
 
 template <class Key, class Value>
@@ -47,6 +49,7 @@ RocksdbProvider<Key, Value>::RocksdbProvider(std::string filename): databasename
     }
     else {
         this->connecionStatus = DBStatus::Error;
+        throw new ataboxException("Error openning conncetion to db");
     }
 
 }
