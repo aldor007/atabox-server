@@ -7,6 +7,7 @@
 
 #include "RBM.h"
 #include "wave/analysis/MfccProperty.h"
+#include "utils/atabox_log.h"
 
 
  std::ostream& operator<<(std::ostream& os, const RBM::Config& c) {
@@ -49,6 +50,9 @@ void RBM::setData(const std::valarray<jsonextend> &propertiesArr) {
     size_t properitesSize = propertiesArr[0].as_object().cend() - propertiesArr[0].as_object().cbegin();
     size_t featuresSize = propertiesArr[0].as_object().at(MfccProperty::NAME).as_array().size() + propertiesArr[0].as_object().size();
     std::vector<shark::RealVector> data(propertiesArr.size(), shark::RealVector(m_config.numberOfVisible));
+
+    LOG(debug) << "RBM feature size " << featuresSize;
+
     size_t i = 0, j = 0;
     for (auto properties: propertiesArr) {
         j = 0;
@@ -57,6 +61,11 @@ void RBM::setData(const std::valarray<jsonextend> &propertiesArr) {
         for (auto iter = properties.as_object().cbegin(); iter != properties.as_object().cend(); ++iter) {
             if (j == featuresSize - 1) {
                 break;
+            }
+
+            // input should have only numberOfVisible
+            if (j == m_config.numberOfVisible - 1) {
+               break;
             }
 
             if (iter->first == MfccProperty::NAME) {
@@ -70,7 +79,6 @@ void RBM::setData(const std::valarray<jsonextend> &propertiesArr) {
                     data[i](j++) = iter->second.as_double();
                 else if (iter->second.is_integer())
                     data[i](j++) = iter->second.as_integer();
-
             }
         }
 
@@ -87,8 +95,18 @@ void RBM::setData(shark::Data<shark::RealVector> &data_) {
     m_cd.setData(m_data);
 }
 
+void RBM::setData(shark::Data<shark::RealVector> data_) {
+    m_data.append(data_);
+    m_cd.setBatchSize(m_config.batchSize);
+    m_cd.setData(m_data);
+}
+
 shark::RealVector RBM::getVisibleLayerParameters() {
     return m_rbm.visibleNeurons().parameterVector();
+}
+
+shark::RealVector RBM::getParametersVector() {
+    return m_rbm.parameterVector();
 }
 
 shark::RealVector RBM::getHiddenLaverParameters() {

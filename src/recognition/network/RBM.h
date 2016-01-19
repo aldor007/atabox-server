@@ -40,12 +40,14 @@ public:
 
     void setData(const std::valarray<jsonextend> &data);
     void setData(shark::Data<shark::RealVector> &data_);
+    void setData(shark::Data<shark::RealVector> data_);
 
     void setConfig(Config &config);
     void learn();
 
     shark::RealVector getVisibleLayerParameters();
     shark::RealVector getHiddenLaverParameters();
+    shark::RealVector getParametersVector();
 private:
     void initializeWeights();
 
