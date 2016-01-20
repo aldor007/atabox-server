@@ -18,7 +18,7 @@
 class DBNTest: public ::testing::Test {
 
 };
-
+/*
 TEST_F(DBNTest, testFeauteExraction) {
 
     WaveFile waves[] = {
@@ -51,3 +51,4 @@ TEST_F(DBNTest, testFeauteExraction) {
     }
 
 }
+*/

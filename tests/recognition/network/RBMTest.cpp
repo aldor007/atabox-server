@@ -47,15 +47,16 @@ TEST_F(RBMTest, testFeauteExraction) {
     RBM rbm{propArr, 3};
     rbm.setData(propArr);
     rbm.learn();
+    rbm.store();
 //    for (auto value:   rbm.getHiddenLaverParameters()) {
 //        std::cout<<value<<std::endl;
 //
 //    }
-    shark::RealVector result = rbm.getParametersVector();
+    shark::RealVector result = rbm.getHiddenLaverParameters();
     // TODO: check tests
-    /*ASSERT_NEAR(0.0707306, result[0], 0.001);
+    ASSERT_NEAR(0.0707306, result[0], 0.001);
     ASSERT_NEAR(-0.0662722, result[1], 0.001);
     ASSERT_NEAR(-0.0891499, result[2], 0.001);
-*/
+
 }
 
