@@ -43,7 +43,7 @@ shark::RealVector DBN::find(jsonextend data) {
     size_t i = 1;
     size_t len;
     for (len = m_rbms.size() - 1; i < len; ++i) {
-        m_rbms[i]->setData(shark::Data<shark::RealVector>{1, m_rbms[i - 1]->getParametersVector()});
+        m_rbms[i]->setData(shark::Data<shark::RealVector>{1, m_rbms[i - 1]->getHiddenLaverParameters()});
         m_rbms[i]->learn();
     }
     return this->getOutput();
