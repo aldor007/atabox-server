@@ -38,23 +38,23 @@ public:
     RBM(Config &config);
     RBM(const std::valarray<jsonextend> &data, size_t numHidden);
 
-    void setData(const std::valarray<jsonextend> &data);
-    void setData(shark::Data<shark::RealVector> &data_);
-    void setData(shark::Data<shark::RealVector> data_);
-
     void setConfig(Config &config);
-    void learn();
+    RBM::Config getConfig();
+    void train(const std::valarray<jsonextend> &data);
+    void train(shark::UnlabeledData<shark::RealVector>);
 
     shark::RealVector getVisibleLayerParameters();
     shark::RealVector getHiddenLaverParameters();
     shark::RealVector getParametersVector();
+
 private:
     void initializeWeights();
+    void train();
+    void convertData(const std::valarray<jsonextend> &data);
 
     shark::GaussianBinaryRBM m_rbm;
     shark::GaussianBinaryPCD m_cd;
     shark::SteepestDescent m_optimizer;
-    shark::UnlabeledData<shark::RealVector> m_data;
     Config m_config;
 };
 
