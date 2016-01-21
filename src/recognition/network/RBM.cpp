@@ -89,7 +89,8 @@ shark::RealVector RBM::getHiddenLaverParameters() {
 void RBM::initializeWeights() {
     shark::RealVector weights(m_rbm.numberOfParameters());
     for(size_t i = 0; i != weights.size(); ++i) {
-        weights(i) = shark::Rng::uni(-0.1,0.1);
+        weights(i) = 0.1 * shark::Rng::gauss(m_config.numberOfVisible, m_config.numberOfHidden);
+//        weights(i) = shark::Rng::uni(-0.1, 0.1);
     }
     m_rbm.setParameterVector(weights);
 }

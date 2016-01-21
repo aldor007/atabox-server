@@ -36,7 +36,7 @@ public:
     ~RBM() { }
     RBM();
     RBM(Config &config);
-    RBM(const std::valarray<jsonextend> &data, size_t numHidden);
+    // RBM(const std::valarray<jsonextend> &data, size_t numHidden);
 
     void setConfig(Config &config);
     RBM::Config getConfig();

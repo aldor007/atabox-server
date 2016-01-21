@@ -41,9 +41,9 @@ void DBN::train(const std::valarray<jsonextend> &data) {
     m_rbms[0]->train(data);
     size_t i = 1;
     size_t len;
-    for (len = m_rbms.size() - 1; i < len; ++i) {
+    /*for (len = m_rbms.size() - 1; i < len; ++i) {
         m_rbms[i]->train(shark::UnlabeledData<shark::RealVector>{1, m_rbms[i - 1]->getHiddenLaverParameters(), m_rbms[i]->getConfig().batchSize});
-    }
+    }*/
 
 }
 
