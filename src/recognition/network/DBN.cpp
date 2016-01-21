@@ -2,6 +2,7 @@
 // Created by aldor on 20.12.15.
 //
 
+#include <utils/atabox_log.h>
 #include "DBN.h"
 
 const RBM::Config DBN::DEFAULT_CONFIG = {};
@@ -38,12 +39,24 @@ void DBN::init(std::string path) {
 }
 
 void DBN::train(const std::valarray<jsonextend> &data) {
-    m_rbms[0]->train(data);
     size_t i = 1;
     size_t len;
+    LOG(debug) << "Training " << i << " size " << len;
+    auto start = std::chrono::high_resolution_clock::now();
+    m_rbms[0]->train(data);
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<float> fs = end - start;
+    LOG(debug) << "Traning " << i << " tookes " << fs.count() << "s";
     for (len = m_rbms.size() - 1; i < len; ++i) {
+        LOG(debug) << "Training " << i << " size " << len;
+        auto start = std::chrono::high_resolution_clock::now();
         shark::RealVector input = m_rbms[i - 1]->getHiddenLaverParameters();
+        LOG(debug)<<"Size "<< input.size();
         m_rbms[i]->train(shark::UnlabeledData<shark::RealVector>{input.size(), input, m_rbms[i]->getConfig().batchSize});
+        auto end = std::chrono::high_resolution_clock::now();
+        std::chrono::duration<float> fs = end - start;
+        LOG(debug) << "Traning " << i << " tookes " << fs.count() << "s";
+
     }
 
 }
