@@ -28,7 +28,7 @@ public:
         double momentum = 0.5;
         double learningRate = 0.1;
         // size of batch to learn
-        size_t batchSize = 32;
+        size_t batchSize = 1;
         uint16_t numberOfIteration = 1000;
         uint16_t numberOfTrails = 3;
         friend std::ostream& operator<<(std::ostream& os, const Config& c);

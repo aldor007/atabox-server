@@ -37,16 +37,20 @@ TEST_F(DBNTest, testFeauteExraction) {
         samples[i] = Samples(waves[i]);
         propArr[i] = extractor.getSummary(samples[i]);
     }
+    RBM::Config config;
+    config.numberOfTrails = 1;
+    config.numberOfIteration = 10;
 
-    uint16_t  size = propArr[0].as_object().at(MfccProperty::NAME).size() + propArr[0].as_object().size();
-    DBN dbn(size, {100, 100, 100}, 10);
+    uint16_t input = propArr[0].as_object().at(MfccProperty::NAME).size() + propArr[0].as_object().size();
+    DBN dbn(input, {100, 100, 100}, 10, config);
 
     dbn.train(propArr);
-   /* shark::RealVector result = dbn.getOutput();
+
+    shark::RealVector result = dbn.getOutput();
 
     std::cout << "DBN result" << std::endl;
     for (auto it : result) {
         std::cout << it  << std::endl;
-    }*/
+    }
 
 }
