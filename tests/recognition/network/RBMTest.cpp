@@ -16,6 +16,7 @@
 #include <recognition/FeatureExtractor.h>
 
 #include <iostream>
+#include <wave/analysis/MfccProperty.h>
 
 #undef U
 #include "gtest/gtest.h"
@@ -44,19 +45,20 @@ TEST_F(RBMTest, testFeauteExraction) {
         propArr[i] = extractor.getSummary(samples[i]);
     }
 
-    RBM rbm{propArr, 3};
-    rbm.setData(propArr);
-    rbm.learn();
-    rbm.store();
-//    for (auto value:   rbm.getHiddenLaverParameters()) {
-//        std::cout<<value<<std::endl;
-//
-//    }
+    RBM::Config config;
+    config.numberOfHidden = 3;
+    config.numberOfVisible = propArr[0].as_object().at(MfccProperty::NAME).size() + propArr[0].as_object().size();
+    config.batchSize = 1;
+
+    RBM rbm{config};
+    rbm.train(propArr);
+
     shark::RealVector result = rbm.getHiddenLaverParameters();
     // TODO: check tests
-    ASSERT_NEAR(0.0707306, result[0], 0.001);
-    ASSERT_NEAR(-0.0662722, result[1], 0.001);
-    ASSERT_NEAR(-0.0891499, result[2], 0.001);
+    ASSERT_EQ(3, result.size());
+    ASSERT_NEAR(-0.12666124345209478, result[0], 0.001);
+    ASSERT_NEAR(0.10972186203454415, result[1], 0.001);
+    ASSERT_NEAR(-0.098557418239849343, result[2], 0.001);
 
 }
 

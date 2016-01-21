@@ -17,6 +17,7 @@ public:
     void init(std::string path = "/tmp");
     // find RealVector for given samples vector
     shark::RealVector find(jsonextend data);
+    void train(const std::valarray<jsonextend>& data);
 
 private:
     std::vector<RBM*> m_rbms;
