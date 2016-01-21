@@ -10,6 +10,7 @@
 
 #include <iostream>
 #include <recognition/network/DBN.h>
+#include <wave/analysis/MfccProperty.h>
 
 #undef U
 #include "gtest/gtest.h"
@@ -18,7 +19,6 @@
 class DBNTest: public ::testing::Test {
 
 };
-/*
 TEST_F(DBNTest, testFeauteExraction) {
 
     WaveFile waves[] = {
@@ -38,17 +38,15 @@ TEST_F(DBNTest, testFeauteExraction) {
         propArr[i] = extractor.getSummary(samples[i]);
     }
 
-    DBN dbn(50, {100, 100, 100}, 10);
+    uint16_t  size = propArr[0].as_object().at(MfccProperty::NAME).size() + propArr[0].as_object().size();
+    DBN dbn(size, {100, 100, 100}, 10);
 
-    // read data from file pretrain network
-    dbn.init();
-    dbn.find(propArr[0]);
-    shark::RealVector result = dbn.getOutput();
+    dbn.train(propArr);
+   /* shark::RealVector result = dbn.getOutput();
 
     std::cout << "DBN result" << std::endl;
     for (auto it : result) {
         std::cout << it  << std::endl;
-    }
+    }*/
 
 }
-*/

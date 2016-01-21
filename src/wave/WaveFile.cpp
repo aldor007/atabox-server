@@ -10,6 +10,8 @@
 #include <sstream>      // std::ostringstream
 
 #include <fstream>
+#include <utils/atabox_log.h>
+
 void WaveFile::readRIFFChunkDescriptor(FILE* file) {
 	fread(chunkID, 1, 4, file);
 	fread(&chunkSize, 1, 4, file);
@@ -184,11 +186,13 @@ void WaveFile::validateDataSubchunk() const{
 
 void WaveFile::validateFmtSubchunk() const{
 	if (numberOfChanels != 1) {
-		throw "Only mono files are supported";
+		LOG(fatal) << "Only mono files are supported";
+		// throw "Only mono files are supported";
 	}
 }
 void WaveFile::validateRIFFChunkDescriptor() const{
 	if (strncmp(chunkID, "RIFF", 4) != 0) {
+		LOG(fatal) << "This is not wave file";
 		throw "This is not WAVE file.";
 	}
 }
