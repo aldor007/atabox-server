@@ -42,7 +42,6 @@ void DBN::init(std::string path) {
 void DBN::train(const std::valarray<jsonextend> &data) {
     size_t i = 1;
     size_t len;
-    LOG(debug)<< "test "<<m_rbms.size();
     auto start = std::chrono::high_resolution_clock::now();
     m_rbms[0]->train(data);
     auto end = std::chrono::high_resolution_clock::now();
@@ -62,6 +61,16 @@ void DBN::train(const std::valarray<jsonextend> &data) {
 
 }
 
-shark::RealVector RBM::predict(const jsonextend& data) {
-    return shark::RealVector();
+shark::RealVector DBN::predict(const jsonextend& json) {
+    // normalizacja jsonextend a nie realvector w FeatureExtractor
+    shark::RealVector data = std::move(json.covertToRealVector());
+    shark::RealVector output, next;
+    m_rbms[0]->m_rbm.eval(data, next);
+    size_t len = m_rbms.size() - 1;
+    for (uint16_t i = 1; i < len; i++) {
+        m_rbms[i]->m_rbm.eval(next, output);
+        next = output;
+    }
+    // m_rbms[len]->m_rbm.eval(next, output);
+    return output;
 }

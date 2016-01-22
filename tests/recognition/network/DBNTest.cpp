@@ -46,7 +46,7 @@ TEST_F(DBNTest, testFeauteExraction) {
 
     dbn.train(propArr);
 
-    shark::RealVector result = dbn.getOutput();
+    shark::RealVector result = dbn.predict(propArr[0]);
 
     std::cout << "DBN result" << std::endl;
     for (auto it : result) {
