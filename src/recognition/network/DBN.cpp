@@ -62,6 +62,6 @@ void DBN::train(const std::valarray<jsonextend> &data) {
 
 }
 
-shark::RealVector DBN::find(jsonextend data) {
+shark::RealVector RBM::predict(const jsonextend& data) {
     return shark::RealVector();
 }

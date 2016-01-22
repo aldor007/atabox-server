@@ -12,9 +12,10 @@
 #undef U
 //for evaluation
 #include <utils/jsonextend.h>
+class DBN;
 
 class RBM {
-   // RBM
+    friend  class DBN;
 public:
     struct Config {
 
@@ -42,6 +43,7 @@ public:
     RBM::Config getConfig();
     void train(const std::valarray<jsonextend> &data);
     void train(shark::UnlabeledData<shark::RealVector>);
+    shark::RealVector predict(const jsonextend& data);
 
     shark::RealVector getVisibleLayerParameters();
     shark::RealVector getHiddenLaverParameters();
@@ -57,6 +59,5 @@ private:
     shark::SteepestDescent m_optimizer;
     Config m_config;
 };
-
 
 #endif //ATABOX_SERVER_RBM_H

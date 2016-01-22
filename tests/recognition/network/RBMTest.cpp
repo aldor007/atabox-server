@@ -26,7 +26,7 @@ class RBMTest: public ::testing::Test {
 };
 
 
-TEST_F(RBMTest, DISABLED_testFeauteExraction) {
+TEST_F(RBMTest, testFeauteExraction) {
 
     WaveFile waves[] = {
             WaveFile("./tests/wave/waveFiles/dziekuje32bit.wav"),
@@ -44,7 +44,7 @@ TEST_F(RBMTest, DISABLED_testFeauteExraction) {
 
     RBM::Config config;
     config.numberOfHidden = 3;
-    config.numberOfVisible = propArr[0].as_object().at(MfccProperty::NAME).size() + propArr[0].as_object().size();
+    config.numberOfVisible = propArr[0].as_object().at(MfccProperty::NAME).size() + propArr[0].as_object().size() - 1;
     config.batchSize = 1;
 
     RBM rbm{config};
@@ -64,7 +64,7 @@ TEST_F(RBMTest, DISABLED_testFeauteExraction) {
 
 }
 
-TEST_F(RBMTest, DISABLED_testFeauteExractionOther) {
+TEST_F(RBMTest, testFeauteExractionOther) {
 
     WaveFile waves[] = {
                          WaveFile("./tests/wave/waveFiles/testMK.wav"),
@@ -81,7 +81,7 @@ TEST_F(RBMTest, DISABLED_testFeauteExractionOther) {
 
     RBM::Config config;
     config.numberOfHidden = 3;
-    config.numberOfVisible = propArr[0].as_object().at(MfccProperty::NAME).size() + propArr[0].as_object().size();
+    config.numberOfVisible = propArr[0].as_object().at(MfccProperty::NAME).size() + propArr[0].as_object().size() - 1;
     config.batchSize = 1;
 
     RBM rbm{config};
@@ -90,8 +90,8 @@ TEST_F(RBMTest, DISABLED_testFeauteExractionOther) {
     shark::RealVector result = rbm.getHiddenLaverParameters();
     // TODO: check tests
     ASSERT_EQ(3, result.size());
-    ASSERT_NEAR(138.85, result[0], 1);
-    ASSERT_NEAR(138.58, result[1], 1);
-    ASSERT_NEAR(138.72, result[2], 1);
+    ASSERT_NEAR(238.33, result[0], 1);
+    ASSERT_NEAR(238.58, result[1], 1);
+    ASSERT_NEAR(238.72, result[2], 1);
 
 }

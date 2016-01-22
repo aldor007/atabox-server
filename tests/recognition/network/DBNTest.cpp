@@ -41,7 +41,7 @@ TEST_F(DBNTest, testFeauteExraction) {
     config.numberOfTrails = 1;
     config.numberOfIteration = 10;
 
-    uint16_t input = propArr[0].as_object().at(MfccProperty::NAME).size() + propArr[0].as_object().size();
+    uint16_t input = propArr[0].as_object().at(MfccProperty::NAME).size() + propArr[0].as_object().size() - 1;
     DBN dbn(input, {100, 100, 100}, 10, config);
 
     dbn.train(propArr);

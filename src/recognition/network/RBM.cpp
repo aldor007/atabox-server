@@ -31,45 +31,12 @@ void RBM::convertData(const std::valarray<jsonextend> &propertiesArr) {
     size_t featuresSize = propertiesArr[0].as_object().at(MfccProperty::NAME).as_array().size() + propertiesArr[0].as_object().size();
     std::vector<shark::RealVector> data(propertiesArr.size(), shark::RealVector(m_config.numberOfVisible));
 
-    m_config.numberOfVisible = propertiesArr[0].as_object().at(MfccProperty::NAME).as_array().size() + propertiesArr[0].as_object().size();
-    m_rbm.setStructure(m_config.numberOfVisible, m_config.numberOfHidden);
-    m_config.batchSize = 1;
-
     LOG(debug) << "RBM feature size " << featuresSize;
     LOG(debug) << " Config " << m_config;
 
-    size_t i = 0, j = 0;
     for (auto properties: propertiesArr) {
-        j = 0;
-        const auto mfccArr = properties.as_object().at(MfccProperty::NAME).as_array();
-
-        for (auto iter = properties.as_object().cbegin(); iter != properties.as_object().cend(); ++iter) {
-            if (j == featuresSize - 1) {
-                break;
-            }
-
-            // input should have only numberOfVisible
-            if (j == m_config.numberOfVisible - 1) {
-               break;
-            }
-
-            if (iter->first == MfccProperty::NAME) {
-                data[i].resize(iter->second.as_array().size() + properitesSize);
-                for (auto mfcc: iter->second.as_array()) {
-                    data[i](j++) = mfcc.as_double();
-                }
-
-            } else  {
-                if (iter->second.is_double())
-                    data[i](j++) = iter->second.as_double();
-                else if (iter->second.is_integer())
-                    data[i](j++) = iter->second.as_integer();
-            }
-        }
-
-        i++;
+        data.push_back(properties.covertToRealVector());
     }
-
     shark::UnlabeledData<shark::RealVector> unlabeledData = shark::createDataFromRange(data, m_config.batchSize);
     m_cd.setData(std::move(unlabeledData));
 }
@@ -115,6 +82,7 @@ void RBM::train() {
         }
     }
 }
+
 
 void RBM::setConfig(RBM::Config &config) {
     m_config = config;
