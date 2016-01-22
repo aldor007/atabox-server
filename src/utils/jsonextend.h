@@ -7,6 +7,8 @@
 
 #ifndef JSONEXTEND_H_
 #define JSONEXTEND_H_
+
+#include <shark/LinAlg/Base.h>
 #include "cpprest/json.h"
 
 
@@ -68,8 +70,37 @@ public:
 
         	return first;
         }
+
+		shark::RealVector covertToRealVector() const {
+
+            size_t size = this->as_object().size() + this->as_object().at("mfcc").size() - 1;
+            shark::RealVector data{size};
+            const auto mfccArr = this->as_object().at("mfcc").as_array();
+            size_t i = 0;
+            for (auto iter = this->as_object().cbegin(); iter != this->as_object().cend(); ++iter) {
+
+                if (iter->first == "mfcc") {
+                    for (auto mfcc: iter->second.as_array()) {
+                        data[i] = mfcc.as_double();
+                    }
+
+                } else  {
+                    if (iter->second.is_double())
+                        data[i] = iter->second.as_double();
+                    else if (iter->second.is_integer())
+                        data[i] = iter->second.as_integer();
+                }
+                i++;
+            }
+
+            return data;
+
+        }
+
+        operator shark::RealVector() const {
+            return this->covertToRealVector();
+        }
+
 };
-
-
 
 #endif /* JSONEXTEND_H_ */

@@ -16,7 +16,7 @@ public:
     shark::RealVector getOutput();
     void init(std::string path = "/tmp");
     // find RealVector for given samples vector
-    shark::RealVector find(jsonextend data);
+    shark::RealVector predict(const jsonextend &data);
     void train(const std::valarray<jsonextend>& data);
 
 private:

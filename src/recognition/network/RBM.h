@@ -12,9 +12,10 @@
 #undef U
 //for evaluation
 #include <utils/jsonextend.h>
+class DBN;
 
 class RBM {
-   // RBM
+    friend  class DBN;
 public:
     struct Config {
 
@@ -28,7 +29,7 @@ public:
         double momentum = 0.5;
         double learningRate = 0.1;
         // size of batch to learn
-        size_t batchSize = 32;
+        size_t batchSize = 1;
         uint16_t numberOfIteration = 1000;
         uint16_t numberOfTrails = 3;
         friend std::ostream& operator<<(std::ostream& os, const Config& c);
@@ -42,6 +43,7 @@ public:
     RBM::Config getConfig();
     void train(const std::valarray<jsonextend> &data);
     void train(shark::UnlabeledData<shark::RealVector>);
+    shark::RealVector predict(const jsonextend& data);
 
     shark::RealVector getVisibleLayerParameters();
     shark::RealVector getHiddenLaverParameters();
@@ -57,6 +59,5 @@ private:
     shark::SteepestDescent m_optimizer;
     Config m_config;
 };
-
 
 #endif //ATABOX_SERVER_RBM_H
