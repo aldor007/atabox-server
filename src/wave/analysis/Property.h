@@ -32,6 +32,7 @@ public:
 		return value;
 	}
 
+
 protected:
 	double m_weight;
 };

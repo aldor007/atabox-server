@@ -1,0 +1,2 @@
+python command_line/run_dbn.py --dataset custom--main_dir dbn-models --model_name speakerdeeper-dbn  --verbose 1 --rbm_layers 512,256 --rbm_learning_rate 0.005 --rbm_num_epochs 15 --rbm_batch_size 25 --finetune_batch_size 25 --finetune_learning_rate 0.001 --finetune_num_epochs 10 --finetune_loss_func softmax_cross_entropy --finetune_dropout 0.7 --finetune_act_func sigmoid  --rbm_gauss_visible --train_dataset audio.npy 
+

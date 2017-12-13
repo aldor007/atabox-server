@@ -6,6 +6,9 @@
  */
 
 #include <wave/Samples.h>
+#include "utils/functions.h"
+
+
 #undef U
 #include "gtest/gtest.h"
 #include "gmock/gmock.h"
@@ -101,3 +104,18 @@ TEST_F(SamplesTest, canHandleWaveFile32bitsReadedFromMemory) {
     ASSERT_GE(test.getSample(subchunk2size/4 - 1), -1.0);
 
 }
+
+TEST_F(SamplesTest, DISABLED_drawing) {
+	WaveFile wave{"./tests/wave/waveFiles/440Hz200ms.wav"};
+	Samples sample{wave};
+	drawSpectogram(sample, "./440hz-spec.jpg");
+	sample.draw("./440hz.jpg");
+}
+
+TEST_F(SamplesTest, DISABLED_drawingProsze) {
+	WaveFile wave{"./tests/wave/waveFiles/prosze32bit.wav"};
+	Samples sample{wave};
+	sample.draw("./prosze.jpg");
+	drawSpectogram(sample, "./prosze-spec.jpg");
+}
+

@@ -10,3 +10,5 @@ cp aquila/lib/* ../libs/
 cp casablanca/Release/Binaries/* ../libs
 
 cp shark/lib/* ../libs
+
+cp cnpy/libcnpy* ../libs

@@ -179,3 +179,17 @@ TEST_F(SilenceCuttingFilterTest, doesNotRemovesSilenceFromMiddle) {
 	ASSERT_DOUBLE_EQ(samples.getSample(3), 0.130);
 }
 
+TEST_F(SilenceCuttingFilterTest, testRemoveSilence) {
+	WaveFile wave{"./tests/wave/waveFiles/prosze32bit.wav"};
+
+	Samples sample{wave};
+	sample.draw("./tests/silen-befor.png");
+	SilenceCuttingFilter filter(0.05);
+	Processor preprocessor;
+	preprocessor.addToFilterChain(filter);
+
+	//when
+	preprocessor.applyFilterChainOn(sample);
+	sample.draw("./tests/silen-after.png");
+}
+

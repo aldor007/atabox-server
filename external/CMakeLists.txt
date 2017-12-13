@@ -1,4 +1,6 @@
 cmake_minimum_required (VERSION 3.0)
+
+# include(../CMake/FindOpenMP.cmake)
 # aquila
 set(Aquila_BUILD_EXAMPLES OFF)
 set(Aquila_BUILD_TESTS OFF)
@@ -14,8 +16,15 @@ add_subdirectory(casablanca/Release)
 set(BUILD_EXAMPLES OFF)
 set(ENABLE_ACCELERATE OFF)
 set(ENABLE_ATLAS OFF)
-set(ENABLE_OPENMP OFF)
+
+# FindOpenMP()
+# if(OPENMP_FOUND)
+#    set(ENABLE_OPENMP OFF)
+# endif()
+set(ENABLE_OPENMP ON)
 set(SHARK_USE_OPENMP OFF)
 set(BUILD_TESTING OFF)
 #include(shark/UseShark.cmake)
 add_subdirectory(shark)
+
+add_subdirectory(cnpy)

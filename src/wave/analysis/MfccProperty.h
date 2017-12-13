@@ -8,37 +8,84 @@
 #include <transform/Mfcc.h>
 #include <transform/FftFactory.h>
 #include <source/FramesCollection.h>
+#include <utils/atabox_log.h>
 
 #include "Property.h"
 #include "utils/ataboxexception.h"
+#include "ArrayProperty.h"
 
-class MfccProperty: public Property
-{
+class MfccProperty: public ArrayProperty {
 
 public:
     virtual jsonextend getJSON(const Samples& samples) {
 
-        uint16_t samplesInFrame = std::ceil(FRAME_DURATION * samples.getSampleFrequency());
-        if (samplesInFrame < 1000) {
-            samplesInFrame = 1000;
-        }
-
+        uint16_t samplesInFrame = static_cast<uint16_t>(std::ceil(samples.getNumberOfSamples() / MfccProperty::MAX_FRAME));
         Aquila::FramesCollection frames = Aquila::FramesCollection(samples, samplesInFrame);
 
         Aquila::Mfcc mfcc(samplesInFrame, Aquila::FftFactory::Method::KISS);
 
+        size_t numFeatures = std::round(MFCC_SIZE / frames.count());
+
         web::json::value val;
         uint16_t counter = 0;
         for (auto it = frames.begin(); it != frames.end(); ++it) {
-            std::vector<Aquila::SampleType> mfccValues = mfcc.calculate(*it, MfccProperty::SIZE);
+            std::vector<Aquila::SampleType> mfccValues = mfcc.calculate(*it, numFeatures);
 
-            for (int i = 0, len = mfccValues.size(); i < len; ++i) {
+            for (size_t i = 0, len = mfccValues.size(); i < len; ++i) {
                 val[counter++] = mfccValues[i];
             }
         }
         jsonextend value;
         value[getName()] = val;
         return value;
+    }
+
+    virtual shark::RealVector getRealVector(const Samples& samples) {
+
+        uint16_t samplesInFrame = static_cast<uint16_t>(std::ceil(samples.getNumberOfSamples() / MfccProperty::MAX_FRAME));
+        Aquila::FramesCollection frames = Aquila::FramesCollection(samples, samplesInFrame);
+
+        Aquila::Mfcc mfcc(samplesInFrame, Aquila::FftFactory::Method::KISS);
+
+        size_t numFeatures = std::round(MFCC_SIZE / frames.count());
+
+        shark::RealVector result;
+        uint16_t counter = 0;
+        for (auto it = frames.begin(); it != frames.end(); ++it) {
+            std::vector<Aquila::SampleType> mfccValues = mfcc.calculate(*it, numFeatures);
+
+            for (size_t i = 0, len = mfccValues.size(); i < len; ++i) {
+                result.push_back(mfccValues[i]);
+            }
+        }
+        return result;
+    }
+
+    virtual std::vector<double> getVector(const Samples& samples) {
+
+
+        uint16_t samplesInFrame = static_cast<uint16_t>(std::ceil(samples.getNumberOfSamples() / MfccProperty::MAX_FRAME));
+        Aquila::FramesCollection frames = Aquila::FramesCollection(samples, samplesInFrame);
+
+        Aquila::Mfcc mfcc(samplesInFrame, Aquila::FftFactory::Method::KISS);
+
+        if (frames.count() == 0) {
+            LOG(error) << "corupted data!";
+            return std::vector<double>(0);
+        }
+
+        size_t numFeatures = std::round(MFCC_SIZE / frames.count());
+
+        std::vector<double> result;
+        uint16_t counter = 0;
+        for (auto it = frames.begin(); it != frames.end(); ++it) {
+            std::vector<Aquila::SampleType> mfccValues = mfcc.calculate(*it, /*numFeatures*/12);
+
+            for (size_t i = 0, len = mfccValues.size(); i < len; ++i) {
+                result.push_back(std::abs(mfccValues[i]));
+            }
+        }
+        return result;
     }
 
     virtual std::string getName() {
@@ -49,14 +96,12 @@ public:
         throw ataboxException("Unsupported method!");
     }
 
-    // duration of frame in s
-    static const double FRAME_DURATION;
     // property name
     static const char * NAME;
-    // mfcc features size for one frame
-    static const size_t SIZE = 12;
     // MAX frames
-    static const size_t MAX_FRAME = 2000;
+    static const uint16_t MAX_FRAME = 9000;
+
+    static const size_t MFCC_SIZE = 1000;
 };
 
 

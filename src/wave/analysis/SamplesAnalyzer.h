@@ -8,6 +8,8 @@
 #ifndef WAVEFILEANALIZATOR_H_
 #define WAVEFILEANALIZATOR_H_
 #include "../Samples.h"
+#include "ArrayProperty.h"
+#include "MfccProperty.h"
 #include <cmath>
 #include "Property.h"
 
@@ -19,6 +21,7 @@
 
 
 class SamplesAnalyzer {
+	std::vector<ArrayProperty*> arrayProperties_;
 public:
 	SamplesAnalyzer();
 	virtual ~SamplesAnalyzer();
@@ -27,7 +30,10 @@ public:
 	void addProperty(Property & property);
 	//virtual
 	void addProperty(Property * property);
+	void addArrayProperty(ArrayProperty * property);
 	virtual jsonextend getPropertiesSummary(Samples & samples);
+	virtual shark::RealVector getProperties(Samples & samples);
+	virtual std::vector<double> getPropertiesVector(Samples & samples);
 };
 
 #endif /* WAVEFILEANALIZATOR_H_ */

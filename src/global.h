@@ -1,13 +1,21 @@
 //
 // Created by aldor on 08.11.15.
 //
-#include "aquila/global.h"
 
 #ifndef ATABOX_SERVER_GLOBAL_H
 #define ATABOX_SERVER_GLOBAL_H
 
+#include "aquila/global.h"
+
 // turn of U in cpprest
 #define _TURN_OFF_PLATFORM_STRING 1
+
+#define cimg_display 0
+#define cimg_use_jpeg 1
+#define cimg_use_png 1
+#undef U
+
+#include "CImg.h"
 
 namespace atabox {
     /**

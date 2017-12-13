@@ -13,7 +13,7 @@
 class execution_policyTest: public ::testing::Test {
 
 };
-
+/*
 
 TEST_F(execution_policyTest, strictFound) {
 	std::map<jsonextend, std::string> testMap;
@@ -60,3 +60,4 @@ TEST_F(execution_policyTest, nonstrictFound) {
 	std::string result = execution_policy_nonstrict(testMap, given);
 	ASSERT_EQ(result, testMap[prop1]);
 }
+*/

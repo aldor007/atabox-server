@@ -34,12 +34,18 @@ public:
 			}
 		}
 
+		size_t numberOfSamples = samples.getNumberOfSamples();
 		int numberOfFramesToDelete = (lastBadFromBeginning+1) + (samples.getNumberOfSamples()-1-lastGoodFromMiddle);
-		uint32_t sizeOfNewArray = samples.getNumberOfSamples()
+		uint32_t sizeOfNewArray = numberOfSamples
 				- numberOfFramesToDelete;
 		double * framesWithoutSilence = new double[sizeOfNewArray];
 		for (uint32_t i = 0; i < sizeOfNewArray; ++i) {
-			framesWithoutSilence[i] = samples.getSample(lastBadFromBeginning+1+i);
+			uint32_t w = lastBadFromBeginning + 1 + i;
+			if (w < numberOfSamples) {
+				framesWithoutSilence[i] = samples.getSample(lastBadFromBeginning+1+i);
+			} else {
+				framesWithoutSilence[i] = 0;
+			}
 		}
 
 		samples.setSamplesData(framesWithoutSilence, sizeOfNewArray, samples.getSampleFrequency());

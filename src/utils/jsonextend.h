@@ -36,6 +36,35 @@ public:
 		jsonextend(std::string instring):
 			web::json::value(web::json::value::parse(instring.c_str())) {
 		}
+
+        jsonextend(std::vector<std::vector<double>> data) {
+            size_t i = 0;
+            for (auto &d : data) {
+				auto arr = web::json::value();
+
+				size_t j = 0;
+				for (auto &x: d) {
+					arr[j++] = web::json::value::number(x);
+				}
+				this->operator[](i++) = arr;
+            }
+        }
+
+        jsonextend(std::vector<double> data) {
+            size_t i = 0;
+            for (auto &d : data) {
+                this->operator[](i++) = web::json::value::number(d);
+            }
+        }
+
+
+		template <class T>
+	    jsonextend(std::vector<T> data) {
+			size_t i = 0;
+			for (auto &d : data) {
+				this->operator[](i++) = web::json::value(d);
+			}
+		}
 		/*jsonextend(std::string& instring):
 			web::json::value(web::json::value::parse(instring.c_str())) {
 		}*/
@@ -71,7 +100,7 @@ public:
         	return first;
         }
 
-		shark::RealVector covertToRealVector() const {
+		shark::RealVector toRealVector() const {
 
             size_t size = this->as_object().size() + this->as_object().at("mfcc").size() - 1;
             shark::RealVector data{size};
@@ -80,7 +109,7 @@ public:
             for (auto iter = this->as_object().cbegin(); iter != this->as_object().cend(); ++iter) {
 
                 if (iter->first == "mfcc") {
-                    for (auto mfcc: iter->second.as_array()) {
+                    for (auto mfcc: mfccArr) {
                         data[i] = mfcc.as_double();
                     }
 
@@ -97,10 +126,68 @@ public:
 
         }
 
-        operator shark::RealVector() const {
-            return this->covertToRealVector();
+	    std::vector<double> toVector() const {
+			std::vector<double> result;
+			if (!this->is_array()) {
+				return result;
+			}
+
+			auto arr = this->as_array();
+			result.reserve(arr.size());
+
+			for (auto &v: arr) {
+				if (v.is_integer()) {
+					result.push_back(v.as_integer());
+				} else if (v.is_double()) {
+					result.push_back(v.as_double());
+				}
+			}
+
+			return result;
+		};
+
+        void saveToFile(std::string path) {
+            std::ofstream out(path);
+            out << this->serialize();
+            out.close();
         }
 
+        operator shark::RealVector() const {
+            return this->toRealVector();
+        }
+
+		operator std::vector<double>() const {
+			return this->toVector();
+		}
+
+
+		operator std::vector<std::vector<double>>() const {
+				std::vector<std::vector<double>> result;
+				if (!this->is_array()) {
+					return result;
+				}
+
+				auto arr = this->as_array();
+				result.reserve(arr.size());
+
+				for (auto &v: arr) {
+					if (v.is_array()) {
+						auto inArr = v.as_array();
+						std::vector<double> tmp;
+						for (auto &x: inArr) {
+							if (x.is_double()) {
+								tmp.push_back(x.as_double());
+							} else if (x.is_integer()) {
+								tmp.push_back(x.as_integer());
+							}
+						}
+						result.push_back(tmp);
+					}
+				}
+
+				return result;
+
+		};
 };
 
 #endif /* JSONEXTEND_H_ */

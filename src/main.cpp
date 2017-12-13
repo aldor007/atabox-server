@@ -29,12 +29,11 @@
 
 // Supporting headers
 #include <boost/log/support/exception.hpp>
-
 #include <pplx/threadpool.h>
-
 #include "cpprest/containerstream.h"
 #include "cpprest/rawptrstream.h"
 
+#include "global.h"
 #include "utils/atabox_log.h"
 #include "dataproviders/BaseDataProvider.h"
 #include "dataproviders/RocksdbProvider.h"

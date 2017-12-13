@@ -16,3 +16,12 @@
 [submodule "external/shark"]
 	path = external/shark
 	url = https://github.com/Aldor007/Shark.git
+[submodule "external/CImg"]
+	path = external/CImg
+	url = https://github.com/dtschump/CImg
+[submodule "external/essentia"]
+	path = external/essentia
+	url = https://github.com/Aldor007/essentia
+[submodule "external/cnpy"]
+	path = external/cnpy
+	url = https://github.com/rogersce/cnpy

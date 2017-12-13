@@ -5,6 +5,7 @@
  *      Author: aldor
  */
 
+#include <wave/analysis/LpccProperty.h>
 #include "FeatureExtractor.h"
 
 
@@ -31,18 +32,19 @@ FeatureExtractor::FeatureExtractor() {
 void FeatureExtractor::init() {
     Processor * firstProcessor = new Processor();
     firstProcessor->addToFilterChain(new NormalizingFilter(1.0));
-    firstProcessor->addToFilterChain(new SilenceCuttingFilter(0.2));
+    firstProcessor->addToFilterChain(new SilenceCuttingFilter(0.0000005));
     SamplesAnalyzer * firstAnalizator = new SamplesAnalyzer();
+    firstAnalizator->addArrayProperty(new MfccProperty());
+    firstAnalizator->addArrayProperty(new LpccProperty());
     int step = 10;
-    for (int i = 0; i < 100; i += step) {
-        firstAnalizator->addProperty(new AmplitudeProperty(i, i + step));
-        firstAnalizator->addProperty(new PercentageAboveProperty(0.01 * i));
-        firstAnalizator->addProperty(new ZeroCrossingsProperty(i, i + step));
-        firstAnalizator->addProperty(new AverageValueProperty(i, i + step));
-    }
-    firstAnalizator->addProperty(new LengthProperty());
-    firstAnalizator->addProperty(new WhereIsAmplitudeProperty());
-    firstAnalizator->addProperty(new MfccProperty());
+//    for (int i = 0; i < 100; i += step) {
+//        firstAnalizator->addProperty(new AmplitudeProperty(i, i + step));
+//        firstAnalizator->addProperty(new PercentageAboveProperty(0.01 * i));
+//        firstAnalizator->addProperty(new ZeroCrossingsProperty(i, i + step));
+//        firstAnalizator->addProperty(new AverageValueProperty(i, i + step));
+//    }
+//    firstAnalizator->addProperty(new LengthProperty());
+//    firstAnalizator->addProperty(new WhereIsAmplitudeProperty());
     this->add(std::make_pair(firstProcessor, firstAnalizator));
 
 }
@@ -73,4 +75,26 @@ FeatureExtractor::~FeatureExtractor() {
 
     }
 }
+
+shark::RealVector FeatureExtractor::getSummaryRealVector(Samples &samples) {
+    shark::RealVector result;
+    m_list[0].first->applyFilterChainOn(samples);
+    result  = m_list[0].second->getProperties(samples);
+    return result;
+}
+
+std::vector<double> FeatureExtractor::getSummaryVector(Samples &&samples) {
+    std::vector<double> result;
+    m_list[0].first->applyFilterChainOn(samples);
+    result = m_list[0].second->getPropertiesVector(samples);
+    return result;
+}
+
+std::vector<double> FeatureExtractor::getSummaryVector(Samples &samples) {
+    std::vector<double> result;
+    m_list[0].first->applyFilterChainOn(samples);
+    result = m_list[0].second->getPropertiesVector(samples);
+    return result;
+}
+
 

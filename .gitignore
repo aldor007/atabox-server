@@ -9,6 +9,7 @@
 *.so
 *.dylib
 *.dll
+*.DS_Store
 
 # Compiled Static libraries
 *.lai
@@ -33,3 +34,5 @@ external/casablance
 /.settings
 /libs
 /build
+*CMakeFiles*
+*CMakeCache*

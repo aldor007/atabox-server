@@ -8,9 +8,9 @@ RecognitionProcessor::~RecognitionProcessor() {
     delete m_dp;
 }
 
-RecognitionProcessor::RecognitionProcessor(BaseDataProvider<std::string, std::string> *dp, RBM::Config &config,
+RecognitionProcessor::RecognitionProcessor(BaseDataProvider<std::string, std::string> *dp, RBMConfig &config,
                                            FeatureExtractor m_analyser)
-        : m_rbm(config), m_dp(dp), m_analyser(m_analyser) {
+        :m_dp(dp), m_analyser(m_analyser) {
 }
 
 void RecognitionProcessor::addData(std::string name, jsonextend data) {

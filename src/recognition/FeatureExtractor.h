@@ -25,6 +25,9 @@ public:
 	void init();
 	void add(std::pair<Processor*, SamplesAnalyzer *> item);
 	jsonextend getSummary(Samples & samples);
+	shark::RealVector getSummaryRealVector(Samples &samples);
+	std::vector<double> getSummaryVector(Samples &&samples);
+	std::vector<double> getSummaryVector(Samples &samples);
 	virtual ~FeatureExtractor();
 };
 

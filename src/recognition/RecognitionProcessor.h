@@ -6,13 +6,13 @@
 #define ATABOX_SERVER_RECOGNITIONPROCESSOR_H
 
 
-#include <recognition/network/RBM.h>
+#include <recognition/network/DBN.h>
 #include <dataproviders/BaseDataProvider.h>
 #include <wave/Samples.h>
 #include "FeatureExtractor.h"
 
 class RecognitionProcessor {
-    RecognitionProcessor(BaseDataProvider<std::string, std::string> *dp, RBM::Config &config,
+    RecognitionProcessor(BaseDataProvider<std::string, std::string> *dp, RBMConfig &config,
                              FeatureExtractor m_analyser);
     ~RecognitionProcessor();
 
@@ -22,7 +22,7 @@ class RecognitionProcessor {
     void process(std::string name, Samples& samples);
 
 private:
-    RBM m_rbm;
+//    DBN m_net;
     BaseDataProvider<std::string, std::string> * m_dp;
     FeatureExtractor m_analyser;
 

@@ -47,6 +47,43 @@ find_package(Threads REQUIRED)
 if(THREADS_HAVE_PTHREAD_ARG)
     target_compile_options(PUBLIC my_app "-pthread")
 endif()
+FIND_PACKAGE(JPEG REQUIRED)
+if(JPEG_FOUND)
+    include_directories(${JPEG_INCLUDE_DIRS})
+    set(ATABOX_LIBS "${ATABOX_LIBS}" ${JPEG_LIBARIES})
+endif()
+
+FIND_PACKAGE(PNG REQUIRED)
+if(PNG_FOUND)
+    include_directories(${PNG_INCLUDE_DIRS})
+    set(ATABOX_LIBS "${ATABOX_LIBS}" ${PNG_LIBARIES})
+endif()
+
+include(CMake/FindFFTW.cmake)
+if(FFTW_FOUND)
+    include_directories(${FFTW_INCLUDE_DIRS})
+    set(ATABOX_LIBS "${ATABOX_LIBS}" ${FFTW_LIBARIES})
+else()
+    message("FFTW not found")
+endif()
+
+include(CMake/FindLibYAML.cmake)
+if(LIBYAML_FOUND)
+    include_directories(${LIBYAML_INCLUDE_DIR})
+    set(ATABOX_LIBS "${ATABOX_LIBS}" ${LIBYAML_LIBRARY})
+endif()
+
+find_package(ZLIB REQUIRED)
+if(ZLIB_FOUND)
+	include_directories(${ZLIB_INCLUDE_DIRS})
+	set(ATABOX_LIBS "${ATABOX_LIBS}" ${ZLIB_LIBARIES})
+endif()
+
+find_package(BZip2 REQUIRED)
+if(BZIP2_FOUND)
+	include_directories(${BZIP2_INCLUDE_DIRS})
+	set(ATABOX_LIBS "${ATABOX_LIBS}" ${BZIP2_LIBARIES})
+endif()
 #if(CMAKE_THREAD_LIBS_INIT)
 #    set(ATABOX_LIBS "${CMAKE_THREAD_LIBS_INIT}")
 #endif()
@@ -55,8 +92,13 @@ if(ROCKSDB_FOUND)
     message("Found rocksdb")
 endif()
 
+include(CMake/FindAtlas.cmake)
+if(ATLAS_FOUND)
+    include_directories(${Atlas_INCLUDE_DIR})
+    set(ATABOX_LIBS "${ATABOX_LIBS}" ${Atlas_LIBRARIES})
+endif()
 
-set(ATABOX_LIBS "${ATABOX_LIBS}" ${ROCKSDB_LIBRARIES} Aquila cpprest shark)
+set(ATABOX_LIBS "${ATABOX_LIBS}" ${ROCKSDB_LIBRARIES} Aquila cpprest shark jpeg png cnpy)
 IF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     # set(ATABOX_LIBS ${ATABOX_LIBS} boost_log-mt boost_thread-mt)
 endif()
@@ -64,9 +106,15 @@ endif()
 set(ATABOX_INC ${ATABOX_INC}
     src/
     external/aquila/aquila
+    external/aquila
     external/casablanca/Release/include
     external/rocksdb_source/include
     external/shark/include
+    external/CImg/
+    external/essentia/src
+    external/cnpy
+    external/CTPL
+
 )
 
 link_directories(libs/)
@@ -124,7 +172,7 @@ set(ATABOX_SOURCES
         src/wave/WaveUtils.h
         src/recognition/network/RBM.h
         src/recognition/network/RBM.cpp
-        src/recognition/RecognitionProcessor.cpp src/recognition/RecognitionProcessor.h src/recognition/network/DBN.cpp src/recognition/network/DBN.h src/recognition/network/GaussianGaussianRBM.h)
+        src/recognition/RecognitionProcessor.cpp src/recognition/RecognitionProcessor.h src/recognition/network/DBN.cpp src/recognition/network/DBN.h src/recognition/network/GaussianGaussianRBM.h src/recognition/network/RBMConfig.h src/utils/functions.cpp src/wave/analysis/ArrayProperty.cpp src/wave/analysis/ArrayProperty.h src/wave/processing/Spectrogram.cpp src/wave/processing/Spectrogram.h src/wave/analysis/LpccProperty.cpp src/wave/analysis/LpccProperty.h)
 # main atabox library
 add_library(atabox STATIC ${ATABOX_SOURCES})
 

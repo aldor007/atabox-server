@@ -18,6 +18,15 @@ using ::testing::Return;
 class MfccPropertyTest: public ::testing::Test {
 
 };
+TEST_F(MfccPropertyTest, calculateRealData) {
+    Samples sample(WaveFile("./tests/wave/waveFiles/dziendobryTomek-13.wav"));
+    MfccProperty prop;
+    auto mfcc = prop.getVector(sample);
+    std::cout << "len " << mfcc.size();
+    for (auto m: mfcc) {
+        ASSERT_TRUE(m != 0);
+    }
+}
 /*
 TEST_F(MfccPropertyTest, calculateCorrect) {
     //given

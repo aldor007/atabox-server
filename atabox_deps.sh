@@ -1,3 +1,4 @@
+sudo apt-get install libjpeg-dev libpng-dev -y
 
 #Rockdb
 sudo apt-get install zlib1g-dev -y
